@@ -1,0 +1,60 @@
+{
+  "name": "ethstats-ui",
+  "version": "1.0.0-beta.1",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "EthStats React component library",
+  "scripts": {
+    "build": "npm run clean && tsc -p ./tsconfig.build.json",
+    "clean": "rimraf ./lib",
+    "watch": "tsc -p ./tsconfig.build.json --watch",
+    "lint": "tslint -p ./tslint.prod.json",
+    "prepare": "npm run build",
+    "test": "cd test && npm install && npm run test"
+  },
+  "keywords": [],
+  "author": "Alexandru Ciuca <alexandru.ciuca@consensys.net>",
+  "license": "MIT",
+  "homepage": "https://ethstats.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alethio/ethstats-ui"
+  },
+  "devDependencies": {
+    "@types/react": "16.7.3",
+    "@types/react-dom": "^16.0.9",
+    "@types/react-is": "^16.3.0",
+    "@types/react-transition-group": "^2.0.11",
+    "bignumber.js": "^8.0.1",
+    "husky": "^1.0.0-rc.9",
+    "mobx": "^4.3.0",
+    "mobx-react": "^5.1.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-transition-group": "^2.4.0",
+    "rimraf": "^2.6.2",
+    "styled-components": "^3.4.2",
+    "tslib": "^1.9.3",
+    "tslint": "^5.11.0",
+    "typescript": "3.2.4",
+    "typescript-styled-plugin": "^0.10.0",
+    "typescript-tslint-plugin": "^0.1.0"
+  },
+  "dependencies": {
+    "@puzzl/browser": "^1.0.0-beta.1",
+    "@puzzl/core": "^1.0.0-beta.1",
+    "datetime-difference": "^1.0.1",
+    "react-popper": "^1.0.2"
+  },
+  "peerDependencies": {
+    "bignumber.js": ">=8.0.1",
+    "mobx": ">=4.3.0",
+    "mobx-react": ">=5.1.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-transition-group": "^2.4.0",
+    "styled-components": "^3.4.2"
+  }
+}

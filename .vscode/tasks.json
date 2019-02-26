@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+
+    "tasks": [
+        {
+            "label": "tsc-watch",
+			"command": "npm",
+			"type": "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+            "isBackground": true,
+            "args": [
+				"run",
+				"-s",
+				"watch"
+			],
+			"windows": {
+                "options": {
+                    "shell": {
+                        "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                    }
+                }
+            },
+			"problemMatcher": "$tsc-watch"
+        }
+    ]
+}

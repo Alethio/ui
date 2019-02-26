@@ -1,0 +1,21 @@
+{
+  "name": "ethstats-ui-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --opts mocha.opts"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^8.10.39",
+    "esm": "^3.2.0",
+    "mocha": "^5.2.0",
+    "source-map-support": "^0.5.10",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.1"
+  }
+}

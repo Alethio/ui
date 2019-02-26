@@ -1,0 +1,46 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "es6",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "strictFunctionTypes": false,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "sourceMap": true,
+        "declaration": true,
+        "declarationMap": true,
+        "outDir": "./lib",
+        "experimentalDecorators": true,
+        "removeComments": true,
+        "stripInternal": true,
+        "preserveConstEnums": true,
+        "skipLibCheck": true,
+        "lib": [
+            "dom",
+            "es5",
+            "es6"
+        ],
+        "importHelpers": true,
+        "jsx": "react",
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./test/node_modules/@types"
+        ],
+        "plugins": [
+            {
+                "name": "typescript-styled-plugin"
+            },
+            {
+                "name": "typescript-tslint-plugin",
+                "alwaysShowRuleFailuresAsWarnings": true
+            }
+        ]
+    },
+    "include": [
+        "src"
+    ]
+}

@@ -1,0 +1,22 @@
+import * as React from "react";
+import { SvgIcon, ISvgIconProps } from "../util/react/SvgIcon";
+
+export interface ISearchIconProps extends ISvgIconProps {
+
+}
+
+export class SearchIcon extends React.Component<ISearchIconProps> {
+    render() {
+        return (
+            <SvgIcon {...this.props}>
+                <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                    <path d={
+                        // tslint:disable-next-line:max-line-length
+                        "M14.3319496,15.7461631 C13.2547883,16.5354812 11.9285699,17 10.5,17 C6.91,17 4,14.09 4,10.5 C4,6.91 6.91,4 10.5,4 C14.09,4 17,6.91 17,10.5 C17,11.9285699 16.5354812,13.2547883 15.7461631,14.3319496 L19.363961,17.9497475 L17.9497475,19.363961 L14.3319496,15.7461631 Z M10.5,15 C12.99,15 15,12.99 15,10.5 C15,8.01 12.99,6 10.5,6 C8.01,6 6,8.01 6,10.5 C6,12.99 8.01,15 10.5,15 Z"
+                    } fill="currentColor"></path>
+                </g>
+            </SvgIcon>
+        );
+    }
+}

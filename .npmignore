@@ -1,0 +1,6 @@
+**/.*
+*.tgz
+tsconfig*.json
+tslint*.json
+dev
+test

@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "exclude": [
+        "**/*.spec.ts",
+        "src/typings/timeout-patch.d.ts"
+    ],
+    "compilerOptions": {
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
+    }
+}
