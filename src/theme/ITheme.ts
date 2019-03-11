@@ -2,7 +2,7 @@ import { IBoxColors } from "../layout/content/box/IBoxColors";
 import { IBoxMetrics } from "../layout/content/box/IBoxMetrics";
 
 type ValueBoxColors = "primary" | "secondary" | "highlight" | "error" | "warn";
-type ValueBoxVariant = "small" | "normal" | "smallThin" | "big";
+type ValueBoxVariant = "small" | "normal" | "normalThin" | "smallThin" | "big";
 
 export interface ITheme {
     colors: IThemeColors;
