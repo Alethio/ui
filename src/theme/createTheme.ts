@@ -140,6 +140,16 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 fontWeight: 500,
                 letterSpacing: "normal"
             },
+            normalThin: {
+                height: 28,
+                textPaddingTop: 0,
+                textPaddingX: 8,
+                fontSize: 20,
+                iconSize: 24,
+                lineHeight: 24,
+                fontWeight: 400,
+                letterSpacing: "normal"
+            },
             small: {
                 height: 20,
                 textPaddingTop: 0,
