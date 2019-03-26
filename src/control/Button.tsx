@@ -7,6 +7,7 @@ import { ITheme } from "../theme/ITheme";
 
 interface IButtonRootProps {
     floating?: boolean;
+    disabled?: boolean;
 }
 
 const ButtonRoot = styled<IButtonRootProps, "div">("div")`
@@ -15,6 +16,9 @@ const ButtonRoot = styled<IButtonRootProps, "div">("div")`
     ${props => props.floating ? css`
     box-shadow: 0 8px 16px rgba(167, 181, 209, 0.6);
     ` : ``}
+    ${props => props.disabled ? css`
+    opacity: 0.75;
+    ` : void 0}
 `;
 
 const StyledBox = styled(Box)`
@@ -41,6 +45,7 @@ export interface IButtonProps {
     colors?: ButtonColors;
     floating?: boolean;
     children?: string;
+    disabled?: boolean;
     onClick?(): void;
 }
 
@@ -50,15 +55,19 @@ export class Button extends React.Component<IButtonProps> {
     };
 
     render() {
-        let { Icon, iconPlacement, floating, colors, children} = this.props;
+        let { Icon, iconPlacement, floating, disabled, colors, children} = this.props;
         return (
             <HoverState>
                 {(hover) =>
-                <ButtonRoot onClick={this.props.onClick} floating={floating}>
+                <ButtonRoot
+                    onClick={!this.props.disabled ? this.props.onClick : void 0}
+                    floating={floating}
+                    disabled={disabled}
+                >
                     <StyledBox
                         Icon={Icon}
                         iconPlacement={iconPlacement ? iconPlacement : "left"}
-                        colors={colorSets[colors!](hover)}
+                        colors={colorSets[colors!](!this.props.disabled ? hover : false)}
                         metrics={{
                             fontSize: 12,
                             lineHeight: 14,
