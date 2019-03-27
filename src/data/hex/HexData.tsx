@@ -6,6 +6,7 @@ import { IconButton } from "../../control/IconButton";
 import { IClipboard } from "../IClipboard";
 import { CopyIcon } from "../../icon/CopyIcon";
 import { HexDataContent } from "./internal/HexDataContent";
+import { Clipboard } from "@puzzl/browser/lib/Clipboard";
 
 const CopyButtonWrapper = styled.div`
     position: absolute;
@@ -33,7 +34,7 @@ interface IHexDataProps {
     data: string;
     /** If this limit is reached, render as a textarea to improve performance */
     dataLimit?: number;
-    clipboard: IClipboard;
+    clipboard?: IClipboard;
 }
 
 @observer
@@ -68,7 +69,8 @@ export class HexData extends React.Component<IHexDataProps> {
     }
 
     private copyContent = () => {
-        this.props.clipboard.copy(this.props.data);
+        let clipboard = this.props.clipboard || new Clipboard(document);
+        clipboard.copy(this.props.data);
     }
     private mouseEnterHandler = () => {
         this.hovered = true;

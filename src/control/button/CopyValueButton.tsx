@@ -1,6 +1,7 @@
 import * as React from "react";
 import { observable } from "mobx";
 import { observer } from "mobx-react";
+import { Clipboard } from "@puzzl/browser/lib/Clipboard";
 import { IconButton } from "../IconButton";
 import { IClipboard } from "../../data/IClipboard";
 import { CopyIcon } from "../../icon/CopyIcon";
@@ -10,7 +11,7 @@ export interface ICopyValueButtonProps {
     /** Value to copy to clipboard */
     value: string;
     className?: string;
-    clipboard: IClipboard;
+    clipboard?: IClipboard;
     confirmationVisibleFor?: number;
 }
 
@@ -51,7 +52,8 @@ export class CopyValueButton extends React.Component<ICopyValueButtonProps> {
     }
 
     private copyValue = () => {
-        this.props.clipboard.copy(this.props.value);
+        let clipboard = this.props.clipboard || new Clipboard(document);
+        clipboard.copy(this.props.value);
         this.confirmationVisible = true;
         this.confirmationHideId = setTimeout(
             () => this.confirmationVisible = false,

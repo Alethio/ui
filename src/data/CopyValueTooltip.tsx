@@ -10,7 +10,7 @@ const CopyValueButtonWrapper = styled.div`
 
 export interface ICopyValueTooltipProps {
     value: string;
-    clipboard: IClipboard;
+    clipboard?: IClipboard;
     children: React.ReactElement<{}>;
 }
 
