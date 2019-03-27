@@ -37,7 +37,7 @@ export interface ITimeElapsedBoxProps {
      * Example: { future: "in %s", past: "%s ago", s: "1 second", ss: "%d seconds", ... }
      */
     translations: IRelativeTimeTranslations | undefined;
-    clipboard: IClipboard;
+    clipboard?: IClipboard;
     variant?: IValueBoxProps["variant"];
 }
 

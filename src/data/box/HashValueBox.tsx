@@ -25,7 +25,7 @@ export class HashValueBox extends React.Component<IHashValueBoxProps> {
             <Hash>{ children }</Hash>
         </ValueBox>;
 
-        if (this.props.noTooltip || !clipboard) {
+        if (this.props.noTooltip) {
             return box;
         }
 

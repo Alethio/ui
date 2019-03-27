@@ -6,6 +6,7 @@ import { IClipboard } from "../IClipboard";
 import { hexToString } from "../../util/internal/hex";
 import { StringData } from "../StringData";
 import { CopyIcon } from "../../icon/CopyIcon";
+import { Clipboard } from "@puzzl/browser/lib/Clipboard";
 
 const CopyButtonWrapper = styled.div`
     margin: 0 8px 0 16px;
@@ -13,7 +14,7 @@ const CopyButtonWrapper = styled.div`
 
 interface IDecodedHexDataProps {
     data: string;
-    clipboard: IClipboard;
+    clipboard?: IClipboard;
 }
 export class DecodedHexData extends React.PureComponent<IDecodedHexDataProps> {
     render() {
@@ -38,6 +39,7 @@ export class DecodedHexData extends React.PureComponent<IDecodedHexDataProps> {
         );
     }
     private copyExtraData = () => {
-        this.props.clipboard.copy("0x" + this.props.data.replace(/^0x/, ""));
+        let clipboard = this.props.clipboard || new Clipboard(document);
+        clipboard.copy("0x" + this.props.data.replace(/^0x/, ""));
     }
 }
