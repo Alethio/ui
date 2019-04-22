@@ -1,7 +1,8 @@
 import { IBoxColors } from "../layout/content/box/IBoxColors";
 import { IBoxMetrics } from "../layout/content/box/IBoxMetrics";
 
-type ValueBoxColors = "primary" | "secondary" | "highlight" | "error" | "warn";
+type ValueBoxColors = "primary" | "primaryAlt" | "primaryInvert" | "secondary" | "secondaryInvert" |
+    "highlight" | "error" | "warn";
 type ValueBoxVariant = "small" | "normal" | "normalThin" | "smallThin" | "big";
 
 export interface ITheme {
@@ -10,7 +11,38 @@ export interface ITheme {
     mediaQueries: IThemeMediaQueries;
 }
 
+export interface IThemeBaseColors {
+    primary: {
+        color: string;
+        contrast: string;
+    };
+    secondary: {
+        color: string;
+        contrast: string;
+    };
+    disabled: string;
+    status: {
+        error: string;
+        warn: string;
+        success: string;
+    };
+    bg: {
+        main: string;
+        alt: string;
+    };
+    highlight: {
+        color: string;
+        contrast: string;
+    };
+    accent: {
+        color: string;
+        contrast: string;
+    };
+}
+
 export interface IThemeColors {
+    base: IThemeBaseColors;
+
     toolbarIcon: string;
     toolbarIconHover: string;
     toolbarAlethioIcon: string;
@@ -34,10 +66,11 @@ export interface IThemeColors {
     radioIcon: string;
     radioLabel: string;
 
-    arrowLabelBg: string;
-    arrowLabelBgDisabled: string;
-    arrowLabel: string;
-    label: string;
+    label: {
+        default: string;
+        strong: string;
+        disabled: string;
+    };
 
     gasPercentageBoxText: string;
     hexDataItem: string;
