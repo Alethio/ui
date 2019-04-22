@@ -10,14 +10,17 @@ import { AccordionContentWrapper } from "./internal/AccordionContentWrapper";
 import { Height } from "../../fx/Height";
 import { AccordionItemState } from "./AccordionItemState";
 import { AccordionItemContentStatus } from "./AccordionItemContentStatus";
+import { getItemConfigsFromChildren } from "./internal/accordionChildrenUtil";
 
 export interface IAccordionVerticalProps<TItemConfig extends IAccordionItemConfig> {
     label: string;
     noDataContent: React.ReactElement<{}>;
-    items: TItemConfig[] | undefined;
+    /** @deprecated use <AccordionItem> children instead */
+    items?: TItemConfig[] | undefined;
     loadingText: string;
     errorText: string;
     contentAnimSeconds?: number;
+    children?: React.ReactNode;
     onContentError(e: any, item: AccordionItemState<TItemConfig>): void;
     renderExpander(args: {
         config: TItemConfig;
@@ -63,7 +66,8 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
         super(props);
 
         this.accordionState = new AccordionState<TItemConfig>(this.props.onContentError);
-        this.accordionState.buildItems(this.props.items || []);
+        let children = getItemConfigsFromChildren<TItemConfig>(this.props.children);
+        this.accordionState.buildItems([...this.props.items || [], ...children]);
     }
 
     componentDidMount() {
@@ -88,8 +92,9 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
 
     @action
     componentDidUpdate(prevProps: IAccordionVerticalProps<TItemConfig>) {
-        if (this.props.items !== prevProps.items) {
-            this.accordionState.buildItems(this.props.items || []);
+        if (this.props.children !== prevProps.children || this.props.items !== prevProps.items) {
+            let children = getItemConfigsFromChildren<TItemConfig>(this.props.children);
+            this.accordionState.buildItems([...this.props.items || [], ...children]);
             // Reset width and recalculate
             this.fixedExpanderWidth = void 0;
             this.expanderEls.clear();
@@ -127,7 +132,7 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
                     <LayoutRowItem>
                         <Label>{ !idx ? this.props.label : void 0}</Label>
                         <div
-                            ref={ref => { if (ref) { this.expanderEls.set(idx, ref); }}}
+                            ref={ref => ref && this.expanderEls.set(idx, ref)}
                             style={{ width: this.fixedExpanderWidth }}
                         >
                             { this.props.renderExpander({

@@ -12,14 +12,17 @@ import { Height } from "../../fx/Height";
 import { AccordionItemState } from "./AccordionItemState";
 import { AccordionItemContentStatus } from "./AccordionItemContentStatus";
 import { IAccordionVerticalProps } from "./AccordionVertical";
+import { getItemConfigsFromChildren } from "./internal/accordionChildrenUtil";
 
 export interface IAccordionHorizontalProps<TItemConfig extends IAccordionItemConfig> {
     label: string;
     noDataContent: React.ReactElement<{}>;
-    items: TItemConfig[] | undefined;
+    /** @deprecated use <AccordionItem> as children instead */
+    items?: TItemConfig[] | undefined;
     loadingText: string;
     errorText: string;
     contentAnimSeconds?: number;
+    children?: React.ReactNode;
     onContentError(e: any, item: AccordionItemState<TItemConfig>): void;
     renderExpander(args: {
         config: TItemConfig;
@@ -56,12 +59,14 @@ extends React.Component<IAccordionHorizontalProps<TItemConfig>> {
         super(props);
 
         this.accordionState = new AccordionState<TItemConfig>(this.props.onContentError);
-        this.accordionState.buildItems(this.props.items || []);
+        let children = getItemConfigsFromChildren<TItemConfig>(this.props.children);
+        this.accordionState.buildItems([...this.props.items || [], ...children]);
     }
 
     componentDidUpdate(prevProps: IAccordionHorizontalProps<TItemConfig>) {
-        if (this.props.items !== prevProps.items) {
-            this.accordionState.buildItems(this.props.items || []);
+        if (this.props.children !== prevProps.children || this.props.items !== prevProps.items) {
+            let children = getItemConfigsFromChildren<TItemConfig>(this.props.children);
+            this.accordionState.buildItems([...this.props.items || [], ...children]);
         }
     }
 
