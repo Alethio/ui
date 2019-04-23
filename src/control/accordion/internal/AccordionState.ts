@@ -11,7 +11,7 @@ export class AccordionState<TItemConfig extends IAccordionItemConfig> {
     private activeItem: AccordionItemState<TItemConfig> | undefined;
 
     constructor(private onError: (e: any, item: AccordionItemState<TItemConfig>) => void) {
-
+        this.items = [];
     }
 
     getItems() {
@@ -22,16 +22,27 @@ export class AccordionState<TItemConfig extends IAccordionItemConfig> {
         return this.activeItem;
     }
 
+    private createItem(itemConfig: TItemConfig, idx: number) {
+        let item = new AccordionItemState<TItemConfig>();
+        item.index = idx;
+        item.config = itemConfig;
+        item.onClick = () => this.handleItemClick(item);
+        return item;
+    }
+
+    addItem(itemConfig: TItemConfig) {
+        this.items.push(this.createItem(itemConfig, this.items.length));
+    }
+
     @action
-    buildItems(itemConfigs: TItemConfig[]) {
-        this.items = itemConfigs.map((c, idx) => {
-            let item = new AccordionItemState<TItemConfig>();
-            item.index = idx;
-            item.config = c;
-            item.onClick = () => this.handleItemClick(item);
-            return item;
-        });
-        this.activeItem = void 0;
+    removeItem(itemConfig: TItemConfig) {
+        let itemIndex = this.items.findIndex(it => it.config === itemConfig);
+        if (itemIndex !== -1) {
+            if (this.activeItem === this.items[itemIndex]) {
+                this.activeItem = void 0;
+            }
+            this.items.splice(itemIndex, 1);
+        }
     }
 
     private handleItemClick = async (item: AccordionItemState<TItemConfig>) => {
