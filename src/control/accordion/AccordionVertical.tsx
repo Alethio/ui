@@ -1,6 +1,6 @@
 import * as React from "react";
-import { observable, IReactionDisposer, when, action } from "mobx";
-import { observer } from "mobx-react";
+import { observable, IReactionDisposer, when, reaction, runInAction } from "mobx";
+import { observer, PropTypes } from "mobx-react";
 import { IAccordionItemConfig } from "./IAccordionItemConfig";
 import { LayoutRow } from "../../layout/content/LayoutRow";
 import { LayoutRowItem } from "../../layout/content/LayoutRowItem";
@@ -14,10 +14,10 @@ import { AccordionItemContentStatus } from "./AccordionItemContentStatus";
 export interface IAccordionVerticalProps<TItemConfig extends IAccordionItemConfig> {
     label: string;
     noDataContent: React.ReactElement<{}>;
-    items: TItemConfig[] | undefined;
     loadingText: string;
     errorText: string;
     contentAnimSeconds?: number;
+    children?: React.ReactNode;
     onContentError(e: any, item: AccordionItemState<TItemConfig>): void;
     renderExpander(args: {
         config: TItemConfig;
@@ -51,19 +51,43 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
         contentAnimSeconds: .2
     };
 
+    // We use legacy context because the accordion and the children
+    // may be instantiated from different apps library instances and the createContext API won't work in this case
+    /** @internal */
+    static childContextTypes = {
+        // Just so we don't have to import react prop-types. We don't care about the shape anyway
+        accordionState: PropTypes.objectOrObservableObject
+    };
+    /** @internal */
     private accordionState: AccordionState<TItemConfig>;
+
     @observable
     private expanderEls = new Map<number, HTMLElement>();
     @observable
     private fixedExpanderWidth: number | undefined;
     private containerOffsetLeft: number | undefined;
     private widthWatchDisposer: IReactionDisposer | undefined;
+    private refreshDisposer: IReactionDisposer | undefined;
 
     constructor(props: IAccordionVerticalProps<TItemConfig>) {
         super(props);
 
         this.accordionState = new AccordionState<TItemConfig>(this.props.onContentError);
-        this.accordionState.buildItems(this.props.items || []);
+
+        this.refreshDisposer = reaction(() => this.accordionState.getItems().length, () => {
+            // Reset width and recalculate
+            runInAction(() => {
+                this.fixedExpanderWidth = void 0;
+                this.expanderEls.clear();
+            });
+            this.destroyWidthWatch();
+            this.setupWidthWatch();
+        });
+    }
+
+    /** @internal */
+    getChildContext() {
+        return { accordionState: this.accordionState };
     }
 
     componentDidMount() {
@@ -71,8 +95,8 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
     }
 
     private setupWidthWatch() {
-        const { items } = this.props;
-        if (items) {
+        const items = this.accordionState.getItems();
+        if (items.length) {
             this.widthWatchDisposer = when(() => this.expanderEls.size === items.length, () => {
                 this.computeWidth();
             });
@@ -86,20 +110,12 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
         }
     }
 
-    @action
-    componentDidUpdate(prevProps: IAccordionVerticalProps<TItemConfig>) {
-        if (this.props.items !== prevProps.items) {
-            this.accordionState.buildItems(this.props.items || []);
-            // Reset width and recalculate
-            this.fixedExpanderWidth = void 0;
-            this.expanderEls.clear();
-            this.destroyWidthWatch();
-            this.setupWidthWatch();
-        }
-    }
-
     componentWillUnmount() {
         this.destroyWidthWatch();
+        if (this.refreshDisposer) {
+            this.refreshDisposer();
+            this.refreshDisposer = void 0;
+        }
     }
 
     private computeWidth() {
@@ -109,7 +125,18 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
     }
 
     render() {
-        if (!this.props.items) {
+        return <>
+            { /* Just make sure there wasn't something extra besides <AccordionItem>-s, which return null */ }
+            <div style={{ position: "fixed", top: -10000, left: -10000 }}>
+                { /* Children aren't actually visible, we just use this method as hook to add items dynamically */ }
+                { this.props.children }
+            </div>
+            { this.renderItems() }
+        </>;
+    }
+
+    private renderItems() {
+        if (!this.accordionState.getItems().length) {
             return <LayoutRow>
                 <LayoutRowItem>
                     <Label>{this.props.label}</Label>
@@ -127,7 +154,7 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
                     <LayoutRowItem>
                         <Label>{ !idx ? this.props.label : void 0}</Label>
                         <div
-                            ref={ref => { if (ref) { this.expanderEls.set(idx, ref); }}}
+                            ref={ref => ref && this.expanderEls.set(idx, ref)}
                             style={{ width: this.fixedExpanderWidth }}
                         >
                             { this.props.renderExpander({
@@ -160,9 +187,11 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
         </div>;
     }
 
-    private handleContainerRef = (ref: HTMLElement | null) => { if (ref) {
-        this.containerOffsetLeft = ref.offsetLeft;
-    }}
+    private handleContainerRef = (ref: HTMLElement | null) => {
+        if (ref) {
+            this.containerOffsetLeft = ref.offsetLeft;
+        }
+    }
 
     private getContentArrowPosition() {
         if (this.expanderEls.size && this.containerOffsetLeft && this.fixedExpanderWidth) {

@@ -1,4 +1,4 @@
-import { ITheme, IThemeColors, IThemeSpacing, IThemeMediaQueries } from "./ITheme";
+import { ITheme, IThemeColors, IThemeSpacing, IThemeMediaQueries, IThemeBaseColors } from "./ITheme";
 import { IPalette } from "./IPalette";
 
 /*
@@ -10,7 +10,44 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         MEDIUM_LIGHT_GREY, ORANGE, RED, WHITE
     } = palette;
 
+    let base: IThemeBaseColors = {
+        primary: {
+            color: DARK_GREY,
+            contrast: WHITE
+        },
+        secondary: {
+            color: GREY,
+            contrast: WHITE
+        },
+        disabled: LIGHT_GREY,
+        status: {
+            error: RED,
+            warn: ORANGE,
+            success: GREEN
+        },
+        bg: {
+            main: EXTRA_LIGHT_GREY,
+            alt: WHITE
+        },
+        highlight: {
+            color: GREEN,
+            contrast: WHITE
+        },
+        accent: {
+            color: BLUE,
+            contrast: WHITE
+        }
+    };
+
     let colors: IThemeColors = {
+        base,
+
+        label: {
+            default: base.secondary.color,
+            strong: base.primary.color,
+            disabled: base.disabled
+        },
+
         closeBtn: GREY,
 
         toolbarIcon: LIGHT_GREY,
@@ -31,10 +68,6 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         checkboxLabel: DARK_GREY,
         radioIcon: BLUE,
         radioLabel: DARK_GREY,
-        arrowLabelBg: GREEN,
-        arrowLabelBgDisabled: LIGHT_GREY,
-        arrowLabel: WHITE,
-        label: GREY,
         gasPercentageBoxText: ORANGE,
         hexDataItem: GREY,
         selectBoxText: DARK_GREY,
@@ -51,23 +84,35 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
 
         valueBox: {
             primary: {
-                text: DARK_GREY,
+                text: base.primary.color,
                 background: "transparent"
+            },
+            primaryAlt: {
+                text: base.primary.color,
+                background: base.bg.main
+            },
+            primaryInvert: {
+                text: base.primary.contrast,
+                background: base.primary.color
             },
             secondary: {
-                text: GREY,
+                text: base.secondary.color,
                 background: "transparent"
             },
+            secondaryInvert: {
+                text: base.secondary.contrast,
+                background: base.secondary.color
+            },
             highlight: {
-                text: GREEN,
-                background: WHITE
+                text: base.highlight.color,
+                background: base.highlight.contrast
             },
             error: {
-                text: RED,
+                text: base.status.error,
                 background: "transparent"
             },
             warn: {
-                text: ORANGE,
+                text: base.status.warn,
                 background: WHITE
             }
         },

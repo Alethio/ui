@@ -1,6 +1,6 @@
 import * as React from "react";
 import { observable } from "mobx";
-import { observer } from "mobx-react";
+import { observer, PropTypes } from "mobx-react";
 import { IAccordionItemConfig } from "./IAccordionItemConfig";
 import { LayoutRow } from "../../layout/content/LayoutRow";
 import { LayoutRowItem } from "../../layout/content/LayoutRowItem";
@@ -16,10 +16,10 @@ import { IAccordionVerticalProps } from "./AccordionVertical";
 export interface IAccordionHorizontalProps<TItemConfig extends IAccordionItemConfig> {
     label: string;
     noDataContent: React.ReactElement<{}>;
-    items: TItemConfig[] | undefined;
     loadingText: string;
     errorText: string;
     contentAnimSeconds?: number;
+    children?: React.ReactNode;
     onContentError(e: any, item: AccordionItemState<TItemConfig>): void;
     renderExpander(args: {
         config: TItemConfig;
@@ -47,7 +47,16 @@ extends React.Component<IAccordionHorizontalProps<TItemConfig>> {
         contentAnimSeconds: .2
     };
 
+    // We use legacy context because the accordion and the children
+    // may be instantiated from different apps library instances and the createContext API won't work in this case
+    /** @internal */
+    static childContextTypes = {
+        // Just so we don't have to import react prop-types. We don't care about the shape anyway
+        accordionState: PropTypes.objectOrObservableObject
+    };
+    /** @internal */
     private accordionState: AccordionState<TItemConfig>;
+
     @observable
     private expanderEls = new Map<number, HTMLElement>();
     private containerOffsetLeft: number | undefined;
@@ -56,17 +65,26 @@ extends React.Component<IAccordionHorizontalProps<TItemConfig>> {
         super(props);
 
         this.accordionState = new AccordionState<TItemConfig>(this.props.onContentError);
-        this.accordionState.buildItems(this.props.items || []);
     }
 
-    componentDidUpdate(prevProps: IAccordionHorizontalProps<TItemConfig>) {
-        if (this.props.items !== prevProps.items) {
-            this.accordionState.buildItems(this.props.items || []);
-        }
+    /** @internal */
+    getChildContext() {
+        return { accordionState: this.accordionState };
     }
 
     render() {
-        if (!this.props.items) {
+        return <>
+            { /* Just make sure there wasn't something extra besides <AccordionItem>-s, which return null */ }
+            <div style={{ position: "fixed", top: -10000, left: -10000 }}>
+                { /* Children aren't actually visible, we just use this method as hook to add items dynamically */ }
+                { this.props.children }
+            </div>
+            { this.renderItems() }
+        </>;
+    }
+
+    private renderItems() {
+        if (!this.accordionState.getItems().length) {
             return <LayoutRow>
                 <LayoutRowItem>
                     <Label>{this.props.label}</Label>

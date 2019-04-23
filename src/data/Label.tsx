@@ -2,7 +2,11 @@ import styled, { css } from "../styled-components";
 import * as React from "react";
 
 export interface ILabelProps {
+    /** @deprecated */
     arrow?: boolean;
+    /** Use a stronger label color */
+    strong?: boolean;
+    /** Use a disabled label color */
     disabled?: boolean;
     className?: string;
 }
@@ -18,12 +22,8 @@ export const Label = styled($Label)`
     text-transform: uppercase;
     background-color: ${props => (
         props.arrow ?
-        (
-            props.disabled ?
-            props.theme.colors.arrowLabelBgDisabled :
-            props.theme.colors.arrowLabelBg
-        ) :
-        "transparent"
+            (props.disabled ? props.theme.colors.label.disabled : props.theme.colors.base.highlight.color) :
+            "transparent"
     )};
     font-weight: 600;
     letter-spacing: .5px;
@@ -31,8 +31,10 @@ export const Label = styled($Label)`
     margin-right: ${props => props.arrow ? "10px" : "0"};
     color: ${props => (
         props.arrow ?
-        props.theme.colors.arrowLabel :
-        props.theme.colors.label
+            props.theme.colors.base.highlight.contrast :
+            props.strong ?
+                (props.disabled ? props.theme.colors.label.disabled : props.theme.colors.label.strong) :
+                props.disabled ?  props.theme.colors.label.disabled : props.theme.colors.label.default
     )};
 
     /**
@@ -53,8 +55,8 @@ export const Label = styled($Label)`
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
         border-left: 10px solid ${props.disabled ?
-            props.theme.colors.arrowLabelBgDisabled :
-            props.theme.colors.arrowLabelBg
+            props.theme.colors.label.disabled :
+            props.theme.colors.base.highlight.color
         };
         transform: scaleX(.8);
         transform-origin: center left;
