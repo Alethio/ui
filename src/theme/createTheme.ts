@@ -159,6 +159,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         messageBoxSecondaryBg: EXTRA_LIGHT_GREY,
         messageBoxSecondaryBorder: LIGHT_GREY,
         messageBoxSecondaryText: GREY,
+        separator: LIGHT_GREY,
 
         link: BLUE
     };
