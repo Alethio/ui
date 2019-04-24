@@ -142,6 +142,8 @@ export interface IThemeColors {
     messageBoxSecondaryBg: string;
     messageBoxSecondaryBorder: string;
 
+    separator: string;
+
     link: string;
 }
 
