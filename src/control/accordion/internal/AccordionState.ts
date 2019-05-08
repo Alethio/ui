@@ -45,6 +45,17 @@ export class AccordionState<TItemConfig extends IAccordionItemConfig> {
         }
     }
 
+    @action
+    updateItem(oldConfig: TItemConfig, newConfig: TItemConfig) {
+        let item = this.items.find(it => it.config === oldConfig);
+        if (item) {
+            if (item.config.content !== newConfig.content && this.activeItem === item) {
+                this.activeItem = void 0;
+            }
+            item.config = newConfig;
+        }
+    }
+
     private handleItemClick = async (item: AccordionItemState<TItemConfig>) => {
         // Only one item active at a time, but we can also toggle it off
         this.activeItem = item === this.activeItem ? void 0 : item;

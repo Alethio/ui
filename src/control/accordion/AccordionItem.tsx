@@ -21,6 +21,12 @@ extends React.Component<TAccordionItemConfig> {
         this.context.accordionState.addItem(this.itemConfig);
     }
 
+    componentDidUpdate() {
+        let oldItemConfig = this.itemConfig;
+        this.itemConfig = this.props;
+        this.context.accordionState.updateItem(oldItemConfig, this.itemConfig);
+    }
+
     componentWillUnmount() {
         this.context.accordionState.removeItem(this.itemConfig);
     }
