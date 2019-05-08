@@ -4,6 +4,7 @@ import { AccordionItemContentStatus } from "./AccordionItemContentStatus";
 
 export class AccordionItemState<TConfig extends IAccordionItemConfig> {
     public index: number;
+    @observable.ref
     public config: TConfig;
     public onClick: () => void;
     @observable.ref
