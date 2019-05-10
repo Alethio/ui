@@ -6,7 +6,7 @@ import { GridLayout } from "./internal/GridLayout";
 import { IGridSortingOptions } from "./state/IGridSortingOptions";
 import { GridSortingOrder } from "./state/GridSortingOrder";
 import { IGridFieldBase } from "./state/IGridFieldBase";
-import { GridHeader } from "./internal/header/GridHeader";
+import { GridHeader, IGridHeaderAdditionalElements } from "./internal/header/GridHeader";
 import { GridRow } from "./internal/GridRow";
 import { GridHeaderItem } from "./internal/header/GridHeaderItem";
 import { GridWrapper } from "./internal/GridWrapper";
@@ -41,6 +41,7 @@ export interface IGridProps<TData> {
     maxVisibleRows?: number;
     fields: GridFields<TData>;
     sortingOptions: IGridSortingOptions;
+    additionalHeaderElements?: IGridHeaderAdditionalElements;
     noDataText: string;
     loadMoreText: string;
 }
@@ -78,7 +79,11 @@ export class Grid<TData> extends React.Component<IGridProps<TData>> {
             <>
                 <GridWrapper>
                     <GridLayout numberOfFields={this.props.fields.selectedGridFields.length}>
-                        <GridHeader onFieldsChange={this.setColumnSelect} fields={this.props.fields.gridFields}>
+                        <GridHeader
+                            onFieldsChange={this.setColumnSelect}
+                            fields={this.props.fields.gridFields}
+                            additionalElements={this.props.additionalHeaderElements}
+                        >
                             {
                                 this.props.fields.selectedGridFields.map((f: IGridFieldBase) => {
                                     return (
