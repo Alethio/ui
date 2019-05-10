@@ -17,20 +17,22 @@ const ColumnSelectorIconWrapper = styled.div`
 /** @internal */
 export class GridColumnSelector extends React.PureComponent<IGridColumnSelectorProps> {
     render() {
+        let shownItems = this.props.fields.filter((f) => !f.alwaysVisible);
+        if (shownItems.length === 0) {
+            return null;
+        }
         return (
             <div style={{padding: "4px"}}>
                 <SelectBox offset={{left: -21, top: -45}} render={() =>
-                    this.props.fields.map((f) => {
-                        return !f.alwaysVisible ? (
-                            <Checkbox
-                                id={"column_" + f.fieldKey}
-                                key={f.fieldKey}
-                                name={f.fieldKey}
-                                value={f.fieldKey}
-                                checked={f.selected}
-                                onChange={this.onCheckboxChange}
-                            >{f.label}</Checkbox>
-                        ) : null;
+                    shownItems.map((f) => {
+                        return <Checkbox
+                            id={"column_" + f.fieldKey}
+                            key={f.fieldKey}
+                            name={f.fieldKey}
+                            value={f.fieldKey}
+                            checked={f.selected}
+                            onChange={this.onCheckboxChange}
+                        >{f.label}</Checkbox>;
                     })
                 }>
                     <ColumnSelectorIconWrapper>
