@@ -3,13 +3,13 @@ import styled from "../../../../styled-components";
 import { GridColumnSelector } from "./GridColumnSelector";
 import { IGridFieldBase } from "../../state/IGridFieldBase";
 
-export interface IGridHeaderAdditionalElements {
+export interface IGridHeaderExtraElements {
     left?: React.ReactNode;
     right?: React.ReactNode;
 }
 interface IGridHeaderProps {
     fields: IGridFieldBase[];
-    additionalElements?: IGridHeaderAdditionalElements;
+    extraElements?: IGridHeaderExtraElements;
     onFieldsChange(key: string, checked: boolean): void;
 }
 
@@ -19,8 +19,8 @@ const HeaderSpacer = styled.div`
     background-color: ${props => props.theme.colors.gridEvenRowBg};
     display: flex;
 `;
-const HeaderSpacerLeft = HeaderSpacer.extend``;
-const HeaderSpacerRight = HeaderSpacer.extend`
+const HeaderSpacerLeft = styled(HeaderSpacer)``;
+const HeaderSpacerRight = styled(HeaderSpacer)`
     justify-content: flex-end;
 `;
 const HeaderVertBorder = styled.div`
@@ -44,12 +44,12 @@ export class GridHeader extends React.PureComponent<IGridHeaderProps> {
                 <GridColumnSelector onChange={(key: string, checked: boolean) => {
                     this.props.onFieldsChange(key, checked);
                 }} fields={this.props.fields} />
-                { this.props.additionalElements && this.props.additionalElements.left }
+                { this.props.extraElements && this.props.extraElements.left }
             </HeaderSpacerLeft>
         ]);
         resultChildren.push(
             <HeaderSpacerRight key={propsChildren.length + 1} >
-                { this.props.additionalElements && this.props.additionalElements.right }
+                { this.props.extraElements && this.props.extraElements.right }
             </HeaderSpacerRight>
         );
 
