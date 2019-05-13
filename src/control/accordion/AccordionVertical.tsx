@@ -74,7 +74,7 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
 
         this.accordionState = new AccordionState<TItemConfig>(this.props.onContentError);
 
-        this.refreshDisposer = reaction(() => this.accordionState.getItems().length, () => {
+        this.refreshDisposer = reaction(() => this.accordionState.getItems().map(i => i.config), () => {
             // Reset width and recalculate
             runInAction(() => {
                 this.fixedExpanderWidth = void 0;
@@ -82,6 +82,16 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
             });
             this.destroyWidthWatch();
             this.setupWidthWatch();
+        }, {
+            // HACK: The reaction triggers before re-render with new items resulting in incorrect width
+            // Debounce also helps with multiple triggers due to changes in each item
+            delay: 100,
+            equals: (itemConfigs: TItemConfig[], prevItemConfigs: TItemConfig[]) => {
+                if (itemConfigs.length !== prevItemConfigs.length) {
+                    return false;
+                }
+                return itemConfigs.every((item, idx) => item === prevItemConfigs[idx]);
+            }
         });
     }
 
