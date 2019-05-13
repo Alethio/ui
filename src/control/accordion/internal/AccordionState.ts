@@ -50,7 +50,8 @@ export class AccordionState<TItemConfig extends IAccordionItemConfig> {
         let item = this.items.find(it => it.config === oldConfig);
         if (item) {
             if (item.config.content !== newConfig.content && this.activeItem === item) {
-                this.activeItem = void 0;
+                // tslint:disable:no-floating-promises
+                this.onItemExpanded(item);
             }
             item.config = newConfig;
         }
