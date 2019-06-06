@@ -1,11 +1,11 @@
 {
-  "name": "ethstats-ui",
+  "name": "@alethio/ui",
   "version": "1.0.0-beta.10",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "description": "EthStats React component library",
+  "description": "Alethio React component library",
   "scripts": {
     "build": "npm run clean && tsc -p ./tsconfig.build.json",
     "clean": "rimraf ./lib",
@@ -17,10 +17,10 @@
   "keywords": [],
   "author": "Alexandru Ciuca <alexandru.ciuca@consensys.net>",
   "license": "MIT",
-  "homepage": "https://ethstats.io",
+  "homepage": "https://aleth.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Alethio/ethstats-ui"
+    "url": "https://github.com/Alethio/ui"
   },
   "devDependencies": {
     "@types/react": "16.7.3",

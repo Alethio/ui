@@ -1,6 +1,6 @@
-# ethstats-ui
+# @alethio/ui
 
-React component library for EthStats apps
+React component library for Alethio apps
 
 ## Prerequisites
 
@@ -9,9 +9,9 @@ React component library for EthStats apps
 
 ## Installation
 
-1. `npm i ethstats-ui`
+1. `npm i @alethio/ui`
 2. Copy files from `public/css` and `public/fonts` into your root app folder and import CSS in your index.html.
-3. Just import any component with `import { ... } from "ethstats-ui/lib/path/to/Component"`
+3. Just import any component with `import { ... } from "@alethio/ui/lib/path/to/Component"`
 
 ## Development
 
@@ -20,7 +20,7 @@ React component library for EthStats apps
 
 ## Project structure
 ```
-📁ethstats-ui
+📁
 ├─📁lib            - target folder for application that contains deployables
 ├─📁public         - contains static assets that are copied to the dist folder as they are
 └─📁src            - source files
