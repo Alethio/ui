@@ -2,11 +2,9 @@ import * as React from "react";
 import styled from "../../styled-components";
 import { observable } from "mobx";
 import { observer } from "mobx-react";
-import { IconButton } from "../../control/IconButton";
 import { IClipboard } from "../IClipboard";
-import { CopyIcon } from "../../icon/CopyIcon";
 import { HexDataContent } from "./internal/HexDataContent";
-import { Clipboard } from "@puzzl/browser/lib/Clipboard";
+import { CopyValueButton } from "../../control/button/CopyValueButton";
 
 const CopyButtonWrapper = styled.div`
     position: absolute;
@@ -58,20 +56,15 @@ export class HexData extends React.Component<IHexDataProps> {
                     <HexDataContent data={this.props.data} />
                 }
                 { this.hovered && this.props.data.length <= dataLimit && <CopyButtonWrapper>
-                    <IconButton
-                        Icon={CopyIcon}
-                        color={theme => theme.colors.copyIcon}
-                        onClick={this.copyContent}
+                    <CopyValueButton
+                        value={this.props.data}
+                        clipboard={this.props.clipboard}
                     />
                 </CopyButtonWrapper> }
             </HexDataRoot>
         );
     }
 
-    private copyContent = () => {
-        let clipboard = this.props.clipboard || new Clipboard(document);
-        clipboard.copy(this.props.data);
-    }
     private mouseEnterHandler = () => {
         this.hovered = true;
     }
