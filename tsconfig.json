@@ -37,6 +37,10 @@
             {
                 "name": "typescript-tslint-plugin",
                 "alwaysShowRuleFailuresAsWarnings": true
+            },
+            {
+                "transform": "typescript-plugin-styled-components",
+                "type": "config"
             }
         ]
     },
