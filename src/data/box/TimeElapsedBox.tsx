@@ -8,6 +8,7 @@ import { ClickThreshold } from "../../util/react/ClickThreshold";
 import styled from "../../styled-components";
 import { CopyValueButton } from "../../control/button/CopyValueButton";
 import { IClipboard } from "../IClipboard";
+import { DateTime } from "../DateTime";
 
 const TimeElapsedContentRoot = styled.div`
     user-select: none;
@@ -69,17 +70,13 @@ export class TimeElapsedBox extends React.Component<ITimeElapsedBoxProps> {
     }
 
     render() {
-        let value: string;
+        let value: React.ReactNode;
         if (this.displayMode === DisplayMode.RelativeTime) {
             value = new RelativeTimeFormatter(this.props.translations).formatDiff(
                 this.currentTime * 1000, this.props.timestamp * 1000
             );
         } else if (this.displayMode === DisplayMode.AbsoluteTime) {
-            value = new Date(this.props.timestamp * 1000).toLocaleDateString(this.props.locale, {
-                timeZone: "UTC",
-                timeZoneName: "short",
-                year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric"
-            });
+            value = <DateTime timestamp={this.props.timestamp} locale={this.props.locale} />;
         } else {
             throw new Error(`Unsupported display mode "${DisplayMode[this.displayMode]}"`);
         }
