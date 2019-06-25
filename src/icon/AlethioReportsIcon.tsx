@@ -7,7 +7,7 @@ export interface IAlethioReportsIconProps extends ISvgIconProps {
 export class AlethioReportsIcon extends React.PureComponent<IAlethioReportsIconProps> {
     render() {
         return (
-            <SvgIcon viewBoxSize={729} {...this.props}>
+            <SvgIcon {...this.props}>
                 <path
                     fillRule="evenodd" clipRule="evenodd"
                     // tslint:disable-next-line:max-line-length
