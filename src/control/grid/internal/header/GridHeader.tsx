@@ -14,7 +14,6 @@ interface IGridHeaderProps {
 }
 
 const HeaderSpacer = styled.div`
-    height: 32px;
     border-bottom: 1px solid ${props => props.theme.colors.gridBorder};
     background-color: ${props => props.theme.colors.gridEvenRowBg};
     display: flex;

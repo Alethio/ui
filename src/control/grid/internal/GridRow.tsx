@@ -8,7 +8,6 @@ interface ISpacerProps {
     className?: string;
 }
 const Spacer = styled<ISpacerProps, "div">("div")`
-    height: 32px;
     background-color: ${({ odd, theme }) => odd ? theme.colors.gridOddRowBg : theme.colors.gridEvenRowBg};
 `;
 
@@ -17,8 +16,7 @@ interface IItemProps {
     className?: string;
 }
 const Item = styled<IItemProps, "div">("div")`
-    height: 32px;
-    padding: 0 ${GRID_CELL_PADDING_X}px;
+    padding: 10px ${GRID_CELL_PADDING_X}px;
     background-color: ${({ odd, theme }) => odd ? theme.colors.gridOddRowBg : theme.colors.gridEvenRowBg};
 `;
 const VertBorder = styled.div`
