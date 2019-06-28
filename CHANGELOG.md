@@ -1,3 +1,7 @@
+# v1.0.0-beta.16
+
+- (Grid): Flexible row height
+
 # v1.0.0-beta.15
 
 ## Breaking Changes
