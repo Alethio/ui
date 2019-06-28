@@ -2,13 +2,13 @@ import * as React from "react";
 import styled from "../../../styled-components";
 
 const GRID_CELL_PADDING_X = 32;
+const GRID_CELL_PADDING_Y = 8;
 
 interface ISpacerProps {
     odd?: boolean;
     className?: string;
 }
 const Spacer = styled<ISpacerProps, "div">("div")`
-    height: 32px;
     background-color: ${({ odd, theme }) => odd ? theme.colors.gridOddRowBg : theme.colors.gridEvenRowBg};
 `;
 
@@ -17,8 +17,7 @@ interface IItemProps {
     className?: string;
 }
 const Item = styled<IItemProps, "div">("div")`
-    height: 32px;
-    padding: 0 ${GRID_CELL_PADDING_X}px;
+    padding: ${GRID_CELL_PADDING_Y}px ${GRID_CELL_PADDING_X}px;
     background-color: ${({ odd, theme }) => odd ? theme.colors.gridOddRowBg : theme.colors.gridEvenRowBg};
 `;
 const VertBorder = styled.div`

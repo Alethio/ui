@@ -15,9 +15,7 @@ interface IHeaderItemProps {
 }
 const HeaderItem = styled<IHeaderItemProps, "div">("div")`
     background: ${props => props.theme.colors.gridEvenRowBg};
-    height: 32px;
-    padding: 0 8px 0 32px;
-    /* padding-right: 36px; */
+    padding: 10px 8px 10px 32px;
     border-bottom: 1px solid ${props => props.theme.colors.gridBorder};
     cursor: ${props => props.isSortable ? "pointer" : "default"};
     display: flex;
