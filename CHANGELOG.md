@@ -1,3 +1,7 @@
+# v1.0.0-beta.17
+
+- Fix regression introduced with beta.15 in AlethioReportsIcon size
+
 # v1.0.0-beta.16
 
 - (Grid): Flexible row height
