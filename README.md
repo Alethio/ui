@@ -21,14 +21,14 @@ React component library for Alethio apps
 ## Project structure
 ```
 📁
-├─📁lib            - target folder for application that contains deployables
-├─📁public         - contains static assets that are copied to the dist folder as they are
+├─📁lib            - target folder that contains built/transpiled components
+├─📁public         - static assets (css and fonts) that should be served by the consumer app
 └─📁src            - source files
-  ├─📁control       - reusable ui controls and widgets
-  ├─📁data          - components for displaying and formatting various types of data
-  ├─📁fx            - Effects and animations
-  ├─📁icon          - reusable icon components (SVG or icon font wrappers)
-  └─📁layout        - components for layout / arrangement
+  ├─📁control      - UI controls / widgets
+  ├─📁data         - components for displaying and formatting various types of data
+  ├─📁fx           - Effects and animations
+  ├─📁icon         - icon components (SVG or icon font wrappers)
+  └─📁layout       - components for layout / arrangement
 ```
 
 ## Managing SVG icons
