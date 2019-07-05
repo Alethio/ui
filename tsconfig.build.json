@@ -2,6 +2,7 @@
     "extends": "./tsconfig.json",
     "exclude": [
         "**/*.spec.ts",
+        "**/*.stories.tsx",
         "src/typings/timeout-patch.d.ts"
     ],
     "compilerOptions": {
