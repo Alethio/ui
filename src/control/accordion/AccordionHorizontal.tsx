@@ -35,15 +35,16 @@ export interface IAccordionHorizontalProps<TItemConfig extends IAccordionItemCon
 }
 
 /**
- * Accordion with async loading that uses the standard layout row/item components to display its data
- * Uses a horizontal layout, with expanders on the same row
+ * Accordion with async loading that uses the standard LayoutRow/LayoutItem components to display its data
+ *
+ * Uses a horizontal layout, with item expanders rendered on the same row
  *
  * Shows loading/error/no data states
  */
 @observer
 export class AccordionHorizontal<TItemConfig extends IAccordionItemConfig>
 extends React.Component<IAccordionHorizontalProps<TItemConfig>> {
-    static defaultProps: Partial<IAccordionVerticalProps<any>> = {
+    static defaultProps: Pick<IAccordionVerticalProps<any>, "contentAnimSeconds"> = {
         contentAnimSeconds: .2
     };
 

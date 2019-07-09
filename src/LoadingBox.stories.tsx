@@ -1,12 +1,12 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { ErrorBox } from "./ErrorBox";
+import { LoadingBox } from "./LoadingBox";
 
-storiesOf(ErrorBox.name, module)
+storiesOf(LoadingBox.name, module)
     .addDecorator(storyFn => <div style={{ position: "relative", height: 200 }}>{storyFn()}</div>)
     .add("default (primary colors)", () => (
-        <ErrorBox>This is an error message</ErrorBox>
+        <LoadingBox>It's doing something...</LoadingBox>
     ))
     .add("secondary colors", () => (
-        <ErrorBox colors="secondary">This is an error message</ErrorBox>
+        <LoadingBox colors="secondary">It's doing something...</LoadingBox>
     ));

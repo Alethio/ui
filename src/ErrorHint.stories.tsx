@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { ErrorHint } from "./ErrorHint";
 
 storiesOf(ErrorHint.name, module)
-    .addDecorator(storyFn => <div style={{ display: "flex" }}>{storyFn()}</div>)
+    .addDecorator(storyFn => <div style={{ display: "flex", justifyContent: "center" }}>{storyFn()}</div>)
     .add("default", () => (
         <ErrorHint>This is an error message</ErrorHint>
     ))

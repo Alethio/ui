@@ -39,7 +39,7 @@ export interface IAccordionVerticalProps<TItemConfig extends IAccordionItemConfi
 }
 
 /**
- * Accordion with async loading that uses the standard layout row/item components to display its data
+ * Accordion with async loading that uses the standard LayoutRow/LayoutItem components to display its data
  *
  * Calculates the width of the largest expander and sets all expanders to the same width
  * Shows loading/error/no data states
@@ -47,7 +47,7 @@ export interface IAccordionVerticalProps<TItemConfig extends IAccordionItemConfi
 @observer
 export class AccordionVertical<TItemConfig extends IAccordionItemConfig>
 extends React.Component<IAccordionVerticalProps<TItemConfig>> {
-    static defaultProps: Partial<IAccordionVerticalProps<any>> = {
+    static defaultProps: Pick<IAccordionVerticalProps<any>, "contentAnimSeconds"> = {
         contentAnimSeconds: .2
     };
 

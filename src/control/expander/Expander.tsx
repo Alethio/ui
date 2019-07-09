@@ -65,6 +65,7 @@ export interface IExpanderProps {
     onResize?(): void;
 }
 
+/** Component used for accordions and other expanding content */
 export class Expander extends React.Component<IExpanderProps> {
     render() {
         let { label, value, open, disabled, locale } = this.props;
