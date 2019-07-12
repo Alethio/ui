@@ -1,9 +1,14 @@
+var createStyledComponentsTransformer = require("typescript-plugin-styled-components").default;
+
 module.exports = ({ config }) => {
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
         use: [
             {
                 loader: require.resolve('ts-loader'),
+                options: {
+                    getCustomTransformers: () => ({ before: [createStyledComponentsTransformer()] })
+                }
             },
             // Optional
             {
