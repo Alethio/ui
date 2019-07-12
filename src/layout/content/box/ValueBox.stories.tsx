@@ -20,19 +20,19 @@ storiesOf("layout/content/box/" + ValueBox.displayName, module)
         </div>
     ))
     .add("colors", () => [
-        <ValueBox colors="primary">Content</ValueBox>,
-        <ValueBox colors="primaryAlt">Content</ValueBox>,
-        <ValueBox colors="primaryInvert">Content</ValueBox>,
-        <ValueBox colors="secondary">Content</ValueBox>,
-        <ValueBox colors="secondaryInvert">Content</ValueBox>,
-        <ValueBox colors="highlight">Content</ValueBox>,
-        <ValueBox colors="warn">Content</ValueBox>,
-        <ValueBox colors="error">Content</ValueBox>
+        <ValueBox colors="primary">primary</ValueBox>,
+        <ValueBox colors="primaryAlt">primaryAlt</ValueBox>,
+        <ValueBox colors="primaryInvert">primaryInvert</ValueBox>,
+        <ValueBox colors="secondary">secondary</ValueBox>,
+        <ValueBox colors="secondaryInvert">secondaryInvert</ValueBox>,
+        <ValueBox colors="highlight">highlight</ValueBox>,
+        <ValueBox colors="warn">warn</ValueBox>,
+        <ValueBox colors="error">error</ValueBox>
     ])
     .add("variants", () => [
-        <ValueBox variant="normal" colors="primaryAlt">Content</ValueBox>,
-        <ValueBox variant="normalThin" colors="primaryAlt">Content</ValueBox>,
-        <ValueBox variant="big" colors="primaryAlt">Content</ValueBox>,
-        <ValueBox variant="small" colors="primaryAlt">Content</ValueBox>,
-        <ValueBox variant="smallThin" colors="primaryAlt">Content</ValueBox>
+        <ValueBox variant="normal" colors="primaryAlt">normal</ValueBox>,
+        <ValueBox variant="normalThin" colors="primaryAlt">normalThin</ValueBox>,
+        <ValueBox variant="big" colors="primaryAlt">big</ValueBox>,
+        <ValueBox variant="small" colors="primaryAlt">small</ValueBox>,
+        <ValueBox variant="smallThin" colors="primaryAlt">smallThin</ValueBox>
     ]);
