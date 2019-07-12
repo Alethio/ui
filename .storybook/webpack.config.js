@@ -1,20 +1,23 @@
-var createStyledComponentsTransformer = require("typescript-plugin-styled-components").default;
+const createStyledComponentsTransformer = require("typescript-plugin-styled-components").default;
 
 module.exports = ({ config }) => {
+    let tsconfigPath = __dirname + "/../tsconfig.storybook.json";
+
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
         use: [
             {
                 loader: require.resolve('ts-loader'),
                 options: {
-                    getCustomTransformers: () => ({ before: [createStyledComponentsTransformer()] })
+                    getCustomTransformers: () => ({ before: [createStyledComponentsTransformer()] }),
+                    configFile: tsconfigPath
                 }
             },
             // Optional
             {
                 loader: require.resolve('react-docgen-typescript-loader'),
                 options: {
-                    tsconfigPath: __dirname + "/../tsconfig.storybook.json"
+                    tsconfigPath: tsconfigPath
                 }
             }
         ],
