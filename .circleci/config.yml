@@ -1,24 +1,84 @@
 version: 2
+
+references:
+  executor_config: &executor_config
+    docker:
+      - image: circleci/node:10.16
+
 jobs:
-  build:
-    working_directory: ~/lib # directory where steps will run
-    docker: # run the steps with Docker
-      - image: circleci/node:8
-    steps: # a collection of executable commands
-      - checkout # special step to check out source code to working directory
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
-      - restore_cache: # special step to restore the dependency cache
-          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: run-npm-install
-          command: npm install
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+  setup:
+    <<: *executor_config
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-cache-{{ checksum "package.json" }}
+      - run: npm install --ignore-scripts
+      - save_cache:
+          key: npm-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: # run tests
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+  build:
+    <<: *executor_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: build
+          command: npm run build
+      - run:
           name: test
           command: npm test
+  docs-build:
+    <<: *executor_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: npm run storybook-dist
+      - persist_to_workspace:
+          root: .
+          paths:
+            - storybook-dist
+  docs-deploy:
+    <<: *executor_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Install and configure gh-pages
+          command: |
+            npm i -g gh-pages@2.0.1
+            git config user.email "ci-build@aleth.io"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "02:a8:57:e9:40:17:39:fd:95:b1:ab:20:77:fc:7d:ce"
+      - run:
+          name: Deploy with gh-pages
+          command: gh-pages -d storybook-dist -m 'gh deploy [ci skip]'
+workflows:
+  version: 2
+  build:
+    jobs:
+      - setup
+      - build:
+          requires:
+            - setup
+      - docs-build:
+          requires:
+            - setup
+      - docs-deploy:
+          requires:
+            - build
+            - docs-build
+          branches:
+            only:
+              - master
+              # TODO removeme
+              - storybook
