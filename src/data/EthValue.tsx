@@ -14,7 +14,7 @@ export interface IEthValueProps {
 }
 
 export class EthValue extends React.Component<IEthValueProps> {
-    static defaultProps: Partial<IEthValueProps> = {
+    static defaultProps: Pick<IEthValueProps, "decimals"> = {
         decimals: 4
     };
 

@@ -37,7 +37,7 @@ interface IHexDataProps {
 
 @observer
 export class HexData extends React.Component<IHexDataProps> {
-    static defaultProps: Partial<IHexDataProps> = {
+    static defaultProps: Pick<IHexDataProps, "dataLimit"> = {
         dataLimit: 1024
     };
 

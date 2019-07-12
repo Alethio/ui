@@ -31,7 +31,7 @@ export interface ISpinnerProps {
 }
 
 export class Spinner extends React.Component<ISpinnerProps> {
-    static defaultProps: Partial<ISpinnerProps> = {
+    static defaultProps = {
         size: 24,
         color: "currentColor",
         borderColor: "#000",

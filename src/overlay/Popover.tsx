@@ -113,7 +113,7 @@ export interface IPopoverProps {
 
 @observer
 export class Popover extends React.Component<IPopoverProps> {
-    static defaultProps: Partial<IPopoverProps> = {
+    static defaultProps: Pick<IPopoverProps, "backgroundColor" | "placement" | "offset"> = {
         backgroundColor: "#fff",
         placement: "top",
         offset: 0
