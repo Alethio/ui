@@ -78,8 +78,9 @@ workflows:
           requires:
             - build
             - docs-build
-          branches:
-            only:
-              - master
-              # TODO removeme
-              - storybook
+          filters:
+            branches:
+              only:
+                - master
+                # TODO removeme
+                - storybook
