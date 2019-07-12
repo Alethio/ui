@@ -55,7 +55,7 @@ jobs:
       - run:
           name: Install and configure gh-pages
           command: |
-            npm i -g gh-pages@2.0.1
+            sudo npm i -g gh-pages@2.0.1
             git config user.email "ci-build@aleth.io"
             git config user.name "ci-build"
       - add_ssh_keys:
