@@ -1,24 +1,32 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { LayoutRow as LR, ILayoutRowProps} from "./LayoutRow";
+import { LayoutRow } from "./LayoutRow";
 import { LayoutRowItem } from "./LayoutRowItem";
 import { LayoutSection } from "./LayoutSection";
 import { Label } from "../../data/Label";
-import { ValueBox as VB } from "./box/ValueBox";
+import { ValueBox } from "./box/ValueBox";
+import { Box } from "./box/Box";
 import styled from "../../styled-components";
 
-const LayoutRowWrapper = styled.div`
-    outline: 1px red solid !important;
-`;
-const LayoutRow: React.StatelessComponent<ILayoutRowProps> = (props) =>
-    <LayoutRowWrapper><LR {...props} /></LayoutRowWrapper>;
-const ValueBox = styled(VB)`
-    outline: 1px green solid;
+const ContentWrapper = styled.div`
+    padding: 8px;
+    width: 800px;
+    > [class^=${LayoutRow.name}] {
+        outline: 1px red solid;
+    }
+    [class^=${Box.displayName}-] {
+        outline: 1px green solid;
+    }
 `;
 
-storiesOf("layout/content/" + LR.name, module)
-    .addDecorator(s => <div style={{ padding: 8}}>{s()}</div>)
-    .add("default", () => <div style={{width: 800}}>
+storiesOf("layout/content/" + LayoutRow.name, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [ValueBox, Label, ContentWrapper, React.Fragment]
+        }
+    })
+    .addDecorator(s => <ContentWrapper>{s()}</ContentWrapper>)
+    .add("default", () => <>
         <LayoutSection>
             <LayoutRow>
                 <LayoutRowItem>
@@ -64,4 +72,4 @@ storiesOf("layout/content/" + LR.name, module)
                 </LayoutRowItem>
             </LayoutRow>
         </LayoutSection>
-    </div>);
+    </>);

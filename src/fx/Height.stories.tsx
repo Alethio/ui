@@ -6,6 +6,11 @@ import { observable } from "mobx";
 import { Observer } from "mobx-react";
 
 storiesOf("fx/" + Height.name, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [Observer, Button]
+        }
+    })
     .add("default", () => {
         let animating = observable.box(false);
 

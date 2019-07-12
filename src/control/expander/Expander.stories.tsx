@@ -10,6 +10,11 @@ const ContentArea = styled.div`
 `;
 
 storiesOf("control/" + Expander.name, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [ContentArea]
+        }
+    })
     .addDecorator(storyFn => <ContentArea>{storyFn()}</ContentArea>)
     .add("default", () => (
         <Expander label="Label" locale="en-US" open={false}  />

@@ -29,6 +29,11 @@ const ContentArea = styled.div`
 `;
 
 storiesOf("control/accordion/" + AccordionHorizontal.name, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [ContentArea]
+        }
+    })
     .addDecorator(storyFn => <ContentArea>{storyFn()}</ContentArea>)
     .add("default", () => (
         <AccordionHorizontal<IItemConfig>

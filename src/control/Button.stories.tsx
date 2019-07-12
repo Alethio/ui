@@ -18,6 +18,11 @@ const ButtonContainer = styled.div`
 `;
 
 storiesOf("control/button/" + Button.name, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [ButtonContainer]
+        }
+    })
     .addDecorator(storyFn => <ButtonContainer>{storyFn()}</ButtonContainer>)
     .add("default (secondary)", () => (
         <Button onClick={() => alert("Boo!")}>Click me</Button>

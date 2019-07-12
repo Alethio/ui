@@ -17,6 +17,11 @@ const AnchorWrapper = styled.div`
 `;
 
 storiesOf("overlay/" + Popover.name, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [AnchorWrapper, Container]
+        }
+    })
     .addDecorator(s => <Container>{s()}</Container>)
     .add("default", () => (
         <Popover

@@ -4,6 +4,11 @@ import { Label } from "./Label";
 import { LayoutRow } from "../layout/content/LayoutRow";
 
 storiesOf("data/" + Label.displayName, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [LayoutRow]
+        }
+    })
     .addDecorator(storyFn => <LayoutRow>{storyFn()}</LayoutRow>)
     .add("default", () => (
         <Label>Label text</Label>

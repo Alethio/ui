@@ -12,7 +12,8 @@ function loadStories() {
 }
 
 addDecorator(withInfo({
-    inline: true
+    inline: true,
+    source: false
 }));
 addDecorator(storyFn => <ThemeProvider theme={createTheme(createPalette())}>
     {storyFn()}

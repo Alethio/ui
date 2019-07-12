@@ -4,6 +4,11 @@ import { SelectBox } from "./SelectBox";
 import { Button } from "./Button";
 
 storiesOf("control/" + SelectBox.name, module)
+    .addParameters({
+        info: {
+            propTablesExclude: [Button]
+        }
+    })
     .addDecorator(storyFn => <div style={{ display: "flex"}}>{storyFn()}</div>)
     .add("default", () => (
         <SelectBox render={({ requestClose }) => <div>

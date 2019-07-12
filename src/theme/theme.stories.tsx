@@ -36,7 +36,7 @@ const DualColor: React.StatelessComponent<{ colorThunk(themeColors: IThemeColors
 storiesOf("theme/theme", module)
     .addParameters({
         info: {
-            inline: false
+            disable: true
         }
     })
     .add("palette", () => <Container>

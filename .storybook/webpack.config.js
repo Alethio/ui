@@ -20,6 +20,15 @@ module.exports = ({ config }) => {
         ],
     });
 
+    config.module.rules.push({
+        test: /\.stories\.tsx?$/,
+        loaders: [{
+            loader: require.resolve('@storybook/addon-storysource/loader'),
+            options: { parser: "typescript" }
+        }],
+        enforce: 'pre',
+    });
+
     let esLintLoaderIndex = config.module.rules.findIndex(r => r.use && r.use.find(u => u.loader && u.loader.match(/eslint-loader/)));
     if (esLintLoaderIndex !== -1) {
         config.module.rules.splice(esLintLoaderIndex, 1);

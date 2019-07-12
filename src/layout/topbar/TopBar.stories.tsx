@@ -13,7 +13,8 @@ import { Content } from "../Content";
 storiesOf("layout/topbar/" + TopBar.displayName, module)
     .addParameters({
         info: {
-            inline: false
+            inline: false,
+            propTablesExclude: [Container, Page, Content]
         },
         viewport: {
             defaultViewport: "iphone6"

@@ -11,7 +11,8 @@ import { LogoutIcon } from "../../icon/LogoutIcon";
 storiesOf("layout/toolbar/" + Toolbar.displayName, module)
     .addParameters({
         info: {
-            inline: false
+            inline: false,
+            propTablesExclude: [Container, Filler]
         }
     })
     .add("default", () => (
