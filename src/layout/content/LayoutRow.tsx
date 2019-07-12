@@ -13,7 +13,7 @@ interface ILayoutResponsiveOptions {
     ignoreFirstLabel?: "forMobile" | "forLowRes";
 }
 
-interface ILayoutRowProps {
+export interface ILayoutRowProps {
     /**
      * The minimum required width for that row to safely render all items on a single row
      * TODO: Move minWidth to ILayoutResponsiveOptions

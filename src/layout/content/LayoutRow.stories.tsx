@@ -1,12 +1,23 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { LayoutRow } from "./LayoutRow";
+import { LayoutRow as LR, ILayoutRowProps} from "./LayoutRow";
 import { LayoutRowItem } from "./LayoutRowItem";
 import { LayoutSection } from "./LayoutSection";
 import { Label } from "../../data/Label";
-import { ValueBox } from "./box/ValueBox";
+import { ValueBox as VB } from "./box/ValueBox";
+import styled from "../../styled-components";
 
-storiesOf("layout/content/layout", module)
+const LayoutRowWrapper = styled.div`
+    outline: 1px red solid !important;
+`;
+const LayoutRow: React.StatelessComponent<ILayoutRowProps> = (props) =>
+    <LayoutRowWrapper><LR {...props} /></LayoutRowWrapper>;
+const ValueBox = styled(VB)`
+    outline: 1px green solid;
+`;
+
+storiesOf("layout/content/" + LR.name, module)
+    .addDecorator(s => <div style={{ padding: 8}}>{s()}</div>)
     .add("default", () => <div style={{width: 800}}>
         <LayoutSection>
             <LayoutRow>
