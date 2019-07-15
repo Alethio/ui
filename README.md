@@ -30,11 +30,15 @@ class App extends React.Component {
 }
 ```
 
-### Usage
+## Usage
 
 Just import any component with `import { ... } from "@alethio/ui/lib/path/to/Component"`.
 
 **NOTE**: Internal components are marked as `@internal` and/or are placed in `internal/` sub-folders. Never use them directly in production.
+
+## Playground
+
+You can see the components in action [here](https://alethio.github.io/ui).
 
 ## Development
 
