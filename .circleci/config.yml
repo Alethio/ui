@@ -62,6 +62,9 @@ jobs:
           fingerprints:
             - "02:a8:57:e9:40:17:39:fd:95:b1:ab:20:77:fc:7d:ce"
       - run:
+          name: Fix-up fonts.css for sub-path deployment
+          command: sed -i.bak "s/\/fonts/fonts/" storybook-dist/css/fonts.css
+      - run:
           name: Deploy with gh-pages
           command: gh-pages -d storybook-dist -m 'gh deploy [ci skip]'
 
