@@ -17,10 +17,10 @@ storiesOf("control/" + Expander.name, module)
     })
     .addDecorator(storyFn => <ContentArea>{storyFn()}</ContentArea>)
     .add("default", () => (
-        <Expander label="Label" locale="en-US" open={false}  />
+        <Expander label="Label" open={false}  />
     ))
     .add("open state", () => (
-        <Expander label="Label" locale="en-US" open={true} />
+        <Expander label="Label" open={true} />
     ))
     .add("with number", () => (
         <Expander label="Label with number" value={20} locale="en-US" open={false} />

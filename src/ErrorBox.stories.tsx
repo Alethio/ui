@@ -1,12 +1,33 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { ErrorBox } from "./ErrorBox";
+import styled from "./styled-components";
+
+const PrimaryWrapper = styled.div`
+    position: relative;
+    height: 100vh;
+    background-color: ${props => props.theme.colors.base.bg.main};
+`;
+
+const AltWrapper = styled.div`
+    position: relative;
+    height: 100vh;
+    background-color: ${props => props.theme.colors.base.bg.alt};
+`;
 
 storiesOf(ErrorBox.name, module)
-    .addDecorator(storyFn => <div style={{ position: "relative", height: 200 }}>{storyFn()}</div>)
+    .addParameters({
+        info: {
+            inline: false
+        }
+    })
     .add("default (primary colors)", () => (
-        <ErrorBox>This is an error message</ErrorBox>
+        <PrimaryWrapper>
+            <ErrorBox>This is an error message</ErrorBox>
+        </PrimaryWrapper>
     ))
     .add("secondary colors", () => (
-        <ErrorBox colors="secondary">This is an error message</ErrorBox>
+        <AltWrapper>
+            <ErrorBox colors="secondary">This is an error message</ErrorBox>
+        </AltWrapper>
     ));

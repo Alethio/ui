@@ -14,14 +14,8 @@ import styled from "../../styled-components";
 
 interface IItemConfig extends IAccordionItemConfig {
     label: string;
+    value: number;
 }
-
-const ExpanderWrapper = styled.div`
-    &:first-child {
-        margin-left: 0;
-    }
-    margin-left: 8px;
-`;
 
 const ContentArea = styled.div`
     background: ${props => props.theme.colors.base.bg.main};
@@ -46,18 +40,18 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <ExpanderWrapper>
-                    <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
-                </ExpanderWrapper>
+                <Expander open={isOpen} onClick={onClick} label={config.label}
+                    value={config.value} locale="en-US" fullWidth />
             }
         >
-            <AccordionItem<IItemConfig> label="Item 1 (with delay)" content={async () => {
+            <AccordionItem<IItemConfig> label="Item 1 (with delay)" value={5} content={async () => {
                 await sleep(2000);
                 return <div>Dynamically loaded content 1</div>;
             }} />
-            <AccordionItem<IItemConfig> label="Item 2 (instant)" content={async () =>
+            <AccordionItem<IItemConfig> label="Item 2 (instant)" value={10} content={async () =>
                 <div>Dynamically loaded content 2</div>} />
-            <AccordionItem<IItemConfig> label="Item 3 (error) " content={async () => { throw new Error(`Error`); }} />
+            <AccordionItem<IItemConfig> label="Item 3 (error)" value={7}
+                content={async () => { throw new Error(`Error`); }} />
         </AccordionVertical>
     ))
     .add("no items", () => (
@@ -71,9 +65,7 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <ExpanderWrapper>
-                    <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
-                </ExpanderWrapper>
+                <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
             }
         >
         </AccordionVertical>
@@ -89,9 +81,7 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <ExpanderWrapper>
-                    <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
-                </ExpanderWrapper>
+                <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
             }
             renderContent={({ content, status, arrowPosition }) => {
                 if (status !== AccordionItemContentStatus.Loaded) {
@@ -110,11 +100,11 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 );
             }}
         >
-            <AccordionItem<IItemConfig> label="Item 1" content={async () => {
+            <AccordionItem<IItemConfig> label="Item 1" value={1} content={async () => {
                 await sleep(2000);
                 return <div>Dynamically loaded content 1</div>;
             }} />
-            <AccordionItem<IItemConfig> label="Item 2" content={async () =>
+            <AccordionItem<IItemConfig> label="Item 2" value={2} content={async () =>
                 <div>Dynamically loaded content 2</div>} />
         </AccordionVertical>
     ))
@@ -129,15 +119,13 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <ExpanderWrapper>
-                    <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
-                </ExpanderWrapper>
+                <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
             }
             renderHeader={({ config }) => <div>Custom header content for {config.label}</div>}
         >
-            <AccordionItem<IItemConfig> label="Item 1" content={async () =>
+            <AccordionItem<IItemConfig> label="Item 1" value={1} content={async () =>
                 <div>Dynamically loaded content 1</div>} />
-                <AccordionItem<IItemConfig> label="Item 2" content={async () =>
+                <AccordionItem<IItemConfig> label="Item 2" value={2} content={async () =>
                 <div>Dynamically loaded content 2</div>} />
         </AccordionVertical>
     ));
