@@ -2,7 +2,8 @@
     "extends": "./tsconfig.json",
     "exclude": [
         "**/*.spec.ts",
-        "**/*.stories.tsx"
+        "**/*.stories.tsx",
+        ".storybook"
     ],
     "compilerOptions": {
         "typeRoots": [
