@@ -1,3 +1,7 @@
+# v1.0.0-beta.19
+
+- Fix some typings for components with defaultProps. This could be a breaking change, if the components were consumed incorrectly before, by omitting some required props (this was possible, depending on the TS version used, and is now fixed).
+
 # v1.0.0-beta.18
 
 - Updated the Alethio palette colors
