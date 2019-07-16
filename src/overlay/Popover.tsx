@@ -93,7 +93,9 @@ const Arrow = styled<IArrowProps, "div">("div")`
 export interface IPopoverProps {
     visible: boolean;
     content: React.ReactNode;
+    /** Don't render the arrow which points back to the referenceElement */
     noArrow?: boolean;
+    /** Prevent "flipping" the position when the popover would be out of the viewport */
     noFlip?: boolean;
     backgroundColor?: string;
     borderColor?: string;

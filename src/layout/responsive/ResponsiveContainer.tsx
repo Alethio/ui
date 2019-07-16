@@ -13,6 +13,9 @@ interface IResponsiveContainerProps {
     };
 }
 
+/**
+ * Component that allows showing/hiding content based on viewport size
+ */
 export const ResponsiveContainer = styled<IResponsiveContainerProps, "div">("div")`
     display: ${props => props.behavior === "hide" ? "block" : "none" };
     ${props => {

@@ -1,5 +1,8 @@
 import styled from "../styled-components";
 
+/**
+ * A simple overlay component that renders a centered, elevated Layer
+ */
 export const Layer = styled.div`
     position: fixed;
     top: 50%;

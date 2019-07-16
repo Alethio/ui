@@ -44,6 +44,9 @@ export interface IHeightProps {
     children: React.ReactNode;
 }
 
+/**
+ * Animates the children's height without requiring an explicit height to be set
+ */
 @observer
 export class Height extends React.Component<IHeightProps> {
     private contentRef: HTMLDivElement;

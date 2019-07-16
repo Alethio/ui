@@ -22,4 +22,9 @@ export class $Toolbar extends React.Component<IToolbarProps> {
     }
 }
 
+/**
+ * Main app toolbar
+ *
+ * Use nested ToolbarItem/ToolbarIconButton components to populate it
+ */
 export const Toolbar = withTheme($Toolbar);

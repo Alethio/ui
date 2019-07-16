@@ -1,5 +1,8 @@
 import styled from "../styled-components";
 
+/**
+ * An element that blocks the viewport, useful for modals
+ */
 export const Mask = styled.div`
     position: fixed;
     top: 0;

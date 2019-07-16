@@ -27,7 +27,7 @@ const $ValueBox: React.StatelessComponent<IValueBoxProps> = ({
 );
 
 /**
- * Box component with predefined settings. For custom settings, use Box instead.
+ * Box component with predefined settings via theme. For custom settings, use Box instead.
  */
 export const ValueBox = withTheme($ValueBox);
 

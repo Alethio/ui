@@ -29,12 +29,16 @@ const HexTextArea = styled.textarea`
 `;
 
 interface IHexDataProps {
+    /* 0x string representation of the input hex data */
     data: string;
     /** If this limit is reached, render as a textarea to improve performance */
     dataLimit?: number;
     clipboard?: IClipboard;
 }
 
+/**
+ * Shows input hex data as groups of hex digits
+ */
 @observer
 export class HexData extends React.Component<IHexDataProps> {
     static defaultProps: Pick<IHexDataProps, "dataLimit"> = {

@@ -17,6 +17,7 @@ const ToolbarItemRoot = styled<IToolbarItemRootProps, "div">("div")`
 `;
 
 export interface IToolbarItemProps {
+    /** Tooltip text */
     title?: string;
     className?: string;
     backgroundColor?: string;

@@ -36,6 +36,11 @@ export interface IFadeProps {
     delay?: number;
 }
 
+/**
+ * Fade-in effect
+ *
+ * Activated when children are added/mounted
+ */
 @observer
 export class Fade extends React.Component<IFadeProps> {
     static defaultProps = {

@@ -30,6 +30,7 @@ export interface ISpinnerProps {
     className?: string;
 }
 
+/** Spinner component primitive */
 export class Spinner extends React.Component<ISpinnerProps> {
     static defaultProps = {
         size: 24,

@@ -20,4 +20,9 @@ export class $TopBar extends React.Component<ITopbarProps> {
     }
 }
 
+/**
+ * App toolbar for display on mobile devices. Rendered as a horizontal bar on the top-side of the app.
+ *
+ * Use nested TopbarItem/ToolbarIconButton components to populate it.
+ */
 export const TopBar = withTheme($TopBar);
