@@ -14,7 +14,7 @@ export interface IClickThresholdProps {
  * (e.g. dragging or text selection)
  */
 export class ClickThreshold extends React.Component<IClickThresholdProps> {
-    static defaultProps: Partial<IClickThresholdProps> = {
+    static defaultProps: Pick<IClickThresholdProps, "threshold"> = {
         threshold: DEFAULT_THRESHOLD
     };
 

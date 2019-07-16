@@ -14,6 +14,7 @@ export interface ICopyValueTooltipProps {
     children: React.ReactElement<{}>;
 }
 
+/** Wraps an element with a tooltip showing a predefined value that can be easily copied clipboard */
 export class CopyValueTooltip extends React.Component<ICopyValueTooltipProps> {
     render() {
         return (

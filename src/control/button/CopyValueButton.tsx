@@ -18,7 +18,7 @@ export interface ICopyValueButtonProps {
 /** Copy-to-clipboard button */
 @observer
 export class CopyValueButton extends React.Component<ICopyValueButtonProps> {
-    static defaultProps: Partial<ICopyValueButtonProps> = {
+    static defaultProps: Pick<ICopyValueButtonProps, "confirmationVisibleFor"> = {
         confirmationVisibleFor: 3000
     };
 

@@ -45,6 +45,7 @@
         ]
     },
     "include": [
-        "src"
+        "src",
+        ".storybook/config.tsx"
     ]
 }

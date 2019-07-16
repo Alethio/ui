@@ -12,9 +12,12 @@ export interface ITooltipProps extends Pick<IPopoverProps, Exclude<keyof IPopove
     hideDelay?: number;
 }
 
+/**
+ * Tooltip component primitive, without specific styling
+ */
 @observer
 export class Tooltip extends React.Component<ITooltipProps> {
-    static defaultProps: Partial<ITooltipProps> = {
+    static defaultProps: Pick<ITooltipProps, "showDelay" | "hideDelay"> = {
         showDelay: 400,
         hideDelay: 400
     };

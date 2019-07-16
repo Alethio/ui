@@ -10,11 +10,11 @@ export interface IEthValueProps {
     decimals?: number;
     locale: string;
     /** Display the currency symbol (ETH) ? */
-    showSymbol: boolean;
+    showSymbol?: boolean;
 }
 
 export class EthValue extends React.Component<IEthValueProps> {
-    static defaultProps: Partial<IEthValueProps> = {
+    static defaultProps: Pick<IEthValueProps, "decimals"> = {
         decimals: 4
     };
 

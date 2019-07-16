@@ -50,7 +50,7 @@ export interface IButtonProps {
 }
 
 export class Button extends React.Component<IButtonProps> {
-    static defaultProps: Partial<IButtonProps> = {
+    static defaultProps: Pick<IButtonProps, "colors"> = {
         colors: "secondary"
     };
 

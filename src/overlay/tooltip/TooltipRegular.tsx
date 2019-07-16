@@ -7,6 +7,9 @@ const TooltipContent = styled.div`
     padding: 4px 16px;
 `;
 
+/**
+ * Tooltip wrapper with a sane styling defaults
+ */
 export class TooltipRegular extends React.Component<ITooltipProps> {
     static defaultProps = {
         offset: 8

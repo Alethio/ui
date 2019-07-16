@@ -8,6 +8,7 @@ export interface IByteSizeProps {
     format: string;
 }
 
+/** Formats numbers that represent data sizes (in bytes) */
 export class ByteSize extends React.Component<IByteSizeProps> {
     render() {
         return (

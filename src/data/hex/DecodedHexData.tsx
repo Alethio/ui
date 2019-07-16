@@ -12,9 +12,12 @@ const CopyButtonWrapper = styled.div`
 `;
 
 interface IDecodedHexDataProps {
+    /* 0x string representation of the input hex data */
     data: string;
     clipboard?: IClipboard;
 }
+
+/** Decodes input hex data (0x string representation) and shows the decoded string */
 export class DecodedHexData extends React.PureComponent<IDecodedHexDataProps> {
     render() {
         let { data } = this.props;

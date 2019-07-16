@@ -71,8 +71,11 @@ const getInnerHoverStyle = (props: IBubbleInnerProps) => ({
 });
 
 interface IBubbleProps {
+    /* Size of the bubble in % (0-100) */
     size: number;
+    /** Max-size of the bubble in px */
     wrapperSize: number;
+    /** Threshold in % that has to be exceeded for the highlightColor to be applied */
     highlightThreshold?: number;
     highlightColor?: string;
     backgroundColor?: string;
@@ -80,6 +83,7 @@ interface IBubbleProps {
     borderColor?: string;
 }
 
+/** A simple circle for representing various sizes relative to each other */
 export class Bubble extends React.Component<IBubbleProps, { hover: boolean; }> {
     constructor(props: IBubbleProps) {
         super(props);

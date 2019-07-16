@@ -31,6 +31,10 @@ export interface IFloatingActionBarProps {
     position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
 }
 
+/**
+ * An action bar that can be absolutely positioned inside a container and include buttons or
+ * other controls rendered horizontally
+ */
 export class FloatingActionBar extends React.Component<IFloatingActionBarProps> {
     render() {
         return (

@@ -1,5 +1,6 @@
 import styled from "../styled-components";
 
+/** Page content area */
 export const Content = styled.div`
     background-color: ${props => props.theme.colors.mainContentBg};
     flex: 1 1 auto;

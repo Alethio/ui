@@ -7,6 +7,10 @@ export interface ILoadingBoxProps {
     colors?: IMessageBoxColors;
 }
 
+/**
+ * Shows a centered, floating box with a loading indicator (spinner).
+ * Appears with a short delay, preventing flickering for content that loads very fast
+ */
 export class LoadingBox extends React.Component<ILoadingBoxProps> {
     render() {
         return (

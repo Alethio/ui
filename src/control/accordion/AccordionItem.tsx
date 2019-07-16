@@ -3,6 +3,12 @@ import { IAccordionItemConfig } from "./IAccordionItemConfig";
 import { PropTypes } from "mobx-react";
 import { AccordionState } from "./internal/AccordionState";
 
+/**
+ * Component that can be passed as a child to AccordionHorizontal and AccordionVertical instances.
+ *
+ * The props that it receives depends on the `TAccordionItemConfig` generic type parameter and are also accessible
+ * by the Accordion* instance in it's render* callback props.
+ */
 export class AccordionItem<TAccordionItemConfig extends IAccordionItemConfig>
 extends React.Component<TAccordionItemConfig> {
     static contextTypes = {

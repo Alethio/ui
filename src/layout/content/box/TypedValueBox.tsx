@@ -5,6 +5,7 @@ import styled, { css } from "../../../styled-components";
 interface ITypedValueBox {
     value?: string;
     type?: string;
+    /** Render similarly to a form text input */
     withinForm?: boolean;
 }
 
@@ -27,6 +28,9 @@ const SizingWrapper = styled<ISizingWrapperProps, "div">("div")`
     ` : ``}
 `;
 
+/**
+ * A ValueBox adaptation suitable for displaying statically typed data. Shows the value as well as its type.
+ */
 export class TypedValueBox extends React.Component<ITypedValueBox> {
     static defaultProps = {
         withinForm: false
