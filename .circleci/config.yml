@@ -87,5 +87,3 @@ workflows:
             branches:
               only:
                 - master
-                # TODO removeme
-                - storybook
