@@ -1,3 +1,7 @@
+# v1.0.0-beta.20
+
+- (Expander) Fix regression introduced with beta.19, when `value` is possibly undefined.
+
 # v1.0.0-beta.19
 
 - (EthValue, EthValueBox): Make ETH symbol configurable
@@ -9,7 +13,7 @@
 
 # v1.0.0-beta.17
 
-- Fix regression introduced with beta.15 in AlethioReportsIcon size
+- (AlethioReportsIcon) Fix regression introduced with beta.15 in `size` prop
 
 # v1.0.0-beta.16
 
