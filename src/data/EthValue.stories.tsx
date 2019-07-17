@@ -14,4 +14,7 @@ storiesOf("data/" + EthValue.name, module)
     ))
     .add("with symbol", () => (
         <EthValue locale="en-US" wei={new BigNumber(1000456789000000000000)} showSymbol />
+    ))
+    .add("with custom symbol", () => (
+        <EthValue locale="en-US" wei={new BigNumber(1000456789000000000000)} showSymbol symbol="GöETH" />
     ));

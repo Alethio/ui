@@ -15,6 +15,9 @@ storiesOf("data/box/" + EthValueBox.name, module)
     .add("decimals", () => (
         <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} decimals={2} />
     ))
+    .add("with custom symbol", () => (
+        <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} symbol="GöETH" />
+    ))
     .add("colors", () => [
         <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} colors="primary" />,
         <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} colors="primaryAlt" />,
