@@ -1,9 +1,6 @@
-# Unreleased
-
-- (EthValue, EthValueBox): Make ETH symbol configurable
-
 # v1.0.0-beta.19
 
+- (EthValue, EthValueBox): Make ETH symbol configurable
 - Fix some typings for components with defaultProps. This could be a breaking change, if the components were consumed incorrectly before, by omitting some required props (this was possible, depending on the TS version used, and is now fixed).
 
 # v1.0.0-beta.18
