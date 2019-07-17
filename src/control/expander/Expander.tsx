@@ -58,7 +58,7 @@ const hasPropsWithValue = (props: IExpanderBaseProps): props is IExpanderWithVal
 };
 
 export interface IExpanderWithValueProps extends IExpanderBaseProps {
-    value: number;
+    value?: number;
     locale: string;
 }
 
