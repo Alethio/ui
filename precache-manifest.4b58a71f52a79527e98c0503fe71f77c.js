@@ -264,7 +264,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/DateTime.stories.d.ts"
   },
   {
-    "revision": "f125dfe7f5a077cb15dd3f16e44b9d5b",
+    "revision": "65270961dd0fee542fd878ccefc9bc3c",
     "url": "../lib/src/data/EthValue.d.ts"
   },
   {
@@ -332,7 +332,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/box/DifficultyBox.stories.d.ts"
   },
   {
-    "revision": "41dcb00bd831df86519fd108613dcec7",
+    "revision": "acde179bff5c2fb53f98c7d6ad088616",
     "url": "../lib/src/data/box/EthValueBox.d.ts"
   },
   {
@@ -1064,20 +1064,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "6b8ddf348ec88494527d5d7c96fbe893",
+    "revision": "d46aafa7046e55c337983945c936358d",
     "url": "iframe.html"
   },
   {
-    "url": "main.4981884f5a0193ec780a.bundle.js"
+    "url": "main.3ccc073c65a33b657119.bundle.js"
   },
   {
-    "url": "runtime~main.4981884f5a0193ec780a.bundle.js"
+    "url": "runtime~main.3ccc073c65a33b657119.bundle.js"
   },
   {
-    "url": "vendors~main.4981884f5a0193ec780a.bundle.js"
+    "url": "vendors~main.3ccc073c65a33b657119.bundle.js"
   },
   {
-    "revision": "455fd1786f59114f9dbf",
+    "revision": "74092af71a77dba425ec",
     "url": "vendors~main.css"
   }
 ]);
