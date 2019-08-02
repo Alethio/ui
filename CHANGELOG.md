@@ -1,3 +1,7 @@
+# v1.0.0-beta.21
+
+- (AccordionHorizontal, AccordionVertical) Fix arrow position when container offset is 0.
+
 # v1.0.0-beta.20
 
 - (Expander) Fix regression introduced with beta.19, when `value` is possibly undefined.

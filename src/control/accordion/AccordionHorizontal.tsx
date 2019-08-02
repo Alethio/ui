@@ -163,7 +163,7 @@ extends React.Component<IAccordionHorizontalProps<TItemConfig>> {
     }}
 
     private getContentArrowPosition(idx: number) {
-        if (this.expanderEls.size && this.containerOffsetLeft) {
+        if (this.expanderEls.size && this.containerOffsetLeft !== void 0) {
             if (!this.expanderEls.has(idx)) {
                 throw new RangeError(`Index "${idx}" out of range`);
             }

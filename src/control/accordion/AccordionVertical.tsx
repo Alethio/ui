@@ -218,7 +218,7 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
     }
 
     private getContentArrowPosition() {
-        if (this.expanderEls.size && this.containerOffsetLeft && this.fixedExpanderWidth) {
+        if (this.expanderEls.size && this.containerOffsetLeft !== void 0 && this.fixedExpanderWidth) {
             let expanderEl = this.expanderEls.values().next().value;
             return expanderEl.offsetLeft - this.containerOffsetLeft + this.fixedExpanderWidth / 2;
         }
