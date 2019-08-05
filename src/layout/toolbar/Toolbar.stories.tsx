@@ -7,6 +7,11 @@ import { ToolbarIconButton } from "./ToolbarIconButton";
 import { Filler } from "../Filler";
 import { AlethioIcon } from "../../icon/AlethioIcon";
 import { LogoutIcon } from "../../icon/LogoutIcon";
+import { HelpIcon } from "../../icon/HelpIcon";
+import { observable } from "mobx";
+import { Observer } from "mobx-react";
+
+let active = observable.box(false);
 
 storiesOf("layout/toolbar/" + Toolbar.displayName, module)
     .addParameters({
@@ -15,11 +20,18 @@ storiesOf("layout/toolbar/" + Toolbar.displayName, module)
             propTablesExclude: [Container, Filler]
         }
     })
-    .add("default", () => (
+    .add("default", () => <Observer>{ () =>
         <Container>
             <Toolbar>
                 <ToolbarItem title="Item 1">
                     <ToolbarIconButton Icon={AlethioIcon} />
+                </ToolbarItem>
+                <ToolbarItem title="Toggle button">
+                    <ToolbarIconButton
+                        Icon={HelpIcon}
+                        active={active.get()}
+                        onClick={() => active.set(!active.get()) }
+                    />
                 </ToolbarItem>
                 <Filler />
                 <ToolbarItem>
@@ -27,4 +39,4 @@ storiesOf("layout/toolbar/" + Toolbar.displayName, module)
                 </ToolbarItem>
             </Toolbar>
         </Container>
-    ));
+    }</Observer>);

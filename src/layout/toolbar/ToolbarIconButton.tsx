@@ -5,16 +5,23 @@ import { HoverState } from "../../util/react/HoverState";
 export interface IToolbarIconButtonProps {
     Icon: IIconButtonProps["Icon"];
     iconSize?: number;
+    /** Toggle button behavior */
+    active?: boolean;
     onClick?(): void;
 }
 
 export class ToolbarIconButton extends React.Component<IToolbarIconButtonProps> {
     render() {
+        let { active, ...otherProps } = this.props;
+
         return (
             <HoverState>
                 {(hover) =>
-                    <IconButton {...this.props} color={
-                        theme => hover ? theme.colors.toolbarIconHover : theme.colors.toolbarIcon } />
+                    <IconButton {...otherProps} color={
+                        theme => hover ?
+                            (active ? theme.colors.buttonPrimaryBgActive  : theme.colors.toolbarIconHover) :
+                            (active ? theme.colors.buttonPrimaryBg : theme.colors.toolbarIcon)
+                    } />
                 }
             </HoverState>
         );
