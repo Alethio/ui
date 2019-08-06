@@ -1,4 +1,4 @@
-# Unreleased
+# v1.0.0-beta.22
 
 - (ToolbarIconButton): Add toggle functionality
 
