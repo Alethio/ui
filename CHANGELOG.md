@@ -1,3 +1,7 @@
+# Unreleased
+
+- (ToolbarIconButton): Add toggle functionality
+
 # v1.0.0-beta.21
 
 - (AccordionHorizontal, AccordionVertical) Fix arrow position when container offset is 0.
