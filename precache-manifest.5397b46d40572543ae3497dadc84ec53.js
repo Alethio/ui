@@ -284,7 +284,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/IClipboard.d.ts"
   },
   {
-    "revision": "3a5c62cda96b3ec672d7bb5b1bf82505",
+    "revision": "5ca8114dce55f3c4518a4b94b14c0feb",
     "url": "../lib/src/data/Label.d.ts"
   },
   {
@@ -1064,17 +1064,17 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "a3bf6b2d07a946b6097961ac0ee4c26a",
+    "revision": "76f6972370233a6593601a97732b4ef7",
     "url": "iframe.html"
   },
   {
-    "url": "main.c9b5907cd94349e0ee39.bundle.js"
+    "url": "main.444c48228a60fa557281.bundle.js"
   },
   {
-    "url": "runtime~main.c9b5907cd94349e0ee39.bundle.js"
+    "url": "runtime~main.444c48228a60fa557281.bundle.js"
   },
   {
-    "url": "vendors~main.c9b5907cd94349e0ee39.bundle.js"
+    "url": "vendors~main.444c48228a60fa557281.bundle.js"
   },
   {
     "revision": "40a1d4f582bb40be550e",
