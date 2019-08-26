@@ -4,8 +4,6 @@ import { observable } from "mobx";
 import { IUserProfileBasic } from "./IUserProfileBasic";
 import { ArrowDownIcon } from "../../../icon/ArrowDownIcon";
 import { Popover } from "../../../overlay/Popover";
-// import { Translation } from "app/Translation";
-// import { Auth } from "app/data/auth/Auth";
 import styled from "../../../styled-components";
 import { Spacer } from "../../Spacer";
 import { UserProfileLineSeparator } from "./UserProfileLineSeparator";

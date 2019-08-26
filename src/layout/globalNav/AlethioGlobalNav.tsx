@@ -22,9 +22,6 @@ const UserWidgetWrapper = styled.div`
     padding: 7px;
 `;
 
-/**
- * Will the alethio global nav be sticky ???
- */
 interface IAlethioGlobalNavProps {
     zIndex?: number;
     locale: string;
