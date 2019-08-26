@@ -31,7 +31,7 @@ export interface IHashProps {
  * Render a hash with ellipsis, but still make it possible to highlight it with the browser's "Find in page" feature
  */
 export class Hash extends React.PureComponent<IHashProps> {
-    static defaultProps: Partial<IHashProps> = {
+    static defaultProps: Pick<IHashProps, "ellipsisThreshold" | "ellipsisChars" | "useEllipsis"> = {
         ellipsisThreshold: 20,
         ellipsisChars: 6,
         useEllipsis: true

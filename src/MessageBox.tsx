@@ -55,8 +55,9 @@ export interface IMessageBoxProps {
     colors?: IMessageBoxColors;
 }
 
+/** Shows a centered, floating message box with an icon and text */
 export class MessageBox extends React.Component<IMessageBoxProps> {
-    static defaultProps: Partial<IMessageBoxProps> = {
+    static defaultProps: Pick<IMessageBoxProps, "colors"> = {
         colors: "primary"
     };
 

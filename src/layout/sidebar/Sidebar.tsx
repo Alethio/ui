@@ -9,9 +9,11 @@ const StyledVerticalBar = styled(VerticalBar)`
 `;
 
 interface ISidebarProps {
+    /** Uses position: fixed to "pin" the sidebar to the viewport */
     sticky?: boolean;
     zIndex?: number;
     theme: ITheme;
+    /** Visibility, only when on mobile resolution */
     mobileVisible?: boolean;
     contentRef?(instance: HTMLDivElement): void;
 }

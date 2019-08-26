@@ -9,6 +9,7 @@ export interface IEthValueBoxProps {
     /** Maximum number of decimals to show (minimum 2) */
     decimals?: number;
     variant?: IValueBoxProps["variant"];
+    symbol?: string;
     locale: string;
     /** Defaults to highlight if wei is non-zero, or secondary otherwise */
     colors?: IValueBoxProps["colors"];
@@ -16,12 +17,12 @@ export interface IEthValueBoxProps {
 
 export class EthValueBox extends React.Component<IEthValueBoxProps> {
     render() {
-        let { wei, locale, decimals } = this.props;
+        let { wei, locale, decimals, symbol } = this.props;
         let colors = this.props.colors || (wei.isGreaterThan(0) ? "primary" : "secondary");
 
         return (
             <ValueBox variant={this.props.variant} colors={colors}>
-                <EthValue wei={wei} locale={locale} decimals={decimals} showSymbol={true} />
+                <EthValue wei={wei} locale={locale} decimals={decimals} showSymbol={true} symbol={symbol} />
             </ValueBox>
         );
     }

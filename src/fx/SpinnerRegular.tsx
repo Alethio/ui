@@ -30,4 +30,7 @@ class $SpinnerRegular extends React.Component<ISpinnerRegularProps> {
     }
 }
 
+/**
+ * Drop-in spinner component with default styling
+ */
 export const SpinnerRegular = withTheme($SpinnerRegular);

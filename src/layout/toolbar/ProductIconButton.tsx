@@ -6,6 +6,10 @@ export interface IProductIconButtonProps {
     Icon: IIconButtonProps["Icon"];
 }
 
+/**
+ * Variation of the ToolbarIconButton component that works with multi-color SvgIcon components.
+ * The Icon passed as prop must act neutrally when being passed an undefined value as color
+ */
 export class ProductIconButton extends React.Component<IProductIconButtonProps> {
     render() {
         return (

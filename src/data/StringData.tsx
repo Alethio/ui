@@ -33,6 +33,7 @@ export interface IStringDataProps {
     children: string;
 }
 
+/** Renders a multi-line string */
 export class StringData extends React.Component<IStringDataProps> {
     render() {
         return (

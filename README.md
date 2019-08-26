@@ -10,25 +10,64 @@ React component library for Alethio apps
 ## Installation
 
 1. `npm i @alethio/ui`
-2. Copy files from `public/css` and `public/fonts` into your root app folder and import CSS in your index.html.
-3. Just import any component with `import { ... } from "@alethio/ui/lib/path/to/Component"`
+2. Copy the `public/css` and `public/fonts` folders into your root app folder and import the CSS files in your index.html.
+3. In your root App component, create a theme and pass it to styled-components provider:
+
+```tsx
+import * as React from "react";
+import { ThemeProvider } from "@alethio/ui/lib/styled-components";
+import { createPalette } from "@alethio/ui/lib/theme/createPalette";
+import { createTheme } from "@alethio/ui/lib/theme/createTheme";
+
+class App extends React.Component {
+    private theme = createTheme(createPalette());
+
+    render() {
+        return <ThemeProvider theme={this.theme}>
+            { /* ... stuff ... */ }
+        </ThemeProvider>
+    }
+}
+```
+
+## Usage
+
+Just import any component with `import { ... } from "@alethio/ui/lib/path/to/Component"`.
+
+**NOTE**: Internal components are marked as `@internal` and/or are placed in `internal/` sub-folders. Never use them directly in production.
+
+## Playground
+
+You can see the components in action [here](https://alethio.github.io/ui).
 
 ## Development
 
 1. `npm install`
-2. `npm run build` for production or `npm run watch` for development.
+2. `npm run build` for minified build or `npm run watch` for incremental development/debug build.
 
 ## Project structure
 ```
 📁
-├─📁lib            - target folder for application that contains deployables
-├─📁public         - contains static assets that are copied to the dist folder as they are
+├─📁lib            - target folder that contains built/transpiled components
+├─📁public         - static assets (css and fonts) that should be served by the consumer app
 └─📁src            - source files
-  ├─📁control       - reusable ui controls and widgets
-  ├─📁data          - components for displaying and formatting various types of data
-  ├─📁fx            - Effects and animations
-  ├─📁icon          - reusable icon components (SVG or icon font wrappers)
-  └─📁layout        - components for layout / arrangement
+  ├─📁control      - UI controls / widgets
+  ├─📁data         - components for displaying and formatting various types of data
+  ├─📁fx           - Effects and animations
+  ├─📁icon         - icon components (SVG or icon font wrappers)
+  └─📁layout       - components for layout / arrangement
+```
+
+## Theming
+
+The library uses a styled-component theme, which you can directly access in your styled components. If using TypeScript, we also provide e re-export of styled-components library (which is a peer dependency) that uses a typed [ITheme](./src/theme/ITheme.ts) interface.
+
+```ts
+import * as styled from "@alethio/ui/lib/styled-components";
+
+const MyLinkComponent = styled.div`
+    color: ${props => props.theme.colors.link};
+`;
 ```
 
 ## Managing SVG icons

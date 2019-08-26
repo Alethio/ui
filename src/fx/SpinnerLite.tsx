@@ -5,6 +5,7 @@ export interface ISpinnerLiteProps {
     size?: number;
 }
 
+/** A spinner variant with a light footprint that omits borders */
 export class SpinnerLite extends React.Component<ISpinnerLiteProps> {
     static defaultProps = {
         size: 24

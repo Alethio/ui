@@ -35,15 +35,28 @@ export interface IAccordionHorizontalProps<TItemConfig extends IAccordionItemCon
 }
 
 /**
- * Accordion with async loading that uses the standard layout row/item components to display its data
- * Uses a horizontal layout, with expanders on the same row
+ * Accordion with async loading that uses the standard LayoutRow/LayoutItem components to display its data
  *
- * Shows loading/error/no data states
+ * Uses a horizontal layout, with item expanders rendered on the same row.
+ * For each accordion item, a corresponding <AccordionItem /> instance should be passed as a child
+ * to the accordion instance. Passing arbitrary props to each item is possible and is reflected
+ * in the TItemConfig generic type parameter:
+ *
+ * ```ts
+ * import { IAccordionItemConfig } from "@alethio/ui/lib/control/accordion/IAccordionItemConfig";
+ *
+ * interface IItemData extends IAccordionItemConfig {
+ *     foo: string;
+ * }
+ * <AccordionHorizontal<IItemData> ...>
+ *     <AccordionItem<IItemData> foo="bar" content={async () => <div>Test</div>} />
+ * </AccordionHorizontal>
+ * ```
  */
 @observer
 export class AccordionHorizontal<TItemConfig extends IAccordionItemConfig>
 extends React.Component<IAccordionHorizontalProps<TItemConfig>> {
-    static defaultProps: Partial<IAccordionVerticalProps<any>> = {
+    static defaultProps: Pick<IAccordionVerticalProps<any>, "contentAnimSeconds"> = {
         contentAnimSeconds: .2
     };
 
@@ -150,7 +163,7 @@ extends React.Component<IAccordionHorizontalProps<TItemConfig>> {
     }}
 
     private getContentArrowPosition(idx: number) {
-        if (this.expanderEls.size && this.containerOffsetLeft) {
+        if (this.expanderEls.size && this.containerOffsetLeft !== void 0) {
             if (!this.expanderEls.has(idx)) {
                 throw new RangeError(`Index "${idx}" out of range`);
             }

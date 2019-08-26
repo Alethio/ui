@@ -1,10 +1,27 @@
+# v1.0.0-beta.22
+
+- (ToolbarIconButton): Add toggle functionality
+
+# v1.0.0-beta.21
+
+- (AccordionHorizontal, AccordionVertical) Fix arrow position when container offset is 0.
+
+# v1.0.0-beta.20
+
+- (Expander) Fix regression introduced with beta.19, when `value` is possibly undefined.
+
+# v1.0.0-beta.19
+
+- (EthValue, EthValueBox): Make ETH symbol configurable
+- Fix some typings for components with defaultProps. This could be a breaking change, if the components were consumed incorrectly before, by omitting some required props (this was possible, depending on the TS version used, and is now fixed).
+
 # v1.0.0-beta.18
 
 - Updated the Alethio palette colors
 
 # v1.0.0-beta.17
 
-- Fix regression introduced with beta.15 in AlethioReportsIcon size
+- (AlethioReportsIcon) Fix regression introduced with beta.15 in `size` prop
 
 # v1.0.0-beta.16
 

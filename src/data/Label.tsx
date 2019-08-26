@@ -15,6 +15,7 @@ const $Label: React.StatelessComponent<ILabelProps> = ({ children, className }) 
     <div className={className}>{children}</div>
 );
 
+/** Label suitable for form elements or data fields in a standard LayoutRow/LayoutRowItem layout */
 export const Label = styled($Label)`
     font-size: 12px;
     line-height: 12px;

@@ -10,12 +10,15 @@ export interface IEthValueProps {
     decimals?: number;
     locale: string;
     /** Display the currency symbol (ETH) ? */
-    showSymbol: boolean;
+    showSymbol?: boolean;
+    /** Use a custom symbol (e.g. GöETH instead of ETH) */
+    symbol?: string;
 }
 
 export class EthValue extends React.Component<IEthValueProps> {
-    static defaultProps: Partial<IEthValueProps> = {
-        decimals: 4
+    static defaultProps: Pick<IEthValueProps, "decimals" | "symbol"> = {
+        decimals: 4,
+        symbol: "ETH"
     };
 
     render() {
@@ -23,7 +26,7 @@ export class EthValue extends React.Component<IEthValueProps> {
             new BigNumberFormatter().format(weiToEth(this.props.wei), this.props.locale, {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: this.props.decimals!
-            }) + (this.props.showSymbol ? " ETH" : "")
+            }) + (this.props.showSymbol ? " " + this.props.symbol : "")
         );
     }
 }

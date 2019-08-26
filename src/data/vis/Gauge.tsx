@@ -20,7 +20,7 @@ export interface IGaugeProps {
  * See https://github.com/Reggino/react-svg-gauge/blob/master/src/Gauge.tsx
  */
 export class Gauge extends React.Component<IGaugeProps> {
-    static defaultProps: Partial<IGaugeProps> = {
+    static defaultProps = {
         min: 0,
         max: 100,
         color: "#FF9F1C",

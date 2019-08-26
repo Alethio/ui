@@ -102,6 +102,7 @@ class $StackBar extends React.Component<IStackBarProps> {
     }
 }
 
+/** Like a pie-chart, but disposed in a horizontal layout, similar to a progress bar */
 export const StackBar = styled($StackBar)`
     height: ${props => props.maxBarHeight!}px;
     display: flex;

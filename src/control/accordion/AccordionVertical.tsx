@@ -39,15 +39,29 @@ export interface IAccordionVerticalProps<TItemConfig extends IAccordionItemConfi
 }
 
 /**
- * Accordion with async loading that uses the standard layout row/item components to display its data
+ * Accordion with async loading that uses the standard LayoutRow/LayoutItem components to display its data
  *
- * Calculates the width of the largest expander and sets all expanders to the same width
- * Shows loading/error/no data states
+ * Uses a vertical layout, calculating the width of the largest expander and sets all expanders to the same width
+ *
+ * For each accordion item, a corresponding <AccordionItem /> instance should be passed as a child
+ * to the accordion instance. Passing arbitrary props to each item is possible and is reflected
+ * in the TItemConfig generic type parameter:
+ *
+ * ```ts
+ * import { IAccordionItemConfig } from "@alethio/ui/lib/control/accordion/IAccordionItemConfig";
+ *
+ * interface IItemData extends IAccordionItemConfig {
+ *     foo: string;
+ * }
+ * <AccordionVertical<IItemData> ...>
+ *     <AccordionItem<IItemData> foo="bar" content={async () => <div>Test</div>} />
+ * </AccordionVertical>
+ * ```
  */
 @observer
 export class AccordionVertical<TItemConfig extends IAccordionItemConfig>
 extends React.Component<IAccordionVerticalProps<TItemConfig>> {
-    static defaultProps: Partial<IAccordionVerticalProps<any>> = {
+    static defaultProps: Pick<IAccordionVerticalProps<any>, "contentAnimSeconds"> = {
         contentAnimSeconds: .2
     };
 
@@ -204,7 +218,7 @@ extends React.Component<IAccordionVerticalProps<TItemConfig>> {
     }
 
     private getContentArrowPosition() {
-        if (this.expanderEls.size && this.containerOffsetLeft && this.fixedExpanderWidth) {
+        if (this.expanderEls.size && this.containerOffsetLeft !== void 0 && this.fixedExpanderWidth) {
             let expanderEl = this.expanderEls.values().next().value;
             return expanderEl.offsetLeft - this.containerOffsetLeft + this.fixedExpanderWidth / 2;
         }

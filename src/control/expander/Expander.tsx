@@ -53,11 +53,22 @@ const ExpanderContent = styled<IExpanderContentProps, "div">("div")`
     ` : ``}
 `;
 
-export interface IExpanderProps {
-    label: string;
+const hasPropsWithValue = (props: IExpanderBaseProps): props is IExpanderWithValueProps => {
+    return (props as IExpanderWithValueProps).value !== void 0;
+};
+
+export interface IExpanderWithValueProps extends IExpanderBaseProps {
     value?: number;
-    open: boolean;
     locale: string;
+}
+
+export interface IExpanderWithoutValueProps extends IExpanderBaseProps {
+    value?: never;
+}
+
+export interface IExpanderBaseProps {
+    label: string;
+    open: boolean;
     /** Full width mode (expand to 100% of container) */
     fullWidth?: boolean;
     disabled?: boolean;
@@ -65,9 +76,18 @@ export interface IExpanderProps {
     onResize?(): void;
 }
 
+export type IExpanderProps = IExpanderWithoutValueProps | IExpanderWithValueProps;
+
+/** Component used for accordions and other expanding content */
 export class Expander extends React.Component<IExpanderProps> {
     render() {
-        let { label, value, open, disabled, locale } = this.props;
+        let value: number | undefined;
+        let locale: string | undefined;
+        if (hasPropsWithValue(this.props)) {
+            value = this.props.value;
+            locale = this.props.locale;
+        }
+        let { label, open, disabled } = this.props;
         return (
             <ExpanderRoot onClick={this.handleClick} disabled={disabled}>
                 <StyledValueBox
@@ -84,7 +104,7 @@ export class Expander extends React.Component<IExpanderProps> {
                         <ExpanderLabel>{label}</ExpanderLabel>
                         { value !== void 0 ?
                         <ExpanderValue open={open} disabled={disabled}>
-                            <Number locale={locale} value={value} />
+                            <Number locale={locale!} value={value} />
                         </ExpanderValue>
                         : null }
                         <ExpanderIcon expanded={open} />
@@ -101,7 +121,9 @@ export class Expander extends React.Component<IExpanderProps> {
     }
 
     componentDidUpdate(prevProps: IExpanderProps) {
-        if (prevProps.label !== this.props.label || prevProps.value !== this.props.value) {
+        if (prevProps.label !== this.props.label ||
+            (prevProps as IExpanderWithValueProps).value !== (this.props as IExpanderWithValueProps).value
+        ) {
             const onResize = this.props.onResize;
             if (onResize) {
                 // setTimeout because of async rendering
