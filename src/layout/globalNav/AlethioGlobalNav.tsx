@@ -33,7 +33,6 @@ interface IAlethioGlobalNavProps {
     auth: IAuth;
     userProfile?: IUserProfileBasic;
     subNavOnlyMobile?: boolean;
-    // subNavHideWhenActive?: boolean;
     subNavHandler?(): void;
 }
 
@@ -42,11 +41,15 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
     @observable private translations: Translation | undefined;
     constructor(props: IAlethioGlobalNavProps) {
         super(props);
-        this.loadTranslations();
+        this.loadTranslations().catch(err => {
+            this.translations = void 0;
+        });
     }
     componentDidUpdate(prevProps: IAlethioGlobalNavProps) {
         if (prevProps.locale !== this.props.locale) {
-            this.loadTranslations();
+            this.loadTranslations().catch(err => {
+                this.translations = void 0;
+            });
         }
     }
     async loadTranslations() {
