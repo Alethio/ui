@@ -13,6 +13,7 @@ import { ProductNav } from "./nav/ProductNav";
 import { HamburgerIcon } from "../../icon/HamburgerIcon";
 import { ResponsiveContainer } from "../responsive/ResponsiveContainer";
 import { Button } from "../../control/Button";
+import { INavItems } from "./nav/items/INavItems";
 
 const StyledHorizontalBar = styled(HorizontalBar)`
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.04);
@@ -32,6 +33,7 @@ interface IAlethioGlobalNavProps {
     productName: string;
     theme: ITheme;
     auth: IAuth;
+    items?: string;
     userProfile?: IUserProfileBasic;
     subNavOnlyMobile?: boolean;
     subNavHandler?(): void;
@@ -40,16 +42,25 @@ interface IAlethioGlobalNavProps {
 @observer
 class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
     @observable private translations: Translation | undefined;
+    @observable private navigationItems: INavItems | undefined;
     constructor(props: IAlethioGlobalNavProps) {
         super(props);
         this.loadTranslations().catch(err => {
             this.translations = void 0;
+        });
+        this.loadNavigationItems().catch(err => {
+            this.navigationItems = void 0;
         });
     }
     componentDidUpdate(prevProps: IAlethioGlobalNavProps) {
         if (prevProps.locale !== this.props.locale) {
             this.loadTranslations().catch(err => {
                 this.translations = void 0;
+            });
+        }
+        if (prevProps.items !== this.props.items) {
+            this.loadNavigationItems().catch(err => {
+                this.navigationItems = void 0;
             });
         }
     }
@@ -80,16 +91,38 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
             this.translations = void 0;
         }
     }
+    async loadNavigationItems() {
+        let navigationItems: INavItems | undefined;
+        try {
+            switch (this.props.items) {
+                case "staging":
+                    navigationItems = (await import("./nav/items/staging")).navItems;
+                    break;
+                case "prod":
+                default:
+                    navigationItems = (await import("./nav/items/prod")).navItems;
+                    break;
+            }
+            if (navigationItems !== void 0) {
+                this.navigationItems = navigationItems;
+            }
+        } catch (err) {
+            this.navigationItems = void 0;
+        }
+    }
 
     render() {
         if (this.translations === void 0) {
             return "NO TRANSLATIONS";
         }
+        if (this.navigationItems === void 0) {
+            return "NO NAV ITEMS";
+        }
         let subNavIcon = <div onClick={this.props.subNavHandler} style={{padding: "22px 16px", cursor: "pointer"}}>
             <HamburgerIcon size={20} />
         </div>;
         return (
-            <StyledHorizontalBar zIndex={this.props.zIndex} sticky height={this.props.theme.spacing.topbarHeight}>
+            <StyledHorizontalBar zIndex={this.props.zIndex} height={this.props.theme.spacing.topbarHeight}>
                 {
                     this.props.subNavHandler ?
                         this.props.subNavOnlyMobile ?
@@ -99,7 +132,11 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
                         : subNavIcon
                     : null
                 }
-                <ProductNav translation={this.translations} productName={this.props.productName} />
+                <ProductNav
+                    translation={this.translations}
+                    productName={this.props.productName}
+                    items={this.navigationItems}
+                />
                 <Filler />
                 { this.props.children }
                 <Filler />

@@ -34,6 +34,8 @@ export interface IFadeProps {
     duration: number;
     /** Delay in seconds */
     delay?: number;
+    /** Initial active state */
+    active?: boolean;
 }
 
 /**
@@ -52,7 +54,17 @@ export class Fade extends React.Component<IFadeProps> {
     private delayTimer: number | undefined;
 
     componentDidMount() {
-        this.delayTimer = setTimeout(() => this.active = true, this.props.delay! * 1000);
+        if (this.props.active === true || this.props.active === void 0) {
+            this.delayTimer = setTimeout(() => this.active = true, this.props.delay! * 1000);
+        }
+    }
+
+    componentDidUpdate(prevProps: IFadeProps) {
+        if (prevProps.active !== this.props.active) {
+            this.delayTimer = setTimeout(() => {
+                this.active = (this.props.active === true || this.props.active === void 0);
+            }, this.props.delay! * 1000);
+        }
     }
 
     componentWillUnmount() {

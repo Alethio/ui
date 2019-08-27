@@ -2,7 +2,6 @@ import React from "react";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
 import { IUserProfileBasic } from "./IUserProfileBasic";
-import { ArrowDownIcon } from "../../../icon/ArrowDownIcon";
 import { Popover } from "../../../overlay/Popover";
 import styled from "../../../styled-components";
 import { Spacer } from "../../Spacer";
@@ -20,11 +19,6 @@ const UserProfileMenuWrapper = styled.div`
 
 const UserProfileWidgetInner = styled.div`
     cursor: pointer;
-    width: 74px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    z-index: 1;
 `;
 const Mask = styled.div`
     position: fixed;
@@ -72,7 +66,6 @@ export class UserProfileWidget extends React.Component<IUserProfileWidgetProps> 
                         src={this.props.userProfile.picture}
                         style={{width: "48px", borderRadius: "50%"}}
                     />
-                    <ArrowDownIcon />
                 </UserProfileWidgetInner>
             </Popover>
             </>
