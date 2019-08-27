@@ -12,6 +12,7 @@ import { Filler } from "../Filler";
 import { ProductNav } from "./nav/ProductNav";
 import { HamburgerIcon } from "../../icon/HamburgerIcon";
 import { ResponsiveContainer } from "../responsive/ResponsiveContainer";
+import { Button } from "../../control/Button";
 
 const StyledHorizontalBar = styled(HorizontalBar)`
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.04);
@@ -20,6 +21,9 @@ const StyledHorizontalBar = styled(HorizontalBar)`
 
 const UserWidgetWrapper = styled.div`
     padding: 7px;
+`;
+const LoginButtonWrapper = styled.div`
+    padding: 14px;
 `;
 
 interface IAlethioGlobalNavProps {
@@ -108,7 +112,12 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
                             translation={this.translations}
                         />
                     </UserWidgetWrapper>
-                    : "LOGIN"
+                    : <LoginButtonWrapper>
+                        <Button
+                            colors="primary"
+                            onClick={() => { this.props.auth.login(); }}
+                        >{ this.translations.get("general.loginButton") }</Button>
+                    </LoginButtonWrapper>
                 }
             </StyledHorizontalBar>
         );
