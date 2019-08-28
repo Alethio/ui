@@ -16,7 +16,7 @@ const Mask = styled.div`
 `;
 
 interface ISubNavProps {
-    content?: React.ReactNode;
+    content?(requestClose: () => void): React.ReactNode;
     handler?(): void;
 }
 
@@ -39,12 +39,16 @@ export class SubNav extends React.Component<ISubNavProps> {
             </div>
             { this.props.content ? ReactDOM.createPortal(<>
                 <Fade duration={.2} active={this.layerOpen}>
-                    <Mask onClick={() => { this.layerOpen = false; }} />
+                    <Mask onClick={this.requestClose} />
                 </Fade>
                 <Drawer open={this.layerOpen}>
-                    { this.props.content }
+                    { this.props.content(this.requestClose) }
                 </Drawer>
             </>, document.body) : null }
         </>);
+    }
+
+    private requestClose = () => {
+        this.layerOpen = false;
     }
 }

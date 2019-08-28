@@ -45,7 +45,7 @@ interface IAlethioGlobalNavProps {
      * When present, the content will be passed to the built-in left drawer.
      * When undefined, the built-in drawer will not be used
      */
-    subNavContent?: React.ReactNode;
+    subNavContent?(requestClose: () => void): React.ReactNode;
     /**
      * Give a handler when you don't want to use the built-in drawer but handle the sub nav menu in the app
      */
