@@ -10,6 +10,8 @@ import { UserProfileDetails, UserProfileDetailsEmail, UserProfileDetailsPlan } f
 import { UserProfileMenuItem } from "./UserProfileMenuItem";
 import { Translation } from "../translations/Translation";
 import { IAuth } from "../auth/IAuth";
+import { ILinkItem } from "./links/ILinkItem";
+import { ExternalLink as ExternalLinkBase } from "../../../control/ExternalLink";
 
 const UserProfileMenuWrapper = styled.div`
     color: ${({theme}) => theme.colors.base.primary.color};
@@ -20,6 +22,11 @@ const UserProfileMenuWrapper = styled.div`
 const UserProfileWidgetInner = styled.div`
     cursor: pointer;
 `;
+
+const ExternalLink = styled(ExternalLinkBase)`
+    color: inherit;
+`;
+
 const Mask = styled.div`
     position: fixed;
     top: 0;
@@ -31,6 +38,7 @@ const Mask = styled.div`
 export interface IUserProfileWidgetProps {
     auth: IAuth;
     userProfile: IUserProfileBasic;
+    links: ILinkItem[] | undefined;
     translation: Translation;
 }
 
@@ -56,7 +64,13 @@ export class UserProfileWidget extends React.Component<IUserProfileWidgetProps> 
                         : null }
                     </UserProfileDetails>
                     <UserProfileLineSeparator />
-                    <UserProfileMenuItem>{ tr.get("userProfile.dashboard.link") }</UserProfileMenuItem>
+                    { this.props.links ? this.props.links.map(l =>
+                        <UserProfileMenuItem>
+                            <ExternalLink newTab={false} href={l.url}>
+                                { tr.get(l.label) }
+                            </ExternalLink>
+                        </UserProfileMenuItem>
+                    ) : null }
                     <UserProfileMenuItem onClick={() => {
                         this.layerOpen = false;
                         this.props.auth.logout();

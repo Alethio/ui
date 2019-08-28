@@ -14,6 +14,7 @@ import { SubNav } from "./subnav/SubNav";
 import { ResponsiveContainer } from "../responsive/ResponsiveContainer";
 import { Button } from "../../control/Button";
 import { INavItems } from "./nav/items/INavItems";
+import { ILinkItem } from "./user/links/ILinkItem";
 
 const StyledHorizontalBar = styled(HorizontalBar)`
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.04);
@@ -56,6 +57,7 @@ interface IAlethioGlobalNavProps {
 class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
     @observable private translations: Translation | undefined;
     @observable private navigationItems: INavItems | undefined;
+    @observable private userWidgetLinks: ILinkItem[] | undefined;
     constructor(props: IAlethioGlobalNavProps) {
         super(props);
         this.loadTranslations().catch(err => {
@@ -106,21 +108,28 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
     }
     async loadNavigationItems() {
         let navigationItems: INavItems | undefined;
+        let userWidgetLinks: ILinkItem[] | undefined;
         try {
             switch (this.props.items) {
                 case "staging":
                     navigationItems = (await import("./nav/items/staging")).navItems;
+                    userWidgetLinks = (await import("./user/links/staging")).linkItems;
                     break;
                 case "prod":
                 default:
                     navigationItems = (await import("./nav/items/prod")).navItems;
+                    userWidgetLinks = (await import("./user/links/prod")).linkItems;
                     break;
             }
             if (navigationItems !== void 0) {
                 this.navigationItems = navigationItems;
             }
+            if (userWidgetLinks !== void 0) {
+                this.userWidgetLinks = userWidgetLinks;
+            }
         } catch (err) {
             this.navigationItems = void 0;
+            this.userWidgetLinks = void 0;
         }
     }
 
@@ -157,6 +166,7 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
                             auth={this.props.auth}
                             userProfile={this.props.userProfile}
                             translation={this.translations}
+                            links={this.userWidgetLinks}
                         />
                     </UserWidgetWrapper>
                     : <LoginButtonWrapper>
