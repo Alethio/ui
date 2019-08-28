@@ -10,7 +10,7 @@ import { Translation, ITranslations } from "./translations/Translation";
 import { observer } from "mobx-react";
 import { Filler } from "../Filler";
 import { ProductNav } from "./nav/ProductNav";
-import { HamburgerIcon } from "../../icon/HamburgerIcon";
+import { SubNav } from "./subnav/SubNav";
 import { ResponsiveContainer } from "../responsive/ResponsiveContainer";
 import { Button } from "../../control/Button";
 import { INavItems } from "./nav/items/INavItems";
@@ -35,7 +35,20 @@ interface IAlethioGlobalNavProps {
     auth: IAuth;
     items?: string;
     userProfile?: IUserProfileBasic;
+    /**
+     * When set to true, the hamburger menu will be shown only on viewports smaller than 640px
+     * When set to false, his presence will depend on subNavContent and subNavHandler. If any of those are set
+     * the menu will always be visible, if none is set, the menu will always be hidden
+     */
     subNavOnlyMobile?: boolean;
+    /**
+     * When present, the content will be passed to the built-in left drawer.
+     * When undefined, the built-in drawer will not be used
+     */
+    subNavContent?: React.ReactNode;
+    /**
+     * Give a handler when you don't want to use the built-in drawer but handle the sub nav menu in the app
+     */
     subNavHandler?(): void;
 }
 
@@ -118,18 +131,15 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
         if (this.navigationItems === void 0) {
             return "NO NAV ITEMS";
         }
-        let subNavIcon = <div onClick={this.props.subNavHandler} style={{padding: "22px 16px", cursor: "pointer"}}>
-            <HamburgerIcon size={20} />
-        </div>;
         return (
             <StyledHorizontalBar zIndex={this.props.zIndex} height={this.props.theme.spacing.topbarHeight}>
                 {
-                    this.props.subNavHandler ?
+                    this.props.subNavHandler || this.props.subNavContent ?
                         this.props.subNavOnlyMobile ?
                         <ResponsiveContainer behavior="show" forScreenWidth={{lowerThan: 640}}>
-                            { subNavIcon }
+                            <SubNav handler={this.props.subNavHandler} content={this.props.subNavContent} />
                         </ResponsiveContainer>
-                        : subNavIcon
+                        : <SubNav handler={this.props.subNavHandler} content={this.props.subNavContent} />
                     : null
                 }
                 <ProductNav

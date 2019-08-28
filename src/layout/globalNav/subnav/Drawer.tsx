@@ -4,14 +4,14 @@ import styled from "../../../styled-components";
 const DrawerWrapper = styled<IDrawerProps, "div">("div")`
     background-color: white;
     position: absolute;
-    top: 0;
+    top: 64px;
     left: 0;
     bottom: 0;
     right: 50px;
     z-index: 1;
     max-width: 320px;
     transition: transform ease 0.5s;
-    transform: translate(0px, ${({open}) => open ? "0px" : "-100%"});
+    transform: translate(${({open}) => open ? "0px" : "-100%"}, 0px);
 `;
 
 interface IDrawerProps {

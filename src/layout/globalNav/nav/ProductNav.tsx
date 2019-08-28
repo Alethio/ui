@@ -108,7 +108,7 @@ export class ProductNav extends React.Component<IProductNavProps> {
                         }
                         <Spacer height="8px" />
                     </NavMenuWrapper>
-                </Drawer> }
+                </Drawer>
             </>, document.body) }
         </>);
     }
