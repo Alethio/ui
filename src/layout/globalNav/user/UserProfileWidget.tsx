@@ -49,9 +49,11 @@ export class UserProfileWidget extends React.Component<IUserProfileWidgetProps> 
                     <UserProfileDetails>
                         <UserProfileDetailsEmail>{ this.props.userProfile.email }</UserProfileDetailsEmail>
                         <Spacer height="8px" />
+                        { this.props.userProfile.plan ?
                         <UserProfileDetailsPlan>
                             { tr.get("userProfile.plan." + this.props.userProfile.plan) }
                         </UserProfileDetailsPlan>
+                        : null }
                     </UserProfileDetails>
                     <UserProfileLineSeparator />
                     <UserProfileMenuItem>{ tr.get("userProfile.dashboard.link") }</UserProfileMenuItem>
