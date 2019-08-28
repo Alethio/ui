@@ -29,7 +29,7 @@ export class SubNav extends React.Component<ISubNavProps> {
         return (<>
             <div onClick={() => {
                 if (this.props.content) {
-                    this.layerOpen = !this.layerOpen;
+                    this.toggleLayer();
                 }
                 if (this.props.handler) {
                     this.props.handler();
@@ -50,5 +50,9 @@ export class SubNav extends React.Component<ISubNavProps> {
 
     private requestClose = () => {
         this.layerOpen = false;
+    }
+
+    private toggleLayer = () => {
+        this.layerOpen = !this.layerOpen;
     }
 }

@@ -66,7 +66,7 @@ export class UserProfileWidget extends React.Component<IUserProfileWidgetProps> 
                 <UserProfileWidgetInner onClick={() => { this.layerOpen = !this.layerOpen; }} >
                     <img
                         src={this.props.userProfile.picture}
-                        style={{width: "48px", borderRadius: "50%"}}
+                        style={{width: "48px", borderRadius: "50%", display: "block"}}
                     />
                 </UserProfileWidgetInner>
             </Popover>

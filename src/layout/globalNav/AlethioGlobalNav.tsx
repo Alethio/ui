@@ -21,7 +21,7 @@ const StyledHorizontalBar = styled(HorizontalBar)`
 `;
 
 const UserWidgetWrapper = styled.div`
-    padding: 7px;
+    padding: 8px;
 `;
 const LoginButtonWrapper = styled.div`
     padding: 14px;

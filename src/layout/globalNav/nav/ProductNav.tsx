@@ -73,7 +73,7 @@ export class ProductNav extends React.Component<IProductNavProps> {
         let tr = this.props.translation;
 
         return (<>
-            <NavWidgetInner onClick={() => { this.layerOpen = !this.layerOpen; }} >
+            <NavWidgetInner onClick={this.toggleLayer} >
                 <AlethioLogoWrapper>
                     <AlethioIcon size={24} />
                 </AlethioLogoWrapper>
@@ -83,11 +83,11 @@ export class ProductNav extends React.Component<IProductNavProps> {
             </NavWidgetInner>
             { ReactDOM.createPortal(<>
                 <Fade duration={.2} active={this.layerOpen}>
-                    <Mask onClick={() => { this.layerOpen = false; }} />
+                    <Mask onClick={this.toggleLayer} />
                 </Fade>
                 <Drawer open={this.layerOpen}>
                     <NavMenuWrapper>
-                        <NavWidgetInner onClick={() => { this.layerOpen = !this.layerOpen; }}>
+                        <NavWidgetInner onClick={this.toggleLayer}>
                             <AlethioLogoWrapper>
                                 <AlethioIcon size={24} />
                             </AlethioLogoWrapper>
@@ -111,5 +111,10 @@ export class ProductNav extends React.Component<IProductNavProps> {
                 </Drawer>
             </>, document.body) }
         </>);
+    }
+
+    private toggleLayer = () => {
+        this.layerOpen = !this.layerOpen;
+        document.body.style.overflowY = this.layerOpen ? "hidden" : "auto";
     }
 }

@@ -3,7 +3,7 @@ import styled from "../../../styled-components";
 
 const DrawerWrapper = styled<IDrawerProps, "div">("div")`
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
