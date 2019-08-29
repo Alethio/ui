@@ -49,7 +49,6 @@ const NavMenuLabel = styled(Label)`
     color: ${({theme}) => theme.colors.base.primary.color};
 `;
 const NavMenuItem = styled.div`
-    padding: 24px 26px;
     display: flex;
     align-items: center;
 
@@ -58,9 +57,18 @@ const NavMenuItem = styled.div`
     }
 
     a {
-        padding-left: 26px;
+        display: flex;
+        padding: 24px 26px;
+        box-sizing: border-box;
+        width: 100%;
         font-size: 18px;
+        line-height: 23.5px;
         color: ${({theme}) => theme.colors.base.primary.color};
+
+        img, svg {
+            display: inline-block !important;
+            padding-right: 26px;
+        }
     }
 `;
 
@@ -114,7 +122,9 @@ export class ProductNav extends React.Component<IProductNavProps> {
                             <AlethioLogoWrapper>
                                 <AlethioIcon size={20} />
                             </AlethioLogoWrapper>
-                            <AlethioCompanyName>{ tr.get("general.company") }</AlethioCompanyName>
+                            <AlethioCompanyName style={{paddingBottom: "1px"}}>{
+                                 tr.get("general.company") }
+                            </AlethioCompanyName>
                         </NavWidgetInner>
                         <ProductNavLineSeparator style={{marginTop: "-1px"}} />
                         {
@@ -122,8 +132,8 @@ export class ProductNav extends React.Component<IProductNavProps> {
                                 { gIdx ? <ProductNavLineSeparator /> : null }
                                 <NavMenuLabel>{ this.props.translation.get(group.label) }</NavMenuLabel>
                                 { group.items.map((link, lIdx) => <NavMenuItem key={"link_" + lIdx}>
-                                    { link.Icon ? <link.Icon /> : null }
                                     <ExternalLink newTab={false} href={link.url}>
+                                        { link.Icon ? <link.Icon /> : null }
                                         { this.props.translation.get(link.label) }
                                     </ExternalLink>
                                 </NavMenuItem>) }
