@@ -2,8 +2,8 @@ import { INavItems } from "./INavItems";
 import { AlethioIcon } from "../../../../icon/AlethioIcon";
 import { AlethioApiIcon } from "../../../../icon/AlethioApiIcon";
 import { AlethioMonitoringIcon } from "../../../../icon/AlethioMonitoringIcon";
-import { AlethioReportsIcon } from "../../../../icon/AlethioReportsIcon";
 import { EthStatsIcon } from "../../../../icon/EthStatsIcon";
+import { AlethioReportsIcon } from "../../../../icon/AlethioReportsIcon";
 import { DexWatchIcon } from "../../../../icon/DexWatchIcon";
 import { BriefcaseIcon } from "../../../../icon/BriefcaseIcon";
 import { InfoIcon } from "../../../../icon/InfoIcon";
@@ -18,6 +18,10 @@ export const navItems: INavItems = [
         label: "navMenu.group.developerAPI",
         items: [
             {
+                label: "navMenu.link.apiInfo",
+                url: "https://developers2.aleth.io/api",
+                Icon: AlethioApiIcon
+            }, {
                 label: "navMenu.link.apiDocs",
                 url: "https://docs.aleth.io/",
                 Icon: AlethioApiIcon
