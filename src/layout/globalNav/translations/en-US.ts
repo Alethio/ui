@@ -8,8 +8,22 @@ export const translations: Record<string, string> = {
     "navMenu.group.developerAPI": "Developer API",
     "navMenu.link.apiDocs": "API Docs",
     "navMenu.link.apiDevPortal": "API Developer Portal",
+    "navMenu.group.analyticsSuite": "Analytics Suite",
+    "navMenu.link.monitoring": "Monitoring",
+    "navMenu.link.explorer": "Explorer",
+    "navMenu.link.reporting": "Reporting",
     "navMenu.group.netHealth": "Network Health",
     "navMenu.link.ethstats": "Ethstats",
+    "navMenu.group.dataScience": "Data Science",
+    "navMenu.link.defiDashboard": "DeFi Dashboard",
+    "navMenu.link.dexwatch": "DEXWatch",
+    "navMenu.link.analyticsSeries": "Analytics Series",
     "navMenu.group.about": "About",
-    "navMenu.link.company": "Company"
+    "navMenu.link.company": "Company",
+    "navMenu.link.contact": "Contact",
+    "navMenu.link.twitter": "Twitter",
+    "navMenu.link.github": "Github",
+    "navMenu.link.medium": "Medium",
+    "navMenu.link.dischord": "Dischord",
+    "navMenu.link.linkedin": "LinkedIn"
 };

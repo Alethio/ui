@@ -16,30 +16,52 @@ import { INavItems } from "./items/INavItems";
 
 const AlethioLogoWrapper = styled.div`
     color: ${({theme}) => theme.colors.alethioLogo};
-    padding: 20px;
+    padding: 20px 10px 20px 20px;
 `;
 const AlethioCompanyName = styled.div`
-    font-size: 20px;
-    font-weight: 200;
+    font-size: 24px;
+    font-weight: 500;
 `;
 const AlethioProductName = styled.div`
-    font-size: 20px;
-    font-weight: normal;
+    font-size: 24px;
+    font-weight: 500;
+    padding-left: 4px;
 `;
 
 const NavMenuWrapper = styled.div`
     color: ${({theme}) => theme.colors.base.primary.color};
     padding: 0;
     min-width: 240px;
+    height: 100vh;
+    overflow-y: scroll;
+
+    hr:first-of-type {
+        margin: 0 0 32px;
+    }
+
+    hr {
+        margin: 13px 26px 32px;
+    }
 `;
 const NavMenuLabel = styled(Label)`
-    padding: 8px;
+    padding: 0 26px 13px;
     text-align: left;
+    color: ${({theme}) => theme.colors.base.primary.color};
 `;
 const NavMenuItem = styled.div`
-    padding: 8px;
+    padding: 24px 26px;
     display: flex;
     align-items: center;
+
+    &:hover {
+        background-color: ${({theme}) => theme.colors.base.bg.main}
+    }
+
+    a {
+        padding-left: 26px;
+        font-size: 18px;
+        color: ${({theme}) => theme.colors.base.primary.color};
+    }
 `;
 
 const NavWidgetInner = styled.div`
@@ -47,6 +69,7 @@ const NavWidgetInner = styled.div`
     cursor: pointer;
     display: flex;
     align-items: center;
+    height: 64px;
 `;
 const Mask = styled.div`
     position: fixed;
@@ -75,7 +98,7 @@ export class ProductNav extends React.Component<IProductNavProps> {
         return (<>
             <NavWidgetInner onClick={this.toggleLayer} >
                 <AlethioLogoWrapper>
-                    <AlethioIcon size={24} />
+                    <AlethioIcon size={20} />
                 </AlethioLogoWrapper>
                 <AlethioCompanyName>{ tr.get("general.company") }</AlethioCompanyName>
                 <AlethioProductName>{ this.props.productName }</AlethioProductName>
@@ -89,7 +112,7 @@ export class ProductNav extends React.Component<IProductNavProps> {
                     <NavMenuWrapper>
                         <NavWidgetInner onClick={this.toggleLayer}>
                             <AlethioLogoWrapper>
-                                <AlethioIcon size={24} />
+                                <AlethioIcon size={20} />
                             </AlethioLogoWrapper>
                             <AlethioCompanyName>{ tr.get("general.company") }</AlethioCompanyName>
                         </NavWidgetInner>

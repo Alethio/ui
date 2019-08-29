@@ -7,11 +7,11 @@ const DrawerWrapper = styled<IDrawerProps, "div">("div")`
     top: 0;
     left: 0;
     bottom: 0;
-    right: 50px;
     z-index: 1;
+    width: calc(100vw - 50px);
     max-width: 320px;
-    transition: transform ease 0.5s;
-    transform: translate(0px, ${({open}) => open ? "0px" : "-100%"});
+    transition: transform ease-in-out 0.1s;
+    transform: translate(0px, ${({open}) => open ? "0px" : "200vh"});
 `;
 
 interface IDrawerProps {
