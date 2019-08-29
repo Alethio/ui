@@ -64,10 +64,10 @@ export class UserProfileWidget extends React.Component<IUserProfileWidgetProps> 
                         : null }
                     </UserProfileDetails>
                     <UserProfileLineSeparator />
-                    { this.props.links ? this.props.links.map(l =>
-                        <UserProfileMenuItem>
-                            <ExternalLink newTab={false} href={l.url}>
-                                { tr.get(l.label) }
+                    { this.props.links ? this.props.links.map((link, lIdx) =>
+                        <UserProfileMenuItem key={lIdx}>
+                            <ExternalLink newTab={false} href={link.url}>
+                                { tr.get(link.label) }
                             </ExternalLink>
                         </UserProfileMenuItem>
                     ) : null }
