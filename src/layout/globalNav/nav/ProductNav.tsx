@@ -32,8 +32,6 @@ const NavMenuWrapper = styled.div`
     color: ${({theme}) => theme.colors.base.primary.color};
     padding: 0;
     min-width: 240px;
-    height: 100vh;
-    overflow-y: scroll;
 
     hr:first-of-type {
         margin: 0 0 32px;
@@ -63,13 +61,17 @@ const NavMenuItem = styled.div`
         width: 100%;
         font-size: 18px;
         line-height: 23.5px;
-        color: ${({theme}) => theme.colors.base.primary.color};
+        color: ${({theme}) => theme.colors.base.secondary.color};
 
         img, svg {
             display: inline-block !important;
             padding-right: 26px;
         }
     }
+`;
+
+const LinkLabel = styled.span`
+    color: ${({theme}) => theme.colors.base.primary.color};
 `;
 
 const NavWidgetInner = styled.div`
@@ -134,7 +136,7 @@ export class ProductNav extends React.Component<IProductNavProps> {
                                 { group.items.map((link, lIdx) => <NavMenuItem key={"link_" + lIdx}>
                                     <ExternalLink newTab={false} href={link.url}>
                                         { link.Icon ? <link.Icon /> : null }
-                                        { this.props.translation.get(link.label) }
+                                        <LinkLabel>{ this.props.translation.get(link.label) }</LinkLabel>
                                     </ExternalLink>
                                 </NavMenuItem>) }
                             </React.Fragment>)

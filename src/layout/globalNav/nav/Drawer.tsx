@@ -10,8 +10,10 @@ const DrawerWrapper = styled<IDrawerProps, "div">("div")`
     z-index: 1;
     width: calc(100vw - 50px);
     max-width: 320px;
-    transition: transform ease-in-out 0.1s;
-    transform: translate(0px, ${({open}) => open ? "0px" : "200vh"});
+    transition: transform ease-in-out 0.15s;
+    transform: translate(0px, ${({open}) => open ? "0px" : "-100vh"});
+    height: 100vh;
+    overflow-y: scroll;
 `;
 
 interface IDrawerProps {
