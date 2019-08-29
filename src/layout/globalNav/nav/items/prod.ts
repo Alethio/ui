@@ -4,8 +4,14 @@ import { AlethioApiIcon } from "../../../../icon/AlethioApiIcon";
 import { AlethioMonitoringIcon } from "../../../../icon/AlethioMonitoringIcon";
 import { AlethioReportsIcon } from "../../../../icon/AlethioReportsIcon";
 import { EthStatsIcon } from "../../../../icon/EthStatsIcon";
+import { DexWatchIcon } from "../../../../icon/DexWatchIcon";
 import { BriefcaseIcon } from "../../../../icon/BriefcaseIcon";
 import { InfoIcon } from "../../../../icon/InfoIcon";
+import { TwitterIcon } from "../../../../icon/TwitterIcon";
+import { GithubIcon } from "../../../../icon/GithubIcon";
+import { MediumIcon } from "../../../../icon/MediumIcon";
+import { DiscordIcon } from "../../../../icon/DiscordIcon";
+import { LinkedInIcon } from "../../../../icon/LinkedInIcon";
 
 export const navItems: INavItems = [
     {
@@ -57,7 +63,7 @@ export const navItems: INavItems = [
             }, {
                 label: "navMenu.link.dexwatch",
                 url: "https://dex.watch/",
-                Icon: AlethioIcon
+                Icon: DexWatchIcon
             }, {
                 label: "navMenu.link.analyticsSeries",
                 url: "https://medium.com/@alethioEthstats",
@@ -78,23 +84,23 @@ export const navItems: INavItems = [
             }, {
                 label: "navMenu.link.twitter",
                 url: "https://twitter.com/alethioethstats",
-                Icon: AlethioIcon
+                Icon: TwitterIcon
             }, {
                 label: "navMenu.link.github",
                 url: "https://github.com/Alethio",
-                Icon: AlethioIcon
+                Icon: GithubIcon
             }, {
                 label: "navMenu.link.medium",
                 url: "https://medium.com/@alethioEthstats",
-                Icon: AlethioIcon
+                Icon: MediumIcon
             }, {
                 label: "navMenu.link.dischord",
                 url: "https://discordapp.com/invite/e8dxhnD",
-                Icon: AlethioIcon
+                Icon: DiscordIcon
             }, {
                 label: "navMenu.link.linkedin",
                 url: "https://www.linkedin.com/company/alethio",
-                Icon: AlethioIcon
+                Icon: LinkedInIcon
             }
         ]
     }
