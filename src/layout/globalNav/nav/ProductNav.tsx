@@ -113,7 +113,6 @@ export class ProductNav extends React.Component<IProductNavProps> {
     layerOpen = false;
 
     render() {
-        console.log("this.props.showProductName:", this.props.showProductName);
         let tr = this.props.translation;
 
         return (<>

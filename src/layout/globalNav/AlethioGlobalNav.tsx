@@ -143,7 +143,6 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
     }
 
     render() {
-        console.log("showProductName:", this.props.showProductName);
         if (this.translations === void 0) {
             return "NO TRANSLATIONS";
         }
