@@ -22,16 +22,25 @@ const StyledHorizontalBar = styled(HorizontalBar)`
 `;
 
 const UserWidgetWrapper = styled.div`
-    padding: 8px;
+    padding: 8px 48px;
+
+    @media ${props => props.theme.mediaQueries.breakPoints.lessThan620px} {
+        padding: 8px 10px;
+    }
 `;
 const LoginButtonWrapper = styled.div`
-    padding: 14px;
+    padding: 14px 48px;
+
+    @media ${props => props.theme.mediaQueries.breakPoints.lessThan620px} {
+        padding: 14px 10px;
+    }
 `;
 
 interface IAlethioGlobalNavProps {
     zIndex?: number;
     locale: string;
     productName: string;
+    showProductName: boolean;
     theme: ITheme;
     auth: IAuth;
     items?: string;
@@ -134,6 +143,7 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
     }
 
     render() {
+        console.log("showProductName:", this.props.showProductName);
         if (this.translations === void 0) {
             return "NO TRANSLATIONS";
         }
@@ -154,6 +164,7 @@ class $AlethioGlobalNav extends React.Component<IAlethioGlobalNavProps> {
                 <ProductNav
                     translation={this.translations}
                     productName={this.props.productName}
+                    showProductName={this.props.showProductName}
                     items={this.navigationItems}
                 />
                 <Filler />

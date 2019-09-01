@@ -16,16 +16,24 @@ import { INavItems } from "./items/INavItems";
 
 const AlethioLogoWrapper = styled.div`
     color: ${({theme}) => theme.colors.alethioLogo};
-    padding: 20px 10px 20px 20px;
+    padding: 20px 10px 20px 0;
 `;
 const AlethioCompanyName = styled.div`
     font-size: 24px;
     font-weight: 500;
+
+    @media ${props => props.theme.mediaQueries.breakPoints.lessThan620px} {
+        font-size: 15px;
+    }
 `;
 const AlethioProductName = styled.div`
     font-size: 24px;
     font-weight: 500;
     padding-left: 4px;
+
+    @media ${props => props.theme.mediaQueries.breakPoints.lessThan620px} {
+        font-size: 15px;
+    }
 `;
 
 const NavMenuWrapper = styled.div`
@@ -80,6 +88,7 @@ const NavWidgetInner = styled.div`
     display: flex;
     align-items: center;
     height: 64px;
+    padding-left: 26px;
 `;
 const Mask = styled.div`
     position: fixed;
@@ -94,6 +103,7 @@ const Mask = styled.div`
 export interface IProductNavProps {
     translation: Translation;
     productName: string;
+    showProductName?: boolean;
     items: INavItems;
 }
 
@@ -103,6 +113,7 @@ export class ProductNav extends React.Component<IProductNavProps> {
     layerOpen = false;
 
     render() {
+        console.log("this.props.showProductName:", this.props.showProductName);
         let tr = this.props.translation;
 
         return (<>
@@ -111,7 +122,10 @@ export class ProductNav extends React.Component<IProductNavProps> {
                     <AlethioIcon size={20} />
                 </AlethioLogoWrapper>
                 <AlethioCompanyName>{ tr.get("general.company") }</AlethioCompanyName>
-                <AlethioProductName>{ this.props.productName }</AlethioProductName>
+                {
+                    this.props.showProductName ?
+                    <AlethioProductName>{ this.props.productName }</AlethioProductName> : null
+                }
                 <ArrowDownIcon />
             </NavWidgetInner>
             { ReactDOM.createPortal(<>

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
 import styled from "../../../styled-components";
-import { HamburgerIcon } from "../../../icon/HamburgerIcon";
+import { HamburgerSkinnyIcon } from "../../../icon/HamburgerSkinnyIcon";
 import { Fade } from "../../../fx/Fade";
 import { Drawer } from "./Drawer";
 
@@ -35,7 +35,7 @@ export class SubNav extends React.Component<ISubNavProps> {
                     this.props.handler();
                 }
             }} style={{padding: "22px 16px", cursor: "pointer"}}>
-                <HamburgerIcon size={20} />
+                <HamburgerSkinnyIcon size={24} />
             </div>
             { this.props.content ? ReactDOM.createPortal(<>
                 <Fade duration={.2} active={this.layerOpen}>
