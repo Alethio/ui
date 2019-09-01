@@ -17,13 +17,14 @@ const DrawerWrapper = styled<IDrawerProps, "div">("div")`
 `;
 
 interface IDrawerProps {
+    id?: string;
     open: boolean;
 }
 
 /** @internal */
 export class Drawer extends React.Component<IDrawerProps> {
     render() {
-        return <DrawerWrapper open={this.props.open}>
+        return <DrawerWrapper id={this.props.id} open={this.props.open}>
             { this.props.children}
         </DrawerWrapper>;
     }

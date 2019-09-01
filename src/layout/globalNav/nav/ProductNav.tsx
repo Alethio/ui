@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { ArrowDownIcon } from "../../../icon/ArrowDownIcon";
 import styled from "../../../styled-components";
 import { Spacer } from "../../Spacer";
@@ -111,6 +112,15 @@ export interface IProductNavProps {
 export class ProductNav extends React.Component<IProductNavProps> {
     @observable
     layerOpen = false;
+    private scrollLockTargetElement: HTMLElement | null;
+
+    componentDidMount() {
+        this.scrollLockTargetElement = document.querySelector("#globalNavDrawer");
+    }
+
+    componentWillUnmount() {
+        clearAllBodyScrollLocks();
+    }
 
     render() {
         let tr = this.props.translation;
@@ -131,7 +141,7 @@ export class ProductNav extends React.Component<IProductNavProps> {
                 <Fade duration={.2} active={this.layerOpen}>
                     <Mask onClick={this.toggleLayer} />
                 </Fade>
-                <Drawer open={this.layerOpen}>
+                <Drawer id={"globalNavDrawer"} open={this.layerOpen}>
                     <NavMenuWrapper>
                         <NavWidgetInner onClick={this.toggleLayer}>
                             <AlethioLogoWrapper>
@@ -164,5 +174,9 @@ export class ProductNav extends React.Component<IProductNavProps> {
     private toggleLayer = () => {
         this.layerOpen = !this.layerOpen;
         document.body.style.overflowY = this.layerOpen ? "hidden" : "auto";
+        if (this.scrollLockTargetElement) {
+            this.layerOpen ? disableBodyScroll(this.scrollLockTargetElement) :
+                enableBodyScroll(this.scrollLockTargetElement);
+        }
     }
 }
