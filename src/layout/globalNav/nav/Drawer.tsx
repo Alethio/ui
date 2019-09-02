@@ -14,6 +14,7 @@ const DrawerWrapper = styled<IDrawerProps, "div">("div")`
     transform: translate(0px, ${({open}) => open ? "0px" : "-100vh"});
     height: 100vh;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 `;
 
 interface IDrawerProps {
