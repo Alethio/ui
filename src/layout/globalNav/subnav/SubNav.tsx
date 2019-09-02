@@ -15,6 +15,10 @@ const Mask = styled.div`
     bottom: 0;
 `;
 
+const ToggleWrapper = styled.div`
+    color: ${({theme}) => theme.colors.base.secondary.color};
+`;
+
 interface ISubNavProps {
     content?(requestClose: () => void): React.ReactNode;
     handler?(): void;
@@ -27,7 +31,7 @@ export class SubNav extends React.Component<ISubNavProps> {
 
     render() {
         return (<>
-            <div onClick={() => {
+            <ToggleWrapper onClick={() => {
                 if (this.props.content) {
                     this.toggleLayer();
                 }
@@ -36,7 +40,7 @@ export class SubNav extends React.Component<ISubNavProps> {
                 }
             }} style={{padding: "22px 16px", cursor: "pointer"}}>
                 <HamburgerSkinnyIcon size={24} />
-            </div>
+            </ToggleWrapper>
             { this.props.content ? ReactDOM.createPortal(<>
                 <Fade duration={.2} active={this.layerOpen}>
                     <Mask onClick={this.requestClose} />
