@@ -19,7 +19,7 @@ export const navItems: INavItems = [
         items: [
             {
                 label: "navMenu.link.apiInfo",
-                url: "https://developers2.aleth.io/api",
+                url: "https://developers.aleth.io/api",
                 Icon: AlethioApiIcon
             }, {
                 label: "navMenu.link.apiDocs",
@@ -27,7 +27,7 @@ export const navItems: INavItems = [
                 Icon: AlethioApiIcon
             }, {
                 label: "navMenu.link.apiDevPortal",
-                url: "https://developers2.aleth.io",
+                url: "https://developers.aleth.io",
                 Icon: AlethioApiIcon
             }
         ]
@@ -41,7 +41,7 @@ export const navItems: INavItems = [
             }, {
                 label: "navMenu.link.explorer",
                 url: "https://aleth.io/",
-                Icon: EthStatsIcon
+                Icon: AlethioIcon
             }, {
                 label: "navMenu.link.reporting",
                 url: "https://reports.aleth.io",

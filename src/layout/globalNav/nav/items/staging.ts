@@ -41,7 +41,7 @@ export const navItems: INavItems = [
             }, {
                 label: "navMenu.link.explorer",
                 url: "https://staging.aleth.io/",
-                Icon: EthStatsIcon
+                Icon: AlethioIcon
             }, {
                 label: "navMenu.link.reporting",
                 url: "https://reports.staging.aleth.io",
