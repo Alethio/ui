@@ -42,6 +42,10 @@ const NavMenuWrapper = styled.div`
     padding: 0;
     min-width: 240px;
 
+    @media ${props => props.theme.mediaQueries.breakPoints.lessThan620px} {
+        padding-bottom: 112px;
+    }
+
     hr:first-of-type {
         margin: 0 0 32px;
     }
