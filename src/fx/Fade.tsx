@@ -62,6 +62,9 @@ export class Fade extends React.Component<IFadeProps> {
 
     componentDidUpdate(prevProps: IFadeProps) {
         if (prevProps.active !== this.props.active) {
+            if (this.delayTimer) {
+                clearTimeout(this.delayTimer);
+            }
             this.delayTimer = setTimeout(() => {
                 this.active = (this.props.active === true);
             }, this.props.delay! * 1000);
