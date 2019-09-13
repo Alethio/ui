@@ -42,6 +42,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
     let colors: IThemeColors = {
         base,
 
+        alethioLogo: BLUE,
         label: {
             default: base.secondary.color,
             strong: base.primary.color,

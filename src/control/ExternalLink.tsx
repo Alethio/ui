@@ -8,8 +8,13 @@ const ExternalLinkRoot = styled.a`
     color: ${props => props.theme.colors.link};
 `;
 
-export class ExternalLink extends React.Component<AnchorHTMLAttributes<HTMLAnchorElement>> {
+interface IExternalLinkProps {
+}
+
+export class ExternalLink extends React.Component<AnchorHTMLAttributes<HTMLAnchorElement> & IExternalLinkProps> {
     render() {
-        return <ExternalLinkRoot target="_blank" {...this.props}>{this.props.children}</ExternalLinkRoot>;
+        return <ExternalLinkRoot target={this.props.target || "_blank"} {...this.props}>
+            {this.props.children}
+        </ExternalLinkRoot>;
     }
 }

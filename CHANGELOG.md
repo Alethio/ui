@@ -1,3 +1,16 @@
+# v1.0.0-beta.23
+
+## Breaking Changes
+
+- HorizontalBar is not responsive anymore. Since the responsiveness was only used by TopBar this one has now his own HorizontalBar that is responsive
+
+## Other changes
+
+- Added icons for DexWatch, Discord, Hamburger, social media
+- Added optional prop to Fade: active (defaults to true) to control the initial state
+- Added optional prop to ExternalLink: target (defaults to "_blank") same behavior as anchor target prop
+- Added alethioLogo color in ITheme
+
 # v1.0.0-beta.22
 
 - (ToolbarIconButton): Add toggle functionality

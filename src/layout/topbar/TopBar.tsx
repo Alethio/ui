@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { withTheme } from "../../styled-components";
-import { HorizontalBar } from "../../layout/HorizontalBar";
+import { HorizontalBar } from "./HorizontalBar";
 import { ITheme } from "../../theme/ITheme";
 
 const StyledHorizontalBar = styled(HorizontalBar)`

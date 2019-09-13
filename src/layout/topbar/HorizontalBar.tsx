@@ -1,6 +1,6 @@
 import * as React from "react";
-import styled, { css } from "../styled-components";
-import { Bar, IBarProps } from "./Bar";
+import styled, { css } from "../../styled-components";
+import { Bar, IBarProps } from "../Bar";
 
 interface IPlaceholderProps {
     height: number;
@@ -9,6 +9,15 @@ interface IPlaceholderProps {
 const Placeholder = styled<IPlaceholderProps, "div">("div")`
     height: ${props => props.height}px;
     width: 100%;
+
+    /**
+     * TODO: Responsiveness css does not belong here, but because we must also put the css into the placeholder
+     * we leave it here for now
+     */
+    display: none;
+    @media ${props => props.theme.mediaQueries.breakPoints.smallerThanStandardView} {
+        display: block;
+    }
 `;
 
 const HorizontalBarRoot = styled<IHorizontalBarProps, IBarProps>(Bar)`
@@ -20,6 +29,15 @@ const HorizontalBarRoot = styled<IHorizontalBarProps, IBarProps>(Bar)`
     top: 0;
     ` : ""}
     border-bottom: 1px solid ${props => props.theme.colors.sidebarBorder};
+
+    /**
+     * TODO: Responsiveness css does not belong here, but because we must also put the css into the placeholder
+     * we leave it here for now
+     */
+    display: none;
+    @media ${props => props.theme.mediaQueries.breakPoints.smallerThanStandardView} {
+        display: flex;
+    }
 `;
 
 interface IHorizontalBarProps {
@@ -30,7 +48,7 @@ interface IHorizontalBarProps {
 }
 
 /**
- * Displays a horizontal bar such as a sidebar or a horizontal toolbar
+ * Flavor of HorizontalBar with responsive css. It shows only on small viewports
  */
 export class HorizontalBar extends React.Component<IHorizontalBarProps> {
     render() {

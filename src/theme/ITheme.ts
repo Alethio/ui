@@ -43,6 +43,7 @@ export interface IThemeBaseColors {
 export interface IThemeColors {
     base: IThemeBaseColors;
 
+    alethioLogo: string;
     toolbarIcon: string;
     toolbarIconHover: string;
     toolbarAlethioIcon: string;
