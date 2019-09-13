@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/Checkbox.stories.d.ts"
   },
   {
-    "revision": "d28fa717112e1f541853aac90f493c5a",
+    "revision": "b1fa159e7ec275ea5a7ea39d75605162",
     "url": "../lib/src/control/ExternalLink.d.ts"
   },
   {
@@ -284,7 +284,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/IClipboard.d.ts"
   },
   {
-    "revision": "5ca8114dce55f3c4518a4b94b14c0feb",
+    "revision": "3a5c62cda96b3ec672d7bb5b1bf82505",
     "url": "../lib/src/data/Label.d.ts"
   },
   {
@@ -508,7 +508,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/vis/stackBar/internal/StackBarBubble.d.ts"
   },
   {
-    "revision": "e699a58f63615827fd82f3466604e000",
+    "revision": "49a19d36194e1f23f5a1c6d4241a9cdd",
     "url": "../lib/src/fx/Fade.d.ts"
   },
   {
@@ -616,6 +616,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/CopyIcon.d.ts"
   },
   {
+    "revision": "d6f8c9ecfc7550e6253d39ac1ad219f0",
+    "url": "../lib/src/icon/DexWatchIcon.d.ts"
+  },
+  {
+    "revision": "042c7bfda74fa9803ca4494258afe15d",
+    "url": "../lib/src/icon/DiscordIcon.d.ts"
+  },
+  {
     "revision": "7704343db3922e1431d6c941c3c679aa",
     "url": "../lib/src/icon/ErrorIcon.d.ts"
   },
@@ -628,12 +636,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/EthStatsIcon.d.ts"
   },
   {
+    "revision": "a077b4991ccc0c983c2d62a986fb83b5",
+    "url": "../lib/src/icon/GithubIcon.d.ts"
+  },
+  {
     "revision": "433bea41529feba3ff5ee95a680ef1e4",
     "url": "../lib/src/icon/GridViewIcon.d.ts"
   },
   {
     "revision": "434877992d579463a2cb1b47fa003b93",
     "url": "../lib/src/icon/HamburgerIcon.d.ts"
+  },
+  {
+    "revision": "e6edf464793fbce0b3e38c73ae3460dd",
+    "url": "../lib/src/icon/HamburgerSkinnyIcon.d.ts"
   },
   {
     "revision": "a1f2d406b39ffa73aa805313d96dc21d",
@@ -656,6 +672,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/LanguageIcon.d.ts"
   },
   {
+    "revision": "0c34b89689d66802ae3786221c61e20d",
+    "url": "../lib/src/icon/LinkedInIcon.d.ts"
+  },
+  {
     "revision": "965b97d4040eb7bf0c3805c261d65929",
     "url": "../lib/src/icon/ListViewIcon.d.ts"
   },
@@ -666,6 +686,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fcea04dfa28aa2ba04a77e8a105f846d",
     "url": "../lib/src/icon/LogoutIcon.d.ts"
+  },
+  {
+    "revision": "3d75eb627c2a2e194dd0d90bf970c2ec",
+    "url": "../lib/src/icon/MediumIcon.d.ts"
   },
   {
     "revision": "b66b13e8817a20926d2c71adad985665",
@@ -760,6 +784,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/SwitchIcon.d.ts"
   },
   {
+    "revision": "520db158fb5016de5da107a0451e37a6",
+    "url": "../lib/src/icon/TwitterIcon.d.ts"
+  },
+  {
     "revision": "2d564d1476a6c4e978236671e5c96b91",
     "url": "../lib/src/layout/Bar.d.ts"
   },
@@ -778,6 +806,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d8506ca53201c2e03d5bb481c7445fba",
     "url": "../lib/src/layout/HorizontalBar.d.ts"
+  },
+  {
+    "revision": "8fd3b58ca4ee610c924a08aeb012a61f",
+    "url": "../lib/src/layout/LineSeparator.d.ts"
   },
   {
     "revision": "636ec45334a31bc888e6490f7b905e2b",
@@ -908,6 +940,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/layout/toolbar/ToolbarItem.d.ts"
   },
   {
+    "revision": "d8506ca53201c2e03d5bb481c7445fba",
+    "url": "../lib/src/layout/topbar/HorizontalBar.d.ts"
+  },
+  {
     "revision": "97e32112de984dc7bc2318aba39e974c",
     "url": "../lib/src/layout/topbar/TopBar.d.ts"
   },
@@ -976,7 +1012,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/theme/IPalette.d.ts"
   },
   {
-    "revision": "c23f041b406c04768d8e8694262ff016",
+    "revision": "ee9a50b81f25c4e2298ee308be095821",
     "url": "../lib/src/theme/ITheme.d.ts"
   },
   {
@@ -1064,20 +1100,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "76f6972370233a6593601a97732b4ef7",
+    "revision": "df956e2c459871929fc04ba58046bab2",
     "url": "iframe.html"
   },
   {
-    "url": "main.444c48228a60fa557281.bundle.js"
+    "url": "main.82663e55983fb19a8372.bundle.js"
   },
   {
-    "url": "runtime~main.444c48228a60fa557281.bundle.js"
+    "url": "runtime~main.82663e55983fb19a8372.bundle.js"
   },
   {
-    "url": "vendors~main.444c48228a60fa557281.bundle.js"
+    "url": "vendors~main.82663e55983fb19a8372.bundle.js"
   },
   {
-    "revision": "40a1d4f582bb40be550e",
+    "revision": "62260ebcd1f0f0e3529a",
     "url": "vendors~main.css"
   }
 ]);
