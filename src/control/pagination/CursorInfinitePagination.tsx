@@ -11,17 +11,17 @@ import { StyledSpinner } from "./internal/Spinner";
 import { LoadStatus } from "./LoadStatus";
 import { ICursorPaginationBaseProps } from "./internal/ICursorPaginationBaseProps";
 
-export interface ICursorPaginationProps extends ICursorPaginationBaseProps {
-    totalItems: number;
+export interface ICursorInfinitePaginationProps extends ICursorPaginationBaseProps {
+    isLastPage: boolean;
 }
 
-export class CursorPagination extends React.Component<ICursorPaginationProps> {
+export class CursorInfinitePagination extends React.Component<ICursorInfinitePaginationProps> {
     static defaultProps = {
         loadStatus: LoadStatus.Loaded
     };
 
     render() {
-        let { rangeStart, rangeEnd, totalItems, loadStatus, errorText, locale} = this.props;
+        let { rangeStart, rangeEnd, isLastPage: isEndPage, loadStatus, errorText, locale} = this.props;
         let isBusy = loadStatus === LoadStatus.NotLoaded;
 
         return (
@@ -32,12 +32,10 @@ export class CursorPagination extends React.Component<ICursorPaginationProps> {
                     onClick={() => this.props.onPrevPage()} />
                 <Cursor>
                     <Number value={rangeStart} locale={locale} />-<Number value={rangeEnd} locale={locale} />
-                    {` / `}
-                    <Number value={totalItems} locale={locale} />
                 </Cursor>
                 <NavButton
                     Icon={PaginationNextIcon}
-                    disabled={rangeEnd === totalItems || isBusy}
+                    disabled={isEndPage || isBusy}
                     onClick={() => this.props.onNextPage()}
                 />
                 { isBusy ?
