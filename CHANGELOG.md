@@ -1,3 +1,7 @@
+# v1.0.0
+
+- Stable release
+
 # v1.0.0-beta.24
 
 - Updated wrapper and reexport for styled-components
