@@ -1,6 +1,8 @@
 # @alethio/ui
 
-React component library for Alethio apps
+React component library for Alethio apps.
+
+*NOTICE*: For legacy 1.0.0 version, please see the [v1](../../tree/v1) branch.
 
 ## Prerequisites
 
