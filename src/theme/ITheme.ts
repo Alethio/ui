@@ -123,6 +123,8 @@ export interface IThemeColors {
     buttonSecondaryBg: string;
     buttonSecondaryBgActive: string;
     buttonSecondaryText: string;
+    buttonSecondaryBorder: string;
+    buttonSecondaryBorderActive: string;
 
     typedValueBoxBg: string;
     typedValueBoxText: string;

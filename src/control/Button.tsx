@@ -26,17 +26,36 @@ const StyledBox = styled(Box)`
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
-type ButtonColors = "primary" | "secondary";
+type ButtonColors = "primary" | "secondary" | "special1" | "special2";
 
-const colorSets: Record<ButtonColors, (hover: boolean) => IBoxColorsThunk<ITheme>> = {
-    primary: (hover) => (theme) => ({
-        background: hover ? theme.colors.buttonPrimaryBgActive : theme.colors.buttonPrimaryBg,
-        text: theme.colors.buttonPrimaryText
-    }),
-    secondary: (hover) => (theme) => ({
-        background: hover ? theme.colors.buttonSecondaryBgActive : theme.colors.buttonSecondaryBg,
-        text: theme.colors.buttonSecondaryText
-    })
+const colorSets: Record<ButtonColors, (hover: boolean, disabled?: boolean) => IBoxColorsThunk<ITheme>> = {
+    primary: (hover, disabled) => (theme) => {
+        let background = hover ? theme.colors.buttonPrimaryBgActive : theme.colors.buttonPrimaryBg;
+        return {
+            background: disabled ? theme.colors.base.secondary.color : background,
+            text: disabled ? theme.colors.base.disabled : theme.colors.buttonPrimaryText
+        };
+    },
+    secondary: (hover, disabled) => (theme) => {
+        let border = hover ? theme.colors.buttonSecondaryBorderActive : theme.colors.buttonSecondaryBorder;
+        return {
+            background: hover ? theme.colors.buttonSecondaryBgActive : theme.colors.buttonSecondaryBg,
+            text: disabled ? theme.colors.base.disabled : theme.colors.buttonSecondaryText,
+            border: disabled ? theme.colors.base.secondary.color : border
+        };
+    },
+    special1: (hover) => (theme) => {
+        return {
+            background: hover ? theme.colors.buttonPrimaryBg : theme.colors.base.primary.contrast,
+            text: hover ? theme.colors.base.primary.contrast : theme.colors.buttonPrimaryBg
+        };
+    },
+    special2: (hover) => (theme) => {
+        return {
+            background: hover ? theme.colors.buttonPrimaryBg : theme.colors.base.secondary.color,
+            text: theme.colors.base.primary.contrast
+        };
+    }
 };
 
 export interface IButtonProps {
@@ -67,7 +86,7 @@ export class Button extends React.Component<IButtonProps> {
                     <StyledBox
                         Icon={Icon}
                         iconPlacement={iconPlacement ? iconPlacement : "left"}
-                        colors={colorSets[colors!](!this.props.disabled ? hover : false)}
+                        colors={colorSets[colors!](!this.props.disabled ? hover : false, this.props.disabled)}
                         metrics={{
                             fontSize: 12,
                             lineHeight: 14,

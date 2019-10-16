@@ -25,10 +25,22 @@ storiesOf("control/button/" + Button.name, module)
     })
     .addDecorator(storyFn => <ButtonContainer>{storyFn()}</ButtonContainer>)
     .add("default (secondary)", () => (
-        <Button onClick={() => alert("Boo!")}>Click me</Button>
+            <Button onClick={() => alert("Boo!")}>Click me</Button>
     ))
     .add("primary", () => (
-        <Button colors="primary">Click me</Button>
+            <Button colors="primary">Click me</Button>
+    ))
+    .add("special1", () => (
+        [
+            <Button colors="special1" Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button colors="primary" disabled>Disabled</Button>
+        ]
+    ))
+    .add("special2", () => (
+        [
+            <Button colors="special2" Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button colors="primary" disabled>Disabled</Button>
+        ]
     ))
     .add("icon", () => (
         <Button Icon={ArrowForwardIcon}></Button>
