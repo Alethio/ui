@@ -6,7 +6,7 @@ import { IPalette } from "./IPalette";
  */
 export const createTheme: (palette: IPalette) => ITheme = (palette) => {
     let {
-        BLUE, BLUE_A80, DARK_GREY, EXTRA_LIGHT_GREY, GREEN, GREY, LIGHT_GREY,
+        BLUE, LIGHT_BLUE, DARK_GREY, EXTRA_LIGHT_GREY, GREEN, GREY, LIGHT_GREY,
         MEDIUM_LIGHT_GREY, ORANGE, RED, WHITE
     } = palette;
 
@@ -138,12 +138,69 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         msgCountInIcon: GREEN,
         msgCountOutIcon: RED,
         msgCountPendingIcon: ORANGE,
-        buttonPrimaryBg: BLUE,
-        buttonPrimaryBgActive: BLUE_A80,
-        buttonPrimaryText: WHITE,
-        buttonSecondaryBg: GREY,
-        buttonSecondaryBgActive: BLUE,
-        buttonSecondaryText: WHITE,
+
+        button: {
+            primary: {
+                normal: {
+                    text: WHITE,
+                    background: BLUE
+                },
+                hover: {
+                    text: WHITE,
+                    background: LIGHT_BLUE
+                },
+                disabled: {
+                    text: LIGHT_GREY,
+                    background: GREY
+                }
+            },
+            secondary: {
+                normal: {
+                    text: BLUE,
+                    background: WHITE,
+                    border: BLUE
+                },
+                hover: {
+                    text: LIGHT_BLUE,
+                    background: WHITE,
+                    border: LIGHT_BLUE
+                },
+                disabled: {
+                    text: LIGHT_GREY,
+                    background: WHITE,
+                    border: LIGHT_GREY
+                }
+            },
+            special1: {
+                normal: {
+                    text: WHITE,
+                    background: GREY
+                },
+                hover: {
+                    text: WHITE,
+                    background: BLUE
+                },
+                disabled: {
+                    text: WHITE,
+                    background: LIGHT_GREY
+                }
+            },
+            special2: {
+                normal: {
+                    text: BLUE,
+                    background: "transparent"
+                },
+                hover: {
+                    text: WHITE,
+                    background: BLUE
+                },
+                disabled: {
+                    text: LIGHT_GREY,
+                    background: "transparent"
+                }
+            }
+        },
+
         typedValueBoxBg: EXTRA_LIGHT_GREY,
         typedValueBoxText: DARK_GREY,
         typedValueBoxTypeText: GREY,

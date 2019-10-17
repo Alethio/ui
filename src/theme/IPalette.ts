@@ -5,6 +5,7 @@ export interface IPalette {
     GREY: string;
     DARK_GREY: string;
     BLUE: string;
+    LIGHT_BLUE: string;
     BLUE_A80: string;
     GREEN: string;
     RED: string;

@@ -26,7 +26,7 @@ const ThemeColor = styled<{ small?: boolean; colorThunk(themeColors: IThemeColor
     margin-right: 8px;
 `;
 
-interface IDualColor { color: string; contrast: string; };
+interface IDualColor { color: string; contrast: string; }
 const DualColor: React.StatelessComponent<{ colorThunk(themeColors: IThemeColors): IDualColor; }> = ({ colorThunk }) =>
     <Container>
         <ThemeColor small colorThunk={colors => colorThunk(colors).color} />

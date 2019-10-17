@@ -1,5 +1,6 @@
 import { IBoxColors } from "../layout/content/box/IBoxColors";
 import { IBoxMetrics } from "../layout/content/box/IBoxMetrics";
+import { ButtonColors } from "../control/Button";
 
 type ValueBoxColors = "primary" | "primaryAlt" | "primaryInvert" | "secondary" | "secondaryInvert" |
     "highlight" | "error" | "warn";
@@ -117,12 +118,11 @@ export interface IThemeColors {
     msgCountOutIcon: string;
     msgCountPendingIcon: string;
 
-    buttonPrimaryBg: string;
-    buttonPrimaryBgActive: string;
-    buttonPrimaryText: string;
-    buttonSecondaryBg: string;
-    buttonSecondaryBgActive: string;
-    buttonSecondaryText: string;
+    button: Record<ButtonColors, {
+        normal: IBoxColors;
+        hover: IBoxColors;
+        disabled: IBoxColors;
+    }>;
 
     typedValueBoxBg: string;
     typedValueBoxText: string;
