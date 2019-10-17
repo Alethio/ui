@@ -19,8 +19,8 @@ export class ToolbarIconButton extends React.Component<IToolbarIconButtonProps> 
                 {(hover) =>
                     <IconButton {...otherProps} color={
                         theme => hover ?
-                            (active ? theme.colors.buttonPrimaryBgActive  : theme.colors.toolbarIconHover) :
-                            (active ? theme.colors.buttonPrimaryBg : theme.colors.toolbarIcon)
+                            (active ? theme.colors.button.primary.hover.background : theme.colors.toolbarIconHover) :
+                            (active ? theme.colors.button.primary.normal.background : theme.colors.toolbarIcon)
                     } />
                 }
             </HoverState>

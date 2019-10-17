@@ -25,21 +25,31 @@ storiesOf("control/button/" + Button.name, module)
     })
     .addDecorator(storyFn => <ButtonContainer>{storyFn()}</ButtonContainer>)
     .add("default (secondary)", () => (
-            <Button onClick={() => alert("Boo!")}>Click me</Button>
+        [
+            <Button onClick={() => alert("Boo!")}>Click me</Button>,
+            <Button Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button disabled Icon={ArrowForwardIcon}>Disabled</Button>
+        ]
     ))
     .add("primary", () => (
-            <Button colors="primary">Click me</Button>
+        [
+            <Button colors="primary">Click me</Button>,
+            <Button colors="primary" Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button colors="primary" Icon={ArrowForwardIcon} disabled>Can't click me</Button>
+        ]
     ))
     .add("special1", () => (
         [
+            <Button colors="special1">Click Me</Button>,
             <Button colors="special1" Icon={ArrowForwardIcon}>Click me</Button>,
-            <Button colors="primary" disabled>Disabled</Button>
+            <Button colors="special1" Icon={ArrowForwardIcon} disabled>Can't click me</Button>
         ]
     ))
     .add("special2", () => (
         [
+            <Button colors="special2">Click Me</Button>,
             <Button colors="special2" Icon={ArrowForwardIcon}>Click me</Button>,
-            <Button colors="primary" disabled>Disabled</Button>
+            <Button colors="special2" Icon={ArrowForwardIcon} disabled>Can't click me</Button>
         ]
     ))
     .add("icon", () => (
@@ -52,10 +62,10 @@ storiesOf("control/button/" + Button.name, module)
         ]
     ))
     .add("floating", () => (
-        <Button floating>Click me</Button>
-    ))
-    .add("disabled", () => (
-        <Button Icon={ArrowForwardIcon} disabled>Can't click me</Button>
+        [
+            <Button floating colors="primary">Click me</Button>,
+            <Button floating colors="special1">Click me</Button>
+        ]
     ))
     .add("with spinner", () => (
         <Button Icon={SpinnerLite} disabled>Loading...</Button>

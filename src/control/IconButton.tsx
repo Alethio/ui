@@ -8,7 +8,7 @@ interface IIconProps {
 }
 
 interface IColorThunk {
-    (theme: ITheme): string;
+    (theme: ITheme): string | undefined;
 }
 
 export interface IIconButtonProps {

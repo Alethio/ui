@@ -11,14 +11,14 @@ interface IButtonRootProps {
 }
 
 const ButtonRoot = styled<IButtonRootProps, "div">("div")`
+    ${props => !props.disabled ? css`
     cursor: pointer;
+    ` : ``}
+    user-select: none;
     text-transform: uppercase;
     ${props => props.floating ? css`
     box-shadow: 0 8px 16px rgba(167, 181, 209, 0.6);
     ` : ``}
-    ${props => props.disabled ? css`
-    opacity: 0.75;
-    ` : void 0}
 `;
 
 const StyledBox = styled(Box)`
@@ -26,37 +26,11 @@ const StyledBox = styled(Box)`
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
-type ButtonColors = "primary" | "secondary" | "special1" | "special2";
+export type ButtonColors = "primary" | "secondary" | "special1" | "special2";
+type InteractionState = "normal" | "hover" | "disabled";
+type GetColorSetFn = (colorVariants: ButtonColors, state: InteractionState) => IBoxColorsThunk<ITheme>;
 
-const colorSets: Record<ButtonColors, (hover: boolean, disabled?: boolean) => IBoxColorsThunk<ITheme>> = {
-    primary: (hover, disabled) => (theme) => {
-        let background = hover ? theme.colors.buttonPrimaryBgActive : theme.colors.buttonPrimaryBg;
-        return {
-            background: disabled ? theme.colors.base.secondary.color : background,
-            text: disabled ? theme.colors.base.disabled : theme.colors.buttonPrimaryText
-        };
-    },
-    secondary: (hover, disabled) => (theme) => {
-        let border = hover ? theme.colors.buttonSecondaryBorderActive : theme.colors.buttonSecondaryBorder;
-        return {
-            background: hover ? theme.colors.buttonSecondaryBgActive : theme.colors.buttonSecondaryBg,
-            text: disabled ? theme.colors.base.disabled : theme.colors.buttonSecondaryText,
-            border: disabled ? theme.colors.base.secondary.color : border
-        };
-    },
-    special1: (hover) => (theme) => {
-        return {
-            background: hover ? theme.colors.buttonPrimaryBg : theme.colors.base.primary.contrast,
-            text: hover ? theme.colors.base.primary.contrast : theme.colors.buttonPrimaryBg
-        };
-    },
-    special2: (hover) => (theme) => {
-        return {
-            background: hover ? theme.colors.buttonPrimaryBg : theme.colors.base.secondary.color,
-            text: theme.colors.base.primary.contrast
-        };
-    }
-};
+const getColorSet: GetColorSetFn = (colorVariant, state) => (theme) => theme.colors.button[colorVariant][state];
 
 export interface IButtonProps {
     Icon?: IBoxProps["Icon"];
@@ -86,7 +60,7 @@ export class Button extends React.Component<IButtonProps> {
                     <StyledBox
                         Icon={Icon}
                         iconPlacement={iconPlacement ? iconPlacement : "left"}
-                        colors={colorSets[colors!](!this.props.disabled ? hover : false, this.props.disabled)}
+                        colors={getColorSet(colors!, !disabled ? hover ? "hover" : "normal" : "disabled")}
                         metrics={{
                             fontSize: 12,
                             lineHeight: 14,
