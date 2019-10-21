@@ -42,7 +42,7 @@ storiesOf("theme/theme", module)
     .add("palette", () => <Container>
         { Object.keys(palette).map(k => <div>
             <PaletteColor color={(palette as any)[k]}></PaletteColor>
-            {k}
+            {`${k} (${(palette as any)[k]})`}
         </div>) }
     </Container>)
     .add("colors", () => <div>

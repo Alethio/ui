@@ -6,27 +6,27 @@ import { IPalette } from "./IPalette";
  */
 export const createTheme: (palette: IPalette) => ITheme = (palette) => {
     let {
-        BLUE, LIGHT_BLUE, DARK_GREY, EXTRA_LIGHT_GREY, GREEN, GREY, LIGHT_GREY,
-        MEDIUM_LIGHT_GREY, ORANGE, RED, WHITE
+        BLUE, BLUE_L5, DARK, DAWN_L2, GREEN, DUSK, DAWN_D5,
+        DAWN, ORANGE, RED, WHITE
     } = palette;
 
     let base: IThemeBaseColors = {
         primary: {
-            color: DARK_GREY,
+            color: DARK,
             contrast: WHITE
         },
         secondary: {
-            color: GREY,
+            color: DUSK,
             contrast: WHITE
         },
-        disabled: LIGHT_GREY,
+        disabled: DAWN_D5,
         status: {
             error: RED,
             warn: ORANGE,
             success: GREEN
         },
         bg: {
-            main: EXTRA_LIGHT_GREY,
+            main: DAWN_L2,
             alt: WHITE
         },
         highlight: {
@@ -49,38 +49,38 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             disabled: base.disabled
         },
 
-        closeBtn: GREY,
+        closeBtn: DUSK,
 
-        toolbarIcon: LIGHT_GREY,
-        toolbarIconHover: DARK_GREY,
-        toolbarAlethioIcon: LIGHT_GREY,
+        toolbarIcon: DAWN_D5,
+        toolbarIconHover: DARK,
+        toolbarAlethioIcon: DAWN_D5,
         toolbarAlethioIconHover: BLUE,
 
         sidebarBg: WHITE,
-        sidebarBorder: LIGHT_GREY,
-        sidebarPageTitle: LIGHT_GREY,
-        mainContentBg: EXTRA_LIGHT_GREY,
+        sidebarBorder: DAWN_D5,
+        sidebarPageTitle: DAWN_D5,
+        mainContentBg: DAWN_L2,
         overlayBg: WHITE,
-        overlayBorder: LIGHT_GREY,
-        overlayToolbarBorder: MEDIUM_LIGHT_GREY,
-        overlayText: DARK_GREY,
+        overlayBorder: DAWN_D5,
+        overlayToolbarBorder: DAWN,
+        overlayText: DARK,
         copyIcon: BLUE,
         checkboxIcon: BLUE,
-        checkboxLabel: DARK_GREY,
+        checkboxLabel: DARK,
         radioIcon: BLUE,
-        radioLabel: DARK_GREY,
+        radioLabel: DARK,
         gasPercentageBoxText: ORANGE,
-        hexDataItem: GREY,
-        selectBoxText: DARK_GREY,
-        selectBoxTextDisabled: LIGHT_GREY,
+        hexDataItem: DUSK,
+        selectBoxText: DARK,
+        selectBoxTextDisabled: DAWN_D5,
         selectBoxBg: WHITE,
         selectBoxBubble: GREEN,
-        selectBoxArrow: LIGHT_GREY,
-        selectBoxBorder: LIGHT_GREY,
-        gridHeaderHover: DARK_GREY,
-        gridBorder: LIGHT_GREY,
+        selectBoxArrow: DAWN_D5,
+        selectBoxBorder: DAWN_D5,
+        gridHeaderHover: DARK,
+        gridBorder: DAWN_D5,
         gridOddRowBg: WHITE,
-        gridEvenRowBg: EXTRA_LIGHT_GREY,
+        gridEvenRowBg: DAWN_L2,
         gridColumnSelector: BLUE,
 
         valueBox: {
@@ -119,22 +119,22 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         },
 
         error: RED,
-        rawDataBackground: LIGHT_GREY,
-        rawDataText: DARK_GREY,
+        rawDataBackground: DAWN_D5,
+        rawDataText: DARK,
         spinnerStroke: BLUE,
         spinnerBackground: WHITE,
-        spinnerBorder: LIGHT_GREY,
+        spinnerBorder: DAWN_D5,
         accordionBg: WHITE,
-        accordionBorder: LIGHT_GREY,
+        accordionBorder: DAWN_D5,
         expanderBg: WHITE,
-        expanderLabel: DARK_GREY,
+        expanderLabel: DARK,
         expanderValue: BLUE,
-        expanderIcon: GREY,
-        expanderDisabled: LIGHT_GREY,
+        expanderIcon: DUSK,
+        expanderDisabled: DAWN_D5,
         expanderOpenBg: BLUE,
         expanderOpenLabel: WHITE,
-        expanderOpenValue: LIGHT_GREY,
-        expanderOpenIcon: LIGHT_GREY,
+        expanderOpenValue: DAWN_D5,
+        expanderOpenIcon: DAWN_D5,
         msgCountInIcon: GREEN,
         msgCountOutIcon: RED,
         msgCountPendingIcon: ORANGE,
@@ -147,11 +147,11 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 },
                 hover: {
                     text: WHITE,
-                    background: LIGHT_BLUE
+                    background: BLUE_L5
                 },
                 disabled: {
-                    text: LIGHT_GREY,
-                    background: GREY
+                    text: DAWN_D5,
+                    background: DUSK
                 }
             },
             secondary: {
@@ -161,20 +161,20 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                     border: BLUE
                 },
                 hover: {
-                    text: LIGHT_BLUE,
+                    text: BLUE_L5,
                     background: WHITE,
-                    border: LIGHT_BLUE
+                    border: BLUE_L5
                 },
                 disabled: {
-                    text: LIGHT_GREY,
+                    text: DAWN_D5,
                     background: WHITE,
-                    border: LIGHT_GREY
+                    border: DAWN_D5
                 }
             },
             special1: {
                 normal: {
                     text: WHITE,
-                    background: GREY
+                    background: DUSK
                 },
                 hover: {
                     text: WHITE,
@@ -182,7 +182,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 },
                 disabled: {
                     text: WHITE,
-                    background: LIGHT_GREY
+                    background: DAWN_D5
                 }
             },
             special2: {
@@ -195,29 +195,29 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                     background: BLUE
                 },
                 disabled: {
-                    text: LIGHT_GREY,
+                    text: DAWN_D5,
                     background: "transparent"
                 }
             }
         },
 
-        typedValueBoxBg: EXTRA_LIGHT_GREY,
-        typedValueBoxText: DARK_GREY,
-        typedValueBoxTypeText: GREY,
-        paginationBtnBg: EXTRA_LIGHT_GREY,
-        paginationBtnText: GREY,
-        paginationBtnBorder: LIGHT_GREY,
-        paginationBtnHoverText: DARK_GREY,
-        paginationCursorText: DARK_GREY,
-        paginationBtnDisabledText: LIGHT_GREY,
-        typedValueBoxBorder: MEDIUM_LIGHT_GREY,
+        typedValueBoxBg: DAWN_L2,
+        typedValueBoxText: DARK,
+        typedValueBoxTypeText: DUSK,
+        paginationBtnBg: DAWN_L2,
+        paginationBtnText: DUSK,
+        paginationBtnBorder: DAWN_D5,
+        paginationBtnHoverText: DARK,
+        paginationCursorText: DARK,
+        paginationBtnDisabledText: DAWN_D5,
+        typedValueBoxBorder: DAWN,
         messageBoxPrimaryBg: WHITE,
-        messageBoxPrimaryBorder: LIGHT_GREY,
-        messageBoxPrimaryText: GREY,
-        messageBoxSecondaryBg: EXTRA_LIGHT_GREY,
-        messageBoxSecondaryBorder: LIGHT_GREY,
-        messageBoxSecondaryText: GREY,
-        separator: LIGHT_GREY,
+        messageBoxPrimaryBorder: DAWN_D5,
+        messageBoxPrimaryText: DUSK,
+        messageBoxSecondaryBg: DAWN_L2,
+        messageBoxSecondaryBorder: DAWN_D5,
+        messageBoxSecondaryText: DUSK,
+        separator: DAWN_D5,
 
         link: BLUE
     };
