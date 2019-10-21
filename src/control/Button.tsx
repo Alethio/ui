@@ -8,9 +8,10 @@ import { ITheme } from "../theme/ITheme";
 interface IButtonRootProps {
     floating?: boolean;
     disabled?: boolean;
+    rounded?: boolean;
 }
 
-const ButtonRoot = styled<IButtonRootProps, "div">("div")`
+const ButtonRoot = styled<IButtonRootProps, "button">("button")`
     ${props => !props.disabled ? css`
     cursor: pointer;
     ` : ``}
@@ -19,10 +20,18 @@ const ButtonRoot = styled<IButtonRootProps, "div">("div")`
     ${props => props.floating ? css`
     box-shadow: 0 8px 16px rgba(167, 181, 209, 0.6);
     ` : ``}
+
+    border-radius: ${props => props.rounded ? "100px" : "4px" };
+
+    /* Override user-agent styles */
+    background: none;
+    border: none; /* Remove borders */
+    outline: none;
+    padding: 0px;
 `;
 
 const StyledBox = styled(Box)`
-    border-radius: 4px;
+    border-radius: inherit;
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
@@ -32,11 +41,15 @@ type GetColorSetFn = (colorVariants: ButtonColors, state: InteractionState) => I
 
 const getColorSet: GetColorSetFn = (colorVariant, state) => (theme) => theme.colors.button[colorVariant][state];
 
-export interface IButtonProps {
+type IHtmlButtonProps = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, "autoFocus" | "name" | "type" | "value">;
+
+export interface IButtonProps extends IHtmlButtonProps {
     Icon?: IBoxProps["Icon"];
     iconPlacement?: IBoxProps["iconPlacement"];
     colors?: ButtonColors;
     floating?: boolean;
+    /** Rounded 50% corners */
+    rounded?: boolean;
     children?: string;
     disabled?: boolean;
     onClick?(): void;
@@ -48,7 +61,9 @@ export class Button extends React.Component<IButtonProps> {
     };
 
     render() {
-        let { Icon, iconPlacement, floating, disabled, colors, children} = this.props;
+        let {
+            Icon, iconPlacement, floating, disabled, rounded, colors, autoFocus, name, type, value, children
+        } = this.props;
         return (
             <HoverState>
                 {(hover) =>
@@ -56,6 +71,11 @@ export class Button extends React.Component<IButtonProps> {
                     onClick={!this.props.disabled ? this.props.onClick : void 0}
                     floating={floating}
                     disabled={disabled}
+                    rounded={rounded}
+                    autoFocus={autoFocus}
+                    name={name}
+                    type={type}
+                    value={value}
                 >
                     <StyledBox
                         Icon={Icon}
@@ -64,7 +84,7 @@ export class Button extends React.Component<IButtonProps> {
                         metrics={{
                             fontSize: 12,
                             lineHeight: 14,
-                            fontWeight: 700,
+                            fontWeight: 600,
                             height: 36,
                             iconSize: 24,
                             letterSpacing: .4,

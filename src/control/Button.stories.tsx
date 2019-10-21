@@ -67,6 +67,12 @@ storiesOf("control/button/" + Button.name, module)
             <Button floating colors="special1">Click me</Button>
         ]
     ))
+    .add("rounded", () => (
+        [
+            <Button floating rounded colors="primary" Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button floating rounded colors="primary" Icon={ArrowForwardIcon}></Button>
+        ]
+    ))
     .add("with spinner", () => (
         <Button Icon={SpinnerLite} disabled>Loading...</Button>
     ));
