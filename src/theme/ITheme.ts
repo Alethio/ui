@@ -62,12 +62,6 @@ export interface IThemeColors {
 
     copyIcon: string;
 
-    checkboxIcon: string;
-    checkboxLabel: string;
-
-    radioIcon: string;
-    radioLabel: string;
-
     label: {
         default: string;
         strong: string;
