@@ -4,9 +4,19 @@ import styled from "../styled-components";
 import { RadioOnIcon } from "../icon/RadioOnIcon";
 import { RadioOffIcon } from "../icon/RadioOffIcon";
 
-interface IStyledInputProps {
+interface IStyledInnerProps {
     disabled?: boolean;
 }
+
+// We render the input non-visible, but correctly positioned to make the "required" attribute work properly
+const StyledInput = styled.input`
+    pointer-events: none;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+`;
 
 const RadioWrapper = styled.div`
     padding: 4px 0 4px 28px;
@@ -14,13 +24,13 @@ const RadioWrapper = styled.div`
     box-sizing: border-box;
     position: relative;
 `;
-const RadioLabel = styled.label<IStyledInputProps>`
+const RadioLabel = styled.label<IStyledInnerProps>`
     display: block;
     font-size: 14px;
     font-weight: 400;
     color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.primary.color};
 `;
-const RadioIconWrapper = styled.div<IStyledInputProps>`
+const RadioIconWrapper = styled.div<IStyledInnerProps>`
     position: absolute;
     top: 0;
     left: 0;
@@ -51,18 +61,18 @@ export class Radio extends React.Component<IRadioProps> {
         return (
             <RadioWrapper>
                 <RadioLabel disabled={disabled}>
-                    <input
-                        type="radio"
-                        id={id}
-                        name={name}
-                        value={value}
-                        checked={checked || false}
-                        required={required}
-                        disabled={disabled}
-                        onChange={this.onChange}
-                        style={{display: "none"}}
-                    />
                     <RadioIconWrapper disabled={disabled}>
+                        <StyledInput
+                            type="radio"
+                            id={id}
+                            name={name}
+                            value={value}
+                            checked={checked || false}
+                            required={required}
+                            disabled={disabled}
+                            onChange={this.onChange}
+                            style={{display: "none"}}
+                        />
                         { checked ? <RadioOnIcon /> : <RadioOffIcon />}
                     </RadioIconWrapper>
                     {children}
