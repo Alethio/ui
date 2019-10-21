@@ -4,7 +4,7 @@ import { CheckboxOnIcon } from "../icon/CheckboxOnIcon";
 import { CheckboxOffIcon } from "../icon/CheckboxOffIcon";
 
 const CheckboxWrapper = styled.div`
-    padding: 8px 8px 8px 32px;
+    padding: 4px 0 4px 28px;
     position: relative;
 `;
 const CheckboxLabel = styled.label`
@@ -15,8 +15,8 @@ const CheckboxLabel = styled.label`
 `;
 const CheckboxIconWrapper = styled.div`
     position: absolute;
-    top: 4px;
-    left: 4px;
+    top: 0;
+    left: 0;
     color: ${({theme}) => theme.colors.base.accent.color};
 `;
 
