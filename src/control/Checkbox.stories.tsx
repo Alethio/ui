@@ -11,4 +11,8 @@ storiesOf("control/checkbox/" + Checkbox.name, module)
     ))
     .add("label", () => (
         <Checkbox name="myCheckbox" value="someValue">Label<br/>second line</Checkbox>
-    ));
+    ))
+    .add("disabled", () => [
+        <Checkbox name="myCheckbox" value="someValue" disabled>Disabled<br/>second line</Checkbox>,
+        <Checkbox name="myCheckbox" value="someValue" checked disabled>Checked<br/>and disabled</Checkbox>
+    ]);

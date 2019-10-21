@@ -20,7 +20,7 @@ storiesOf("control/" + Radio.name, module)
         }}>
             <Radio name="myRadio" value="first">First item<br/>With description</Radio>
             <Radio name="myRadio" value="second" checked>Second item<br/>Extra line</Radio>
-            <Radio name="myRadio" value="third">Third item</Radio>
+            <Radio name="myRadio" value="third" disabled>Third item</Radio>
             <Button type="submit" colors="primary">Submit</Button>
         </form>
     ]));
