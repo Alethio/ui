@@ -37,7 +37,7 @@ const RadioIconWrapper = styled.div<IStyledInnerProps>`
     color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.accent.color};
 `;
 
-interface IRadioProps {
+export interface IRadioProps {
     id?: string;
     name?: string;
     value?: string | number;

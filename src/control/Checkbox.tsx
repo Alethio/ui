@@ -36,7 +36,7 @@ const CheckboxIconWrapper = styled.div<IStyledInnerProps>`
     color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.accent.color};
 `;
 
-interface ICheckboxProps {
+export interface ICheckboxProps {
     id?: string;
     name?: string;
     value?: string | number;
