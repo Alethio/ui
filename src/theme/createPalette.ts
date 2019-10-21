@@ -1,15 +1,15 @@
 import { IPalette } from "./IPalette";
 import Color from "color";
 
-const WHITE_COLOR = Color.hsl(0, 0, 100); // #FFFFFF
-const RED_COLOR = Color.hsl(360, 90, 65); // #F65555
-const GREEN_COLOR = Color.hsl(163, 75, 48); // #1FD6A2
-const BLUE_COLOR = Color.hsl(223, 100, 60); // #336DFF
-const ORANGE_COLOR = Color.hsl(35, 100, 55); // #FF9F1A
+const WHITE_COLOR = Color("#FFFFFF");
+const RED_COLOR = Color("#F65555");
+const GREEN_COLOR = Color("#1FD6A2");
+const BLUE_COLOR = Color("#356EFF");
+const ORANGE_COLOR = Color("#FF9F1C");
 
-const DARK_COLOR = Color.hsl(223, 37, 24); // #273354
-const DUSK_COLOR = Color.hsl(223, 22, 88); // #DADDE7
-const DAWN_COLOR = Color.hsl(223, 40, 96); // #F1F3F9
+const DARK_COLOR = Color("#273354");
+const DUSK_COLOR = Color("#9BA6BF");
+const DAWN_COLOR = Color("#F1F3F9");
 
 /*
  * We don't export a palette object directly to avoid importing it by accident without dependency injection
