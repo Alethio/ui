@@ -4,10 +4,15 @@ import { Menu } from "../menu/Menu";
 import styled from "../../styled-components";
 import { MenuItem } from "../menu/MenuItem";
 import { Dropdown } from "./Dropdown";
-import { Button } from "../Button";
+import { Expander } from "../expander/Expander";
 
 const RootContainer = styled.div`
     display: flex;
+    background: lightgray;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100px;
 `;
 
 interface IItem {
@@ -29,6 +34,6 @@ storiesOf("control/" + Dropdown.name, module)
                 <MenuItem disabled onClick={() => onSelectItem({ id: "3"})}>Item 3</MenuItem>
             </Menu>
         } onSelect={item => alert("Selected item " + item.id)}>
-            { (requestToggle) => <Button onClick={requestToggle}>Click me</Button> }
+            { ({requestToggle, isOpen}) => <Expander open={isOpen} onClick={requestToggle} label="Click me" /> }
         </Dropdown>
     ));

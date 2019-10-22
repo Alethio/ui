@@ -9,7 +9,7 @@ export interface IDropdownProps<TItem> {
     popoverProps?: Omit<IPopoverProps, "visible" | "content">;
     /** Close layer when menu item is selected (Default = true) */
     closeOnSelect?: boolean;
-    children: ((requestToggle: () => void) => React.ReactElement<{}>) | React.ReactElement<{}>;
+    children: ((params: {isOpen: boolean; requestToggle(): void; }) => React.ReactElement<{}>) | React.ReactElement<{}>;
     renderMenu(onSelectItem: (item: TItem) => void): React.ReactElement<{}>;
     onSelect?(item: TItem): void;
 }
@@ -41,7 +41,7 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
             >
                 <DomNodeProxy onMount={el => this.targetEl = el} onUnmount={() => this.targetEl = (void 0)!}>
                     { typeof children === "function" ?
-                    children(this.handleLayerToggle) :
+                    children({ isOpen: this.layerVisible, requestToggle: this.handleLayerToggle}) :
                     children as React.ReactElement<{}>
                     }
                 </DomNodeProxy>
