@@ -74,7 +74,6 @@ export class Radio extends React.Component<IRadioProps> {
                             required={required}
                             disabled={disabled}
                             onChange={this.onChange}
-                            style={{display: "none"}}
                         />
                         { checked ? <RadioOnIcon /> : <RadioOffIcon />}
                     </RadioIconWrapper>
