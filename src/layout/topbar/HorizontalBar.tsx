@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { css } from "../../styled-components";
-import { Bar, IBarProps } from "../Bar";
+import { Bar } from "../Bar";
 
 interface IPlaceholderProps {
     height: number;
@@ -20,7 +20,7 @@ const Placeholder = styled<IPlaceholderProps, "div">("div")`
     }
 `;
 
-const HorizontalBarRoot = styled<IHorizontalBarProps, IBarProps>(Bar)`
+const HorizontalBarRoot = styled(Bar)<IHorizontalBarProps>`
     height: ${props => props.height}px;
 
     width: 100%;

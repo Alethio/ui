@@ -3,7 +3,7 @@ import { CheckboxOnIcon } from "../icon/CheckboxOnIcon";
 import { CheckboxOffIcon } from "../icon/CheckboxOffIcon";
 import { IToggleInputProps, ToggleInput } from "./internal/ToggleInput";
 
-export interface ICheckboxProps extends Pick<IToggleInputProps, Exclude<keyof IToggleInputProps, "Icon" | "type">> {
+export interface ICheckboxProps extends Omit<IToggleInputProps, "Icon" | "type"> {
 }
 
 export class Checkbox extends React.PureComponent<ICheckboxProps> {

@@ -5,7 +5,7 @@ import { IPopoverProps, Popover } from "../Popover";
 import { DomNodeProxy } from "../../util/react/DomNodeProxy";
 import { MultiHover } from "../../util/react/MultiHover";
 
-export interface ITooltipProps extends Pick<IPopoverProps, Exclude<keyof IPopoverProps, "visible">> {
+export interface ITooltipProps extends Omit<IPopoverProps, "visible"> {
     /** Time since mouse enter event until tooltip is shown (millis) */
     showDelay?: number;
     /** Time since mouse leave event until tooltip is hidden (millis) */
