@@ -123,6 +123,15 @@ export interface IThemeColors {
         placeholder: string;
     };
 
+    menu: {
+        background: string;
+        item: {
+            normal: IBoxColors;
+            active: IBoxColors;
+            disabled: IBoxColors;
+        };
+    };
+
     typedValueBoxBg: string;
     typedValueBoxText: string;
     typedValueBoxTypeText: string;
