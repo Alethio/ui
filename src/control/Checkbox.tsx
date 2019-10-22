@@ -18,7 +18,7 @@ const StyledInput = styled.input`
 `;
 
 const CheckboxWrapper = styled.div`
-    padding: 4px 0 4px 28px;
+    padding: 4px 0 4px 24px;
     min-height: 24px;
     box-sizing: border-box;
     position: relative;
@@ -28,6 +28,9 @@ const CheckboxLabel = styled.label<IStyledInnerProps>`
     font-size: 14px;
     font-weight: 400;
     color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.primary.color};
+`;
+const CheckboxLabelText = styled.div`
+    margin-left: 4px;
 `;
 const CheckboxIconWrapper = styled.div<IStyledInnerProps>`
     position: absolute;
@@ -72,7 +75,7 @@ export class Checkbox extends React.PureComponent<ICheckboxProps> {
                         />
                         { checked ? <CheckboxOnIcon /> : <CheckboxOffIcon />}
                     </CheckboxIconWrapper>
-                    {children}
+                    { children && <CheckboxLabelText>{children}</CheckboxLabelText> }
                 </CheckboxLabel>
             </CheckboxWrapper>
         );

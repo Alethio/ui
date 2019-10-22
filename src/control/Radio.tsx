@@ -19,7 +19,7 @@ const StyledInput = styled.input`
 `;
 
 const RadioWrapper = styled.div`
-    padding: 4px 0 4px 28px;
+    padding: 4px 0 4px 24px;
     min-height: 24px;
     box-sizing: border-box;
     position: relative;
@@ -29,6 +29,9 @@ const RadioLabel = styled.label<IStyledInnerProps>`
     font-size: 14px;
     font-weight: 400;
     color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.primary.color};
+`;
+const RadioLabelText = styled.div`
+    margin-left: 4px;
 `;
 const RadioIconWrapper = styled.div<IStyledInnerProps>`
     position: absolute;
@@ -75,7 +78,7 @@ export class Radio extends React.Component<IRadioProps> {
                         />
                         { checked ? <RadioOnIcon /> : <RadioOffIcon />}
                     </RadioIconWrapper>
-                    {children}
+                    { children && <RadioLabelText>{children}</RadioLabelText> }
                 </RadioLabel>
             </RadioWrapper>
         );
