@@ -2,6 +2,8 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Popover } from "./Popover";
 import styled from "../styled-components";
+import { Menu } from "../control/menu/Menu";
+import { MenuItem } from "../control/menu/MenuItem";
 
 const Container = styled.div`
     display: flex;
@@ -25,9 +27,8 @@ storiesOf("overlay/" + Popover.name, module)
     .addDecorator(s => <Container>{s()}</Container>)
     .add("default", () => (
         <Popover
-            content={"Popover element content"}
+            content={<Menu><MenuItem>Item 1</MenuItem><MenuItem>Item 2</MenuItem></Menu>}
             visible
-            borderColor="green"
         >
             <AnchorWrapper>Anchor element</AnchorWrapper>
         </Popover>
