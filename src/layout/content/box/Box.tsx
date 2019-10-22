@@ -88,31 +88,33 @@ export const Box = styled($Box)`
         if (!props.Icon) {
             return;
         }
-        let iconSpacing = Math.max(0, (props.metrics.height - props.metrics.iconSize) / 2 - BORDER_WIDTH);
-        let iconIsLeft = props.iconPlacement === "left";
         let hasText = (props as any).children !== void 0;
+        let iconTextSpacing = Math.floor(props.metrics.textPaddingX / 2);
+        let iconMarginY = Math.max(0, (props.metrics.height - props.metrics.iconSize) / 2 - BORDER_WIDTH);
+        let iconMarginX = hasText ? iconTextSpacing : iconMarginY;
+        let iconIsLeft = props.iconPlacement === "left";
 
         return css`
             ${ iconIsLeft ? css`
-                padding-left: ${iconSpacing}px;
+                padding-left: ${iconMarginX}px;
                     ${!hasText ? css`
-                    padding-right: ${iconSpacing}px;
+                    padding-right: ${iconMarginX}px;
                     ` : ``}
                 ` : css`
-                padding-right: ${iconSpacing}px;
+                padding-right: ${iconMarginX}px;
                     ${!hasText ? css`
-                    padding-left: ${iconSpacing}px;
+                    padding-left: ${iconMarginX}px;
                     ` : ``}
             `}
 
             & ${IconRoot} {
-                margin-top: ${iconSpacing}px;
+                margin-top: ${iconMarginY}px;
 
                 ${hasText ? css`
                     ${iconIsLeft ? css`
-                        margin-right: 8px;
+                        margin-right: ${iconTextSpacing}px;
                         ` : css`
-                        margin-left: 8px;`
+                        margin-left: ${iconTextSpacing}px;`
                     }
                 ` : ``}
             }
