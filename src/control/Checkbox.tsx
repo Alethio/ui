@@ -1,89 +1,17 @@
 import * as React from "react";
-import styled from "../styled-components";
 import { CheckboxOnIcon } from "../icon/CheckboxOnIcon";
 import { CheckboxOffIcon } from "../icon/CheckboxOffIcon";
+import { IToggleInputProps, ToggleInput } from "./internal/ToggleInput";
 
-interface IStyledInnerProps {
-    disabled?: boolean;
-}
-
-// We render the input non-visible, but correctly positioned to make the "required" attribute work properly
-const StyledInput = styled.input`
-    pointer-events: none;
-    opacity: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-`;
-
-const CheckboxWrapper = styled.div`
-    padding: 4px 0 4px 24px;
-    min-height: 24px;
-    box-sizing: border-box;
-    position: relative;
-`;
-const CheckboxLabel = styled.label<IStyledInnerProps>`
-    display: block;
-    font-size: 14px;
-    font-weight: 400;
-    color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.primary.color};
-`;
-const CheckboxLabelText = styled.div`
-    margin-left: 4px;
-`;
-const CheckboxIconWrapper = styled.div<IStyledInnerProps>`
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.accent.color};
-`;
-
-export interface ICheckboxProps {
-    id?: string;
-    name?: string;
-    value?: string | number;
-    /** If false or unspecified, the checkbox is unchecked (only controlled mode supported) */
-    checked?: boolean;
-    required?: boolean;
-    disabled?: boolean;
-    onChange?(
-        event: React.ChangeEvent<HTMLInputElement>,
-        checked: boolean,
-        name?: string,
-        value?: string | number
-    ): void;
+export interface ICheckboxProps extends Pick<IToggleInputProps, Exclude<keyof IToggleInputProps, "Icon" | "type">> {
 }
 
 export class Checkbox extends React.PureComponent<ICheckboxProps> {
     render() {
-        let { id, name, value, required, disabled, checked, children } = this.props;
-
-        return (
-            <CheckboxWrapper>
-                <CheckboxLabel disabled={disabled}>
-                    <CheckboxIconWrapper disabled={disabled}>
-                        <StyledInput
-                            type="checkbox"
-                            id={id}
-                            name={name}
-                            value={value}
-                            checked={checked || false}
-                            required={required}
-                            disabled={disabled}
-                            onChange={this.onChange}
-                        />
-                        { checked ? <CheckboxOnIcon /> : <CheckboxOffIcon />}
-                    </CheckboxIconWrapper>
-                    { children && <CheckboxLabelText>{children}</CheckboxLabelText> }
-                </CheckboxLabel>
-            </CheckboxWrapper>
-        );
-    }
-
-    private onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (this.props.onChange && !this.props.disabled) {
-            this.props.onChange(event, !this.props.checked, this.props.name, this.props.value);
-        }
+        return <ToggleInput
+            {...this.props}
+            type="checkbox"
+            Icon={checked => checked ? <CheckboxOnIcon /> : <CheckboxOffIcon />}
+        />;
     }
 }
