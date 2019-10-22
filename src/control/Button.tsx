@@ -85,10 +85,10 @@ export class Button extends React.Component<IButtonProps> {
                             fontSize: 12,
                             lineHeight: 14,
                             fontWeight: 600,
-                            height: 36,
+                            height: 32,
                             iconSize: 24,
                             letterSpacing: .4,
-                            textPaddingTop: 9,
+                            textPaddingTop: 7,
                             textPaddingX: 16
                         }}
                     >{children}</StyledBox>
