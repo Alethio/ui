@@ -33,6 +33,8 @@ const ContentRoot = styled<IContentRootProps, "div">("div")`
 
     ${props => props.fullWidth ? css`
     width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
     ` : ``}
 `;
 

@@ -17,18 +17,20 @@ const getColorSet: GetColorSetFn = (state) => (theme) => theme.colors.menu.item[
 export interface IMenuItemProps {
     disabled?: boolean;
     Icon?: IBoxProps["Icon"];
+    onClick?(): void;
 }
 
 export class MenuItem extends React.Component<IMenuItemProps> {
     render() {
         let { disabled, Icon, children } = this.props;
-        return (
+        return <div onClick={this.handleClick}>
             <HoverState>
                 {(hover) =>
                     <StyledBox
                         Icon={Icon}
                         iconPlacement={"left"}
                         colors={getColorSet(!disabled ? hover ? "active" : "normal" : "disabled")}
+                        fullWidth
                         metrics={{
                             // TODO: extract these metrics because they are the same as Button metricss
                             fontSize: 12,
@@ -43,6 +45,12 @@ export class MenuItem extends React.Component<IMenuItemProps> {
                     >{children}</StyledBox>
                 }
             </HoverState>
-        );
+        </div>;
+    }
+
+    private handleClick = () => {
+        if (!this.props.disabled && this.props.onClick) {
+            this.props.onClick();
+        }
     }
 }

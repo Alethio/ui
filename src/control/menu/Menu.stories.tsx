@@ -37,4 +37,18 @@ storiesOf("control/menu/" + Menu.name, module)
             <MenuItem Icon={CheckboxOffIcon}>Item 2</MenuItem>
             <MenuItem Icon={CheckboxOffIcon} disabled>Item 3</MenuItem>
         </Menu>
+    ))
+    .add("with scroll", () => (
+        <Menu>
+            <MenuItem Icon={CheckboxOnIcon}>Item 1</MenuItem>
+            <MenuItem Icon={CheckboxOffIcon}>Item 2</MenuItem>
+            <MenuItem Icon={CheckboxOffIcon} disabled>Item 3</MenuItem>
+            {new Array(50).fill(0).map(() => <MenuItem Icon={CheckboxOffIcon}>Item</MenuItem>)}
+        </Menu>
+    ))
+    .add("max width", () => (
+        <Menu maxWidth={200}>
+            <MenuItem Icon={CheckboxOnIcon}>Item 1</MenuItem>
+            <MenuItem Icon={CheckboxOffIcon}>Item with a very long text will have to wrap</MenuItem>
+        </Menu>
     ));
