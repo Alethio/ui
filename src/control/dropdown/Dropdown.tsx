@@ -6,7 +6,7 @@ import { contains } from "@puzzl/browser/lib/dom";
 import { DomNodeProxy } from "../../util/react/DomNodeProxy";
 
 export interface IDropdownProps<TItem> {
-    popoverProps?: Omit<IPopoverProps, "visible" | "content">;
+    popoverProps?: Partial<Omit<IPopoverProps, "visible" | "content">>;
     /** Close layer when menu item is selected (Default = true) */
     closeOnSelect?: boolean;
     children: ((params: {isOpen: boolean; requestToggle(): void; }) => React.ReactElement<{}>) | React.ReactElement<{}>;
