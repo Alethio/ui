@@ -197,6 +197,14 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             }
         },
 
+        input: {
+            text: base.primary.color,
+            background: WHITE,
+            border: DAWN_D5,
+            activeBorder: base.accent.color,
+            placeholder: DAWN_D5
+        },
+
         typedValueBoxBg: DAWN_L2,
         typedValueBoxText: DARK,
         typedValueBoxTypeText: DUSK,

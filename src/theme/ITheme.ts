@@ -118,6 +118,11 @@ export interface IThemeColors {
         disabled: IBoxColors;
     }>;
 
+    input: IBoxColors & {
+        activeBorder: string;
+        placeholder: string;
+    };
+
     typedValueBoxBg: string;
     typedValueBoxText: string;
     typedValueBoxTypeText: string;
