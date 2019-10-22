@@ -4,7 +4,7 @@ import { RadioOnIcon } from "../icon/RadioOnIcon";
 import { RadioOffIcon } from "../icon/RadioOffIcon";
 import { IToggleInputProps, ToggleInput } from "./internal/ToggleInput";
 
-export interface IRadioProps extends Pick<IToggleInputProps, Exclude<keyof IToggleInputProps, "Icon" | "type">> {
+export interface IRadioProps extends Omit<IToggleInputProps, "Icon" | "type"> {
 }
 
 @observer

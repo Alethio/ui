@@ -11,7 +11,7 @@ const Placeholder = styled<IPlaceholderProps, "div">("div")`
     width: 100%;
 `;
 
-const HorizontalBarRoot = styled<IHorizontalBarProps, IBarProps>(Bar)`
+const HorizontalBarRoot = styled(Bar)<IHorizontalBarProps>`
     height: ${props => props.height}px;
 
     width: 100%;
@@ -22,7 +22,7 @@ const HorizontalBarRoot = styled<IHorizontalBarProps, IBarProps>(Bar)`
     border-bottom: 1px solid ${props => props.theme.colors.sidebarBorder};
 `;
 
-interface IHorizontalBarProps {
+interface IHorizontalBarProps extends IBarProps {
     height: number;
     sticky?: boolean;
     zIndex?: number;

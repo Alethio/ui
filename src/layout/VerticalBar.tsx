@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { css } from "../styled-components";
-import { Bar, IBarProps } from "./Bar";
+import { Bar } from "./Bar";
 
 interface IPlaceholderProps {
     width: number;
@@ -13,7 +13,7 @@ const Placeholder = styled<IPlaceholderProps, "div">("div")`
     }
 `;
 
-const VerticalBarRoot = styled<IVerticalBarProps, IBarProps>(Bar)`
+const VerticalBarRoot = styled(Bar)<IVerticalBarProps>`
     width: ${props => props.width}px;
     ${props => props.sticky ? css`
     position: fixed;
