@@ -6,7 +6,7 @@ import { observer } from "mobx-react";
 
 const CLASS_NAME = "fade";
 
-const FadeRoot = styled<IFadeProps, "div">("div")`
+const FadeRoot = styled<Pick<IFadeProps, "duration">, "div">("div")`
     & .${CLASS_NAME}-enter,
     & .${CLASS_NAME}-exit {
         transition: opacity ${props => props.duration}s ease-in-out;
@@ -86,7 +86,7 @@ export class Fade extends React.Component<IFadeProps> {
 
     render() {
         return (
-            <FadeRoot {...this.props}>
+            <FadeRoot duration={this.props.duration} innerRef={this.props.innerRef}>
                 <CSSTransition
                     in={this.active && this.props.in}
                     classNames={CLASS_NAME}
