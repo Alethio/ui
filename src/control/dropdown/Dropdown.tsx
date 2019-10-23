@@ -1,6 +1,6 @@
 import * as React from "react";
 import { observer } from "mobx-react";
-import { observable } from "mobx";
+import { observable, action } from "mobx";
 import { Popover, IPopoverProps } from "../../overlay/Popover";
 import { contains } from "@puzzl/browser/lib/dom";
 import { DomNodeProxy } from "../../util/react/DomNodeProxy";
@@ -21,8 +21,9 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
         closeOnSelect: true
     };
 
-    @observable
-    private layerVisible = false;
+    @observable private layerOpen = false;
+    /** Prevents animation clipping by keeping the layer mounted until animation finishes */
+    @observable private layerMounted = false;
     private layerEl: HTMLElement;
     private targetEl: HTMLElement;
 
@@ -34,7 +35,7 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
         let { popoverProps, children } = this.props;
         return (
             <Popover
-                visible={this.layerVisible}
+                visible={this.layerMounted}
                 placement="bottom-start"
                 offset={8}
                 content={this.renderPopover()}
@@ -42,7 +43,7 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
             >
                 <DomNodeProxy onMount={el => this.targetEl = el} onUnmount={() => this.targetEl = (void 0)!}>
                     { typeof children === "function" ?
-                    children({ isOpen: this.layerVisible, requestToggle: this.handleLayerToggle}) :
+                    children({ isOpen: this.layerOpen, requestToggle: this.handleLayerToggle}) :
                     children as React.ReactElement<{}>
                     }
                 </DomNodeProxy>
@@ -51,9 +52,19 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
     }
 
     private renderPopover() {
-        return <Fade innerRef={ref => this.layerEl = ref!}>
+        return <Fade
+            innerRef={ref => this.layerEl = ref!}
+            in={this.layerOpen}
+            onFinished={this.handleAnimationFinished}
+        >
             { this.props.renderMenu(this.handleSelectItem) }
         </Fade>;
+    }
+
+    private handleAnimationFinished = () => {
+        if (!this.layerOpen) {
+            this.layerMounted = false;
+        }
     }
 
     private handleSelectItem = (item: TItem) => {
@@ -77,9 +88,14 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
         }
     }
 
+    @action
     private toggleLayer() {
-        this.layerVisible = !this.layerVisible;
-        if (this.layerVisible) {
+        this.layerOpen = !this.layerOpen;
+        if (this.layerOpen) {
+            this.layerMounted = true;
+        }
+
+        if (this.layerOpen) {
             document.addEventListener("click", this.handleDocumentClick);
         } else {
             document.removeEventListener("click", this.handleDocumentClick);
