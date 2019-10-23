@@ -205,6 +205,22 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             placeholder: DAWN_D5
         },
 
+        menu: {
+            background: WHITE,
+            item: {
+                normal: {
+                    text: base.primary.color
+                },
+                active: {
+                    text: base.primary.color,
+                    background: DAWN_L2
+                },
+                disabled: {
+                    text: base.disabled
+                }
+            }
+        },
+
         typedValueBoxBg: DAWN_L2,
         typedValueBoxText: DARK,
         typedValueBoxTypeText: DUSK,

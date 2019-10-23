@@ -6,7 +6,7 @@ import { observer } from "mobx-react";
 
 const CLASS_NAME = "fade";
 
-const FadeRoot = styled<IFadeProps, "div">("div")`
+const FadeRoot = styled<Pick<IFadeProps, "duration">, "div">("div")`
     & .${CLASS_NAME}-enter,
     & .${CLASS_NAME}-exit {
         transition: opacity ${props => props.duration}s ease-in-out;
@@ -31,23 +31,30 @@ const FadeRoot = styled<IFadeProps, "div">("div")`
 
 export interface IFadeProps {
     /** Duration in seconds */
-    duration: number;
+    duration?: number;
     /** Delay in seconds */
     delay?: number;
-    /** Initial active state (default = true) */
-    active?: boolean;
+    /** Enable the animation initially? Use this together with delay to trigger the animation later (default = true) */
+    enabled?: boolean;
+    /** Controls the direction of the animation - fade in or out (default = true) */
+    in?: boolean;
+    innerRef?(ref: HTMLDivElement): any;
+    onFinished?(): void;
 }
 
 /**
- * Fade-in effect
+ * Fade in/out effect
  *
- * Activated when children are added/mounted
+ * Wrapper over React CSStransition. By default, fades in on mount.
+ * To fade out on unmount, make sure not to unmount the parent component before the animation finishes
  */
 @observer
 export class Fade extends React.Component<IFadeProps> {
-    static defaultProps = {
+    static defaultProps: IFadeProps = {
+        duration: .2,
         delay: 0,
-        active: true
+        in: true,
+        enabled: true
     };
 
     @observable
@@ -55,18 +62,18 @@ export class Fade extends React.Component<IFadeProps> {
     private delayTimer: number | undefined;
 
     componentDidMount() {
-        if (this.props.active === true) {
+        if (this.props.enabled === true) {
             this.delayTimer = setTimeout(() => this.active = true, this.props.delay! * 1000);
         }
     }
 
     componentDidUpdate(prevProps: IFadeProps) {
-        if (prevProps.active !== this.props.active) {
+        if (prevProps.enabled !== this.props.enabled) {
             if (this.delayTimer) {
                 clearTimeout(this.delayTimer);
             }
             this.delayTimer = setTimeout(() => {
-                this.active = (this.props.active === true);
+                this.active = (this.props.enabled === true);
             }, this.props.delay! * 1000);
         }
     }
@@ -79,11 +86,12 @@ export class Fade extends React.Component<IFadeProps> {
 
     render() {
         return (
-            <FadeRoot {...this.props}>
+            <FadeRoot duration={this.props.duration} innerRef={this.props.innerRef}>
                 <CSSTransition
-                    in={this.active}
+                    in={this.active && this.props.in}
                     classNames={CLASS_NAME}
-                    timeout={this.props.duration * 1000}
+                    timeout={this.props.duration! * 1000}
+                    onExited={this.props.onFinished}
                     unmountOnExit
                 >
                     <div>{this.props.children}</div>
