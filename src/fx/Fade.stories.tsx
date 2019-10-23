@@ -4,5 +4,5 @@ import { Fade } from "./Fade";
 
 storiesOf("fx/" + Fade.name, module)
     .add("default", () => (
-        <Fade duration={5}>Fading</Fade>
+        <Fade duration={5}>Fading in</Fade>
     ));

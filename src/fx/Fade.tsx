@@ -31,11 +31,12 @@ const FadeRoot = styled<IFadeProps, "div">("div")`
 
 export interface IFadeProps {
     /** Duration in seconds */
-    duration: number;
+    duration?: number;
     /** Delay in seconds */
     delay?: number;
     /** Initial active state (default = true) */
     active?: boolean;
+    innerRef?(ref: HTMLDivElement): any;
 }
 
 /**
@@ -45,7 +46,8 @@ export interface IFadeProps {
  */
 @observer
 export class Fade extends React.Component<IFadeProps> {
-    static defaultProps = {
+    static defaultProps: IFadeProps = {
+        duration: .2,
         delay: 0,
         active: true
     };
@@ -83,7 +85,7 @@ export class Fade extends React.Component<IFadeProps> {
                 <CSSTransition
                     in={this.active}
                     classNames={CLASS_NAME}
-                    timeout={this.props.duration * 1000}
+                    timeout={this.props.duration! * 1000}
                     unmountOnExit
                 >
                     <div>{this.props.children}</div>

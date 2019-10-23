@@ -4,6 +4,7 @@ import { observable } from "mobx";
 import { Popover, IPopoverProps } from "../../overlay/Popover";
 import { contains } from "@puzzl/browser/lib/dom";
 import { DomNodeProxy } from "../../util/react/DomNodeProxy";
+import { Fade } from "../../fx/Fade";
 
 export interface IDropdownProps<TItem> {
     popoverProps?: Partial<Omit<IPopoverProps, "visible" | "content">>;
@@ -50,9 +51,9 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
     }
 
     private renderPopover() {
-        return <DomNodeProxy onMount={el => this.layerEl = el} onUnmount={() => this.layerEl = (void 0)!}>
+        return <Fade innerRef={ref => this.layerEl = ref!}>
             { this.props.renderMenu(this.handleSelectItem) }
-        </DomNodeProxy>;
+        </Fade>;
     }
 
     private handleSelectItem = (item: TItem) => {
