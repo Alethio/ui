@@ -1,14 +1,14 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { CursorPagination } from "./CursorPagination";
+import { CursorInfinitePagination } from "./CursorInfinitePagination";
 import { LoadStatus } from "./LoadStatus";
 
-storiesOf("control/pagination/" + CursorPagination.name, module)
+storiesOf("control/pagination/" + CursorInfinitePagination.name, module)
     .add("default", () => (
-        <CursorPagination
+        <CursorInfinitePagination
             errorText="An error has occurred"
             loadStatus={LoadStatus.Loaded}
-            totalItems={20000}
+            isLastPage={false}
             rangeStart={10000}
             rangeEnd={10050}
             locale="en-US"
@@ -17,10 +17,10 @@ storiesOf("control/pagination/" + CursorPagination.name, module)
         />
     ))
     .add("loading state", () => (
-        <CursorPagination
+        <CursorInfinitePagination
             errorText="An error has occurred"
             loadStatus={LoadStatus.NotLoaded}
-            totalItems={20000}
+            isLastPage={false}
             rangeStart={10000}
             rangeEnd={10050}
             locale="en-US"
@@ -29,10 +29,10 @@ storiesOf("control/pagination/" + CursorPagination.name, module)
         />
     ))
     .add("error state", () => (
-        <CursorPagination
+        <CursorInfinitePagination
             errorText="An error has occurred"
             loadStatus={LoadStatus.Error}
-            totalItems={20000}
+            isLastPage={false}
             rangeStart={10000}
             rangeEnd={10050}
             locale="en-US"
