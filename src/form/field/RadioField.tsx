@@ -4,6 +4,7 @@ import { Field } from "formik";
 
 export interface IRadioFieldProps {
     name: string;
+    value?: string;
     required?: boolean;
     disabled?: boolean;
 }
