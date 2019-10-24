@@ -1,3 +1,7 @@
+# v1.0.1
+
+- Added CursorInfinitePagination. When total items count is unknown, the pagination checks if there is a next page to show the next page button or not.
+
 # v1.0.0
 
 - Stable release
