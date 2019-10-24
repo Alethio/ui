@@ -31,8 +31,8 @@ const HeaderVertBorder = styled.div`
 /** @internal */
 export class GridHeader extends React.PureComponent<IGridHeaderProps> {
     render() {
-        const propsChildren: React.ReactChild[] = React.Children.toArray(this.props.children);
-        const resultChildren = propsChildren.reduce((acc: React.ReactChild[], c, i) => {
+        const propsChildren: React.ReactNode[] = React.Children.toArray(this.props.children);
+        const resultChildren = propsChildren.reduce<React.ReactNode[]>((acc, c, i) => {
             acc.push(<span key={-i - 1}>{c}</span>);
             if (i !== propsChildren.length - 1) {
                 acc.push(<HeaderVertBorder key={i + 1} />);
@@ -46,7 +46,7 @@ export class GridHeader extends React.PureComponent<IGridHeaderProps> {
                 { this.props.extraElements && this.props.extraElements.left }
             </HeaderSpacerLeft>
         ]);
-        resultChildren.push(
+        (resultChildren as React.ReactNode[]).push(
             <HeaderSpacerRight key={propsChildren.length + 1} >
                 { this.props.extraElements && this.props.extraElements.right }
             </HeaderSpacerRight>

@@ -50,7 +50,7 @@ export class LayoutRowItem extends React.PureComponent<ILayoutRowItemProps> {
     static _brand = "layoutRowItem";
     render() {
         const childrenArray = React.Children.toArray(this.props.children)
-            .reduce((outArr, child) => {
+            .reduce<React.ReactNode[]>((outArr, child) => {
                 if (ReactIs.isFragment(child)) {
                     outArr.push(...React.Children.map((child.props as React.Props<{}>).children, c => {
                         if (!ReactIs.isElement(c)) {
@@ -86,7 +86,7 @@ export class LayoutRowItem extends React.PureComponent<ILayoutRowItemProps> {
         );
     }
 
-    private childrenArrayRender(children: React.ReactChild[]) {
+    private childrenArrayRender(children: React.ReactNode[]) {
         return children.map((c, idx) => {
             return (
                 <LayoutBoxItem baseHeight={this.props.baseHeight} autoHeight={this.props.autoHeight}
