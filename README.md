@@ -32,6 +32,28 @@ class App extends React.Component {
 }
 ```
 
+### Server-side rendering
+
+The library uses react-uid to generate some unique IDs for svg icon markup. For SSR to work properly, you will need to include the [UIDReset](./uid/UIDReset.tsx) component at the root of you app component.
+
+Server:
+```tsx
+import { UIDReset } from "@alethio/ui/lib/uid/UIDReset";
+
+// ...
+ReactDOM.renderToString(<UIDReset><App /></UIDReset>));
+```
+
+Client:
+```tsx
+import { UIDReset } from "@alethio/ui/lib/uid/UIDReset";
+
+//..
+ReactDOM.render(<UIDReset><App /></UIDReset>)
+```
+
+You can also import [UIDConsumer](./id/UIDConsumer.tsx) component for general use in your app. The `UIDReset` component is only needed for SSR. The main difference between these components and the components found in `react-uid` is that they work when multiple instances of the library are imported (e.g. multiple applications/plugins running on the same page)
+
 ## Usage
 
 Just import any component with `import { ... } from "@alethio/ui/lib/path/to/Component"`.

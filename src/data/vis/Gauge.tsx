@@ -1,8 +1,5 @@
 import * as React from "react";
 
-// global unique key for every gauge (needed for SVG groups to stay separated)
-let uniqueId = 0;
-
 export interface IGaugeProps {
     value: number;
     min?: number;
@@ -27,8 +24,6 @@ export class Gauge extends React.Component<IGaugeProps> {
         backgroundColor: "#D9E4EF",
         lineColor: "#334564"
     };
-
-    private uniqueFilterId: string;
 
     private get min() {
         return this.props.min!;
@@ -88,10 +83,6 @@ export class Gauge extends React.Component<IGaugeProps> {
     }
 
     render() {
-        if (!this.uniqueFilterId) {
-            this.uniqueFilterId = "filter_" + uniqueId++;
-        }
-
         return (
             <svg height="100%" version="1.1" width="100%" xmlns="http://www.w3.org/2000/svg"
                 style={{

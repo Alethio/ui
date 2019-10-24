@@ -60,7 +60,7 @@
             }
         ],
         "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
-        "import-blacklist": [true, "bignumber.js", "styled-components"],
+        "import-blacklist": [true, "bignumber.js", "styled-components", "react-uid"],
         "whitespace": [true,
             "check-branch",
             "check-decl",
