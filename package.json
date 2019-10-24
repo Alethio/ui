@@ -63,6 +63,7 @@
     "@puzzl/core": "^1.0.0-beta.1",
     "@types/color": "^3.0.0",
     "datetime-difference": "^1.0.1",
+    "formik": "^2.0.1-rc.11",
     "react-popper": "^1.0.2",
     "react-transition-group": "^2.4.0"
   },
