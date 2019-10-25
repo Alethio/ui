@@ -31,8 +31,8 @@ interface IGridRowProps {
 /** @internal */
 export class GridRow extends React.PureComponent<IGridRowProps> {
     render() {
-        const propsChildren: React.ReactChild[] = React.Children.toArray(this.props.children);
-        const resultChildren = propsChildren.reduce((acc: React.ReactChild[], c, i) => {
+        const propsChildren: React.ReactNode[] = React.Children.toArray(this.props.children);
+        const resultChildren = propsChildren.reduce<React.ReactNode[]>((acc, c, i) => {
             acc.push(<Item odd={this.props.odd} key={-i - 1}>{c}</Item>);
             if (i !== propsChildren.length - 1) {
                 acc.push(<VertBorder key={i + 1} />);

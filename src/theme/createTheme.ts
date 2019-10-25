@@ -1,4 +1,4 @@
-import { ITheme, IThemeColors, IThemeSpacing, IThemeMediaQueries, IThemeBaseColors } from "./ITheme";
+import { ITheme, IThemeColors, IThemeSpacing, IThemeMediaQueries, IThemeBaseColors, IThemeFont } from "./ITheme";
 import { IPalette } from "./IPalette";
 
 /*
@@ -308,10 +308,24 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             smallerThanFullView: "screen and (max-width: 920px)"
         }
     };
+    let font: IThemeFont = {
+        weight: {
+            thin: 100,
+            extralight: 200,
+            light: 300,
+            regular: 400,
+            medium: 500,
+            semibold: 600,
+            bold: 700,
+            extrabold: 800,
+            black: 900
+        }
+    };
 
     return {
         colors,
         spacing,
-        mediaQueries
+        mediaQueries,
+        font
     };
 };

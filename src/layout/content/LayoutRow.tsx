@@ -31,7 +31,7 @@ export class LayoutRow extends React.Component<ILayoutRowProps> {
     private isFirstLabelIgnored = false;
 
     // validate that c is an instance of LayoutRowItem
-    private isLayoutRowItemInstance(c: React.ReactChild) {
+    private isLayoutRowItemInstance(c: React.ReactNode) {
         let childIsLayoutRowItem = false;
         try {
             const childType = (c as React.ReactElement<any>).type;

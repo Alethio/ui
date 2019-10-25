@@ -20,7 +20,7 @@ export class DomNodeProxy<T extends Element = HTMLElement> extends React.Compone
         let child = React.Children.only(this.props.children);
 
         return (
-            React.cloneElement(child, {
+            React.cloneElement(child as any, {
                 ref: (r: T) => {
                     this.innerRef = r instanceof Element ? r : ReactDOM.findDOMNode(r) as any;
                 }

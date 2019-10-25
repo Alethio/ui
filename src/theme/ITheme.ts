@@ -10,6 +10,7 @@ export interface ITheme {
     colors: IThemeColors;
     spacing: IThemeSpacing;
     mediaQueries: IThemeMediaQueries;
+    font: IThemeFont;
 }
 
 export interface IThemeBaseColors {
@@ -170,5 +171,19 @@ export interface IThemeMediaQueries {
         lessThan620px: string;
         smallerThanStandardView: string;
         smallerThanFullView: string;
+    };
+}
+
+export interface IThemeFont {
+    weight: {
+        thin: number,
+        extralight: number,
+        light: number,
+        regular: number,
+        medium: number,
+        semibold: number,
+        bold: number,
+        extrabold: number,
+        black: number
     };
 }
