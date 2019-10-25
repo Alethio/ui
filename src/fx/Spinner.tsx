@@ -68,11 +68,11 @@ export class Spinner extends React.Component<ISpinnerProps> {
                             cx="12" cy="12" r="11.5"></circle>
                         <path d="M12,18 12,18" stroke={color}
                             strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                        <path d="M12,18 C15.3137085,18 18,15.3137085 18,12" stroke={`url(${location}#spinner_${id}_br)`}
+                        <path d="M12,18 C15.3137085,18 18,15.3137085 18,12" stroke={`url(#spinner_${id}_br)`}
                             strokeWidth="2"></path>
-                        <path d="M18,12 C18,8.6862915 15.3137085,6 12,6" stroke={`url(${location}#spinner_${id}_tr)`}
+                        <path d="M18,12 C18,8.6862915 15.3137085,6 12,6" stroke={`url(#spinner_${id}_tr)`}
                             strokeWidth="2"></path>
-                        <path d="M12,6 C8.6862915,6 6,8.6862915 6,12" stroke={`url(${location}#spinner_${id}_tl)`}
+                        <path d="M12,6 C8.6862915,6 6,8.6862915 6,12" stroke={`url(#spinner_${id}_tl)`}
                             strokeWidth="2"></path>
                     </g>
                 </svg>
