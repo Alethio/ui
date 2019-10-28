@@ -4,9 +4,7 @@ import * as React from "react";
 let wrapSvgContent = (svgContent: string, size: number, viewBoxSize: number) => `
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="${size}px" height="${size}px" viewBox="0 0 ${viewBoxSize} ${viewBoxSize}" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        ${svgContent}
-    </g>
+    ${svgContent}
 </svg>
 `;
 // tslint:enable:max-line-length
