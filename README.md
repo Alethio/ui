@@ -2,7 +2,7 @@
 
 React component library for Alethio apps.
 
-*NOTICE*: For legacy 1.0.0 version, please see the [v1](../../tree/v1) branch.
+*NOTICE*: The master branch hosts the latest development version (v2.x). For the legacy 1.x version, please see the [v1](../../tree/v1) branch.
 
 ## Prerequisites
 
