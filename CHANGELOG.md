@@ -1,3 +1,29 @@
+# v2.0.0-dev.0
+
+- Add partial support for server-side rendering (fixed SvgIcon unique id generation)
+- Use `color` npm package to programatically manipulate theme colors. This package can also be used directly in the consumer app
+- Use `react-uid` npm package to generate unique element ids for SSR. Refer to README.md for additional info.
+- Update TypeScript to 3.6.4
+- (Button): Rework styles and color variants, add `rounded` option, use proper `button` HTML tag and forward attributes
+- Add form Input and Textarea components
+- Add Dropdown component
+- Add Menu and MenuItem components
+- Add form state management using `formik` in `form/` folder. New components: Form, FormItem, FormStatus, form/Label, SubmitButton, FieldError, WithFormState, InputField, CheckboxField, RadioField, TextareaField
+- (Box): Use ellipsis when text overflows in `fullWidth` mode
+- (ITheme): Add `font` weight constants
+
+## Breaking changes
+- Minimum React version increased to v16.8+ (because of `formik` dependency on React hooks)
+- (Checkbox, Radio): Rework styles, forward props to inner `input`, normalize onChange event
+- (Fade): Rename `active` prop to `enabled`. Add `in` prop controlling direction and forward other props to CSSTransition
+- (NetStatsIcon): removed, use EthStatsIcon instead
+- (Popover, Tooltip): Moved arrow from Popover to Tooltip component
+- (IPalette): Rework color palette: Various `*_GREY_*` colors replaced by `DAWN`, `DUSK`, `DARK` and variants by lightness increments (_D5, _L5)
+- (ITheme): Theme colors pruning:
+    - removed checkbox*, radio*
+    - consolidate button* with a nested structure
+    - add input.*, menu.*
+
 # v1.0.1
 
 - Added CursorInfinitePagination. When total items count is unknown, the pagination checks if there is a next page to show the next page button or not.
