@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/ExternalLink.stories.d.ts"
   },
   {
-    "revision": "d72d0226eda59a1230df5a1072dce262",
+    "revision": "64aa8d28848579ae7f96cac1874c4672",
     "url": "../lib/src/control/IconButton.d.ts"
   },
   {
@@ -76,28 +76,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/Input.stories.d.ts"
   },
   {
-    "revision": "48dc77856c0805794df57047b2cb201c",
-    "url": "../lib/src/control/ModalSelectBox.d.ts"
-  },
-  {
-    "revision": "45dd61f75d4ede523e9dbc4259a4ce42",
-    "url": "../lib/src/control/ModalSelectBox.stories.d.ts"
-  },
-  {
     "revision": "bf4e4ccd50e293ab8f8ba0392ef9a470",
     "url": "../lib/src/control/Radio.d.ts"
   },
   {
     "revision": "de4a86dd86250f5b23b53eca45359769",
     "url": "../lib/src/control/Radio.stories.d.ts"
-  },
-  {
-    "revision": "9f1ead24f3f5b2a4a29b62498b8ca40e",
-    "url": "../lib/src/control/SelectBox.d.ts"
-  },
-  {
-    "revision": "adf6be642277e2c87e758854bb755ae6",
-    "url": "../lib/src/control/SelectBox.stories.d.ts"
   },
   {
     "revision": "5972fabfc4b6ceff9e45b8c2803afa2d",
@@ -348,7 +332,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/IClipboard.d.ts"
   },
   {
-    "revision": "3a5c62cda96b3ec672d7bb5b1bf82505",
+    "revision": "5ca8114dce55f3c4518a4b94b14c0feb",
     "url": "../lib/src/data/Label.d.ts"
   },
   {
@@ -580,7 +564,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/form/Form.d.ts"
   },
   {
-    "revision": "8d9206775e2f269495576fe17cbdee68",
+    "revision": "ac42610647aabb8fa35a79ede292410f",
     "url": "../lib/src/form/Form.stories.d.ts"
   },
   {
@@ -772,7 +756,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/HelpIcon.d.ts"
   },
   {
-    "revision": "b6cb9773cad397c502d883c841b5e890",
+    "revision": "31d6c0dbceb818d8c20d0833a58d5614",
     "url": "../lib/src/icon/Icon.stories.d.ts"
   },
   {
@@ -1136,7 +1120,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/theme/createTheme.d.ts"
   },
   {
-    "revision": "803c8ee1fd98b615b1a04a79cf414eef",
+    "revision": "b2ed1e91a0471f864c813ee494a83212",
     "url": "../lib/src/theme/theme.stories.d.ts"
   },
   {
@@ -1220,20 +1204,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "55e882e59dc4f920b3789122762dae87",
+    "revision": "1fc0c6881755c3fa1224464fdd880c7e",
     "url": "iframe.html"
   },
   {
-    "url": "main.a9e79f3443fe675825ee.bundle.js"
+    "url": "main.78456b475092f5f4ae96.bundle.js"
   },
   {
-    "url": "runtime~main.a9e79f3443fe675825ee.bundle.js"
+    "url": "runtime~main.78456b475092f5f4ae96.bundle.js"
   },
   {
-    "url": "vendors~main.a9e79f3443fe675825ee.bundle.js"
+    "url": "vendors~main.78456b475092f5f4ae96.bundle.js"
   },
   {
-    "revision": "855c2d3aef5aeacb8236",
+    "revision": "8832b9ceaa0f10e95bab",
     "url": "vendors~main.css"
   }
 ]);
