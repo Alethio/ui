@@ -1,54 +1,44 @@
 import * as React from "react";
-import styled from "../../../../styled-components";
-import { Checkbox } from "../../../Checkbox";
 import { IGridFieldBase } from "../../state/IGridFieldBase";
-import { SelectBox } from "../../../SelectBox";
 import { AddIcon } from "../../../../icon/AddIcon";
+import { Dropdown } from "../../../dropdown/Dropdown";
+import { Menu } from "../../../menu/Menu";
+import { MenuItem } from "../../../menu/MenuItem";
+import { IconButton } from "../../../IconButton";
+import { Checkbox } from "../../../Checkbox";
 
 interface IGridColumnSelectorProps {
     fields: IGridFieldBase[];
-    onChange(key: string, checked: boolean): void;
+    onChange(key: IGridFieldBase): void;
 }
-
-const ColumnSelectorIconWrapper = styled.div`
-    color: ${({theme}) => theme.colors.gridColumnSelector};
-`;
 
 /** @internal */
 export class GridColumnSelector extends React.PureComponent<IGridColumnSelectorProps> {
     render() {
-        let shownItems = this.props.fields.filter((f) => !f.alwaysVisible);
-        if (shownItems.length === 0) {
-            return null;
-        }
         return (
             <div style={{padding: "4px"}}>
-                <SelectBox offset={{left: -21, top: -45}} render={() =>
-                    shownItems.map((f) => {
-                        return <Checkbox
-                            id={"column_" + f.fieldKey}
-                            key={f.fieldKey}
-                            name={f.fieldKey}
-                            value={f.fieldKey}
-                            checked={f.selected}
-                            onChange={this.onCheckboxChange}
-                        >{f.label}</Checkbox>;
-                    })
-                }>
-                    <ColumnSelectorIconWrapper>
-                        <AddIcon />
-                    </ColumnSelectorIconWrapper>
-                </SelectBox>
+                <Dropdown<IGridFieldBase>
+                    renderMenu={(onSelectItem) => <Menu>
+                        { this.props.fields.map((f) =>
+                            <MenuItem
+                                Icon={() => <Checkbox checked={f.selected} disabled={f.alwaysVisible} />}
+                                key={f.fieldKey} onClick={() => onSelectItem(f)}
+                                disabled={f.alwaysVisible}
+                            >
+                                {f.label}
+                            </MenuItem>
+                        ) }
+                    </Menu> }
+                    onSelect={this.props.onChange}
+                    closeOnSelect={false}
+                >{ ({ requestToggle }) =>
+                    <IconButton
+                        Icon={AddIcon}
+                        color={theme => theme.colors.gridColumnSelector}
+                        onClick={requestToggle}
+                    />
+                }</Dropdown>
             </div>
         );
-    }
-
-    private onCheckboxChange = (
-        _e: React.ChangeEvent<HTMLInputElement>,
-        checked: boolean,
-        name: string,
-        _value: string
-    ) => {
-        this.props.onChange(name, checked);
     }
 }

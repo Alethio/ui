@@ -20,6 +20,10 @@ interface IIconProps {
 
 const IconRoot = styled.div`
     display: block;
+    /* Let the parent element handle mouse events (
+        because SVG is special and causes problems when used in menu layer with document click outside detection
+    ) */
+    pointer-events: none;
 `;
 
 interface IContentRootProps {

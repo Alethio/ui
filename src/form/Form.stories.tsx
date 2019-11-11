@@ -35,7 +35,7 @@ interface IFormValues {
     [FormField.Radio]: string;
 }
 
-storiesOf("form/" + Form.name, module)
+storiesOf("form", module)
     .addParameters({
         info: {
             propTablesExclude: [RootContainer, FormItem, InputField, Label]

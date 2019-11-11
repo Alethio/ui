@@ -4,7 +4,7 @@ import { TooltipRegular } from "../overlay/tooltip/TooltipRegular";
 
 let icons = require.context("./", false, /Icon\.tsx$/);
 
-storiesOf("icon/icons", module)
+storiesOf("icon", module)
     .addParameters({
         info: {
             disable: true
