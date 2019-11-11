@@ -86,4 +86,4 @@ workflows:
           filters:
             branches:
               only:
-                - v1
+                - master
