@@ -19,6 +19,7 @@ class MyGridFields extends GridFields<ISampleData> {
         isSortable: true,
         label: "Name",
         selected: true,
+        alwaysVisible: true,
         type: "string"
     }, {
         fieldKey: "value",

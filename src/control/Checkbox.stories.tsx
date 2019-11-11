@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Checkbox } from "./Checkbox";
 
-storiesOf("control/checkbox/" + Checkbox.name, module)
+storiesOf("control/" + Checkbox.name, module)
     .add("default", () => (
         <Checkbox name="myCheckbox" value="someValue" />
     ))

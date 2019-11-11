@@ -17,7 +17,7 @@ const MenuContainer = styled.div`
     position: absolute;
 `;
 
-storiesOf("control/menu/" + Menu.name, module)
+storiesOf("control/" + Menu.name, module)
     .addParameters({
         info: {
             propTablesExclude: [MenuContainer]

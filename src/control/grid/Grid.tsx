@@ -157,8 +157,8 @@ export class Grid<TData> extends React.Component<IGridProps<TData>> {
         }
     }
 
-    private setColumnSelect = (key: string, checked: boolean) => {
-        this.props.fields.setColumnSelect(key, checked);
+    private setColumnSelect = (key: string) => {
+        this.props.fields.setColumnSelect(key, !this.props.fields.gridFields.find(f => f.fieldKey === key)!.selected);
     }
 
     private getSortedRows() {

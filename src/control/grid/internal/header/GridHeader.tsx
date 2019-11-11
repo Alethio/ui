@@ -10,7 +10,7 @@ export interface IGridHeaderExtraElements {
 interface IGridHeaderProps {
     fields: IGridFieldBase[];
     extraElements?: IGridHeaderExtraElements;
-    onFieldsChange(key: string, checked: boolean): void;
+    onFieldsChange(key: string): void;
 }
 
 const HeaderSpacer = styled.div`
@@ -40,8 +40,8 @@ export class GridHeader extends React.PureComponent<IGridHeaderProps> {
             return acc;
         }, [
             <HeaderSpacerLeft key={0} >
-                <GridColumnSelector onChange={(key: string, checked: boolean) => {
-                    this.props.onFieldsChange(key, checked);
+                <GridColumnSelector onChange={(key: string) => {
+                    this.props.onFieldsChange(key);
                 }} fields={this.props.fields} />
                 { this.props.extraElements && this.props.extraElements.left }
             </HeaderSpacerLeft>

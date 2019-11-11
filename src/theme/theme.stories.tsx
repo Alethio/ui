@@ -33,7 +33,7 @@ const DualColor: React.StatelessComponent<{ colorThunk(themeColors: IThemeColors
         <ThemeColor small colorThunk={colors => colorThunk(colors).contrast} />
     </Container>;
 
-storiesOf("theme/theme", module)
+storiesOf("theme", module)
     .addParameters({
         info: {
             disable: true
