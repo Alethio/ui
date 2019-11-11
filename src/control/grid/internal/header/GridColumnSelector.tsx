@@ -9,7 +9,7 @@ import { Checkbox } from "../../../Checkbox";
 
 interface IGridColumnSelectorProps {
     fields: IGridFieldBase[];
-    onChange(key: string): void;
+    onChange(key: IGridFieldBase): void;
 }
 
 /** @internal */
@@ -17,12 +17,12 @@ export class GridColumnSelector extends React.PureComponent<IGridColumnSelectorP
     render() {
         return (
             <div style={{padding: "4px"}}>
-                <Dropdown<string>
+                <Dropdown<IGridFieldBase>
                     renderMenu={(onSelectItem) => <Menu>
                         { this.props.fields.map((f) =>
                             <MenuItem
                                 Icon={() => <Checkbox checked={f.selected} disabled={f.alwaysVisible} />}
-                                key={f.fieldKey} onClick={() => onSelectItem(f.fieldKey)}
+                                key={f.fieldKey} onClick={() => onSelectItem(f)}
                                 disabled={f.alwaysVisible}
                             >
                                 {f.label}

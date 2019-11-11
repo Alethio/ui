@@ -85,7 +85,7 @@ export class Grid<TData> extends React.Component<IGridProps<TData>> {
                             extraElements={this.props.extraHeaderElements}
                         >
                             {
-                                this.props.fields.selectedGridFields.map((f: IGridFieldBase) => {
+                                this.props.fields.selectedGridFields.map(f => {
                                     return (
                                         <GridHeaderItem
                                             key={f.fieldKey}
@@ -157,8 +157,8 @@ export class Grid<TData> extends React.Component<IGridProps<TData>> {
         }
     }
 
-    private setColumnSelect = (key: string) => {
-        this.props.fields.setColumnSelect(key, !this.props.fields.gridFields.find(f => f.fieldKey === key)!.selected);
+    private setColumnSelect = (field: IGridFieldBase) => {
+        this.props.fields.setColumnSelect(field.fieldKey, !field.selected);
     }
 
     private getSortedRows() {
