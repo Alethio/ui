@@ -29,6 +29,7 @@ export const Input = styled.input`
 
     ::placeholder {
         color: ${({theme}) => theme.colors.input.placeholder};
+        opacity: 1;
     }
 
     ::-ms-clear {
