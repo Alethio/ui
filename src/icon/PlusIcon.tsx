@@ -11,8 +11,8 @@ export class PlusIcon extends React.Component<IPlusIconProps> {
             <SvgIcon {...this.props}>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g>
-                        <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
-                        <polygon id="Shape" fill="currentColor" fill-rule="nonzero"
+                        <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                        <polygon fill="currentColor" fill-rule="nonzero"
                             points="17 13 13 13 13 17 11 17 11 13 7 13 7 11 11 11 11 7 13 7 13 11 17 11">
                         </polygon>
                     </g>
