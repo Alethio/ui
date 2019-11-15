@@ -26,7 +26,7 @@ const ToggleInputLabel = styled.label<IStyledInnerProps>`
     display: block;
     font-size: 14px;
     font-weight: 400;
-    color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.secondary.color};
+    color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.primary.color};
 `;
 const ToggleInputLabelText = styled.div`
     margin-left: 4px;
@@ -37,7 +37,7 @@ const ToggleInputIconWrapper = styled.div<IStyledInnerProps>`
     left: 0;
     color: ${({theme, disabled, checked}) =>
         disabled ? theme.colors.base.disabled : checked
-        ? theme.colors.base.accent.color : theme.colors.base.secondary.color};
+        ? theme.colors.base.accent.color : theme.colors.base.primary.color};
 `;
 
 export interface IToggleInputProps {
