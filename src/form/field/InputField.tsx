@@ -38,7 +38,8 @@ export class InputField extends React.Component<
             {({ field, form }: FieldAttributes<any>) => {
                 return <InputContainer>
                     <StyledInput {...field} />
-                    {(form.touched.email) && (form.errors.email ? <IconContainer><ErrorIcon /></IconContainer>
+                    {(form.touched[field.name]) && (form.errors[field.name]
+                        ? <IconContainer><ErrorIcon /></IconContainer>
                         : <IconContainer><StatusOkIcon /></IconContainer>
                     )}
                 </InputContainer>;
