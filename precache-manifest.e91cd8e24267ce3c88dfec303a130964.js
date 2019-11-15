@@ -672,6 +672,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/ArrowBackDottedIcon.d.ts"
   },
   {
+    "revision": "5174e6959db275642f3b2d52e325506a",
+    "url": "../lib/src/icon/ArrowBackwardIcon.d.ts"
+  },
+  {
     "revision": "abf4dee438a7157e9cdd402db4f08703",
     "url": "../lib/src/icon/ArrowDownIcon.d.ts"
   },
@@ -680,8 +684,28 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/ArrowDownSmallIcon.d.ts"
   },
   {
+    "revision": "f26198af08b2652c0bb727350a4aff39",
+    "url": "../lib/src/icon/ArrowForwardDottedIcon.d.ts"
+  },
+  {
     "revision": "b81952a87d1cf501fca1da7bb6c4d484",
     "url": "../lib/src/icon/ArrowForwardIcon.d.ts"
+  },
+  {
+    "revision": "c30766d265fa2f2dd317ce7263f2a802",
+    "url": "../lib/src/icon/ArrowLeftIcon.d.ts"
+  },
+  {
+    "revision": "29e162ac245b8d4df864a641b05362b1",
+    "url": "../lib/src/icon/ArrowRightIcon.d.ts"
+  },
+  {
+    "revision": "ff2f4afabd8c6d3b145e1f9c2a5d323c",
+    "url": "../lib/src/icon/ArrowUpIcon.d.ts"
+  },
+  {
+    "revision": "bb5071910a04eec0f323228339dd9a36",
+    "url": "../lib/src/icon/ArrowUpSmallIcon.d.ts"
   },
   {
     "revision": "4c816466ee6284c3fa266a63b034ed9e",
@@ -824,16 +848,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/OpenInBrowserIcon.d.ts"
   },
   {
+    "revision": "8ff279faadc8fb5a2ef5e8e11ca28b23",
+    "url": "../lib/src/icon/PaginationFirstIcon.d.ts"
+  },
+  {
     "revision": "6d24ac7bf74f4ecec0092f1d5961e136",
     "url": "../lib/src/icon/PaginationLastIcon.d.ts"
   },
   {
-    "revision": "bc68c5e017136cfc521d3373f99174e9",
-    "url": "../lib/src/icon/PaginationNextIcon.d.ts"
-  },
-  {
-    "revision": "ff29bc8e93842a7d2ee3028331ef5197",
-    "url": "../lib/src/icon/PaginationPrevIcon.d.ts"
+    "revision": "ec01233b89a273ed590aecf78e28a813",
+    "url": "../lib/src/icon/PlusIcon.d.ts"
   },
   {
     "revision": "3d539320e217dd7ac43ddc84c35e6335",
@@ -1204,20 +1228,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "dd6210bd9fb1eab69cd397340ad71558",
+    "revision": "6070e54957e95f004e610ce2874dccd5",
     "url": "iframe.html"
   },
   {
-    "url": "main.fe1fd973f16f2a6e3723.bundle.js"
+    "url": "main.3f0421a4971aa62668f5.bundle.js"
   },
   {
-    "url": "runtime~main.fe1fd973f16f2a6e3723.bundle.js"
+    "url": "runtime~main.3f0421a4971aa62668f5.bundle.js"
   },
   {
-    "revision": "8832b9ceaa0f10e95bab",
+    "url": "vendors~main.3f0421a4971aa62668f5.bundle.js"
+  },
+  {
+    "revision": "bd2a94f41061cc828f46",
     "url": "vendors~main.css"
-  },
-  {
-    "url": "vendors~main.fe1fd973f16f2a6e3723.bundle.js"
   }
 ]);
