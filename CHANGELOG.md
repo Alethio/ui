@@ -2,6 +2,7 @@
 
 ## Breaking changes
 - Changes in ITheme object related to toolbar icons colors
+- Changes in ITheme object - removed `sidebarBorder`
 
 # v2.0.0-dev.0
 
