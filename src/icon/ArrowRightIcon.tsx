@@ -1,11 +1,11 @@
 import * as React from "react";
 import { SvgIcon, ISvgIconProps } from "../util/react/SvgIcon";
 
-export interface IPaginationNextIconProps extends ISvgIconProps {
+export interface IArrowRightIconProps extends ISvgIconProps {
 
 }
 
-export class PaginationNextIcon extends React.Component<IPaginationNextIconProps> {
+export class ArrowRightIcon extends React.Component<IArrowRightIconProps> {
     render() {
         return (
             <SvgIcon {...this.props}>

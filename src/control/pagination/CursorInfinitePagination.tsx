@@ -1,7 +1,7 @@
 import * as React from "react";
 import { NavButton } from "./internal/NavButton";
-import { PaginationPrevIcon } from "../../icon/PaginationPrevIcon";
-import { PaginationNextIcon } from "../../icon/PaginationNextIcon";
+import { ArrowLeftIcon } from "../../icon/ArrowLeftIcon";
+import { ArrowRightIcon } from "../../icon/ArrowRightIcon";
 import { Number } from "../../data/Number";
 import { DelayedRender } from "../../util/react/DelayedRender";
 import { Cursor } from "./internal/Cursor";
@@ -27,14 +27,14 @@ export class CursorInfinitePagination extends React.Component<ICursorInfinitePag
         return (
             <CursorPaginationRoot>
                 <NavButton
-                    Icon={PaginationPrevIcon}
+                    Icon={ArrowLeftIcon}
                     disabled={rangeStart === 1 || isBusy}
                     onClick={() => this.props.onPrevPage()} />
                 <Cursor>
                     <Number value={rangeStart} locale={locale} />-<Number value={rangeEnd} locale={locale} />
                 </Cursor>
                 <NavButton
-                    Icon={PaginationNextIcon}
+                    Icon={ArrowRightIcon}
                     disabled={isEndPage || isBusy}
                     onClick={() => this.props.onNextPage()}
                 />
