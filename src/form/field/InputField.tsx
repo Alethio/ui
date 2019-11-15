@@ -12,7 +12,7 @@ export interface IInputFieldProps {
     innerRef?(instance: any): void;
 }
 
-const FieldContainer = styled.div`
+const InputContainer = styled.div`
     position: relative;
 `;
 
@@ -24,20 +24,24 @@ const IconContainer = styled.div`
     color: ${props => props.theme.colors.base.status.success};
 `;
 
+const StyledInput = styled(Input)`
+    padding-right: 36px;
+`;
+
 export class InputField extends React.Component<
     IInputFieldProps & GenericFieldHTMLAttributes & React.HTMLAttributes<HTMLInputElement>
     > {
     render() {
         let { ...props } = this.props;
 
-        return <Field {...props} style={{ paddingRight: 36 }} >
+        return <Field {...props}>
             {({ field, form }: FieldAttributes<any>) => {
-                return <FieldContainer>
-                    <Input {...field} />
+                return <InputContainer>
+                    <StyledInput {...field} />
                     {(form.touched.email) && (form.errors.email ? <IconContainer><ErrorIcon /></IconContainer>
                         : <IconContainer><StatusOkIcon /></IconContainer>
                     )}
-                </FieldContainer>;
+                </InputContainer>;
             }}
         </Field>;
     }
