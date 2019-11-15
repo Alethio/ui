@@ -46,8 +46,14 @@ export interface IThemeColors {
     base: IThemeBaseColors;
 
     alethioLogo: string;
-    toolbarIcon: string;
-    toolbarIconHover: string;
+    toolbar: {
+        icon: {
+            normal: string;
+            hover: string;
+            active: string;
+            activeHover: string;
+        }
+    };
     toolbarAlethioIcon: string;
     toolbarAlethioIconHover: string;
 

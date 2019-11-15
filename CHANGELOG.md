@@ -1,3 +1,8 @@
+# Unreleased
+
+## Breaking changes
+- Changes in ITheme object related to toolbar icons colors
+
 # v2.0.0-dev.0
 
 - Add partial support for server-side rendering (fixed SvgIcon unique id generation)

@@ -51,8 +51,14 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
 
         closeBtn: DUSK,
 
-        toolbarIcon: DAWN_D5,
-        toolbarIconHover: DARK,
+        toolbar: {
+            icon: {
+                normal: DAWN_D5,
+                hover: DARK,
+                active: BLUE,
+                activeHover: BLUE_L5
+            }
+        },
         toolbarAlethioIcon: DAWN_D5,
         toolbarAlethioIconHover: BLUE,
 
