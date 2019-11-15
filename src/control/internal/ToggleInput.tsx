@@ -3,6 +3,7 @@ import styled from "../../styled-components";
 
 interface IStyledInnerProps {
     disabled?: boolean;
+    checked: boolean;
 }
 
 // We render the input non-visible, but correctly positioned to make the "required" attribute work properly
@@ -34,7 +35,9 @@ const ToggleInputIconWrapper = styled.div<IStyledInnerProps>`
     position: absolute;
     top: 0;
     left: 0;
-    color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.accent.color};
+    color: ${({theme, disabled, checked}) =>
+        disabled ? theme.colors.base.disabled : checked
+        ? theme.colors.base.accent.color : theme.colors.base.primary.color};
 `;
 
 export interface IToggleInputProps {
@@ -61,8 +64,8 @@ export class ToggleInput extends React.PureComponent<IToggleInputProps> {
 
         return (
             <ToggleInputWrapper>
-                <ToggleInputLabel disabled={disabled}>
-                    <ToggleInputIconWrapper disabled={disabled}>
+                <ToggleInputLabel disabled={disabled} checked={checked || false}>
+                    <ToggleInputIconWrapper disabled={disabled} checked={checked || false}>
                         <StyledInput
                             type={type}
                             id={id}
