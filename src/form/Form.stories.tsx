@@ -52,10 +52,12 @@ storiesOf("form", module)
                 [FormField.Radio]: "option2"
             }}
             onSubmit={handleSubmit}
+            validateOnChange={false}
         >
             <FormItem>
                 <Label htmlFor={FormField.Email}>E-Mail</Label>
                 <InputField type="email" id={FormField.Email} name={FormField.Email} required
+                    validate={validateEmail}
                     placeholder="Enter your E-mail address"
                 />
                 <FieldError name={FormField.Email} />
@@ -82,6 +84,16 @@ storiesOf("form", module)
             </div>
         </Form>
     ));
+
+const validateEmail = (value: string) => {
+    let error;
+    if (!value) {
+        error = "Required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+        error = "Invalid email address";
+    }
+    return error;
+};
 
 const handleSubmit: IFormProps<IFormValues>["onSubmit"] = async (values, actions) => {
     await sleep(3000);

@@ -1,6 +1,9 @@
-import { Field, GenericFieldHTMLAttributes } from "formik";
 import React from "react";
+import { Field, GenericFieldHTMLAttributes, FieldAttributes } from "formik";
+import styled from "../../styled-components";
 import { Input } from "../../control/Input";
+import { ErrorIcon } from "../../icon/ErrorIcon";
+import { StatusOkIcon } from "../../icon/StatusOkIcon";
 
 export interface IInputFieldProps {
     name: string;
@@ -9,12 +12,38 @@ export interface IInputFieldProps {
     innerRef?(instance: any): void;
 }
 
+const InputContainer = styled.div`
+    position: relative;
+`;
+
+const IconContainer = styled.div`
+    pointer-events: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    color: ${props => props.theme.colors.base.status.success};
+`;
+
+const StyledInput = styled(Input)`
+    padding-right: 36px;
+`;
+
 export class InputField extends React.Component<
     IInputFieldProps & GenericFieldHTMLAttributes & React.HTMLAttributes<HTMLInputElement>
-> {
+    > {
     render() {
         let { ...props } = this.props;
 
-        return <Field {...props} as={Input} />;
+        return <Field {...props}>
+            {({ field, form }: FieldAttributes<any>) => {
+                return <InputContainer>
+                    <StyledInput {...field} />
+                    {(form.touched[field.name]) && (form.errors[field.name]
+                        ? <IconContainer><ErrorIcon /></IconContainer>
+                        : <IconContainer><StatusOkIcon /></IconContainer>
+                    )}
+                </InputContainer>;
+            }}
+        </Field>;
     }
 }
