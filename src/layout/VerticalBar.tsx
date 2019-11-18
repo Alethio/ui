@@ -22,7 +22,6 @@ const VerticalBarRoot = styled(Bar)<IVerticalBarProps>`
     min-height: 100vh;
     `}
     flex-direction: column;
-    border-right: 1px solid ${props => props.theme.colors.sidebarBorder};
 
     @media ${props => props.theme.mediaQueries.breakPoints.smallerThanStandardView} {
         ${props => props.sticky ? "" : css`

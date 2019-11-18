@@ -111,12 +111,20 @@ storiesOf("theme", module)
         <h2>Toolbar</h2>
         <Container>
             <div>
-                <ThemeColor colorThunk={colors => colors.toolbarIcon} />
-                toolbarIcon
+                <ThemeColor colorThunk={colors => colors.toolbar.icon.normal} />
+                toolbar.icon.normal
             </div>
             <div>
-                <ThemeColor colorThunk={colors => colors.toolbarIconHover} />
-                toolbarIconHover
+                <ThemeColor colorThunk={colors => colors.toolbar.icon.hover} />
+                toolbar.icon.hover
+            </div>
+            <div>
+                <ThemeColor colorThunk={colors => colors.toolbar.icon.active} />
+                toolbar.icon.active
+            </div>
+            <div>
+                <ThemeColor colorThunk={colors => colors.toolbar.icon.activeHover} />
+                toolbar.icon.activeHover
             </div>
         </Container>
     </div>);

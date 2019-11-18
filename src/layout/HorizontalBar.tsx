@@ -19,7 +19,6 @@ const HorizontalBarRoot = styled(Bar)<IHorizontalBarProps>`
     position: fixed;
     top: 0;
     ` : ""}
-    border-bottom: 1px solid ${props => props.theme.colors.sidebarBorder};
 `;
 
 interface IHorizontalBarProps extends IBarProps {

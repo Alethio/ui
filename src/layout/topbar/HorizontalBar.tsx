@@ -28,7 +28,6 @@ const HorizontalBarRoot = styled(Bar)<IHorizontalBarProps>`
     position: fixed;
     top: 0;
     ` : ""}
-    border-bottom: 1px solid ${props => props.theme.colors.sidebarBorder};
 
     /**
      * TODO: Responsiveness css does not belong here, but because we must also put the css into the placeholder
