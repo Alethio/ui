@@ -9,6 +9,7 @@ export interface IBoxProps {
     className?: string;
     metrics: IBoxMetrics;
     colors: IBoxColors | IBoxColorsThunk<ITheme>;
+    inverted?: boolean;
     Icon?: React.ComponentClass<IIconProps> | React.StatelessComponent<IIconProps>;
     iconPlacement?: "left" | "right";
     fullWidth?: boolean;
@@ -130,14 +131,21 @@ export const Box = styled($Box)`
     box-sizing: border-box;
     vertical-align: middle;
 
-    border: ${BORDER_WIDTH}px solid ${props => (
+    border: ${BORDER_WIDTH}px solid ${props => !props.inverted ? (
         getColors(props.colors, props.theme).border ||
         getColors(props.colors, props.theme).background ||
         "transparent"
-    )};
-    background-color: ${props => (
+    ) : (
         getColors(props.colors, props.theme).background ||
+        getColors(props.colors, props.theme).border ||
         "transparent"
+    )
+    };
+    background-color: ${props => !props.inverted ? (
+        getColors(props.colors, props.theme).background || "transparent"
+    ) : (
+        getColors(props.colors, props.theme).text || "transparent"
     )};
-    color: ${props => getColors(props.colors, props.theme).text};
+    color: ${props => !props.inverted ? getColors(props.colors, props.theme).text
+        : getColors(props.colors, props.theme).background};
 `;

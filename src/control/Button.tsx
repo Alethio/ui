@@ -4,11 +4,15 @@ import { Box, IBoxProps } from "../layout/content/box/Box";
 import { IBoxColorsThunk } from "../layout/content/box/IBoxColorsThunk";
 import { HoverState } from "../util/react/HoverState";
 import { ITheme } from "../theme/ITheme";
+import { IBoxColors } from "../layout/content/box/IBoxColors";
+import Color from "color";
 
 interface IButtonRootProps {
-    floating?: boolean;
+    elevationType?: ElevationType;
     disabled?: boolean;
     rounded?: boolean;
+    buttonColors?: ButtonColors;
+    colors: IBoxColors | IBoxColorsThunk<ITheme>;
 }
 
 const ButtonRoot = styled<IButtonRootProps, "button">("button")`
@@ -17,8 +21,12 @@ const ButtonRoot = styled<IButtonRootProps, "button">("button")`
     ` : ``}
     user-select: none;
     text-transform: uppercase;
-    ${props => props.floating ? css`
-    box-shadow: 0 8px 16px rgba(167, 181, 209, 0.6);
+
+    ${props => (props.elevationType === "floating" && props.buttonColors === "primary") ? css`
+    box-shadow: ${`0 8px 16px ${Color(getColors(props.colors, props.theme).background || "transparent").alpha(0.6)}`};
+    ` : ``}
+    ${props => (props.elevationType === "embossed" && props.buttonColors === "primary") ? css`
+    box-shadow: ${`0 4px 8px ${Color(getColors(props.colors, props.theme).background || "transparent").alpha(0.6)}`};
     ` : ``}
 
     border-radius: ${props => props.rounded ? "100px" : "4px" };
@@ -35,7 +43,8 @@ const StyledBox = styled(Box)`
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
-export type ButtonColors = "primary" | "secondary" | "special1" | "special2";
+export type ButtonColors = "primary" | "secondary" | "special";
+type ElevationType = "floating" | "embossed";
 type InteractionState = "normal" | "hover" | "disabled";
 type GetColorSetFn = (colorVariants: ButtonColors, state: InteractionState) => IBoxColorsThunk<ITheme>;
 
@@ -47,9 +56,10 @@ export interface IButtonProps extends IHtmlButtonProps {
     Icon?: IBoxProps["Icon"];
     iconPlacement?: IBoxProps["iconPlacement"];
     colors?: ButtonColors;
-    floating?: boolean;
+    elevationType?: ElevationType;
     /** Rounded 50% corners */
     rounded?: boolean;
+    inverted?: boolean;
     children?: string;
     disabled?: boolean;
     onClick?(): void;
@@ -61,15 +71,16 @@ export class Button extends React.Component<IButtonProps> {
     };
 
     render() {
-        let {
-            Icon, iconPlacement, floating, disabled, rounded, colors, autoFocus, name, type, value, children
-        } = this.props;
+        let { Icon, iconPlacement, elevationType, disabled, rounded,
+            inverted, colors, autoFocus, name, type, value, children } = this.props;
         return (
             <HoverState>
                 {(hover) =>
                 <ButtonRoot
                     onClick={!this.props.disabled ? this.props.onClick : void 0}
-                    floating={floating}
+                    elevationType={elevationType}
+                    buttonColors={colors}
+                    colors={getColorSet(colors!, !disabled ? hover ? "hover" : "normal" : "disabled")}
                     disabled={disabled}
                     rounded={rounded}
                     autoFocus={autoFocus}
@@ -81,6 +92,7 @@ export class Button extends React.Component<IButtonProps> {
                         Icon={Icon}
                         iconPlacement={iconPlacement ? iconPlacement : "left"}
                         colors={getColorSet(colors!, !disabled ? hover ? "hover" : "normal" : "disabled")}
+                        inverted={inverted}
                         metrics={{
                             fontSize: 12,
                             lineHeight: 14,
@@ -98,3 +110,10 @@ export class Button extends React.Component<IButtonProps> {
         );
     }
 }
+
+const getColors = (colors: IBoxColors | IBoxColorsThunk<ITheme>, theme: ITheme) => {
+    if (typeof colors === "function") {
+        return colors(theme);
+    }
+    return colors;
+};

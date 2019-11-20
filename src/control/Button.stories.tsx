@@ -16,7 +16,14 @@ const ButtonContainer = styled.div`
         margin-left: 8px;
     }
 `;
-
+const InvertedColorArea = styled.div`
+    display: flex;
+    padding: 8px;
+    & > * {
+        padding: 8px;
+    }
+    background: ${props => props.theme.colors.button.primary.normal.background};
+`;
 storiesOf("control/button/" + Button.name, module)
     .addParameters({
         info: {
@@ -38,18 +45,11 @@ storiesOf("control/button/" + Button.name, module)
             <Button colors="primary" Icon={ArrowForwardIcon} disabled>Can't click me</Button>
         ]
     ))
-    .add("special1", () => (
+    .add("special", () => (
         [
-            <Button colors="special1">Click Me</Button>,
-            <Button colors="special1" Icon={ArrowForwardIcon}>Click me</Button>,
-            <Button colors="special1" Icon={ArrowForwardIcon} disabled>Can't click me</Button>
-        ]
-    ))
-    .add("special2", () => (
-        [
-            <Button colors="special2">Click Me</Button>,
-            <Button colors="special2" Icon={ArrowForwardIcon}>Click me</Button>,
-            <Button colors="special2" Icon={ArrowForwardIcon} disabled>Can't click me</Button>
+            <Button colors="special">Click Me</Button>,
+            <Button colors="special" Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button colors="special" Icon={ArrowForwardIcon} disabled>Can't click me</Button>
         ]
     ))
     .add("icon", () => (
@@ -62,17 +62,27 @@ storiesOf("control/button/" + Button.name, module)
         ]
     ))
     .add("floating", () => (
-        [
-            <Button floating colors="primary">Click me</Button>,
-            <Button floating colors="special1">Click me</Button>
-        ]
+        <Button elevationType="floating" colors="primary">Click me</Button>
+    ))
+    .add("embossed", () => (
+        <Button elevationType="embossed" colors="primary">Click me</Button>
     ))
     .add("rounded", () => (
         [
-            <Button floating rounded colors="primary" Icon={ArrowForwardIcon}>Click me</Button>,
-            <Button floating rounded colors="primary" Icon={ArrowForwardIcon}></Button>
+            <Button elevationType="floating" rounded colors="primary" Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button elevationType="floating" rounded colors="primary" Icon={ArrowForwardIcon}></Button>
         ]
     ))
     .add("with spinner", () => (
         <Button Icon={SpinnerLite} disabled>Loading...</Button>
+    ))
+    .add("inverted colors", () => (
+        <InvertedColorArea>
+            <Button inverted>Secondary</Button>
+            <Button inverted Icon={ArrowForwardIcon}>Secondary Icon</Button>
+            <Button inverted disabled>Secondary disabled</Button>
+            <Button inverted colors="primary">Primary</Button>
+            <Button inverted colors="primary" Icon={ArrowForwardIcon}>Primary Icon</Button>
+            <Button inverted disabled colors="primary">Primary disabled</Button>
+        </InvertedColorArea>
     ));

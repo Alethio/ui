@@ -1,6 +1,7 @@
 # Unreleased
 
 ## Breaking changes
+- Changes in Button component - replaced `floating` prop with `elevationType` that can be `floating` or `embossed`
 - Changes in ITheme object related to toolbar icons colors
 - Changes in ITheme object - removed `sidebarBorder`
 
