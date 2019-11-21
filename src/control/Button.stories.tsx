@@ -22,7 +22,7 @@ const InvertedColorArea = styled.div`
     & > * {
         padding: 8px;
     }
-    background: ${props => props.theme.colors.button.primary.normal.background};
+    background: ${props => props.theme.colors.base.accent.color};
 `;
 storiesOf("control/button/" + Button.name, module)
     .addParameters({
@@ -61,16 +61,16 @@ storiesOf("control/button/" + Button.name, module)
             <Button Icon={ArrowForwardIcon} iconPlacement="right">Click me</Button>
         ]
     ))
-    .add("floating", () => (
-        <Button elevationType="floating" colors="primary">Click me</Button>
-    ))
-    .add("embossed", () => (
-        <Button elevationType="embossed" colors="primary">Click me</Button>
+    .add("elevated", () => (
+        [
+        <Button elevation="high" colors="primary">high elevation</Button>,
+        <Button elevation="low" colors="primary">low elevation</Button>
+        ]
     ))
     .add("rounded", () => (
         [
-            <Button elevationType="floating" rounded colors="primary" Icon={ArrowForwardIcon}>Click me</Button>,
-            <Button elevationType="floating" rounded colors="primary" Icon={ArrowForwardIcon}></Button>
+            <Button elevation="high" rounded colors="primary" Icon={ArrowForwardIcon}>Click me</Button>,
+            <Button elevation="high" rounded colors="primary" Icon={ArrowForwardIcon}></Button>
         ]
     ))
     .add("with spinner", () => (
@@ -78,11 +78,8 @@ storiesOf("control/button/" + Button.name, module)
     ))
     .add("inverted colors", () => (
         <InvertedColorArea>
-            <Button inverted>Secondary</Button>
-            <Button inverted Icon={ArrowForwardIcon}>Secondary Icon</Button>
-            <Button inverted disabled>Secondary disabled</Button>
-            <Button inverted colors="primary">Primary</Button>
-            <Button inverted colors="primary" Icon={ArrowForwardIcon}>Primary Icon</Button>
-            <Button inverted disabled colors="primary">Primary disabled</Button>
+            <Button inverted colors="primary">Click me</Button>
+            <Button inverted colors="primary" Icon={ArrowForwardIcon}>Click me</Button>
+            <Button inverted disabled colors="primary">Can't click me</Button>
         </InvertedColorArea>
     ));
