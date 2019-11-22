@@ -46,17 +46,35 @@ const StyledBox = styled(Box)`
 export type ButtonColors = "primary" | "secondary" | "special";
 type Elevation = "none" | "high" | "low";
 type InteractionState = "normal" | "hover" | "disabled";
-type GetColorSetFn = (colorVariants: ButtonColors, state: InteractionState, inverted?: boolean)
+type GetColorSetFn = (colorVariants: ButtonColors, state: InteractionState)
     => IBoxColorsThunk<ITheme>;
 
-const getColorSet: GetColorSetFn = (colorVariant, state, inverted) => (theme) => {
+const getColorSet: GetColorSetFn = (colorVariant, state) => (theme) => theme.colors.button[colorVariant][state];
+
+const getColors = (colors: IBoxColors | IBoxColorsThunk<ITheme>, theme: ITheme) => {
+    if (typeof colors === "function") {
+        return colors(theme);
+    }
+    return colors;
+};
+
+const getState = (disabled: boolean, hover: boolean) => {
+    if (disabled) {
+        return "disabled";
+    } else if (hover) {
+        return "hover";
+    } else {
+        return "normal";
+    }
+};
+
+const invertColors: GetColorSetFn = (colorVariant, state) => (theme) => {
     const colors = theme.colors.button[colorVariant][state];
-    const invertedColors: IBoxColors = {
+    return {
         text: colors.background!,
         background: colors.text,
         border: colors.background
     };
-    return (state === "normal" && colorVariant === "primary" && inverted) ? invertedColors : colors;
 };
 
 type IHtmlButtonProps = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, "autoFocus" | "name" | "type" | "value">;
@@ -85,14 +103,20 @@ export class Button extends React.Component<IButtonProps> {
     render() {
         let { Icon, iconPlacement, elevation, disabled, rounded,
             inverted, colors, autoFocus, name, type, value, children } = this.props;
+
         return (
             <HoverState>
-                {(hover) =>
-                    <ButtonRoot
+                {(hover) => {
+                    let state: InteractionState = getState(disabled!, hover);
+                    let colorSet = getColorSet(colors!, state);
+                    let isInverted = getState(disabled!, hover) === "normal" && colors === "primary" && inverted;
+                    let invertedColorSet =  invertColors(colors!, state);
+
+                    return <ButtonRoot
                         onClick={!this.props.disabled ? this.props.onClick : void 0}
                         elevation={elevation}
                         buttonColors={colors}
-                        colors={getColorSet(colors!, !disabled ? hover ? "hover" : "normal" : "disabled")}
+                        colors={colorSet}
                         disabled={disabled}
                         rounded={rounded}
                         autoFocus={autoFocus}
@@ -103,7 +127,7 @@ export class Button extends React.Component<IButtonProps> {
                         <StyledBox
                             Icon={Icon}
                             iconPlacement={iconPlacement ? iconPlacement : "left"}
-                            colors={getColorSet(colors!, !disabled ? hover ? "hover" : "normal" : "disabled", inverted)}
+                            colors={isInverted ? invertedColorSet : colorSet}
                             metrics={{
                                 fontSize: 12,
                                 lineHeight: 14,
@@ -115,16 +139,10 @@ export class Button extends React.Component<IButtonProps> {
                                 textPaddingX: 16
                             }}
                         >{children}</StyledBox>
-                    </ButtonRoot>
+                    </ButtonRoot>;
                 }
+            }
             </HoverState>
         );
     }
 }
-
-const getColors = (colors: IBoxColors | IBoxColorsThunk<ITheme>, theme: ITheme) => {
-    if (typeof colors === "function") {
-        return colors(theme);
-    }
-    return colors;
-};
