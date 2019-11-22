@@ -11,8 +11,7 @@ interface IButtonRootProps {
     elevation?: Elevation;
     disabled?: boolean;
     rounded?: boolean;
-    buttonColors?: ButtonColors;
-    colors: IBoxColors | IBoxColorsThunk<ITheme>;
+    shadowColor(theme: ITheme): string | undefined;
 }
 
 const ButtonRoot = styled<IButtonRootProps, "button">("button")`
@@ -22,12 +21,10 @@ const ButtonRoot = styled<IButtonRootProps, "button">("button")`
     user-select: none;
     text-transform: uppercase;
 
-    ${props => (props.elevation === "high" && props.buttonColors === "primary") ? css`
-    box-shadow: ${`0 8px 16px ${Color(getColors(props.colors, props.theme).background || "transparent").alpha(0.6)}`};
-    ` : ``}
-    ${props => (props.elevation === "low" && props.buttonColors === "primary") ? css`
-    box-shadow: ${`0 4px 8px ${Color(getColors(props.colors, props.theme).background || "transparent").alpha(0.6)}`};
-    ` : ``}
+    ${props => props.elevation !== "none" ? css`
+    box-shadow: ${props.elevation === "high" ? "0 8px 16px" : "0 4px 8px"}
+        ${`${Color(props.shadowColor(props.theme) || "transparent").alpha(0.6)}`}
+    ` : ``};
 
     border-radius: ${props => props.rounded ? "100px" : "4px"};
 
@@ -109,14 +106,15 @@ export class Button extends React.Component<IButtonProps> {
                 {(hover) => {
                     let state: InteractionState = getState(disabled!, hover);
                     let colorSet = getColorSet(colors!, state);
-                    let isInverted = getState(disabled!, hover) === "normal" && colors === "primary" && inverted;
-                    let invertedColorSet =  invertColors(colors!, state);
+                    let isInverted = state === "normal" && colors === "primary" && inverted;
+                    let invertedColorSet = invertColors(colors!, state);
+                    let shadowColor = (theme: ITheme) =>
+                        colors === "primary" ? getColors(colorSet, theme).background : void 0;
 
                     return <ButtonRoot
                         onClick={!this.props.disabled ? this.props.onClick : void 0}
                         elevation={elevation}
-                        buttonColors={colors}
-                        colors={colorSet}
+                        shadowColor={shadowColor}
                         disabled={disabled}
                         rounded={rounded}
                         autoFocus={autoFocus}
@@ -141,7 +139,7 @@ export class Button extends React.Component<IButtonProps> {
                         >{children}</StyledBox>
                     </ButtonRoot>;
                 }
-            }
+                }
             </HoverState>
         );
     }
