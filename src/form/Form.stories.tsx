@@ -12,6 +12,7 @@ import { sleep } from "@puzzl/core/lib/async/sleep";
 import { TextareaField } from "./field/TextareaField";
 import { CheckboxField } from "./field/CheckboxField";
 import { RadioField } from "./field/RadioField";
+import { SelectField } from "./field/SelectField";
 
 const RootContainer = styled.div`
     background: ${props => props.theme.colors.base.bg.main};
@@ -24,7 +25,8 @@ enum FormField {
     Message = "message",
     Check1 = "check1",
     Check2 = "check2",
-    Radio = "radio"
+    Radio = "radio",
+    Select = "select"
 }
 
 interface IFormValues {
@@ -33,6 +35,7 @@ interface IFormValues {
     [FormField.Check1]: boolean;
     [FormField.Check2]: boolean;
     [FormField.Radio]: string;
+    [FormField.Select]: string;
 }
 
 storiesOf("form", module)
@@ -49,11 +52,20 @@ storiesOf("form", module)
                 [FormField.Message]: "",
                 [FormField.Check1]: true,
                 [FormField.Check2]: false,
-                [FormField.Radio]: "option2"
+                [FormField.Radio]: "option2",
+                [FormField.Select]: "option2"
             }}
             onSubmit={handleSubmit}
             validateOnChange={false}
         >
+            <FormItem>
+                <Label htmlFor={FormField.Select}>Title</Label>
+                <SelectField id={FormField.Select} name={FormField.Select}
+                    label={"Title"}
+                    options={[{text: "Mr.", value: "1"}, {text: "Ms.", value: "2"}]}/>
+                <FieldError name={FormField.Select} />
+            </FormItem>
+
             <FormItem>
                 <Label htmlFor={FormField.Email}>E-Mail</Label>
                 <InputField type="email" id={FormField.Email} name={FormField.Email} required
