@@ -304,7 +304,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         contentBottom: 72,
         sidebarWidth: 241,
         toolbarWidth: 72,
-        topbarHeight: 64
+        topbarHeight: 72
     };
     let mediaQueries: IThemeMediaQueries = {
         breakPoints: {
