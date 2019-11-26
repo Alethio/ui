@@ -23,7 +23,7 @@ const ButtonRoot = styled<IButtonRootProps, "button">("button")`
 
     ${props => props.elevation !== "none" ? css`
     box-shadow: ${props.elevation === "high" ? "0 8px 16px" : "0 4px 8px"}
-        ${`${Color(props.shadowColor(props.theme) || "transparent").alpha(0.6)}`}
+        ${Color(props.shadowColor(props.theme) || "transparent").alpha(0.6).toString()}
     ` : ``};
 
     border-radius: ${props => props.rounded ? "100px" : "4px"};
