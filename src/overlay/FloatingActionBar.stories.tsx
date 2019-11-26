@@ -13,7 +13,7 @@ storiesOf("overlay/" + FloatingActionBar.name, module)
         {s()}</div>)
     .add("default", () => (
         <FloatingActionBar>
-            <Button floating colors="primary">Click me1</Button>
-            <Button floating>Click me2</Button>
+            <Button elevation="high" colors="primary">Click me1</Button>
+            <Button >Click me2</Button>
         </FloatingActionBar>
     ));

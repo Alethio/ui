@@ -172,21 +172,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                     border: DAWN_D5
                 }
             },
-            special1: {
-                normal: {
-                    text: WHITE,
-                    background: DUSK
-                },
-                hover: {
-                    text: WHITE,
-                    background: BLUE
-                },
-                disabled: {
-                    text: WHITE,
-                    background: DAWN_D5
-                }
-            },
-            special2: {
+            special: {
                 normal: {
                     text: BLUE,
                     background: "transparent"

@@ -136,8 +136,7 @@ export const Box = styled($Box)`
         "transparent"
     )};
     background-color: ${props => (
-        getColors(props.colors, props.theme).background ||
-        "transparent"
+        getColors(props.colors, props.theme).background || "transparent"
     )};
     color: ${props => getColors(props.colors, props.theme).text};
 `;
