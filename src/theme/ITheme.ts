@@ -169,6 +169,7 @@ export interface IThemeSpacing {
     valueBoxMetrics: Record<ValueBoxVariant, IBoxMetrics>;
     toolbarWidth: number;
     topbarHeight: number;
+    topbarHeightMobile: number;
 }
 
 export interface IThemeMediaQueries {
