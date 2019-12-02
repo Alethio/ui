@@ -137,6 +137,21 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         expanderOpenLabel: WHITE,
         expanderOpenValue: DAWN_D5,
         expanderOpenIcon: DAWN_D5,
+
+        select: {
+            expander: {
+                label: DARK,
+                value: BLUE,
+                bg: WHITE,
+                Icon: DAWN,
+                disabled: DAWN_D5,
+                openLabel: DARK,
+                openValue: DAWN_D5,
+                openBg: WHITE,
+                openIcon: DUSK
+            }
+        },
+
         msgCountInIcon: GREEN,
         msgCountOutIcon: RED,
         msgCountPendingIcon: ORANGE,
@@ -203,9 +218,12 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 normal: {
                     text: base.primary.color
                 },
-                active: {
+                hover: {
                     text: base.primary.color,
                     background: DAWN_L5
+                },
+                selected: {
+                    text: base.accent.color
                 },
                 disabled: {
                     text: base.disabled

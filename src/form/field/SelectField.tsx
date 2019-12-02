@@ -5,6 +5,9 @@ import { Select, ISelectProps } from "../../control/Select";
 export interface ISelectFieldProps extends ISelectProps {
     id: string;
     name: string;
+    value?: string;
+    required?: boolean;
+    disabled?: boolean;
     validate?(value: string): string | Promise<string | void> | undefined;
     innerRef?(instance: any): void;
 }
@@ -15,7 +18,7 @@ export class SelectField extends React.Component<ISelectFieldProps> {
 
         return <Field {...props}>
             {({ field, form }: FieldAttributes<any>) => {
-                return <Select options={props.options} label={props.label}/>;
+                return <Select {...field} options={props.options} label={props.label} fullWidth={props.fullWidth}/>;
             }}
         </Field>;
     }

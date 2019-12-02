@@ -43,9 +43,9 @@ storiesOf("control/" + Select.name, module)
     .addDecorator(storyFn => <SelectContainer>{storyFn()}</SelectContainer>)
     .add("default", () => (
         [
-            <Select options={options1}/>,
+            <Select options={options1} />,
             <Select options={options1} default={options1[1]} />,
-            <Select options={options1} label="Custom label"/>,
-            <Select options={options1} fullWidth label="Full width"/>
+            <Select options={options1} label="Custom label" />,
+            <Select options={options1} fullWidth label="Full width" />
         ]
     ));

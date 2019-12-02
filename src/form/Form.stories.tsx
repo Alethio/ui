@@ -53,14 +53,14 @@ storiesOf("form", module)
                 [FormField.Check1]: true,
                 [FormField.Check2]: false,
                 [FormField.Radio]: "option2",
-                [FormField.Select]: "option2"
+                [FormField.Select]: "1"
             }}
             onSubmit={handleSubmit}
             validateOnChange={false}
         >
             <FormItem>
                 <Label htmlFor={FormField.Select}>Title</Label>
-                <SelectField id={FormField.Select} name={FormField.Select}
+                <SelectField id={FormField.Select} name={FormField.Select} fullWidth={true}
                     label={"Title"}
                     options={[{text: "Mr.", value: "1"}, {text: "Ms.", value: "2"}]}/>
                 <FieldError name={FormField.Select} />
