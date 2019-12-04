@@ -4,7 +4,7 @@ import { ResponsiveContainer } from "./ResponsiveContainer";
 
 storiesOf("layout/responsive/" + ResponsiveContainer.displayName, module)
     .add("default", () => (
-        <ResponsiveContainer behavior="hide" forScreenWidth={{ lowerThan: 600 }} >
+        <ResponsiveContainer mediaQuery={theme => theme.media.sAndAbove}>
             Content hidden on low res
         </ResponsiveContainer>
     ));

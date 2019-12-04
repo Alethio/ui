@@ -292,12 +292,26 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         toolbarWidth: 72,
         topbarHeight: 72
     };
-    let mediaQueries: IThemeMediaQueries = {
-        breakPoints: {
-            lessThan620px: "screen and (max-width: 620px)",
-            smallerThanStandardView: "screen and (max-width: 780px)",
-            smallerThanFullView: "screen and (max-width: 920px)"
-        }
+    let media: IThemeMediaQueries = {
+        xs: "screen and (max-width: 599px)",
+
+        sAndBelow: "screen and (max-width: 839px)",
+        sExact: "screen and (min-width: 600px) and (max-width: 839px)",
+        sAndAbove: "screen and (min-width: 600px)",
+
+        mAndBelow: "screen and (max-width: 1023px)",
+        mExact: "screen and (min-width: 840px) and (max-width: 1023px)",
+        mAndAbove: "screen and (min-width: 840px)",
+
+        lAndBelow: "screen and (max-width: 1279px)",
+        lExact: "screen and (min-width: 1024px) and (max-width: 1279px)",
+        lAndAbove: "screen and (min-width: 1024px)",
+
+        xlAndBelow: "screen and (max-width: 1439px)",
+        xlExact: "screen and (min-width: 1280px) and (max-width: 1439px)",
+        xlAndAbove: "screen and (min-width: 1280px)",
+
+        xxl: "screen and (min-width: 1440px)"
     };
     let font: IThemeFont = {
         weight: {
@@ -316,7 +330,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
     return {
         colors,
         spacing,
-        mediaQueries,
+        media,
         font
     };
 };

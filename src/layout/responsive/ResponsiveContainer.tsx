@@ -1,33 +1,29 @@
 import styled from "../../styled-components";
+import { ITheme } from "../../theme/ITheme";
 
-export enum MinimumWidth {
-    ForFullView = 900,
-    ForStandardView = 780
-}
+export type MediaQueryThunk = string | ((theme: ITheme) => string);
 
-interface IResponsiveContainerProps {
-    behavior: "hide" | "show";
-    forScreenWidth: {
-        lowerThan?: number;
-        greaterThan?: number;
-    };
+export interface IResponsiveContainerProps {
+    /** Media query for which the container is visible (e.g. `screen and (max-width: 600px)`) */
+    mediaQuery: MediaQueryThunk;
+    /** Show or hide the element based on given media query (default = show) */
+    behavior?: "show" | "hide";
 }
 
 /**
  * Component that allows showing/hiding content based on viewport size
+ *
+ * Example:
+ * ```ts
+ * <ResponsiveContainer mediaQuery={theme => theme.media.sAndAbove}>
+ *     <div>This will be hidden on "xs" size devices</div>
+ * </ResponsiveContainer>
+ * ```
  */
 export const ResponsiveContainer = styled<IResponsiveContainerProps, "div">("div")`
     display: ${props => props.behavior === "hide" ? "block" : "none" };
-    ${props => {
-        let mediaQ = "@media only screen ";
-        if (props.forScreenWidth.lowerThan) {
-            mediaQ += "and (max-width: " + props.forScreenWidth.lowerThan + "px)";
-        }
-        if (props.forScreenWidth.greaterThan) {
-            mediaQ += "and (min-width: " + props.forScreenWidth.greaterThan + "px)";
-        }
-        return mediaQ;
-    }} {
+
+    @media ${({ mediaQuery: q, theme }) => typeof q === "function" ? q(theme) : q } {
         display: ${props => props.behavior === "hide" ? "none" : "block" };
     }
 `;

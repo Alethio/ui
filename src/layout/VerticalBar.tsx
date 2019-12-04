@@ -8,7 +8,7 @@ interface IPlaceholderProps {
 
 const Placeholder = styled<IPlaceholderProps, "div">("div")`
     width: ${props => props.width}px;
-    @media ${props => props.theme.mediaQueries.breakPoints.smallerThanStandardView} {
+    @media ${props => props.theme.media.sAndBelow} {
         display: none;
     }
 `;
@@ -23,7 +23,7 @@ const VerticalBarRoot = styled(Bar)<IVerticalBarProps>`
     `}
     flex-direction: column;
 
-    @media ${props => props.theme.mediaQueries.breakPoints.smallerThanStandardView} {
+    @media ${props => props.theme.media.sAndBelow} {
         ${props => props.sticky ? "" : css`
         position: absolute;
         top: 64px;
