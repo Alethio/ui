@@ -172,24 +172,38 @@ export interface IThemeSpacing {
 }
 
 export interface IThemeMediaQueries {
+    /** Mobiles - XS (<600px) */
     xs: string;
 
+    /** Tablets - S and below (<840px) */
     sAndBelow: string;
+    /** Tablets - S (>=600px, <840px) */
     sExact: string;
+    /** Tablets - S and above (>=600px) */
     sAndAbove: string;
 
+    /** Tablets - M and below (<1024px) */
     mAndBelow: string;
+    /** Tablets - M (>=840px, <1024px) */
     mExact: string;
+    /** Tablets - M and above (>=840px) */
     mAndAbove: string;
 
+    /** Desktop - L and below (<1440px) */
     lAndBelow: string;
+    /** Desktop - L (>=1024px, <1440px) */
     lExact: string;
+    /** Desktop - L and above (>=1024px) */
     lAndAbove: string;
 
+    /** Desktop - XL and below (<1920px) */
     xlAndBelow: string;
+    /** Desktop - XL (>=1440px, <1920px) */
     xlExact: string;
+    /** Desktop - XL and above (>=1440px) */
     xlAndAbove: string;
 
+    /** Desktop - 4K+ */
     xxl: string;
 }
 
