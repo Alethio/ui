@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, GenericFieldHTMLAttributes, FieldAttributes } from "formik";
+import { Field, GenericFieldHTMLAttributes, FieldProps } from "formik";
 import styled from "../../styled-components";
 import { Input } from "../../control/Input";
 import { ErrorIcon } from "../../icon/ErrorIcon";
@@ -30,15 +30,17 @@ const StyledInput = styled(Input)`
 
 export class InputField extends React.Component<
     IInputFieldProps & GenericFieldHTMLAttributes & React.HTMLAttributes<HTMLInputElement>
-    > {
+> {
     render() {
-        let { ...props } = this.props;
+        // We pick and discard some props in order to pass the rest to the inner Input
+        // because formik doesn't expose them in the children callback
+        let { validate: _, innerRef, ref: __, ...inputProps } = this.props;
 
-        return <Field {...props}>
-            {({ field, form }: FieldAttributes<any>) => {
+        return <Field {...this.props}>
+            {({ field, meta }: FieldProps<string>) => {
                 return <InputContainer>
-                    <StyledInput {...field} />
-                    {(form.touched[field.name]) && (form.errors[field.name]
+                    <StyledInput ref={innerRef} {...field} {...inputProps as React.HTMLAttributes<HTMLInputElement>} />
+                    {meta.touched && (meta.error
                         ? <IconContainer><ErrorIcon /></IconContainer>
                         : <IconContainer><StatusOkIcon /></IconContainer>
                     )}
