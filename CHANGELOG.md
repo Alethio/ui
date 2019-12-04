@@ -1,6 +1,6 @@
-# Unreleased
+# v2.0.0-dev.2
 
-- (ITheme): Update breakpoints for media queries
+- (ITheme): Update breakpoints for media queries; export numeric values from `layout/responsive/breakpoints.ts`
 
 # v2.0.0-dev.1
 
