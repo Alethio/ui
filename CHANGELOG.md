@@ -1,9 +1,23 @@
-# Unreleased
+# v2.0.0-dev.1
+
+- Add missing icons for symmetry; update hamburger icon SVG
+- (Button) - Add inverted variant
+- (Input): Fix placeholder opacity
+- (InputField): Add icon for error state
+- (HorizontalBar, VerticalBar): Remove border
+- (ITheme): Add usual media queries for usual device sizes under `theme.media`
+- (IPalette): Update color codes for GREEN, DARK, DUSK, DAWN
 
 ## Breaking changes
-- Changes in Button component - replaced `floating` prop with `elevation` that can be `high` or `low`
-- Changes in ITheme object related to toolbar icons colors
-- Changes in ITheme object - removed `sidebarBorder`
+- Rename icons `Pagination*Icon` to `Arrow*Icon`
+- (Button): Replace `floating` prop with `elevation` that can be `high` or `low`
+- (Button): Replace `special` and `special2` variants with a single `special` key
+- (IPalette): Replace `DAWN_L2` with `DAWN_L5`
+- (ITheme): Unflatten toolbar icons colors (from toolbarIcon* to toolbar.icon.*)
+- (ITheme): Remove `sidebarBorder`
+- (ITheme): Rename `mediaQueries` to `media`; remove `mediaQueries.breakPoints`
+- (ModalSelectBox, SelectBox): Removed
+- (ResponsiveContainer): `forScreenWidth` prop replaced with `mediaQuery`, which takes presets from theme.media object
 
 # v2.0.0-dev.0
 
