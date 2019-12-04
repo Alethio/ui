@@ -15,7 +15,7 @@ const Placeholder = styled<IPlaceholderProps, "div">("div")`
      * we leave it here for now
      */
     display: none;
-    @media ${props => props.theme.mediaQueries.breakPoints.smallerThanStandardView} {
+    @media ${props => props.theme.media.sAndBelow} {
         display: block;
     }
 `;
@@ -34,7 +34,7 @@ const HorizontalBarRoot = styled(Bar)<IHorizontalBarProps>`
      * we leave it here for now
      */
     display: none;
-    @media ${props => props.theme.mediaQueries.breakPoints.smallerThanStandardView} {
+    @media ${props => props.theme.media.sAndBelow} {
         display: flex;
     }
 `;

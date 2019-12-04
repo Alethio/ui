@@ -4,3 +4,4 @@ tsconfig*.json
 tslint*.json
 dev
 test
+*.stories.tsx

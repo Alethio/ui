@@ -22,12 +22,12 @@ export const LayoutBoxItem = styled($LayoutBoxItem)`
         props.justifyContent ? props.justifyContent : (props.isBeginningOfRow ? "flex-end" : "inherit")
     )};
 
-    @media ${props => props.theme.mediaQueries.breakPoints.smallerThanFullView} {
+    @media ${props => props.theme.media.mAndBelow} {
         width: auto;
         min-width: ${props => (props.isBeginningOfRow && !props.autoWidth ? "125px" : "auto")};
     }
 
-    @media ${props => props.theme.mediaQueries.breakPoints.lessThan620px} {
+    @media ${props => props.theme.media.xs} {
         width: auto;
         min-width: ${props => (props.isBeginningOfRow && !props.autoWidth ? "95px" : "auto")};
     }

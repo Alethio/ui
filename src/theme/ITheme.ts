@@ -9,7 +9,7 @@ type ValueBoxVariant = "small" | "normal" | "normalThin" | "smallThin" | "big";
 export interface ITheme {
     colors: IThemeColors;
     spacing: IThemeSpacing;
-    mediaQueries: IThemeMediaQueries;
+    media: IThemeMediaQueries;
     font: IThemeFont;
 }
 
@@ -172,11 +172,25 @@ export interface IThemeSpacing {
 }
 
 export interface IThemeMediaQueries {
-    breakPoints: {
-        lessThan620px: string;
-        smallerThanStandardView: string;
-        smallerThanFullView: string;
-    };
+    xs: string;
+
+    sAndBelow: string;
+    sExact: string;
+    sAndAbove: string;
+
+    mAndBelow: string;
+    mExact: string;
+    mAndAbove: string;
+
+    lAndBelow: string;
+    lExact: string;
+    lAndAbove: string;
+
+    xlAndBelow: string;
+    xlExact: string;
+    xlAndAbove: string;
+
+    xxl: string;
 }
 
 export interface IThemeFont {
