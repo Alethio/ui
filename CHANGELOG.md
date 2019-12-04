@@ -1,3 +1,7 @@
+# Unreleased
+
+- (ITheme): Update breakpoints for media queries
+
 # v2.0.0-dev.1
 
 - Add missing icons for symmetry; update hamburger icon SVG

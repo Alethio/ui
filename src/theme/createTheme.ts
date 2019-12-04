@@ -303,15 +303,15 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         mExact: "screen and (min-width: 840px) and (max-width: 1023px)",
         mAndAbove: "screen and (min-width: 840px)",
 
-        lAndBelow: "screen and (max-width: 1279px)",
-        lExact: "screen and (min-width: 1024px) and (max-width: 1279px)",
+        lAndBelow: "screen and (max-width: 1439px)",
+        lExact: "screen and (min-width: 1024px) and (max-width: 1439px)",
         lAndAbove: "screen and (min-width: 1024px)",
 
-        xlAndBelow: "screen and (max-width: 1439px)",
-        xlExact: "screen and (min-width: 1280px) and (max-width: 1439px)",
-        xlAndAbove: "screen and (min-width: 1280px)",
+        xlAndBelow: "screen and (max-width: 1919px)",
+        xlExact: "screen and (min-width: 1440px) and (max-width: 1919px)",
+        xlAndAbove: "screen and (min-width: 1440px)",
 
-        xxl: "screen and (min-width: 1440px)"
+        xxl: "screen and (min-width: 1920px)"
     };
     let font: IThemeFont = {
         weight: {
