@@ -6,7 +6,7 @@ import { IPalette } from "./IPalette";
  */
 export const createTheme: (palette: IPalette) => ITheme = (palette) => {
     let {
-        BLUE, BLUE_L5, DARK, DAWN_L2, GREEN, DUSK, DAWN_D5,
+        BLUE, BLUE_L5, DARK, DAWN_L5, GREEN, DUSK, DAWN_D5,
         DAWN, ORANGE, RED, WHITE
     } = palette;
 
@@ -26,7 +26,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             success: GREEN
         },
         bg: {
-            main: DAWN_L2,
+            main: DAWN_L5,
             alt: WHITE
         },
         highlight: {
@@ -64,7 +64,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
 
         sidebarBg: WHITE,
         sidebarPageTitle: DAWN_D5,
-        mainContentBg: DAWN_L2,
+        mainContentBg: DAWN_L5,
         overlayBg: WHITE,
         overlayBorder: DAWN_D5,
         overlayToolbarBorder: DAWN,
@@ -81,7 +81,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         gridHeaderHover: DARK,
         gridBorder: DAWN_D5,
         gridOddRowBg: WHITE,
-        gridEvenRowBg: DAWN_L2,
+        gridEvenRowBg: DAWN_L5,
         gridColumnSelector: BLUE,
 
         valueBox: {
@@ -204,7 +204,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 },
                 active: {
                     text: base.primary.color,
-                    background: DAWN_L2
+                    background: DAWN_L5
                 },
                 disabled: {
                     text: base.disabled
@@ -212,10 +212,10 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             }
         },
 
-        typedValueBoxBg: DAWN_L2,
+        typedValueBoxBg: DAWN_L5,
         typedValueBoxText: DARK,
         typedValueBoxTypeText: DUSK,
-        paginationBtnBg: DAWN_L2,
+        paginationBtnBg: DAWN_L5,
         paginationBtnText: DUSK,
         paginationBtnBorder: DAWN_D5,
         paginationBtnHoverText: DARK,
@@ -225,7 +225,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         messageBoxPrimaryBg: WHITE,
         messageBoxPrimaryBorder: DAWN_D5,
         messageBoxPrimaryText: DUSK,
-        messageBoxSecondaryBg: DAWN_L2,
+        messageBoxSecondaryBg: DAWN_L5,
         messageBoxSecondaryBorder: DAWN_D5,
         messageBoxSecondaryText: DUSK,
         separator: DAWN_D5,
