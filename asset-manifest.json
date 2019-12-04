@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/main.243fef8e509490024b3c.bundle.js",
-    "main.js.map": "/main.243fef8e509490024b3c.bundle.js.map",
-    "runtime~main.js": "/runtime~main.243fef8e509490024b3c.bundle.js",
-    "runtime~main.js.map": "/runtime~main.243fef8e509490024b3c.bundle.js.map",
+    "main.js": "/main.1957f0efe54503957892.bundle.js",
+    "main.js.map": "/main.1957f0efe54503957892.bundle.js.map",
+    "runtime~main.js": "/runtime~main.1957f0efe54503957892.bundle.js",
+    "runtime~main.js.map": "/runtime~main.1957f0efe54503957892.bundle.js.map",
     "vendors~main.css": "/vendors~main.css",
-    "vendors~main.js": "/vendors~main.243fef8e509490024b3c.bundle.js",
+    "vendors~main.js": "/vendors~main.1957f0efe54503957892.bundle.js",
     "vendors~main.css.map": "/vendors~main.css.map",
-    "vendors~main.js.map": "/vendors~main.243fef8e509490024b3c.bundle.js.map",
+    "vendors~main.js.map": "/vendors~main.1957f0efe54503957892.bundle.js.map",
     "../lib/.storybook/config.d.ts": "/../lib/.storybook/config.d.ts",
     "../lib/.storybook/config.d.ts.map": "/../lib/.storybook/config.d.ts.map",
     "../lib/src/ErrorBox.d.ts": "/../lib/src/ErrorBox.d.ts",
@@ -518,6 +518,8 @@
     "../lib/src/layout/responsive/ResponsiveContainer.d.ts.map": "/../lib/src/layout/responsive/ResponsiveContainer.d.ts.map",
     "../lib/src/layout/responsive/ResponsiveContainer.stories.d.ts": "/../lib/src/layout/responsive/ResponsiveContainer.stories.d.ts",
     "../lib/src/layout/responsive/ResponsiveContainer.stories.d.ts.map": "/../lib/src/layout/responsive/ResponsiveContainer.stories.d.ts.map",
+    "../lib/src/layout/responsive/breakpoints.d.ts": "/../lib/src/layout/responsive/breakpoints.d.ts",
+    "../lib/src/layout/responsive/breakpoints.d.ts.map": "/../lib/src/layout/responsive/breakpoints.d.ts.map",
     "../lib/src/layout/sidebar/LogoContainer.d.ts": "/../lib/src/layout/sidebar/LogoContainer.d.ts",
     "../lib/src/layout/sidebar/LogoContainer.d.ts.map": "/../lib/src/layout/sidebar/LogoContainer.d.ts.map",
     "../lib/src/layout/sidebar/Sidebar.d.ts": "/../lib/src/layout/sidebar/Sidebar.d.ts",
@@ -623,7 +625,7 @@
     "../lib/src/util/time/RelativeTimeFormatter.d.ts": "/../lib/src/util/time/RelativeTimeFormatter.d.ts",
     "../lib/src/util/time/RelativeTimeFormatter.d.ts.map": "/../lib/src/util/time/RelativeTimeFormatter.d.ts.map",
     "iframe.html": "/iframe.html",
-    "precache-manifest.722bfecd830bedd6e8a085fd15b75e93.js": "/precache-manifest.722bfecd830bedd6e8a085fd15b75e93.js",
+    "precache-manifest.7dd538da459f47b52002d3121770a299.js": "/precache-manifest.7dd538da459f47b52002d3121770a299.js",
     "service-worker.js": "/service-worker.js"
   }
 }
