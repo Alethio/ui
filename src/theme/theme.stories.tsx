@@ -40,7 +40,7 @@ storiesOf("theme", module)
         }
     })
     .add("palette", () => <Container>
-        { Object.keys(palette).map(k => <div>
+        { Object.keys(palette).sort().map(k => <div>
             <PaletteColor color={(palette as any)[k]}></PaletteColor>
             {`${k} (${(palette as any)[k]})`}
         </div>) }
