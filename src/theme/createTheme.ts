@@ -151,8 +151,8 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                     background: BLUE_L5
                 },
                 disabled: {
-                    text: DAWN_D5,
-                    background: DUSK
+                    text: DAWN_L5,
+                    background: base.disabled
                 }
             },
             secondary: {
