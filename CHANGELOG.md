@@ -1,4 +1,4 @@
-# Unreleased
+# v2.0.0-dev.3
 
 - (PlusIcon): Fix SVG attribute casing
 - (InputField): Fix props not being passed to inner input element
