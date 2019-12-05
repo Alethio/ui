@@ -1,3 +1,8 @@
+# Unreleased
+
+- (PlusIcon): Fix SVG attribute casing
+- (InputField): Fix props not being passed to inner input element
+
 # v2.0.0-dev.2
 
 - (ITheme): Update breakpoints for media queries; export numeric values from `layout/responsive/breakpoints.ts`
