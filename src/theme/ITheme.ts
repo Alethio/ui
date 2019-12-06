@@ -1,6 +1,7 @@
 import { IBoxColors } from "../layout/content/box/IBoxColors";
 import { IBoxMetrics } from "../layout/content/box/IBoxMetrics";
 import { ButtonColors } from "../control/Button";
+import { IMediaQueries } from "../layout/responsive/mediaQueries";
 
 type ValueBoxColors = "primary" | "primaryAlt" | "primaryInvert" | "secondary" | "secondaryInvert" |
     "highlight" | "error" | "warn";
@@ -9,6 +10,7 @@ type ValueBoxVariant = "small" | "normal" | "normalThin" | "smallThin" | "big";
 export interface ITheme {
     colors: IThemeColors;
     spacing: IThemeSpacing;
+    /** Media queries for pure convenience. NB: These are not customizable! */
     media: IThemeMediaQueries;
     font: IThemeFont;
 }
@@ -171,40 +173,8 @@ export interface IThemeSpacing {
     topbarHeight: number;
 }
 
-export interface IThemeMediaQueries {
-    /** Mobiles - XS (<600px) */
-    xs: string;
+export interface IThemeMediaQueries extends IMediaQueries {
 
-    /** Tablets - S and below (<840px) */
-    sAndBelow: string;
-    /** Tablets - S (>=600px, <840px) */
-    sExact: string;
-    /** Tablets - S and above (>=600px) */
-    sAndAbove: string;
-
-    /** Tablets - M and below (<1024px) */
-    mAndBelow: string;
-    /** Tablets - M (>=840px, <1024px) */
-    mExact: string;
-    /** Tablets - M and above (>=840px) */
-    mAndAbove: string;
-
-    /** Desktop - L and below (<1440px) */
-    lAndBelow: string;
-    /** Desktop - L (>=1024px, <1440px) */
-    lExact: string;
-    /** Desktop - L and above (>=1024px) */
-    lAndAbove: string;
-
-    /** Desktop - XL and below (<1920px) */
-    xlAndBelow: string;
-    /** Desktop - XL (>=1440px, <1920px) */
-    xlExact: string;
-    /** Desktop - XL and above (>=1440px) */
-    xlAndAbove: string;
-
-    /** Desktop - 4K+ */
-    xxl: string;
 }
 
 export interface IThemeFont {
