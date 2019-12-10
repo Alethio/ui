@@ -1,4 +1,4 @@
-# Unreleased
+# v2.0.0-dev.4
 
 - (layout/responsive/*): Add React hooks `useViewportSize` and `useMediaCheck` (with HOC alternative `WithMediaCheck`)
 - (ITheme): Predefined media queries are marked as non-customizable in the theme and also provided as a static export.
