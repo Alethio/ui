@@ -27,7 +27,6 @@ const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 
     /* should come from props metrics ??? */
-    height: ${props => props.theme.spacing.valueBoxMetrics.big.height}px;
     font-size: ${props => props.theme.spacing.valueBoxMetrics.big.fontSize}px;
     line-height: ${props => props.theme.spacing.valueBoxMetrics.big.lineHeight}px;
     font-weight: ${props => props.theme.spacing.valueBoxMetrics.big.fontWeight};

@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import styled from "../styled-components";
 import { Select } from "./Select";
 import { GithubIcon } from "../icon/GithubIcon";
+import { Option } from "./Option";
 
 const SelectContainer = styled.div`
     display: flex;
@@ -13,27 +14,6 @@ const SelectContainer = styled.div`
     }
 `;
 
-const options1 = [
-    {
-        value: "one",
-        text: "option 1"
-    },
-    {
-        value: "two",
-        text: "option 2"
-    },
-    {
-        value: "three",
-        text: "option 3",
-        Icon: GithubIcon
-    },
-    {
-        value: "",
-        text: "disabled",
-        disabled: true
-    }
-];
-
 storiesOf("control/" + Select.name, module)
     .addParameters({
         info: {
@@ -43,9 +23,14 @@ storiesOf("control/" + Select.name, module)
     .addDecorator(storyFn => <SelectContainer>{storyFn()}</SelectContainer>)
     .add("default", () => (
         [
-            <Select options={options1} />,
-            <Select options={options1} default={options1[1]} />,
-            <Select options={options1} label="Custom label" />,
-            <Select options={options1} fullWidth label="Full width" />
+            <Select label="No Options" />,
+            <Select label="Options" value="3">
+                <Option value="1">Option 1</Option>
+                <Option value="2" selected>Option 2</Option>
+                <Option value="3" Icon={GithubIcon}>Option 3</Option>
+            </Select>,
+            <Select label="One Option" fullWidth>
+                <Option value="1">Option 1</Option>
+            </Select>
         ]
     ));

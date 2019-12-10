@@ -3,11 +3,14 @@ import styled, { css } from "../../styled-components";
 import { ArrowDownIcon } from "../../icon/ArrowDownIcon";
 import { ITheme } from "../../theme/ITheme";
 
-const ExpanderIconRoot = styled<IExpanderIconProps, "span">("span")`
+const ExpanderIconRoot = styled<IExpanderIconProps, "div">("div")`
+    display: inline-block;
     color: ${props => props.expanded ? props.theme.colors.expanderOpenIcon : props.theme.colors.expanderIcon};
     padding: 1px 1px 0 0;
     ${props => props.getColor ? css`
     background-color: ${(props.getColor(props.theme))}
+    border: 1px solid ${(props.getColor(props.theme))}
+    border-radius: 0 2px 2px 0;
     ` : ``}
 `;
 
@@ -15,8 +18,6 @@ const Icon = styled<IExpanderIconProps, "div">("div")`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
     transition: transform .2s ease-in-out;
     ${props => props.expanded ? css`
     transform: rotate(-180deg);

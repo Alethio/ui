@@ -17,9 +17,11 @@ export class SelectField extends React.Component<ISelectFieldProps> {
         let { ...props } = this.props;
 
         return <Field {...props}>
-            {({ field, form }: FieldAttributes<any>) => {
-                return <Select {...field} options={props.options} label={props.label} fullWidth={props.fullWidth}/>;
-            }}
-        </Field>;
+                {({ field, form }: FieldAttributes<any>) => {
+                    return <Select {...props} {...field}
+                        onSelect={(value: string) => form.setFieldValue(field.name, value)}
+                    />;
+                }}
+            </Field>;
     }
 }

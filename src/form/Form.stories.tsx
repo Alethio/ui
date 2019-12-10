@@ -13,6 +13,7 @@ import { TextareaField } from "./field/TextareaField";
 import { CheckboxField } from "./field/CheckboxField";
 import { RadioField } from "./field/RadioField";
 import { SelectField } from "./field/SelectField";
+import { Option } from "../control/Option";
 
 const RootContainer = styled.div`
     background: ${props => props.theme.colors.base.bg.main};
@@ -61,11 +62,12 @@ storiesOf("form", module)
             <FormItem>
                 <Label htmlFor={FormField.Select}>Title</Label>
                 <SelectField id={FormField.Select} name={FormField.Select} fullWidth={true}
-                    label={"Title"}
-                    options={[{text: "Mr.", value: "1"}, {text: "Ms.", value: "2"}]}/>
+                    label={"Title"}>
+                    <Option value="1">Mr.</Option>
+                    <Option value="2">Ms.</Option>
+                </SelectField>
                 <FieldError name={FormField.Select} />
             </FormItem>
-
             <FormItem>
                 <Label htmlFor={FormField.Email}>E-Mail</Label>
                 <InputField type="email" id={FormField.Email} name={FormField.Email} required
