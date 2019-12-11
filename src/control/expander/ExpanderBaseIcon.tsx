@@ -6,7 +6,7 @@ import { ITheme } from "../../theme/ITheme";
 const ExpanderIconRoot = styled<IExpanderIconProps, "div">("div")`
     display: inline-block;
     color: ${props => props.expanded ? props.theme.colors.expanderOpenIcon : props.theme.colors.expanderIcon};
-    padding: 1px 1px 0 0;
+    padding: 2px 8px 2px 8px;
     ${props => props.getColor ? css`
     background-color: ${(props.getColor(props.theme))}
     border: 1px solid ${(props.getColor(props.theme))}

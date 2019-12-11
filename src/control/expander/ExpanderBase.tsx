@@ -51,7 +51,7 @@ const ExpanderLabel = styled<IExpanderContentProps, "div">("div")`
     ${props => props.fullWidth ? css`
     width: 100%;
     ` : ``}
-    margin-right: 16px;
+    margin-right: 20px;
 `;
 
 interface IOpenProps {
