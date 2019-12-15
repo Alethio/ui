@@ -24,10 +24,10 @@ export interface IMenuItemProps {
 const getState = (disabled: boolean, hover: boolean, selected: boolean) => {
     if (disabled) {
         return "disabled";
-    } else if (hover) {
-        return "hover";
     } else if (selected) {
         return "selected";
+    } else if (hover) {
+        return "hover";
     } else {
         return "normal";
     }

@@ -14,7 +14,7 @@ export class ExpanderSelect extends React.Component<IExpanderSelectProps> {
         return <ExpanderBase label={label} open={open} fullWidth={fullWidth} onClick={onClick}
             colors={(theme) => ({
                 background: open ? theme.colors.select.expander.openBg : theme.colors.select.expander.bg,
-                border: theme.colors.select.expander.openIcon, // TODO set a border in theme
+                border: theme.colors.select.expander.border,
                 text: disabled ?
                     theme.colors.select.expander.disabled :
                     open ? theme.colors.select.expander.openLabel : theme.colors.select.expander.label

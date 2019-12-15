@@ -10,11 +10,7 @@ export class EmptyIcon extends React.Component<IEmptyIconProps> {
         return (
             <SvgIcon {...this.props}>
                 <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-                    <g>
-                        <g>
-                            <rect x="0" y="0" width="24" height="24"></rect>
-                        </g>
-                    </g>
+                    <rect x="0" y="0" width="24" height="24"></rect>
                 </g>
             </SvgIcon>
         );

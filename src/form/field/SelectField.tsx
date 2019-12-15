@@ -6,19 +6,19 @@ export interface ISelectFieldProps extends ISelectProps {
     id: string;
     name: string;
     value?: string;
-    required?: boolean;
     disabled?: boolean;
     validate?(value: string): string | Promise<string | void> | undefined;
-    innerRef?(instance: any): void;
 }
 
 export class SelectField extends React.Component<ISelectFieldProps> {
     render() {
-        let { ...props } = this.props;
+        // We pick and discard some props in order to pass the rest to the inner Input
+        // because formik doesn't expose them in the children callback
+        let { validate: _, ...inputProps } = this.props;
 
-        return <Field {...props}>
+        return <Field {...this.props}>
                 {({ field, form }: FieldAttributes<any>) => {
-                    return <Select {...props} {...field}
+                    return <Select  {...inputProps} {...field}
                         onSelect={(value: string) => form.setFieldValue(field.name, value)}
                     />;
                 }}

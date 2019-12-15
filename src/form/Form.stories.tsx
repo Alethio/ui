@@ -62,7 +62,7 @@ storiesOf("form", module)
             <FormItem>
                 <Label htmlFor={FormField.Select}>Title</Label>
                 <SelectField id={FormField.Select} name={FormField.Select} fullWidth={true}
-                    label={"Title"}>
+                    placeholder={"Title"}>
                     <Option value="1">Mr.</Option>
                     <Option value="2">Ms.</Option>
                 </SelectField>

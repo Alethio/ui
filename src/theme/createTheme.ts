@@ -138,11 +138,19 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         expanderOpenValue: DAWN_D5,
         expanderOpenIcon: DAWN_D5,
 
+        expander: {
+            fontSize: 20,
+            fontWeight: 500,
+            letterSpacing: "normal",
+            lineHeight: 24
+        },
+
         select: {
             expander: {
                 label: DARK,
                 value: BLUE,
                 bg: WHITE,
+                border: DUSK,
                 Icon: DAWN,
                 disabled: DAWN_D5,
                 openLabel: DARK,

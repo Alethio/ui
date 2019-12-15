@@ -23,14 +23,17 @@ storiesOf("control/" + Select.name, module)
     .addDecorator(storyFn => <SelectContainer>{storyFn()}</SelectContainer>)
     .add("default", () => (
         [
-            <Select label="No Options" />,
-            <Select label="Options" value="3">
+            <Select placeholder="No Options" />,
+            <Select placeholder="Options" value="3">
                 <Option value="1">Option 1</Option>
                 <Option value="2" selected>Option 2</Option>
                 <Option value="3" Icon={GithubIcon}>Option 3</Option>
             </Select>,
-            <Select label="One Option" fullWidth>
-                <Option value="1">Option 1</Option>
+            <Select placeholder="One Option" fullWidth>
+                <Option value="1" selected>Option 1</Option>
+            </Select>,
+            <Select placeholder="One Option with Icon" fullWidth>
+                <Option value="1" Icon={GithubIcon}>Option 1</Option>
             </Select>
         ]
     ));

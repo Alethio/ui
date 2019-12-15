@@ -113,11 +113,19 @@ export interface IThemeColors {
     expanderOpenBg: string;
     expanderOpenIcon: string;
 
+    expander: {
+        fontSize: number;
+        fontWeight: number;
+        lineHeight: number;
+        letterSpacing: string;
+    };
+
     select: {
         expander: {
             label: string;
             value: string;
             bg: string;
+            border: string;
             Icon: string;
             disabled: string;
             openLabel: string;

@@ -26,11 +26,10 @@ const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.04);
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 
-    /* should come from props metrics ??? */
-    font-size: ${props => props.theme.spacing.valueBoxMetrics.big.fontSize}px;
-    line-height: ${props => props.theme.spacing.valueBoxMetrics.big.lineHeight}px;
-    font-weight: ${props => props.theme.spacing.valueBoxMetrics.big.fontWeight};
-    letter-spacing: ${props => props.theme.spacing.valueBoxMetrics.big.letterSpacing};
+    font-size: ${props => props.theme.colors.expander.fontSize}px;
+    line-height: ${props => props.theme.colors.expander.lineHeight}px;
+    font-weight: ${props => props.theme.colors.expander.fontWeight};
+    letter-spacing: ${props => props.theme.colors.expander.letterSpacing};
 
     border: 1px solid ${props => (
         getColors(props.colors, props.theme).border ||
@@ -54,11 +53,11 @@ const ExpanderLabel = styled<IExpanderContentProps, "div">("div")`
     margin-right: 20px;
 `;
 
-interface IOpenProps {
+interface IExpanderValueProps {
     open: boolean;
     disabled?: boolean;
 }
-const ExpanderValue = styled<IOpenProps, "span">("span")`
+const ExpanderValue = styled<IExpanderValueProps, "span">("span")`
     color: ${props => props.disabled ?
         props.theme.colors.expanderDisabled :
         props.open ? props.theme.colors.expanderOpenValue : props.theme.colors.expanderValue};
