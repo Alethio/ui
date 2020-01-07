@@ -28,33 +28,18 @@ export class Select extends React.Component<ISelectProps> {
         super(props);
         let { value, children } = props;
         if (value === void 0) {
-            const childrenCount = React.Children.count(children);
-            if (childrenCount > 0) {
-                if (childrenCount > 1) { //multiple children
-                    let selectedOption = React.Children.toArray(children).find(
-                            (option: Option) => option.props.selected);
-                    // this is geting first ocurence of selected (in HTML native it is the last)
-                    value = selectedOption ? (selectedOption as Option).props.value : ""; // no selected options
-                } else if (childrenCount === 1) { // one child
-                    const childrenOnly = React.Children.only(children);
-                    value = (childrenOnly as Option).props.selected ? (childrenOnly as Option).props.value : "";
-                }
-            } else {
-                value = ""; // no children
-            }
+            let selectedOption = React.Children.toArray(children).find(
+                // this is geting first ocurence of selected (in HTML native it is the last)
+                (option: Option) => option.props.selected);
+            value = selectedOption ? (selectedOption as Option).props.value : ""; // no selected options
         }
         this.selected = value!;
     }
 
     getOptionLabel = (value: string) => {
         let { children } = this.props;
-        if (React.Children.count(children) > 1) {
-            let selectedOption =
-                React.Children.toArray(children).find((option: Option) => option.props.value === value);
-            return selectedOption ? (selectedOption as Option).props.children as string : "";
-        } else {
-            return (React.Children.only(children) as Option).props.children as string;
-        }
+        let selectedOption = React.Children.toArray(children).find((option: Option) => option.props.value === value);
+        return selectedOption ? (selectedOption as Option).props.children as string : "";
     }
 
     render() {
@@ -65,14 +50,13 @@ export class Select extends React.Component<ISelectProps> {
         return <Dropdown<Option>
             renderMenu={(onSelectItem) =>
                 <Menu>
-                    {(React.Children.toArray(children) as Option[]).map((option: Option, index) => {
-                        return <Option {...option.props}
-                            key={index}
-                            Icon={isIconPresent ? option.props.Icon || EmptyIcon : option.props.Icon}
-                            selected={option.props.value === this.selected}
-                            onClick={() => onSelectItem(option)}
-                        />;
-                    })}
+                    {(React.Children.map(children, (option: Option) => {
+                        return  React.cloneElement(option as any, {
+                            Icon: isIconPresent ? option.props.Icon || EmptyIcon : option.props.Icon,
+                            selected: option.props.value === this.selected,
+                            onClick: () => onSelectItem(option)
+                        });
+                    }))}
                 </Menu>
             }
             onSelect={option => {

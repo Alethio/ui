@@ -26,10 +26,10 @@ const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.04);
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 
-    font-size: ${props => props.theme.colors.expander.fontSize}px;
-    line-height: ${props => props.theme.colors.expander.lineHeight}px;
-    font-weight: ${props => props.theme.colors.expander.fontWeight};
-    letter-spacing: ${props => props.theme.colors.expander.letterSpacing};
+    font-size: ${props => props.theme.spacing.expander.fontSize}px;
+    line-height: ${props => props.theme.spacing.expander.lineHeight}px;
+    font-weight: ${props => props.theme.spacing.expander.fontWeight};
+    letter-spacing: ${props => props.theme.spacing.expander.letterSpacing};
 
     border: 1px solid ${props => (
         getColors(props.colors, props.theme).border ||

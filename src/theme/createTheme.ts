@@ -138,13 +138,6 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         expanderOpenValue: DAWN_D5,
         expanderOpenIcon: DAWN_D5,
 
-        expander: {
-            fontSize: 20,
-            fontWeight: 500,
-            letterSpacing: "normal",
-            lineHeight: 24
-        },
-
         select: {
             expander: {
                 label: DARK,
@@ -317,7 +310,14 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         contentBottom: 72,
         sidebarWidth: 241,
         toolbarWidth: 72,
-        topbarHeight: 72
+        topbarHeight: 72,
+
+        expander: {
+            fontSize: 20,
+            fontWeight: 500,
+            letterSpacing: "normal",
+            lineHeight: 24
+        }
     };
 
     let font: IThemeFont = {

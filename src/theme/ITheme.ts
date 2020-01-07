@@ -113,13 +113,6 @@ export interface IThemeColors {
     expanderOpenBg: string;
     expanderOpenIcon: string;
 
-    expander: {
-        fontSize: number;
-        fontWeight: number;
-        lineHeight: number;
-        letterSpacing: string;
-    };
-
     select: {
         expander: {
             label: string;
@@ -194,6 +187,13 @@ export interface IThemeSpacing {
     valueBoxMetrics: Record<ValueBoxVariant, IBoxMetrics>;
     toolbarWidth: number;
     topbarHeight: number;
+
+    expander: {
+        fontSize: number;
+        fontWeight: number;
+        lineHeight: number;
+        letterSpacing: string;
+    };
 }
 
 export interface IThemeMediaQueries extends IMediaQueries {
