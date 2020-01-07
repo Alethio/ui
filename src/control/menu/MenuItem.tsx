@@ -9,27 +9,41 @@ const StyledBox = styled(Box)`
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
-type InteractionState = "normal" | "active" | "disabled";
+type InteractionState = "normal" | "hover" | "selected" | "disabled";
 type GetColorSetFn = (state: InteractionState) => IBoxColorsThunk<ITheme>;
 
 const getColorSet: GetColorSetFn = (state) => (theme) => theme.colors.menu.item[state];
 
 export interface IMenuItemProps {
     disabled?: boolean;
+    selected?: boolean;
     Icon?: IBoxProps["Icon"];
     onClick?(): void;
 }
 
+const getState = (disabled: boolean, hover: boolean, selected: boolean) => {
+    if (disabled) {
+        return "disabled";
+    } else if (selected) {
+        return "selected";
+    } else if (hover) {
+        return "hover";
+    } else {
+        return "normal";
+    }
+};
 export class MenuItem extends React.Component<IMenuItemProps> {
     render() {
-        let { disabled, Icon, children } = this.props;
+        let { disabled, Icon, children, selected } = this.props;
         return <div onClick={this.handleClick}>
             <HoverState>
-                {(hover) =>
-                    <StyledBox
+                {(hover) => {
+                    let state: InteractionState = getState(disabled!, hover, selected!);
+                    let colorSet = getColorSet(state);
+                    return <StyledBox
                         Icon={Icon}
                         iconPlacement={"left"}
-                        colors={getColorSet(!disabled ? hover ? "active" : "normal" : "disabled")}
+                        colors={colorSet}
                         fullWidth
                         metrics={{
                             // TODO: extract these metrics because they are the same as Button metricss
@@ -42,8 +56,8 @@ export class MenuItem extends React.Component<IMenuItemProps> {
                             textPaddingTop: 7,
                             textPaddingX: 16
                         }}
-                    >{children}</StyledBox>
-                }
+                    >{children}</StyledBox>;
+                }}
             </HoverState>
         </div>;
     }

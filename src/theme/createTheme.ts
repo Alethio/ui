@@ -137,6 +137,22 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         expanderOpenLabel: WHITE,
         expanderOpenValue: DAWN_D5,
         expanderOpenIcon: DAWN_D5,
+
+        select: {
+            expander: {
+                label: DARK,
+                value: BLUE,
+                bg: WHITE,
+                border: DUSK,
+                Icon: DAWN,
+                disabled: DAWN_D5,
+                openLabel: DARK,
+                openValue: DAWN_D5,
+                openBg: WHITE,
+                openIcon: DUSK
+            }
+        },
+
         msgCountInIcon: GREEN,
         msgCountOutIcon: RED,
         msgCountPendingIcon: ORANGE,
@@ -203,9 +219,12 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 normal: {
                     text: base.primary.color
                 },
-                active: {
+                hover: {
                     text: base.primary.color,
                     background: DAWN_L5
+                },
+                selected: {
+                    text: base.accent.color
                 },
                 disabled: {
                     text: base.disabled
@@ -291,7 +310,14 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         contentBottom: 72,
         sidebarWidth: 241,
         toolbarWidth: 72,
-        topbarHeight: 72
+        topbarHeight: 72,
+
+        expander: {
+            fontSize: 20,
+            fontWeight: 500,
+            letterSpacing: "normal",
+            lineHeight: 24
+        }
     };
 
     let font: IThemeFont = {

@@ -113,6 +113,21 @@ export interface IThemeColors {
     expanderOpenBg: string;
     expanderOpenIcon: string;
 
+    select: {
+        expander: {
+            label: string;
+            value: string;
+            bg: string;
+            border: string;
+            Icon: string;
+            disabled: string;
+            openLabel: string;
+            openValue: string;
+            openBg: string;
+            openIcon: string;
+        }
+    };
+
     accordionBg: string;
     accordionBorder: string;
 
@@ -135,8 +150,9 @@ export interface IThemeColors {
         background: string;
         item: {
             normal: IBoxColors;
-            active: IBoxColors;
+            hover: IBoxColors;
             disabled: IBoxColors;
+            selected: IBoxColors;
         };
     };
 
@@ -171,6 +187,13 @@ export interface IThemeSpacing {
     valueBoxMetrics: Record<ValueBoxVariant, IBoxMetrics>;
     toolbarWidth: number;
     topbarHeight: number;
+
+    expander: {
+        fontSize: number;
+        fontWeight: number;
+        lineHeight: number;
+        letterSpacing: string;
+    };
 }
 
 export interface IThemeMediaQueries extends IMediaQueries {
