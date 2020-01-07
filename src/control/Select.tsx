@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Dropdown } from "./dropdown/Dropdown";
 import { Menu } from "./menu/Menu";
-import { Option } from "./Option";
+import { Option, IOptionProps } from "./Option";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
 import { ExpanderSelect } from "./expander/ExpanderSelect";
@@ -51,7 +51,7 @@ export class Select extends React.Component<ISelectProps> {
             renderMenu={(onSelectItem) =>
                 <Menu>
                     {(React.Children.map(children, (option: Option) => {
-                        return  React.cloneElement(option as any, {
+                        return  React.cloneElement<IOptionProps>(option as any, {
                             Icon: isIconPresent ? option.props.Icon || EmptyIcon : option.props.Icon,
                             selected: option.props.value === this.selected,
                             onClick: () => onSelectItem(option)
