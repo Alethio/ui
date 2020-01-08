@@ -3,7 +3,7 @@ import { observable } from "mobx";
 import { observer } from "mobx-react";
 import { ValueBox, IValueBoxProps } from "../../layout/content/box/ValueBox";
 import { RelativeTimeFormatter, IRelativeTimeTranslations } from "../../util/time/RelativeTimeFormatter";
-import { TooltipRegular } from "../../overlay/tooltip/TooltipRegular";
+import { Tooltip } from "../../overlay/tooltip/Tooltip";
 import { ClickThreshold } from "../../util/react/ClickThreshold";
 import styled from "../../styled-components";
 import { CopyValueButton } from "../../control/button/CopyValueButton";
@@ -88,7 +88,7 @@ export class TimeElapsedBox extends React.Component<ITimeElapsedBoxProps> {
             </ValueBox>
         );
         return (
-            <TooltipRegular content={
+            <Tooltip content={
                 <div style={{ display: "flex", alignItems: "center" }}>
                     <div>{this.props.timestamp}</div>
                     <CopyValueButtonWrapper>
@@ -101,7 +101,7 @@ export class TimeElapsedBox extends React.Component<ITimeElapsedBoxProps> {
                     { box }
                 </ClickThreshold>
                 }
-            </TooltipRegular>
+            </Tooltip>
         );
     }
 

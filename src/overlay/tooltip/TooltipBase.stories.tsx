@@ -1,11 +1,11 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { TooltipRegular } from "./TooltipRegular";
+import { TooltipBase } from "./TooltipBase";
 
-storiesOf("overlay/tooltip/" + TooltipRegular.name, module)
+storiesOf("overlay/tooltip/" + TooltipBase.name, module)
     .addDecorator(s => <div style={{ display: "flex" }}>{s()}</div>)
     .add("default", () => (
-        <TooltipRegular content={"Some text"}>
+        <TooltipBase content={"Some text"}>
             <div>Hover me</div>
-        </TooltipRegular>
+        </TooltipBase>
     ));

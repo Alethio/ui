@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { TooltipRegular } from "../overlay/tooltip/TooltipRegular";
+import { Tooltip } from "../overlay/tooltip/Tooltip";
 
 let icons = require.context("./", false, /Icon\.tsx$/);
 
@@ -15,8 +15,8 @@ storiesOf("icon", module)
     .add("default", () =>
         icons.keys().map(k => k.replace(/\.\/(.*)\.tsx$/, "$1")).map(iconName => {
             let Icon = icons("./" + iconName + ".tsx")[iconName];
-            return <TooltipRegular content={iconName}>
+            return <Tooltip content={iconName}>
                 <Icon color="black" />
-            </TooltipRegular>;
+            </Tooltip>;
         })
     );

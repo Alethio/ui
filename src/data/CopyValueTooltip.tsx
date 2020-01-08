@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TooltipRegular } from "../overlay/tooltip/TooltipRegular";
+import { Tooltip } from "../overlay/tooltip/Tooltip";
 import styled from "../styled-components";
 import { CopyValueButton } from "../control/button/CopyValueButton";
 import { IClipboard } from "./IClipboard";
@@ -18,7 +18,7 @@ export interface ICopyValueTooltipProps {
 export class CopyValueTooltip extends React.Component<ICopyValueTooltipProps> {
     render() {
         return (
-            <TooltipRegular content={
+            <Tooltip content={
                 <div style={{ display: "flex", alignItems: "center" }}>
                     <div>{this.props.value}</div>
                     <CopyValueButtonWrapper>
@@ -30,7 +30,7 @@ export class CopyValueTooltip extends React.Component<ICopyValueTooltipProps> {
                 </div>
             }>
                 { this.props.children }
-            </TooltipRegular>
+            </Tooltip>
         );
     }
 }
