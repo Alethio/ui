@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "../../styled-components";
-import { TooltipRegular } from "../../overlay/tooltip/TooltipRegular";
+import { Tooltip } from "../../overlay/tooltip/Tooltip";
 
 interface IToolbarItemRootProps {
     backgroundColor?: string;
@@ -37,11 +37,11 @@ export class ToolbarItem extends React.Component<IToolbarItemProps> {
                 innerRef={ref => this.rootEl = ref!}
             >
                 { this.props.title ?
-                    <TooltipRegular
+                    <Tooltip
                         content={this.props.title} placement="right" referenceElement={() => this.rootEl} nonInteractive
                     >
                         {this.props.children}
-                    </TooltipRegular>
+                    </Tooltip>
                     :
                     this.props.children
                 }

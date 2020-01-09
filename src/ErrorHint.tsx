@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TooltipRegular } from "./overlay/tooltip/TooltipRegular";
+import { Tooltip } from "./overlay/tooltip/Tooltip";
 import { ErrorIcon, IErrorIconProps } from "./icon/ErrorIcon";
 
 interface IErrorHintProps extends IErrorIconProps {
@@ -11,9 +11,9 @@ export class ErrorHint extends React.Component<IErrorHintProps> {
         let { children, ...props } = this.props;
 
         return (
-            <TooltipRegular content={children}>
+            <Tooltip content={children}>
                 <ErrorIcon {...props} />
-            </TooltipRegular>
+            </Tooltip>
         );
     }
 }

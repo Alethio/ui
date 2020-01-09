@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "../../styled-components";
-import { TooltipRegular } from "../../overlay/tooltip/TooltipRegular";
+import { Tooltip } from "../../overlay/tooltip/Tooltip";
 import { IClipboard } from "../IClipboard";
 import { hexToString } from "../../util/internal/hex";
 import { StringData } from "../StringData";
@@ -22,7 +22,7 @@ export class DecodedHexData extends React.PureComponent<IDecodedHexDataProps> {
     render() {
         let { data } = this.props;
         return (
-            <TooltipRegular content={
+            <Tooltip content={
                 <div style={{display: "flex", alignItems: "center"}}>
                     <Hash ellipsisThreshold={70}>{"0x" + data.replace(/^0x/, "")}</Hash>
                     <CopyButtonWrapper>
@@ -36,7 +36,7 @@ export class DecodedHexData extends React.PureComponent<IDecodedHexDataProps> {
                 <StringData>
                     { hexToString(data) }
                 </StringData>
-            </TooltipRegular>
+            </Tooltip>
         );
     }
 }

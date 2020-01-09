@@ -2,7 +2,7 @@ import styled, { css } from "../../../styled-components";
 import * as React from "react";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
-import { TooltipRegular } from "../../../overlay/tooltip/TooltipRegular";
+import { Tooltip } from "../../../overlay/tooltip/Tooltip";
 
 export interface IStackBarProps {
     items: IStackBarItem[];
@@ -81,10 +81,10 @@ class $StackBar extends React.Component<IStackBarProps> {
                     onMouseLeave={() => this.unselectItem(item)}
                     key={idx}
                 >
-                    <TooltipRegular placement="right" content={item.tooltip}
+                    <Tooltip placement="right" content={item.tooltip}
                         referenceElement={() => this.wrapperEl}>
                         <StackBarItemFill color={item.color} />
-                    </TooltipRegular>
+                    </Tooltip>
                 </StackBarItem>;
             }) }
             </div>
