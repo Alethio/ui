@@ -1160,7 +1160,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/overlay/Popover.stories.d.ts"
   },
   {
-    "revision": "39b6b593a38c1c4851bdd520b91f00e0",
+    "revision": "3409b7692106e06fb9aedc8fe1911760",
     "url": "../lib/src/overlay/tooltip/Tooltip.d.ts"
   },
   {
@@ -1168,12 +1168,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/overlay/tooltip/Tooltip.stories.d.ts"
   },
   {
-    "revision": "2bf2ea6c852dacd0033c2e65316dada6",
-    "url": "../lib/src/overlay/tooltip/TooltipRegular.d.ts"
+    "revision": "15f50a6dfd1cfda1746afc229f8b9dde",
+    "url": "../lib/src/overlay/tooltip/TooltipBase.d.ts"
   },
   {
-    "revision": "664fb08fa9356aec1fec1315833e736e",
-    "url": "../lib/src/overlay/tooltip/TooltipRegular.stories.d.ts"
+    "revision": "acc88fe348ce3b49d0bf8b3059facf5d",
+    "url": "../lib/src/overlay/tooltip/TooltipBase.stories.d.ts"
   },
   {
     "revision": "b478bb63c20ce3027fa1b1a06752f688",
@@ -1284,17 +1284,17 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "00b478f3e2319bc6be5c9ab9d3f20460",
+    "revision": "b3fed89b70faf6d33980895366e07377",
     "url": "iframe.html"
   },
   {
-    "url": "main.b6b6661fb06343960da8.bundle.js"
+    "url": "main.be6c8d340c86ec87bcb2.bundle.js"
   },
   {
-    "url": "runtime~main.b6b6661fb06343960da8.bundle.js"
+    "url": "runtime~main.be6c8d340c86ec87bcb2.bundle.js"
   },
   {
-    "url": "vendors~main.b6b6661fb06343960da8.bundle.js"
+    "url": "vendors~main.be6c8d340c86ec87bcb2.bundle.js"
   },
   {
     "revision": "a9e7391c3e4937a44c22",
