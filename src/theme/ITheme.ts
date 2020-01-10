@@ -128,6 +128,21 @@ export interface IThemeColors {
         }
     };
 
+    accordion: {
+        expander: {
+            label: string;
+            value: string;
+            bg: string;
+            border: string;
+            Icon: string;
+            disabled: string;
+            openLabel: string;
+            openValue: string;
+            openBg: string;
+            openIcon: string;
+        }
+    };
+
     accordionBg: string;
     accordionBorder: string;
 
