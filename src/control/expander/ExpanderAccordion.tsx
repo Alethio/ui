@@ -1,17 +1,25 @@
 import React from "react";
-import { IExpanderBaseProps } from "./Expander";
-import { ExpanderBase } from "./ExpanderBase";
+import { ExpanderBase, IExpanderBaseProps } from "./ExpanderBase";
 
-interface IExpanderAccordionProps extends IExpanderBaseProps {
-
+interface IExpanderWithValueProps extends IExpanderBaseAccordionProps {
+    value?: number;
+    locale: string;
 }
+
+interface IExpanderWithoutValueProps extends IExpanderBaseAccordionProps {
+    value?: never;
+}
+
+type IExpanderBaseAccordionProps = Omit<IExpanderBaseProps, "colors" | "iconColor">;
+
+type IExpanderAccordionProps = IExpanderWithoutValueProps | IExpanderWithValueProps;
 
 /** Component used for expanding the accordion component */
 export class ExpanderAccordion extends React.Component<IExpanderAccordionProps> {
 
     render() {
-        let { label, open, disabled, onClick, fullWidth } = this.props;
-        return <ExpanderBase label={label} open={open} fullWidth={fullWidth} onClick={onClick}
+        let { label, open, disabled, onClick, onResize, fullWidth } = this.props;
+        return <ExpanderBase label={label} open={open} fullWidth={fullWidth} onClick={onClick} onResize={onResize}
             colors={(theme) => ({
                 background: open ? theme.colors.accordion.expander.openBg : theme.colors.accordion.expander.bg,
                 border: theme.colors.accordion.expander.border,
