@@ -1,3 +1,9 @@
+# unreleased
+
+## Breaking changes
+
+- (Label): by default text is not transformed, for uppercase use "uppercase" prop.
+
 # v2.0.0-dev.4
 
 - (layout/responsive/*): Add React hooks `useViewportSize` and `useMediaCheck` (with HOC alternative `WithMediaCheck`)
