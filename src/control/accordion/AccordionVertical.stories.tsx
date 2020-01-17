@@ -2,7 +2,7 @@ import React from "react";
 import { sleep } from "@puzzl/core/lib/async/sleep";
 import { storiesOf } from "@storybook/react";
 import { AccordionVertical } from "./AccordionVertical";
-import { Expander } from "../expander/Expander";
+import { ExpanderAccordion } from "../expander/ExpanderAccordion";
 import { AccordionItem } from "./AccordionItem";
 import { IAccordionItemConfig } from "./IAccordionItemConfig";
 import { AccordionItemContentStatus } from "./AccordionItemContentStatus";
@@ -40,7 +40,7 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <Expander open={isOpen} onClick={onClick} label={config.label}
+                <ExpanderAccordion open={isOpen} onClick={onClick} label={config.label}
                     value={config.value} locale="en-US" fullWidth />
             }
         >
@@ -65,7 +65,7 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
+                <ExpanderAccordion open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
             }
         >
         </AccordionVertical>
@@ -81,7 +81,7 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
+                <ExpanderAccordion open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
             }
             renderContent={({ content, status, arrowPosition }) => {
                 if (status !== AccordionItemContentStatus.Loaded) {
@@ -119,7 +119,7 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 console.log("Failed loading content for item " + item.config.label);
             }}
             renderExpander={({ config, isOpen, onClick }) =>
-                <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
+                <ExpanderAccordion open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
             }
             renderHeader={({ config }) => <div>Custom header content for {config.label}</div>}
         >

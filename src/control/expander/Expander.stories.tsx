@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { Expander } from "./Expander";
 import styled from "../../styled-components";
 import { ExpanderSelect } from "./ExpanderSelect";
+import { ExpanderAccordion } from "./ExpanderAccordion";
 
 const ContentArea = styled.div`
     display: flex;
@@ -45,5 +46,15 @@ storiesOf("control/" + Expander.name, module)
         </div>,
         <div style={{ width: 250 }}>
             <ExpanderSelect label="fullWidth" open={true} fullWidth />
+        </div>
+    ]))
+    .add("ExpanderAccordion", () => ([
+        <ExpanderAccordion label="Closed" open={false} />,
+        <ExpanderAccordion label="Open" open={true} />,
+        <div style={{ width: 250 }}>
+            <ExpanderAccordion label="fullWidth" open={false} fullWidth />
+        </div>,
+        <div style={{ width: 250 }}>
+            <ExpanderAccordion label="fullWidth" open={true} fullWidth />
         </div>
     ]));
