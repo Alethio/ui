@@ -6,6 +6,8 @@ export interface ILabelProps {
     arrow?: boolean;
     /** Use a stronger label color */
     strong?: boolean;
+    /** Use uppercase text transformation */
+    uppercase?: boolean;
     /** Use a disabled label color */
     disabled?: boolean;
     className?: string;
@@ -20,7 +22,7 @@ export const Label = styled($Label)`
     font-size: 12px;
     line-height: 12px;
     height: 12px;
-    text-transform: uppercase;
+    text-transform: ${props => props.uppercase ? "uppercase" : "none"};
     background-color: ${props => (
         props.arrow ?
             (props.disabled ? props.theme.colors.label.disabled : props.theme.colors.base.highlight.color) :
@@ -64,3 +66,7 @@ export const Label = styled($Label)`
     }
     ` : ""}
 `;
+
+Label.defaultProps = {
+    uppercase: true
+};
