@@ -13,7 +13,7 @@ export const Cursor = styled.div`
     color: ${props => props.theme.colors.paginationCursorText};
     font-size: 12px;
     line-height: 14px;
-    font-weight: 700;
+    font-weight: ${props => props.theme.font.weight.regular};
     text-align: center;
     min-width: ${36 - 2 * BORDER_SIZE}px;
 `;

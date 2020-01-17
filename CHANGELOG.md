@@ -2,6 +2,12 @@
 
 - (Label): uppercase text can be disabled setting `uppercase` prop to false.
 
+# v2.0.0-dev.5
+
+- (Select) added select and selectfield components that uses expanderBase and expanderSelect
+- (Tooltip) removed arrow
+
+
 # v2.0.0-dev.4
 
 - (layout/responsive/*): Add React hooks `useViewportSize` and `useMediaCheck` (with HOC alternative `WithMediaCheck`)

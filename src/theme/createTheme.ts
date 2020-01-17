@@ -126,8 +126,6 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         spinnerStroke: BLUE,
         spinnerBackground: WHITE,
         spinnerBorder: DAWN_D5,
-        accordionBg: WHITE,
-        accordionBorder: DAWN_D5,
         expanderBg: WHITE,
         expanderLabel: DARK,
         expanderValue: BLUE,
@@ -152,6 +150,24 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 openIcon: DUSK
             }
         },
+
+        accordion: {
+            expander: {
+                label: DARK,
+                value: BLUE,
+                bg: WHITE,
+                border: DAWN_D5,
+                Icon: WHITE,
+                disabled: DAWN_D5,
+                openLabel: WHITE,
+                openValue: DAWN_D5,
+                openBg: BLUE,
+                openIcon: BLUE
+            }
+        },
+
+        accordionBorder: DAWN_D5,
+        accordionBg: WHITE,
 
         msgCountInIcon: GREEN,
         msgCountOutIcon: RED,

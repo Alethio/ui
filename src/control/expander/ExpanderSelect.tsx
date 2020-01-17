@@ -1,10 +1,18 @@
 import React from "react";
-import { IExpanderBaseProps } from "./Expander";
-import { ExpanderBase } from "./ExpanderBase";
+import { ExpanderBase, IExpanderBaseProps } from "./ExpanderBase";
 
-interface IExpanderSelectProps extends IExpanderBaseProps {
-
+interface IExpanderWithValueProps extends IExpanderBaseSelectProps {
+    value?: number;
+    locale: string;
 }
+
+interface IExpanderWithoutValueProps extends IExpanderBaseSelectProps {
+    value?: never;
+}
+
+type IExpanderBaseSelectProps = Omit<IExpanderBaseProps, "colors" | "iconColor">;
+
+type IExpanderSelectProps = IExpanderWithoutValueProps | IExpanderWithValueProps;
 
 /** Component used for expanding the select component */
 export class ExpanderSelect extends React.Component<IExpanderSelectProps> {

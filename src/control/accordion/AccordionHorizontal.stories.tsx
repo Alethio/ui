@@ -2,8 +2,8 @@ import React from "react";
 import { sleep } from "@puzzl/core/lib/async/sleep";
 import { storiesOf } from "@storybook/react";
 import { AccordionHorizontal } from "./AccordionHorizontal";
-import { Expander } from "../expander/Expander";
 import { AccordionItem } from "./AccordionItem";
+import { ExpanderAccordion } from "../expander/ExpanderAccordion";
 import { IAccordionItemConfig } from "./IAccordionItemConfig";
 import { AccordionItemContentStatus } from "./AccordionItemContentStatus";
 import { LayoutRow } from "../../layout/content/LayoutRow";
@@ -47,7 +47,7 @@ storiesOf("control/accordion/" + AccordionHorizontal.name, module)
             }}
             renderExpander={({ config, isOpen, onClick }) =>
                 <ExpanderWrapper>
-                    <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
+                    <ExpanderAccordion open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
                 </ExpanderWrapper>
             }
         >
@@ -72,7 +72,7 @@ storiesOf("control/accordion/" + AccordionHorizontal.name, module)
             }}
             renderExpander={({ config, isOpen, onClick }) =>
                 <ExpanderWrapper>
-                    <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
+                    <ExpanderAccordion open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
                 </ExpanderWrapper>
             }
         >
@@ -90,7 +90,7 @@ storiesOf("control/accordion/" + AccordionHorizontal.name, module)
             }}
             renderExpander={({ config, isOpen, onClick }) =>
                 <ExpanderWrapper>
-                    <Expander open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
+                    <ExpanderAccordion open={isOpen} onClick={onClick} label={config.label} locale="en-US" />
                 </ExpanderWrapper>
             }
             renderContent={({ content, status, arrowPosition }) => {
