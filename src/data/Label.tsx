@@ -66,3 +66,7 @@ export const Label = styled($Label)`
     }
     ` : ""}
 `;
+
+Label.defaultProps = {
+    uppercase: true
+};

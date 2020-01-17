@@ -1,8 +1,6 @@
 # unreleased
 
-## Breaking changes
-
-- (Label): by default text is not transformed, for uppercase use "uppercase" prop.
+- (Label): uppercase text can be disabled setting `uppercase` prop to false.
 
 # v2.0.0-dev.4
 

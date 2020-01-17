@@ -19,8 +19,8 @@ storiesOf("data/" + Label.displayName, module)
     .add("disabled", () => (
         <Label disabled>Label text</Label>
     ))
-    .add("uppercase", () => (
-        <Label uppercase>Label text</Label>
+    .add("no uppercase", () => (
+        <Label uppercase={false}>Label text</Label>
     ))
     .add("stronger", () => (
         <Label strong>Label text</Label>
