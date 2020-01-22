@@ -1,13 +1,21 @@
+# v2.0.0-dev.7
+
+- Lock package dependencies (formik and color) because of errors in the latest versions
+
 # v2.0.0-dev.6
 
 - (Label): uppercase text can be disabled setting `uppercase` prop to false.
-- (Select) Fixes programatically change and menu layer zIndex
+- (Select): Fixes programatically change and menu layer zIndex
 
 # v2.0.0-dev.5
 
-- (Select) added select and selectfield components that uses expanderBase and expanderSelect
-- (Tooltip) removed arrow
+- (Select): added select and selectfield components that uses expanderBase and expanderSelect
 
+## Breaking changes
+
+- (Tooltip): removed arrow prop
+- (Tooltip): renamed to TooltipBase
+- (TooltipRegular): renamed to Tooltip
 
 # v2.0.0-dev.4
 
