@@ -11,6 +11,7 @@ export interface ISelectProps {
     value?: string;
     placeholder?: string;
     fullWidth?: boolean;
+    menuZIndex?: number;
     children?: React.ReactNode;
     onSelect?(x: string): void;
 }
@@ -18,18 +19,28 @@ export interface ISelectProps {
 @observer
 export class Select extends React.Component<ISelectProps> {
 
-    static defaultProps: Pick<ISelectProps, "placeholder"> = {
-        placeholder: "Choose an option"
+    static defaultProps: Pick<ISelectProps, "placeholder" | "menuZIndex"> = {
+        placeholder: "Choose an option",
+        menuZIndex: 9999
     };
 
     @observable private selected: string;
 
     constructor(props: ISelectProps) {
         super(props);
-        let { value, children } = props;
+        this.updateSelectValue(props.value, props.children);
+    }
+
+    componentDidUpdate(prevProps: ISelectProps) {
+        if (this.props.value !== prevProps.value || this.props.children !== prevProps.children) {
+            this.updateSelectValue(this.props.value, this.props.children);
+        }
+    }
+
+    private updateSelectValue(value: ISelectProps["value"], children: ISelectProps["children"]) {
         if (value === void 0) {
             let selectedOption = React.Children.toArray(children).find(
-                // this is geting first ocurence of selected (in HTML native it is the last)
+                // this is getting first occurence of selected (in native HTML it is the last)
                 (option: Option) => option.props.selected);
             value = selectedOption ? (selectedOption as Option).props.value : ""; // no selected options
         }
@@ -59,6 +70,7 @@ export class Select extends React.Component<ISelectProps> {
                     }))}
                 </Menu>
             }
+            popoverProps={{style: {zIndex: this.props.menuZIndex}}}
             onSelect={option => {
                 this.selected = option.props.value;
                 if (this.props.onSelect) {
