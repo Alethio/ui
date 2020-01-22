@@ -1,6 +1,7 @@
-# unreleased
+# v2.0.0-dev.6
 
 - (Label): uppercase text can be disabled setting `uppercase` prop to false.
+- (Select) Fixes programatically change and menu layer zIndex
 
 # v2.0.0-dev.5
 
