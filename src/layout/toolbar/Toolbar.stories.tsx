@@ -1,7 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Toolbar } from "./Toolbar";
-import { Container } from "../Container";
 import { ToolbarItem } from "./ToolbarItem";
 import { ToolbarIconButton } from "./ToolbarIconButton";
 import { Filler } from "../Filler";
@@ -10,8 +9,13 @@ import { LogoutIcon } from "../../icon/LogoutIcon";
 import { HelpIcon } from "../../icon/HelpIcon";
 import { observable } from "mobx";
 import { Observer } from "mobx-react";
+import styled from "../../styled-components";
 
 let active = observable.box(false);
+
+export const Container = styled.div`
+    display: flex;
+`;
 
 storiesOf("layout/toolbar/" + Toolbar.displayName, module)
     .addParameters({

@@ -61,7 +61,6 @@ export interface IThemeColors {
 
     sidebarBg: string;
     sidebarPageTitle: string;
-    mainContentBg: string;
 
     overlayBg: string;
     overlayBorder: string;
@@ -196,9 +195,6 @@ export interface IThemeColors {
 }
 
 export interface IThemeSpacing {
-    contentTop: number;
-    contentBottom: number;
-    sidebarWidth: number;
     valueBoxMetrics: Record<ValueBoxVariant, IBoxMetrics>;
     toolbarWidth: number;
     topbarHeight: number;

@@ -1,12 +1,12 @@
 import * as React from "react";
 import styled from "../../styled-components";
-import { Sidebar } from "./Sidebar";
 import { LogoContainer } from "./LogoContainer";
 import { Spacer } from "../Spacer";
 import { observable, when, action } from "mobx";
 import { getOffset } from "@puzzl/browser/lib/dom";
 import { observer } from "mobx-react";
 import { SidebarPageTitle } from "./SidebarPageTitle";
+import { VerticalBar } from "../VerticalBar";
 
 const SPACER_HEIGHT = 64;
 const MAX_COLUMNS = 7;
@@ -19,6 +19,11 @@ const ListAsideRoot = styled.div`
     flex-direction: column;
     align-content: center;
     align-items: center;
+`;
+
+const Sidebar = styled(VerticalBar)`
+    padding-top: 38px;
+    padding-bottom: 80px;
 `;
 
 export interface ISidebarColumnsProps {
@@ -47,7 +52,7 @@ export class SidebarColumns extends React.Component<ISidebarColumnsProps> {
 
     render() {
         return (
-            <Sidebar
+            <Sidebar width={241} zIndex={1}
                 contentRef={ref => this.rootEl = ref!}
                 sticky={this.stickyMode}
                 mobileVisible={this.props.mobileVisible}
