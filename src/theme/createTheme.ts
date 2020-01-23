@@ -271,55 +271,25 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
 
     let spacing: IThemeSpacing = {
         valueBoxMetrics: {
-            big: {
-                height: 36,
-                textPaddingTop: 4,
-                textPaddingX: 8,
-                fontSize: 20,
-                iconSize: 24,
-                lineHeight: 24,
-                fontWeight: 500,
-                letterSpacing: "normal"
-            },
             normal: {
-                height: 28,
-                textPaddingTop: 0,
-                textPaddingX: 8,
-                fontSize: 20,
+                height: 32,
+                textPaddingTop: 2,
+                textPaddingX: 16,
+                fontSize: 18,
                 iconSize: 24,
-                lineHeight: 24,
-                fontWeight: 500,
-                letterSpacing: "normal"
-            },
-            normalThin: {
-                height: 28,
-                textPaddingTop: 0,
-                textPaddingX: 8,
-                fontSize: 20,
-                iconSize: 24,
-                lineHeight: 24,
+                lineHeight: 22,
                 fontWeight: 400,
                 letterSpacing: "normal"
             },
             small: {
-                height: 20,
-                textPaddingTop: 0,
-                textPaddingX: 8,
-                fontSize: 14,
+                height: 32,
+                textPaddingTop: 8,
+                textPaddingX: 16,
+                fontSize: 12,
                 iconSize: 18,
-                lineHeight: 17,
+                lineHeight: 14,
                 fontWeight: 600,
-                letterSpacing: "1px"
-            },
-            smallThin: {
-                height: 20,
-                textPaddingTop: 0,
-                textPaddingX: 8,
-                fontSize: 14,
-                iconSize: 18,
-                lineHeight: 17,
-                fontWeight: 500,
-                letterSpacing: "1px"
+                letterSpacing: "normal"
             }
         },
         contentTop: 48,

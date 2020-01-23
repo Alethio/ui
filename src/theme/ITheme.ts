@@ -5,7 +5,7 @@ import { IMediaQueries } from "../layout/responsive/mediaQueries";
 
 type ValueBoxColors = "primary" | "primaryAlt" | "primaryInvert" | "secondary" | "secondaryInvert" |
     "highlight" | "error" | "warn";
-type ValueBoxVariant = "small" | "normal" | "normalThin" | "smallThin" | "big";
+type ValueBoxVariant = "small" | "normal";
 
 export interface ITheme {
     colors: IThemeColors;

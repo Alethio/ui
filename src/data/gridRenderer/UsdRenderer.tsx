@@ -12,7 +12,7 @@ export class UsdRenderer<T> implements IGridFieldRenderer<T> {
     render(f: T) {
         let bigN = this.gridFieldDataGetter(f);
         return (
-            <UsdValueBox value={bigN} locale={this.locale} variant="smallThin" colors="primary" />
+            <UsdValueBox value={bigN} locale={this.locale} variant="small" colors="primary" />
         );
     }
 }

@@ -4,7 +4,7 @@ import { Menu } from "../menu/Menu";
 import styled from "../../styled-components";
 import { MenuItem } from "../menu/MenuItem";
 import { Dropdown } from "./Dropdown";
-import { Expander } from "../expander/Expander";
+import { ExpanderSelect } from "../expander/ExpanderSelect";
 
 const RootContainer = styled.div`
     display: flex;
@@ -34,6 +34,6 @@ storiesOf("control/" + Dropdown.name, module)
                 <MenuItem disabled onClick={() => onSelectItem({ id: "3"})}>Item 3</MenuItem>
             </Menu>
         } onSelect={item => alert("Selected item " + item.id)}>
-            { ({requestToggle, isOpen}) => <Expander open={isOpen} onClick={requestToggle} label="Click me" /> }
+            { ({requestToggle, isOpen}) => <ExpanderSelect open={isOpen} onClick={requestToggle} label="Click me" /> }
         </Dropdown>
     ));
