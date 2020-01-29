@@ -59,10 +59,6 @@ export interface IThemeColors {
     toolbarAlethioIcon: string;
     toolbarAlethioIconHover: string;
 
-    sidebarBg: string;
-    sidebarPageTitle: string;
-    mainContentBg: string;
-
     overlayBg: string;
     overlayBorder: string;
     overlayToolbarBorder: string;
@@ -196,9 +192,6 @@ export interface IThemeColors {
 }
 
 export interface IThemeSpacing {
-    contentTop: number;
-    contentBottom: number;
-    sidebarWidth: number;
     valueBoxMetrics: Record<ValueBoxVariant, IBoxMetrics>;
     toolbarWidth: number;
     topbarHeight: number;

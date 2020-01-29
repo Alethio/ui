@@ -1,3 +1,9 @@
+# unreleased
+
+## Breaking changes
+
+- (layout): removed Page, Container, Content and Sidebar (Sidebar, SidebarColumns, LogoContainer, SidebarPageTitle) components
+
 # v2.0.0-dev.7
 
 - Lock package dependencies (formik and color) because of errors in the latest versions

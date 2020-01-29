@@ -62,10 +62,6 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         },
         toolbarAlethioIcon: DAWN_D5,
         toolbarAlethioIconHover: BLUE,
-
-        sidebarBg: WHITE,
-        sidebarPageTitle: DAWN_D5,
-        mainContentBg: DAWN_L5,
         overlayBg: WHITE,
         overlayBorder: DAWN_D5,
         overlayToolbarBorder: DAWN,
@@ -322,9 +318,6 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 letterSpacing: "1px"
             }
         },
-        contentTop: 48,
-        contentBottom: 72,
-        sidebarWidth: 241,
         toolbarWidth: 72,
         topbarHeight: 72,
 
