@@ -60,7 +60,6 @@ export interface IThemeColors {
     toolbarAlethioIconHover: string;
 
     sidebarBg: string;
-    sidebarPageTitle: string;
 
     overlayBg: string;
     overlayBorder: string;

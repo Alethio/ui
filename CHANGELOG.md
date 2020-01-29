@@ -2,7 +2,7 @@
 
 ## Breaking changes
 
-- (layout): removed Page, Container, Content and Sidebar components
+- (layout): removed Page, Container, Content and Sidebar (Sidebar, SidebarColumns, LogoContainer, SidebarPageTitle) components
 
 # v2.0.0-dev.7
 

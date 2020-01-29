@@ -64,7 +64,6 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         toolbarAlethioIconHover: BLUE,
 
         sidebarBg: WHITE,
-        sidebarPageTitle: DAWN_D5,
         overlayBg: WHITE,
         overlayBorder: DAWN_D5,
         overlayToolbarBorder: DAWN,
