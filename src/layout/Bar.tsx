@@ -8,6 +8,6 @@ export interface IBarProps {
 export const Bar = styled<IBarProps, "div">("div")`
     box-sizing: border-box;
     display: flex;
-    background-color: ${props => props.theme.colors.sidebarBg};
+    background-color: ${props => props.theme.colors.base.bg.alt};
     z-index: ${props => props.zIndex};
 `;
