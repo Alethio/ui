@@ -31,8 +31,5 @@ storiesOf("layout/content/box/" + ValueBox.displayName, module)
     ])
     .add("variants", () => [
         <ValueBox variant="normal" colors="primaryAlt">normal</ValueBox>,
-        <ValueBox variant="normalThin" colors="primaryAlt">normalThin</ValueBox>,
-        <ValueBox variant="big" colors="primaryAlt">big</ValueBox>,
-        <ValueBox variant="small" colors="primaryAlt">small</ValueBox>,
-        <ValueBox variant="smallThin" colors="primaryAlt">smallThin</ValueBox>
+        <ValueBox variant="small" colors="primaryAlt">small</ValueBox>
     ]);

@@ -48,13 +48,13 @@ export class TypedValueBox extends React.Component<ITypedValueBox> {
                 text: theme.colors.typedValueBoxText,
                 border: withinForm ? theme.colors.typedValueBoxBorder : void 0
             })} metrics={{
-                height: 36,
-                textPaddingTop: 0,
+                height: 32,
+                textPaddingTop: 6,
                 textPaddingX: 8,
                 fontSize: 14,
                 iconSize: 24,
-                lineHeight: 34,
-                fontWeight: 500,
+                lineHeight: 20,
+                fontWeight: 400,
                 letterSpacing: "normal"
             }}>
                 <SizingWrapper withinForm={withinForm}>

@@ -30,10 +30,5 @@ storiesOf("data/box/" + EthValueBox.name, module)
     ])
     .add("variants", () => [
         <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} variant="normal" colors="primaryAlt"/>,
-        <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} variant="normalThin" colors="primaryAlt"
-        />,
-        <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} variant="big" colors="primaryAlt"/>,
-        <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} variant="small" colors="primaryAlt"/>,
-        <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} variant="smallThin" colors="primaryAlt"
-        />
+        <EthValueBox locale="en-US" wei={new BigNumber(1000456789000000000000)} variant="small" colors="primaryAlt"/>
     ]);
