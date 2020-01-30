@@ -8,6 +8,7 @@ import { StatusOkIcon } from "../../icon/StatusOkIcon";
 export interface IInputFieldProps {
     name: string;
     type: string;
+    hasValidationIcon?: boolean;
     validate?(value: string): string | Promise<string | void> | undefined;
     innerRef?(instance: any): void;
 }
@@ -31,16 +32,20 @@ const StyledInput = styled(Input)`
 export class InputField extends React.Component<
     IInputFieldProps & GenericFieldHTMLAttributes & React.HTMLAttributes<HTMLInputElement>
 > {
+    static defaultProps = {
+        hasValidationIcon: true
+    };
     render() {
         // We pick and discard some props in order to pass the rest to the inner Input
         // because formik doesn't expose them in the children callback
-        let { validate: _, innerRef, ref: __, ...inputProps } = this.props;
+        let { validate: _, innerRef, ref: __, hasValidationIcon, ...inputProps } = this.props;
+        const $Input = hasValidationIcon ? StyledInput : Input;
 
         return <Field {...this.props}>
             {({ field, meta }: FieldProps<string>) => {
                 return <InputContainer>
-                    <StyledInput ref={innerRef} {...field} {...inputProps as React.HTMLAttributes<HTMLInputElement>} />
-                    {meta.touched && (meta.error
+                    <$Input ref={innerRef} {...field} {...inputProps as React.HTMLAttributes<HTMLInputElement>} />
+                    {hasValidationIcon && meta.touched && (meta.error
                         ? <IconContainer><ErrorIcon /></IconContainer>
                         : <IconContainer><StatusOkIcon /></IconContainer>
                     )}
