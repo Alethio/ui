@@ -8,7 +8,7 @@ const BORDER_WIDTH = 1;
 const NavButtonRoot = styled<INavButtonProps, "div">("div")`
     cursor: ${props => !props.disabled ? "pointer" : "default"};
     padding: ${(BUTTON_SIZE - ICON_SIZE - 2 * BORDER_WIDTH) / 2}px;
-    border-radius: 4px;
+    border-radius: ${props => props.theme.spacing.borderRadius.thin}px;
     border: ${BORDER_WIDTH}px solid ${props => props.theme.colors.paginationBtnBorder};
     color: ${props => props.disabled ?
         props.theme.colors.paginationBtnDisabledText :

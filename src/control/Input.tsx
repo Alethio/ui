@@ -15,7 +15,7 @@ export const Input = styled.input`
     font-weight: 400;
     line-height: ${LINE_HEIGHT}px;
 
-    border-radius: 4px;
+    border-radius: ${props => props.theme.spacing.borderRadius.thin}px;
     outline: none;
     box-shadow: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;

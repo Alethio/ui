@@ -4,7 +4,7 @@ const BORDER_SIZE = 1;
 
 /** @internal */
 export const Cursor = styled.div`
-    border-radius: 4px;
+    border-radius: ${props => props.theme.spacing.borderRadius.thin}px;
     border: ${BORDER_SIZE}px solid ${props => props.theme.colors.paginationBtnBorder};
     background-color: ${props => props.theme.colors.paginationBtnBg};
     box-sizing: border-box;

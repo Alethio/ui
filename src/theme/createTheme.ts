@@ -290,6 +290,10 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         },
         toolbarWidth: 72,
         topbarHeight: 72,
+        borderRadius: {
+            normal: 8,
+            thin: 4
+        },
 
         expander: {
             fontSize: 20,
