@@ -26,7 +26,7 @@ const ButtonRoot = styled<IButtonRootProps, "button">("button")`
         ${Color(props.shadowColor(props.theme) || "transparent").alpha(0.6).toString()}
     ` : ``};
 
-    border-radius: ${props => props.rounded ? "100px" : "4px"};
+    border-radius: ${props => props.rounded ? "100px" : `${props.theme.spacing.borderRadius.thin}px`};
 
     /* Override user-agent styles */
     background: none;

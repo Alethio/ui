@@ -135,7 +135,7 @@ export const Box = styled($Box)`
         getColors(props.colors, props.theme).background ||
         "transparent"
     )};
-    border-radius: 4px;
+    border-radius: ${props => props.theme.spacing.borderRadius.thin}px;
     background-color: ${props => (
         getColors(props.colors, props.theme).background || "transparent"
     )};

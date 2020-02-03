@@ -195,6 +195,10 @@ export interface IThemeSpacing {
     valueBoxMetrics: Record<ValueBoxVariant, IBoxMetrics>;
     toolbarWidth: number;
     topbarHeight: number;
+    borderRadius: {
+        normal: number,
+        thin: number;
+    };
 
     expander: {
         fontSize: number;

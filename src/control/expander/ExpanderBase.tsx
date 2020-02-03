@@ -36,7 +36,7 @@ const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
         getColors(props.colors, props.theme).background ||
         "transparent"
     )};
-    border-radius: 4px;
+    border-radius: ${props => props.theme.spacing.borderRadius.thin}px;
     align-items: center;
     color: ${props => getColors(props.colors, props.theme).text};
     background-color: ${props => (
