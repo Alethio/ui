@@ -16,7 +16,7 @@ export class ProductIconButton extends React.Component<IProductIconButtonProps> 
             <HoverState>
                 {(hover) =>
                     <IconButton Icon={this.props.Icon} color={
-                        hover ? void 0 : theme => theme.colors.toolbar.icon.normal
+                        hover ? void 0 : theme => theme.colors.toolbar.item.normal
                     } iconSize={24} />
                 }
             </HoverState>

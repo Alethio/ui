@@ -49,7 +49,8 @@ export interface IThemeColors {
 
     alethioLogo: string;
     toolbar: {
-        icon: {
+        item: {
+            disabled: string;
             normal: string;
             hover: string;
             active: string;

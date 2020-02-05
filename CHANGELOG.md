@@ -2,9 +2,12 @@
 
 - update Typescript to 3.7, fix bignumber error
 
+# v2.0.0-dev.8
+
 ## Breaking changes
 
 - (layout): removed Page, Container, Content and Sidebar (Sidebar, SidebarColumns, LogoContainer, SidebarPageTitle) components
+- (theme): inside toolbar the colors residing inside `icon` where moved to `item` since the colors applies also to labels and not only icons
 
 # v2.0.0-dev.7
 
