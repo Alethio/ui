@@ -51,8 +51,8 @@
     "ts-loader": "^6.0.4",
     "tslib": "^1.9.3",
     "tslint": "^5.18.0",
-    "ttypescript": "^1.5.7",
-    "typescript": "^3.6.4",
+    "ttypescript": "^1.5.10",
+    "typescript": "^3.7.5",
     "typescript-plugin-styled-components": "^1.4.3",
     "typescript-styled-plugin": "^0.10.0",
     "typescript-tslint-plugin": "^0.1.0"

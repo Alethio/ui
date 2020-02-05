@@ -1,5 +1,7 @@
 # unreleased
 
+- update Typescript to 3.7, fix bignumber error
+
 # v2.0.0-dev.8
 
 ## Breaking changes
