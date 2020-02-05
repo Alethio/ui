@@ -1,5 +1,7 @@
 # unreleased
 
+- update Typescript to 3.7, fix bignumber error
+
 ## Breaking changes
 
 - (layout): removed Page, Container, Content and Sidebar (Sidebar, SidebarColumns, LogoContainer, SidebarPageTitle) components
