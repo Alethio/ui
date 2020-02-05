@@ -1,5 +1,7 @@
 # unreleased
 
+# v2.0.0-dev.8
+
 ## Breaking changes
 
 - (layout): removed Page, Container, Content and Sidebar (Sidebar, SidebarColumns, LogoContainer, SidebarPageTitle) components
