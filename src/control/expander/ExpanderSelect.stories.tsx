@@ -22,7 +22,7 @@ storiesOf("control/" + ExpanderSelect.name, module)
     .add("ExpanderSelect", () => ([
         <ExpanderSelect label="Closed" open={false} />,
         <ExpanderSelect label="Open" open={true} />,
-        <ExpanderSelect label="Disabled" open={false} disabled />
+        <ExpanderSelect label="Disabled" open={false} value={20} locale="en-US" disabled />
     ]))
     .add("ExpanderSelect number", () => ([
         <ExpanderSelect label="Number" value={20} locale="en-US" open={false} />,

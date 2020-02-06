@@ -30,10 +30,12 @@ export class ExpanderAccordion extends React.Component<IExpanderAccordionProps> 
             locale = this.props.locale;
         }
         return <ExpanderBase label={label} open={open} fullWidth={fullWidth} onClick={onClick} onResize={onResize}
-            value={value} locale={locale!}
+            value={value} locale={locale!} disabled={disabled}
             colors={(theme) => ({
                 background: open ? theme.colors.accordion.expander.openBg : theme.colors.accordion.expander.bg,
-                border: theme.colors.accordion.expander.border,
+                border: disabled ?
+                    theme.colors.accordion.expander.disabled :
+                    theme.colors.accordion.expander.border,
                 text: disabled ?
                     theme.colors.accordion.expander.disabled :
                     open ? theme.colors.accordion.expander.openLabel : theme.colors.accordion.expander.label
