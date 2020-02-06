@@ -1092,6 +1092,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/layout/topbar/HorizontalBar.d.ts"
   },
   {
+    "revision": "39a7c4df2f3568f7002fb22bfaf68beb",
+    "url": "../lib/src/layout/topbar/MobileMenuItem.d.ts"
+  },
+  {
+    "revision": "082cf7f9405e4c4b840007774906e233",
+    "url": "../lib/src/layout/topbar/MobileMenuLayer.d.ts"
+  },
+  {
     "revision": "97e32112de984dc7bc2318aba39e974c",
     "url": "../lib/src/layout/topbar/TopBar.d.ts"
   },
@@ -1256,20 +1264,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "1cbccfc6eef15650bd4d750eebdb97a7",
+    "revision": "324c940b6a46b886471aca0307ad3543",
     "url": "iframe.html"
   },
   {
-    "url": "main.87669a5c0c585af22ddf.bundle.js"
+    "url": "main.01f2068f5890d6a03c91.bundle.js"
   },
   {
-    "url": "runtime~main.87669a5c0c585af22ddf.bundle.js"
+    "url": "runtime~main.01f2068f5890d6a03c91.bundle.js"
   },
   {
-    "url": "vendors~main.87669a5c0c585af22ddf.bundle.js"
+    "url": "vendors~main.01f2068f5890d6a03c91.bundle.js"
   },
   {
-    "revision": "2e31c92e2c00f86ca7b1",
+    "revision": "48a535cda05bf4019464",
     "url": "vendors~main.css"
   }
 ]);
