@@ -1,3 +1,7 @@
+# v1.1.0
+
+- Add MobileMenuLayer and MobileMenuItem components, replacing MenuLayer and MenuItem from @alethio/cms package
+
 # v1.0.1
 
 - Added CursorInfinitePagination. When total items count is unknown, the pagination checks if there is a next page to show the next page button or not.
