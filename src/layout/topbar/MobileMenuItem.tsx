@@ -31,9 +31,6 @@ interface IMobileMenuItemProps {
 
 /**
  * Component for mobile navigation bar menu items
- *
- * Depends on context created at runtime and cannot be extracted to @alethio/ui
- * (unless we port it to legacy context API, just like the Accordion component)
  */
 export class MobileMenuItem extends React.Component<IMobileMenuItemProps> {
     static contextTypes = {

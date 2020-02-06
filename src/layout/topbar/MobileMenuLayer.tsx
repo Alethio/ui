@@ -29,7 +29,7 @@ export interface IMobileMenuLayerProps {
 }
 
 /**
- * Mobile navigation menu. Can receive `MenuItem` components as children.
+ * Mobile navigation menu. Can receive `MobileMenuItem` components as children.
  */
 @observer
 export class MobileMenuLayer extends React.Component<IMobileMenuLayerProps> {
@@ -37,7 +37,6 @@ export class MobileMenuLayer extends React.Component<IMobileMenuLayerProps> {
     // may be instantiated from different apps library instances and the createContext API won't work in this case
     /** @internal */
     static childContextTypes = {
-        // Just so we don't have to import react prop-types. We don't care about the shape anyway
         requestClose: PropTypes.any
     };
 
