@@ -1,6 +1,7 @@
 # unreleased
 
 - update Typescript to 3.7, fix bignumber error
+- Migrate mobile menu components from @alethio/cms package
 
 # v2.0.0-dev.8
 
