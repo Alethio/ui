@@ -13,7 +13,7 @@ interface IExternalLinkProps {
 
 export class ExternalLink extends React.Component<AnchorHTMLAttributes<HTMLAnchorElement> & IExternalLinkProps> {
     render() {
-        return <ExternalLinkRoot target={this.props.target || "_blank"} {...this.props}>
+        return <ExternalLinkRoot target={this.props.target || "_blank"} rel="noopener noreferrer" {...this.props}>
             {this.props.children}
         </ExternalLinkRoot>;
     }

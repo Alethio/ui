@@ -1,7 +1,8 @@
 # unreleased
 
-- update Typescript to 3.7, fix bignumber error
+- Update Typescript to 3.7, fix bignumber error
 - Migrate mobile menu components from @alethio/cms package
+- (ExternalLink): Add missing rel="noopener noreferrer"
 
 # v2.0.0-dev.8
 
