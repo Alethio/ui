@@ -24,6 +24,7 @@ storiesOf("control/" + Select.name, module)
     .add("default", () => (
         [
             <Select placeholder="No Options" />,
+            <Select placeholder="Disabled" disabled />,
             <Select placeholder="Options" value="3">
                 <Option value="1">Option 1</Option>
                 <Option value="2" selected>Option 2</Option>

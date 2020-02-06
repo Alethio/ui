@@ -11,6 +11,7 @@ export interface ISelectProps {
     value?: string;
     placeholder?: string;
     fullWidth?: boolean;
+    disabled?: boolean;
     menuZIndex?: number;
     children?: React.ReactNode;
     onSelect?(x: string): void;
@@ -54,7 +55,7 @@ export class Select extends React.Component<ISelectProps> {
     }
 
     render() {
-        let { placeholder, fullWidth, children } = this.props;
+        let { placeholder, fullWidth, disabled, children } = this.props;
         let isIconPresent = !!(React.Children.toArray(children) as Option[]).find(
             (option: Option) => option.props.Icon);
 
@@ -78,7 +79,7 @@ export class Select extends React.Component<ISelectProps> {
                 }
             }}>
             {({ requestToggle, isOpen }) =>
-                <ExpanderSelect open={isOpen} onClick={requestToggle} fullWidth={fullWidth}
+                <ExpanderSelect open={isOpen} onClick={requestToggle} fullWidth={fullWidth} disabled={disabled}
                     label={this.selected && this.getOptionLabel(this.selected) || placeholder!} />}
         </Dropdown>;
     }

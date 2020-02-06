@@ -22,7 +22,7 @@ storiesOf("control/" + ExpanderAccordion.name, module)
     .add("ExpanderAccordion", () => ([
         <ExpanderAccordion label="Closed" open={false} />,
         <ExpanderAccordion label="Open" open={true} />,
-        <ExpanderAccordion label="Disabled" open={false} disabled />
+        <ExpanderAccordion label="Disabled" open={false} value={20} locale="en-US" disabled />
     ]))
     .add("ExpanderAccordion number", () => ([
         <ExpanderAccordion label="Number" value={20} locale="en-US" open={false} />,

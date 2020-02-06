@@ -30,10 +30,12 @@ export class ExpanderSelect extends React.Component<IExpanderSelectProps> {
             locale = this.props.locale;
         }
         return <ExpanderBase label={label} open={open} fullWidth={fullWidth} onClick={onClick}
-            value={value} locale={locale!}
+            value={value} locale={locale!} disabled={disabled}
             colors={(theme) => ({
                 background: open ? theme.colors.select.expander.openBg : theme.colors.select.expander.bg,
-                border: theme.colors.select.expander.border,
+                border: disabled ?
+                    theme.colors.select.expander.disabled :
+                    theme.colors.select.expander.border,
                 text: disabled ?
                     theme.colors.select.expander.disabled :
                     open ? theme.colors.select.expander.openLabel : theme.colors.select.expander.label
