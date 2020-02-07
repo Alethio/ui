@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
-    <title>ic_dashboard_black_18px</title>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Slice</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="reCreate" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="blockView" transform="translate(-781.000000, -392.000000)">
-            <g id="Group-5" transform="translate(325.000000, 128.000000)">
-                <g id="Group-3" transform="translate(8.000000, 248.000000)">
-                    <g id="optionSelect" transform="translate(177.000000, 0.000000)">
-                        <g id="iconOption" transform="translate(255.000000, 0.000000)">
-                            <g id="icon" transform="translate(10.000000, 10.000000)">
-                                <g id="ic_dashboard_black_18px" transform="translate(2.000000, 2.000000)">
-                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
-                                    <path d="M4,11 L11,11 L11,4 L4,4 L4,11 Z M4,20 L11,20 L11,13 L4,13 L4,20 Z M13,20 L20,20 L20,13 L13,13 L13,20 Z M13,4 L13,11 L20,11 L20,4 L13,4 Z" id="Shape" fill="#273656" fill-rule="nonzero"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
+    <g id="EXPERIMENTS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="baseline-view_column-24px">
+            <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+            <path d="M11,9 L13,9 L13,7 L11,7 L11,9 Z M11,13 L13,13 L13,11 L11,11 L11,13 Z M11,17 L13,17 L13,15 L11,15 L11,17 Z M7,9 L9,9 L9,7 L7,7 L7,9 Z M7,13 L9,13 L9,11 L7,11 L7,13 Z M7,17 L9,17 L9,15 L7,15 L7,17 Z M15,7 L15,9 L17,9 L17,7 L15,7 Z M15,11 L15,13 L17,13 L17,11 L15,11 Z M15,15 L15,17 L17,17 L17,15 L15,15 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
         </g>
     </g>
 </svg>
