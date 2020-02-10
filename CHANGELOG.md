@@ -3,6 +3,7 @@
 - Update Typescript to 3.7, fix bignumber error
 - Migrate mobile menu components from @alethio/cms package
 - (ExternalLink): Add missing rel="noopener noreferrer"
+- (GasUsedValueBox): Fix case when gas limit is 0
 
 # v2.0.0-dev.8
 
