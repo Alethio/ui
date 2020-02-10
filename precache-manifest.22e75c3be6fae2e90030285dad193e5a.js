@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/ExternalLink.stories.d.ts"
   },
   {
-    "revision": "64aa8d28848579ae7f96cac1874c4672",
+    "revision": "09f2b0b16dd30d624722e9f0209cf934",
     "url": "../lib/src/control/IconButton.d.ts"
   },
   {
@@ -988,7 +988,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/layout/content/LayoutSection.d.ts"
   },
   {
-    "revision": "edbd6ed441d58c3b497e4b0ad1483213",
+    "revision": "a1a29431c2d5a626a5dcbdc44aff8462",
     "url": "../lib/src/layout/content/box/Box.d.ts"
   },
   {
@@ -1016,7 +1016,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/layout/content/box/TypedValueBox.stories.d.ts"
   },
   {
-    "revision": "943e12745cbd106b8f402153577f4066",
+    "revision": "17a5a5c4df1e9cd2bf65f619189eb3ce",
     "url": "../lib/src/layout/content/box/ValueBox.d.ts"
   },
   {
@@ -1264,20 +1264,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "1381ae85ae3f48738a60e68fcbe394df",
+    "revision": "7c5aa84fb3f194756a9bb893893d3062",
     "url": "iframe.html"
   },
   {
-    "url": "main.dfa512ef68fa5bea0d8d.bundle.js"
+    "url": "main.3e41de014b6433075eb8.bundle.js"
   },
   {
-    "url": "runtime~main.dfa512ef68fa5bea0d8d.bundle.js"
+    "url": "runtime~main.3e41de014b6433075eb8.bundle.js"
+  },
+  {
+    "url": "vendors~main.3e41de014b6433075eb8.bundle.js"
   },
   {
     "revision": "b7c011df30bc80b76215",
     "url": "vendors~main.css"
-  },
-  {
-    "url": "vendors~main.dfa512ef68fa5bea0d8d.bundle.js"
   }
 ]);
