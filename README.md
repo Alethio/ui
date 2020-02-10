@@ -104,3 +104,13 @@ Original SVG sources should be kept in the `dev/original-svg` folder. To create 
 4. The viewBox of the icon should be a square. If needed use `<g transform="translate(x,y)">` to center the icon in the new viewBox. This allows proper sizing via `size` prop
 5. Replace the main fill/stroke color with `currentColor`, to ensure proper cascading, or parametrize if more than one color
 6. The resulting component should be configured with a size prop that applies to both width and height
+
+## Release process
+
+1. Make sure you are a maintainer and you are on an up-to-date master branch.
+2. Update `node_modules` (npm i).
+3. Update & commit the CHANGELOG.MD by adding an entry for the desired version
+4. `npm version prerelease`
+5. `git push`
+6. `git push --tags --no-verify`
+7. `npm publish --tag next`
