@@ -20,13 +20,13 @@ export class GasUsedValueBox extends React.Component<IGasUsedValueProps> {
 
         return (
             <>
-                <ValueBox>
+                { !limit.isZero() && <ValueBox>
                     <Gauge value={Math.floor(percentFraction * 100)} width={32} height={16} />
-                </ValueBox>
+                </ValueBox> }
                 <NumberBox value={value} locale={locale} />
-                <GasPercentageBox>{percentFraction.toLocaleString(locale, {
+                { !limit.isZero() && <GasPercentageBox>{percentFraction.toLocaleString(locale, {
                     style: "percent", minimumFractionDigits: 0, maximumFractionDigits: 2})
-                }</GasPercentageBox>
+                }</GasPercentageBox> }
             </>
         );
     }
