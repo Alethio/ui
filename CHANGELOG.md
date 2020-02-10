@@ -1,3 +1,7 @@
+# v1.1.1
+
+- (GasUsedValueBox): Fix case when gas limit is 0
+
 # v1.1.0
 
 - Add MobileMenuLayer and MobileMenuItem components, replacing MenuLayer and MenuItem from @alethio/cms package
