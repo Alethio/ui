@@ -48,7 +48,7 @@ export class TooltipBase extends React.Component<ITooltipProps> {
     }
 
     render() {
-        let { showDelay: _unused, hideDelay: _unused2, content, ...otherProps } = this.props;
+        let { showDelay: _unused, hideDelay: _unused2, content, style, ...otherProps } = this.props;
         let target = React.Children.only(this.props.children);
 
         return (
@@ -64,7 +64,8 @@ export class TooltipBase extends React.Component<ITooltipProps> {
                     boxShadow: "0 2px 6px 0 rgba(0, 0, 0, .08)",
                     border: this.props.borderColor ? "1px solid " + this.props.borderColor : void 0,
                     boxSizing: "border-box",
-                    pointerEvents: this.props.nonInteractive ? "none" : void 0
+                    pointerEvents: this.props.nonInteractive ? "none" : void 0,
+                    ...style
                 }}
                 {...otherProps}
             >
