@@ -8,4 +8,9 @@ storiesOf("overlay/tooltip/" + TooltipBase.name, module)
         <TooltipBase content={"Some text"}>
             <div>Hover me</div>
         </TooltipBase>
+    ))
+    .add("custom style", () => (
+        <TooltipBase content={"Some text"} style={{border: "1px solid red"}}>
+            <div>Hover me</div>
+        </TooltipBase>
     ));
