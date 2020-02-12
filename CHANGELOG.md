@@ -1,3 +1,7 @@
+# Unreleased
+
+- (Tooltip, TooltipBase): Fix `style` prop overriding default styles
+
 # v2.0.0-dev.9
 
 - Update Typescript to 3.7, fix bignumber error
