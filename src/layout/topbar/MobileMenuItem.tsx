@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { ValueBox } from "../content/box/ValueBox";
 import * as PropTypes from "prop-types";
 

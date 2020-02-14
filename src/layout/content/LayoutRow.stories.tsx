@@ -6,7 +6,7 @@ import { LayoutSection } from "./LayoutSection";
 import { Label } from "../../data/Label";
 import { ValueBox } from "./box/ValueBox";
 import { Box } from "./box/Box";
-import styled from "../../styled-components";
+import styled from "styled-components";
 
 const ContentWrapper = styled.div`
     padding: 8px;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { withTheme } from "../../styled-components";
+import styled, { withTheme } from "styled-components";
 import { HorizontalBar } from "./HorizontalBar";
 import { ITheme } from "../../theme/ITheme";
 
@@ -10,6 +10,7 @@ const StyledHorizontalBar = styled(HorizontalBar)`
 interface ITopbarProps {
     zIndex?: number;
     theme: ITheme;
+    children?: React.ReactNode;
 }
 
 export class $TopBar extends React.Component<ITopbarProps> {

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
 import { Toolbar } from "./toolbar/Toolbar";
 import { ToolbarItem } from "./toolbar/ToolbarItem";

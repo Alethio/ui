@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { createPalette } from "./createPalette";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { IThemeColors } from "./ITheme";
 
 const palette = createPalette();
@@ -11,14 +11,14 @@ const Container = styled.div`
     flex-wrap: wrap;
 `;
 
-const PaletteColor = styled<{ color: string; }, "div">("div")`
+const PaletteColor = styled.div<{ color: string; }>`
     border: 1px grey solid;
     width: 200px;
     height: 100px;
     background-color: ${props => props.color};
 `;
 
-const ThemeColor = styled<{ small?: boolean; colorThunk(themeColors: IThemeColors): string; }, "div">("div")`
+const ThemeColor = styled.div<{ small?: boolean; colorThunk(themeColors: IThemeColors): string; }>`
     border: 1px grey solid;
     width: ${props => props.small ? "100px" : "200px"};
     height: 100px;

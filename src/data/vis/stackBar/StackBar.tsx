@@ -1,4 +1,4 @@
-import styled, { css } from "../../../styled-components";
+import styled, { css } from "styled-components";
 import * as React from "react";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
@@ -30,13 +30,13 @@ interface IStackBarItemProps {
     selected: boolean;
 }
 
-const StackBarItemFill = styled<IStackBarItemFillProps, "div">("div")`
+const StackBarItemFill = styled.div<IStackBarItemFillProps>`
     background-color: ${({color}) => color};
     width: 100%;
     height: 100%;
 `;
 
-const StackBarItem = styled<IStackBarItemProps, "div">("div")`
+const StackBarItem = styled.div<IStackBarItemProps>`
     width: ${({percent}) => percent}%;
     height: ${props => props.height}px;
     transition: height .2s ease-out;

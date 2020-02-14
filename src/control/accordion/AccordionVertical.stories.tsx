@@ -10,7 +10,7 @@ import { LayoutRow } from "../../layout/content/LayoutRow";
 import { LayoutRowItem } from "../../layout/content/LayoutRowItem";
 import { Label } from "../../data/Label";
 import { AccordionContentFrame } from "./AccordionContentFrame";
-import styled from "../../styled-components";
+import styled from "styled-components";
 
 interface IItemConfig extends IAccordionItemConfig {
     label: string;

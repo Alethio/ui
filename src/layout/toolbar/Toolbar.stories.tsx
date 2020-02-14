@@ -9,7 +9,7 @@ import { LogoutIcon } from "../../icon/LogoutIcon";
 import { HelpIcon } from "../../icon/HelpIcon";
 import { observable } from "mobx";
 import { Observer } from "mobx-react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 
 let active = observable.box(false);
 

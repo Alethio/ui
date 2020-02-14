@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Tooltip } from "../overlay/tooltip/Tooltip";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { CopyValueButton } from "../control/button/CopyValueButton";
 import { IClipboard } from "./IClipboard";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { Form, IFormProps } from "./Form";
 import { FormItem } from "./FormItem";
 import { InputField } from "./field/InputField";

@@ -1,12 +1,12 @@
 import * as React from "react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { Tooltip } from "../../overlay/tooltip/Tooltip";
 
 interface IToolbarItemRootProps {
     backgroundColor?: string;
 }
 
-const ToolbarItemRoot = styled<IToolbarItemRootProps, "div">("div")`
+const ToolbarItemRoot = styled.div<IToolbarItemRootProps>`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +34,7 @@ export class ToolbarItem extends React.Component<IToolbarItemProps> {
             <ToolbarItemRoot
                 className={className}
                 backgroundColor={backgroundColor}
-                innerRef={ref => this.rootEl = ref!}
+                ref={ref => this.rootEl = ref!}
             >
                 { this.props.title ?
                     <Tooltip

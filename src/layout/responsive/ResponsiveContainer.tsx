@@ -1,4 +1,4 @@
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { ITheme } from "../../theme/ITheme";
 
 export type MediaQueryThunk = string | ((theme: ITheme) => string);
@@ -20,7 +20,7 @@ export interface IResponsiveContainerProps {
  * </ResponsiveContainer>
  * ```
  */
-export const ResponsiveContainer = styled<IResponsiveContainerProps, "div">("div")`
+export const ResponsiveContainer = styled.div<IResponsiveContainerProps>`
     display: ${props => props.behavior === "hide" ? "block" : "none" };
 
     @media ${({ mediaQuery: q, theme }) => typeof q === "function" ? q(theme) : q } {

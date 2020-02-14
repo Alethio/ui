@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { Box, IBoxProps } from "../../layout/content/box/Box";
 import { IBoxColorsThunk } from "../../layout/content/box/IBoxColorsThunk";
 import { ITheme } from "../../theme/ITheme";

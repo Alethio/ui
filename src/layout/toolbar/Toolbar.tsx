@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { withTheme } from "../../styled-components";
+import styled, { withTheme } from "styled-components";
 import { VerticalBar } from "../VerticalBar";
 import { ITheme } from "../../theme/ITheme";
 
@@ -12,6 +12,7 @@ const StyledVerticalBar = styled(VerticalBar)`
 interface IToolbarProps {
     zIndex?: number;
     theme: ITheme;
+    children?: React.ReactNode;
 }
 
 export class $Toolbar extends React.Component<IToolbarProps> {

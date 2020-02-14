@@ -1,6 +1,6 @@
 import React from "react";
 import { Field, GenericFieldHTMLAttributes, FieldProps } from "formik";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { Input } from "../../control/Input";
 import { ErrorIcon } from "../../icon/ErrorIcon";
 import { StatusOkIcon } from "../../icon/StatusOkIcon";

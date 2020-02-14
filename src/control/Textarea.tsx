@@ -1,5 +1,5 @@
 import { Input } from "./Input";
-import styled from "../styled-components";
+import styled from "styled-components";
 
 const $Textarea = Input.withComponent("textarea");
 

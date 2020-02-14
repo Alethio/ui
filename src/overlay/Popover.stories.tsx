@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Popover } from "./Popover";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { Menu } from "../control/menu/Menu";
 import { MenuItem } from "../control/menu/MenuItem";
 

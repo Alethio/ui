@@ -1,4 +1,4 @@
-import styled, { css } from "../../../styled-components";
+import styled, { css } from "styled-components";
 import * as React from "react";
 import { ITheme } from "../../../theme/ITheme";
 import { IBoxColors } from "./IBoxColors";
@@ -31,7 +31,7 @@ interface IContentRootProps {
     paddingTop?: number;
 }
 
-const ContentRoot = styled<IContentRootProps, "div">("div")`
+const ContentRoot = styled.div<IContentRootProps>`
     padding-top: ${props => props.paddingTop}px;
     white-space: nowrap;
 

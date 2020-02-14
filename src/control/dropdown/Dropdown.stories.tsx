@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Menu } from "../menu/Menu";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { MenuItem } from "../menu/MenuItem";
 import { Dropdown } from "./Dropdown";
 import { ExpanderSelect } from "../expander/ExpanderSelect";

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { StackBarBubble } from "./internal/StackBarBubble";
-import styled from "../../../styled-components";
+import styled from "styled-components";
 
 export interface IStackBarTooltipTextProps {
     bubbleColor: string;

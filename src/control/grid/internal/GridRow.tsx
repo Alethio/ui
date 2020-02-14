@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../../../styled-components";
+import styled from "styled-components";
 
 const GRID_CELL_PADDING_X = 32;
 const GRID_CELL_PADDING_Y = 8;
@@ -8,7 +8,7 @@ interface ISpacerProps {
     odd?: boolean;
     className?: string;
 }
-const Spacer = styled<ISpacerProps, "div">("div")`
+const Spacer = styled.div<ISpacerProps>`
     background-color: ${({ odd, theme }) => odd ? theme.colors.gridOddRowBg : theme.colors.gridEvenRowBg};
 `;
 
@@ -16,7 +16,7 @@ interface IItemProps {
     odd?: boolean;
     className?: string;
 }
-const Item = styled<IItemProps, "div">("div")`
+const Item = styled.div<IItemProps>`
     padding: ${GRID_CELL_PADDING_Y}px ${GRID_CELL_PADDING_X}px;
     background-color: ${({ odd, theme }) => odd ? theme.colors.gridOddRowBg : theme.colors.gridEvenRowBg};
 `;

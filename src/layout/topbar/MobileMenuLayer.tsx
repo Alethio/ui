@@ -1,6 +1,6 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { observer } from "mobx-react";
 import { Fade } from "../../fx/Fade";
 import { Mask } from "../../overlay/Mask";

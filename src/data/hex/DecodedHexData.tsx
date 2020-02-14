@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { Tooltip } from "../../overlay/tooltip/Tooltip";
 import { IClipboard } from "../IClipboard";
 import { hexToString } from "../../util/internal/hex";

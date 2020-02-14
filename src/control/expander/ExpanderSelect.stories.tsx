@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { ExpanderSelect } from "./ExpanderSelect";
 
 const ContentArea = styled.div`

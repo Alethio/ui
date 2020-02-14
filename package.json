@@ -37,6 +37,7 @@
     "@types/react-transition-group": "^2.0.11",
     "@types/storybook__addon-info": "^4.1.2",
     "@types/storybook__react": "^4.0.2",
+    "@types/styled-components": "^4.4.3",
     "babel-loader": "^8.0.6",
     "bignumber.js": "^8.0.1",
     "husky": "^1.0.0-rc.9",
@@ -47,7 +48,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "rimraf": "^2.6.2",
-    "styled-components": "^3.4.2",
+    "styled-components": "^5.0.1",
     "ts-loader": "^6.0.4",
     "tslib": "^1.9.3",
     "tslint": "^5.18.0",
@@ -74,6 +75,6 @@
     "mobx-react": ">=5.1.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "styled-components": "^3.4.2"
+    "styled-components": "^5.0.1"
   }
 }

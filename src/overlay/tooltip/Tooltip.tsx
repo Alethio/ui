@@ -1,6 +1,6 @@
 import * as React from "react";
 import { TooltipBase, ITooltipProps } from "./TooltipBase";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { TooltipText } from "./TooltipText";
 
 const TooltipContent = styled.div`

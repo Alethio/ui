@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { ISvgIconProps } from "../util/react/SvgIcon";
 import { InfoIcon } from "./InfoIcon";
 

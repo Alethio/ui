@@ -1,4 +1,4 @@
-import styled from "../styled-components";
+import styled from "styled-components";
 
 /**
  * An element that blocks the viewport, useful for modals

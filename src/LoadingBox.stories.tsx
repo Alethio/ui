@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { LoadingBox } from "./LoadingBox";
-import styled from "./styled-components";
+import styled from "styled-components";
 
 const PrimaryWrapper = styled.div`
     position: relative;

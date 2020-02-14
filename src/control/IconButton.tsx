@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { withTheme } from "../styled-components";
+import styled, { withTheme } from "styled-components";
 import { ITheme } from "../theme/ITheme";
 
 interface IIconProps {
@@ -26,7 +26,7 @@ interface IIconButtonRootProps {
     onClick?(): void;
 }
 
-const IconButtonRoot = styled<IIconButtonRootProps, "button">("button")`
+const IconButtonRoot = styled.button<IIconButtonRootProps>`
     display: block;
     background-color: transparent;
     border: none; /* Remove borders */

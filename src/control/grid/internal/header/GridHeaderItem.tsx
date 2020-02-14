@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { css } from "../../../../styled-components";
+import styled, { css } from "styled-components";
 import { Label } from "../../../../data/Label";
 import { IGridSortingOptions } from "../../state/IGridSortingOptions";
 import { GridSortingOrder } from "../../state/GridSortingOrder";
@@ -13,7 +13,7 @@ interface IHeaderItemProps {
     isSortable: boolean;
     onClick(): void;
 }
-const HeaderItem = styled<IHeaderItemProps, "div">("div")`
+const HeaderItem = styled.div<IHeaderItemProps>`
     background: ${props => props.theme.colors.gridEvenRowBg};
     padding: 10px 8px 10px 32px;
     border-bottom: 1px solid ${props => props.theme.colors.gridBorder};
