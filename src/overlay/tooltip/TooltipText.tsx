@@ -1,11 +1,11 @@
 import * as React from "react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 
 interface ITooltipTextProps {
     textColor?: string;
 }
 
-const TooltipTextRoot = styled<ITooltipTextProps, "div">("div")`
+const TooltipTextRoot = styled.div<ITooltipTextProps>`
     font-size: 16px;
     line-height: 32px;
     font-weight: 500;

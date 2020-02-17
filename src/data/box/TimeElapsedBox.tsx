@@ -5,7 +5,7 @@ import { ValueBox, IValueBoxProps } from "../../layout/content/box/ValueBox";
 import { RelativeTimeFormatter, IRelativeTimeTranslations } from "../../util/time/RelativeTimeFormatter";
 import { Tooltip } from "../../overlay/tooltip/Tooltip";
 import { ClickThreshold } from "../../util/react/ClickThreshold";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { CopyValueButton } from "../../control/button/CopyValueButton";
 import { IClipboard } from "../IClipboard";
 import { DateTime } from "../DateTime";

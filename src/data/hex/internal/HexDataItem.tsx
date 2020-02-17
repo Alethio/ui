@@ -1,11 +1,11 @@
 import * as React from "react";
-import styled from "../../../styled-components";
+import styled from "styled-components";
 
 interface IHexDataItemProps {
     value: string;
 }
 
-const HexDataItemRoot = styled<IHexDataItemProps, "div">("div")`
+const HexDataItemRoot = styled.div<IHexDataItemProps>`
     width: 32px;
     height: 32px;
     text-align: center;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Box } from "./Box";
-import styled, { css } from "../../../styled-components";
+import styled, { css } from "styled-components";
 
 interface ITypedValueBox {
     value?: string;
@@ -22,7 +22,7 @@ const TypeSpan = styled.span`
 interface ISizingWrapperProps {
     withinForm?: boolean;
 }
-const SizingWrapper = styled<ISizingWrapperProps, "div">("div")`
+const SizingWrapper = styled.div<ISizingWrapperProps>`
     ${props => props.withinForm ? css`
         min-width: 484px;
     ` : ``}

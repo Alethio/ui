@@ -1,11 +1,11 @@
 import * as React from "react";
-import styled, { css } from "../../../styled-components";
+import styled, { css } from "styled-components";
 
 const BUTTON_SIZE = 36;
 const ICON_SIZE = 24;
 const BORDER_WIDTH = 1;
 
-const NavButtonRoot = styled<INavButtonProps, "div">("div")`
+const NavButtonRoot = styled.div<INavButtonProps>`
     cursor: ${props => !props.disabled ? "pointer" : "default"};
     padding: ${(BUTTON_SIZE - ICON_SIZE - 2 * BORDER_WIDTH) / 2}px;
     border-radius: ${props => props.theme.spacing.borderRadius.thin}px;

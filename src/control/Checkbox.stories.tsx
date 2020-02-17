@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Checkbox } from "./Checkbox";
-import styled from "../styled-components";
+import styled from "styled-components";
 
 const CheckboxContainer = styled.div`
     display: flex;

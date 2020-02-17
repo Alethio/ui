@@ -6,7 +6,7 @@ import { ToolbarIconButton } from "../toolbar/ToolbarIconButton";
 import { Filler } from "../Filler";
 import { LogoutIcon } from "../../icon/LogoutIcon";
 import { HamburgerIcon } from "../../icon/HamburgerIcon";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { Dropdown } from "../../control/dropdown/Dropdown";
 import { MobileMenuLayer } from "./MobileMenuLayer";
 import { MobileMenuItem } from "./MobileMenuItem";

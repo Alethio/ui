@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { css } from "../../styled-components";
+import styled, { css } from "styled-components";
 import { Number } from "../../data/Number";
 import { IBoxColors } from "../../layout/content/box/IBoxColors";
 import { ITheme } from "../../theme/ITheme";
@@ -19,7 +19,7 @@ const getColors = (colors: IBoxColors | IBoxColorsThunk<ITheme>, theme: ITheme) 
     return colors;
 };
 
-const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
+const ExpanderRoot = styled.div<IExpanderRootProps>`
     display: flex;
     cursor: ${props => props.disabled ? "default" : "pointer"};
     user-select: none;
@@ -46,7 +46,7 @@ const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
     & > * { margin-left: 16px;}
 `;
 
-const ExpanderLabel = styled<IExpanderContentProps, "div">("div")`
+const ExpanderLabel = styled.div<IExpanderContentProps>`
     ${props => props.fullWidth ? css`
     width: 100%;
     ` : ``}
@@ -57,7 +57,7 @@ interface IExpanderValueProps {
     open: boolean;
     disabled?: boolean;
 }
-const ExpanderValue = styled<IExpanderValueProps, "span">("span")`
+const ExpanderValue = styled.span<IExpanderValueProps>`
     color: ${props => props.disabled ?
         props.theme.colors.expanderDisabled :
         props.open ? props.theme.colors.expanderOpenValue : props.theme.colors.expanderValue};
@@ -69,7 +69,7 @@ interface IExpanderContentProps {
     fullWidth?: boolean;
 }
 
-const ExpanderContent = styled<IExpanderContentProps, "div">("div")`
+const ExpanderContent = styled.div<IExpanderContentProps>`
     display: flex;
     align-items: center;
     ${props => props.fullWidth ? css`

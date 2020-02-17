@@ -1,4 +1,4 @@
-import styled from "../../../styled-components";
+import styled from "styled-components";
 
 interface IGridDataProps {
     dataType: string;
@@ -6,7 +6,7 @@ interface IGridDataProps {
 }
 
 /** @internal */
-export const GridData = styled<IGridDataProps, "div">("div")`
+export const GridData = styled.div<IGridDataProps>`
     height: 100%;
     display: flex;
     align-items: center;

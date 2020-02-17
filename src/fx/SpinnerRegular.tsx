@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Spinner } from "./Spinner";
-import styled, { withTheme } from "../styled-components";
+import styled, { withTheme } from "styled-components";
 import { ITheme } from "../theme/ITheme";
 
 const StyledSpinner = styled(Spinner)`

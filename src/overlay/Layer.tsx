@@ -1,4 +1,4 @@
-import styled from "../styled-components";
+import styled from "styled-components";
 
 /**
  * A simple overlay component that renders a centered, elevated Layer

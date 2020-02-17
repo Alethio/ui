@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { Textarea } from "./Textarea";
 
 const TextareaContainer = styled.div`

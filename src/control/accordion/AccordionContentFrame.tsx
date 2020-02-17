@@ -1,10 +1,10 @@
 import * as React from "react";
-import styled, { css, withTheme } from "../../styled-components";
+import styled, { css, withTheme } from "styled-components";
 import { ITheme } from "../../theme/ITheme";
 
 const ARROW_OFFSET_TOP = 7;
 
-const AccordionContentFrameRoot = styled<IAccordionContentFrameProps, "div">("div")`
+const AccordionContentFrameRoot = styled.div<IAccordionContentFrameProps>`
     ${ props => !props.noBorder ? css`
     border-top: ${props.borderColor} 1px solid;
     ` : `` }
@@ -44,6 +44,7 @@ interface IAccordionContentFrameProps {
     /** Doesn't affect the arrow border. Set borderColor to transparent to disable the arrow border */
     noBorder?: boolean;
     theme?: ITheme;
+    children?: React.ReactNode;
 }
 
 class $AccordionContentFrame extends React.PureComponent<IAccordionContentFrameProps> {

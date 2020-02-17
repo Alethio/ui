@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "./styled-components";
+import styled from "styled-components";
 import { ISvgIconProps } from "./util/react/SvgIcon";
 import { IBoxColorsThunk } from "./layout/content/box/IBoxColorsThunk";
 import { ITheme } from "./theme/ITheme";
@@ -17,7 +17,7 @@ const colorSets: Record<IMessageBoxColors, IBoxColorsThunk<ITheme>> = {
     })
 };
 
-const MessageBoxRoot = styled<IMessageBoxRootProps, "div">("div")`
+const MessageBoxRoot = styled.div<IMessageBoxRootProps>`
     position: absolute;
     top: 50%;
     left: 50%;

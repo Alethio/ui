@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { SvgIcon, ISvgIconProps } from "../util/react/SvgIcon";
 
 export interface IMsgCountInSmallIconProps extends ISvgIconProps {

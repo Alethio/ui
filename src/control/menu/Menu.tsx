@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 
 const $Menu = styled.div<IMenuProps>`
     box-shadow: 0 8px 16px 0 rgba(167, 181, 209, 0.6);

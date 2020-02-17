@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
 import { GridLayout } from "./internal/GridLayout";

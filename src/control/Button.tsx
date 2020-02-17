@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { css } from "../styled-components";
+import styled, { css } from "styled-components";
 import { Box, IBoxProps } from "../layout/content/box/Box";
 import { IBoxColorsThunk } from "../layout/content/box/IBoxColorsThunk";
 import { HoverState } from "../util/react/HoverState";
@@ -14,7 +14,7 @@ interface IButtonRootProps {
     shadowColor(theme: ITheme): string | undefined;
 }
 
-const ButtonRoot = styled<IButtonRootProps, "button">("button")`
+const ButtonRoot = styled.button<IButtonRootProps>`
     ${props => !props.disabled ? css`
     cursor: pointer;
     ` : ``}

@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Radio } from "./Radio";
 import { Button } from "./Button";
-import styled from "../styled-components";
+import styled from "styled-components";
 
 const RadioContainer = styled.div`
     display: flex;

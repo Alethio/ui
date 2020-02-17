@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { Select } from "./Select";
 import { GithubIcon } from "../icon/GithubIcon";
 import { Option } from "./Option";

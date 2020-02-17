@@ -1,12 +1,12 @@
 import * as React from "react";
-import styled, { css } from "../styled-components";
+import styled, { css } from "styled-components";
 import { Bar } from "./Bar";
 
 interface IPlaceholderProps {
     width: number;
 }
 
-const Placeholder = styled<IPlaceholderProps, "div">("div")`
+const Placeholder = styled.div<IPlaceholderProps>`
     width: ${props => props.width}px;
     @media ${props => props.theme.media.sAndBelow} {
         display: none;
@@ -60,7 +60,7 @@ export class VerticalBar extends React.Component<IVerticalBarProps> {
         return (
             <>
             { this.props.sticky ? <Placeholder width={this.props.width} /> : null }
-            <VerticalBarRoot innerRef={contentRef} {...props} />
+            <VerticalBarRoot ref={contentRef} {...props} />
             </>
         );
     }

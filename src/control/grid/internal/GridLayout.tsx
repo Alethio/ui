@@ -1,4 +1,4 @@
-import styled from "../../../styled-components";
+import styled from "styled-components";
 
 interface IGridLayoutProps {
     numberOfFields: number;
@@ -6,7 +6,7 @@ interface IGridLayoutProps {
 }
 
 /** @internal */
-export const GridLayout = styled<IGridLayoutProps, "div">("div")`
+export const GridLayout = styled.div<IGridLayoutProps>`
     overflow-x: auto;
     display: grid;
     grid-template-columns: auto ${({ numberOfFields }) => {

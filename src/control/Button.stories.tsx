@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Button } from "./Button";
 import { ArrowForwardIcon } from "../icon/ArrowForwardIcon";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { SpinnerLite } from "../fx/SpinnerLite";
 
 const ButtonContainer = styled.div`

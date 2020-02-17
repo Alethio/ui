@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ITheme } from "../../../theme/ITheme";
 import { IBoxProps, Box } from "./Box";
-import { withTheme } from "../../../styled-components";
+import { withTheme } from "styled-components";
 
 export interface IValueBoxProps {
     variant?: keyof ITheme["spacing"]["valueBoxMetrics"];

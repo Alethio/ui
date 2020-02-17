@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -11,7 +11,7 @@ interface IHeightRootProps {
     duration: number;
 }
 
-const HeightRoot = styled<IHeightRootProps, "div">("div")`
+const HeightRoot = styled.div<IHeightRootProps>`
     & .${CLASS_NAME}-enter,
     & .${CLASS_NAME}-exit {
         transition: height ${props => props.duration}s ease-in-out;

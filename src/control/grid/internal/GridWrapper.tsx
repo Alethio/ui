@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "../../../styled-components";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
     border-top: 1px solid ${props => props.theme.colors.gridBorder};

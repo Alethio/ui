@@ -1,12 +1,12 @@
 import * as React from "react";
-import styled, { css } from "../styled-components";
+import styled, { css } from "styled-components";
 import { Bar, IBarProps } from "./Bar";
 
 interface IPlaceholderProps {
     height: number;
 }
 
-const Placeholder = styled<IPlaceholderProps, "div">("div")`
+const Placeholder = styled.div<IPlaceholderProps>`
     height: ${props => props.height}px;
     width: 100%;
 `;
@@ -37,7 +37,7 @@ export class HorizontalBar extends React.Component<IHorizontalBarProps> {
         return (
             <>
             { this.props.sticky ? <Placeholder height={this.props.height} /> : null }
-            <HorizontalBarRoot innerRef={contentRef} {...props} />
+            <HorizontalBarRoot ref={contentRef} {...props} />
             </>
         );
     }

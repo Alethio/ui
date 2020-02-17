@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Menu } from "./Menu";
-import styled from "../../styled-components";
+import styled from "styled-components";
 import { MenuItem } from "./MenuItem";
 import { CheckboxOnIcon } from "../../icon/CheckboxOnIcon";
 import { CheckboxOffIcon } from "../../icon/CheckboxOffIcon";

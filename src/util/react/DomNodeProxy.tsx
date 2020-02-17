@@ -14,7 +14,7 @@ export interface IEventProxyProps<T> {
  * child of its parent)
  */
 export class DomNodeProxy<T extends Element = HTMLElement> extends React.Component<IEventProxyProps<T>> {
-    private innerRef: T;
+    private ref: T;
 
     render() {
         let child = React.Children.only(this.props.children);
@@ -22,19 +22,19 @@ export class DomNodeProxy<T extends Element = HTMLElement> extends React.Compone
         return (
             React.cloneElement(child as any, {
                 ref: (r: T) => {
-                    this.innerRef = r instanceof Element ? r : ReactDOM.findDOMNode(r) as any;
+                    this.ref = r instanceof Element ? r : ReactDOM.findDOMNode(r) as any;
                 }
             })
         );
     }
 
     componentDidMount() {
-        this.props.onMount(this.innerRef);
+        this.props.onMount(this.ref);
     }
 
     componentWillUnmount() {
         if (this.props.onUnmount) {
-            this.props.onUnmount(this.innerRef);
+            this.props.onUnmount(this.ref);
         }
     }
 }

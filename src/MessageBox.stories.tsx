@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { MessageBox } from "./MessageBox";
 import { InfoIcon } from "./icon/InfoIcon";
-import styled from "./styled-components";
+import styled from "styled-components";
 
 const PrimaryWrapper = styled.div`
     position: relative;

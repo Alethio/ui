@@ -1,11 +1,11 @@
-import styled from "../styled-components";
+import styled from "styled-components";
 
 export interface IBarProps {
     sticky?: boolean;
     zIndex?: number;
 }
 
-export const Bar = styled<IBarProps, "div">("div")`
+export const Bar = styled.div<IBarProps>`
     box-sizing: border-box;
     display: flex;
     background-color: ${props => props.theme.colors.base.bg.alt};

@@ -1,9 +1,9 @@
 import * as React from "react";
-import styled, { css } from "../../styled-components";
+import styled, { css } from "styled-components";
 import { ArrowDownIcon } from "../../icon/ArrowDownIcon";
 import { ITheme } from "../../theme/ITheme";
 
-const ExpanderIconRoot = styled<IExpanderIconProps, "div">("div")`
+const ExpanderIconRoot = styled.div<IExpanderIconProps>`
     display: inline-block;
     color: ${props => props.expanded ? props.theme.colors.expanderOpenIcon : props.theme.colors.expanderIcon};
     padding: 2px 8px 2px 8px;
@@ -14,7 +14,7 @@ const ExpanderIconRoot = styled<IExpanderIconProps, "div">("div")`
     ` : ``}
 `;
 
-const Icon = styled<IExpanderIconProps, "div">("div")`
+const Icon = styled.div<IExpanderIconProps>`
     display: flex;
     align-items: center;
     justify-content: center;

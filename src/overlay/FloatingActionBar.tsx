@@ -1,7 +1,7 @@
 import * as React from "react";
-import styled, { css } from "../styled-components";
+import styled, { css } from "styled-components";
 
-const FloatingActionBarRoot = styled<IFloatingActionBarProps, "div">("div")`
+const FloatingActionBarRoot = styled.div<IFloatingActionBarProps>`
     position: absolute;
     ${props => /^(.*)(top)(.*)$/.test(props.position || "bottom-right") ? css`
         top: 40px;

@@ -1,12 +1,12 @@
 import * as React from "react";
 import { CSSTransition } from "react-transition-group";
-import styled from "../styled-components";
+import styled from "styled-components";
 import { observable } from "mobx";
 import { observer } from "mobx-react";
 
 const CLASS_NAME = "fade";
 
-const FadeRoot = styled<Pick<IFadeProps, "duration">, "div">("div")`
+const FadeRoot = styled.div<Pick<IFadeProps, "duration">>`
     & .${CLASS_NAME}-enter,
     & .${CLASS_NAME}-exit {
         transition: opacity ${props => props.duration}s ease-in-out;
@@ -86,7 +86,7 @@ export class Fade extends React.Component<IFadeProps> {
 
     render() {
         return (
-            <FadeRoot duration={this.props.duration} innerRef={this.props.innerRef}>
+            <FadeRoot duration={this.props.duration} ref={this.props.innerRef}>
                 <CSSTransition
                     in={this.active && this.props.in}
                     classNames={CLASS_NAME}
