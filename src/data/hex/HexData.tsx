@@ -1,7 +1,5 @@
 import * as React from "react";
 import styled from "../../styled-components";
-import { observable } from "mobx";
-import { observer } from "mobx-react";
 import { IClipboard } from "../IClipboard";
 import { HexDataContent } from "./internal/HexDataContent";
 import { CopyValueButton } from "../../control/button/CopyValueButton";
@@ -39,27 +37,21 @@ interface IHexDataProps {
 /**
  * Shows input hex data as groups of hex digits
  */
-@observer
 export class HexData extends React.Component<IHexDataProps> {
     static defaultProps: Pick<IHexDataProps, "dataLimit"> = {
         dataLimit: 1024
     };
 
-    @observable private hovered = false;
-
     render() {
         let dataLimit = this.props.dataLimit!;
 
         return (
-            <HexDataRoot
-                onMouseEnter={this.mouseEnterHandler}
-                onMouseLeave={this.mouseLeaveHandler}
-            >
+            <HexDataRoot>
                 { this.props.data.length > dataLimit ?
                     <HexTextArea readOnly value={this.props.data} /> :
                     <HexDataContent data={this.props.data} />
                 }
-                { this.hovered && this.props.data.length <= dataLimit && <CopyButtonWrapper>
+                { this.props.data.length <= dataLimit && <CopyButtonWrapper>
                     <CopyValueButton
                         value={this.props.data}
                         clipboard={this.props.clipboard}
@@ -67,12 +59,5 @@ export class HexData extends React.Component<IHexDataProps> {
                 </CopyButtonWrapper> }
             </HexDataRoot>
         );
-    }
-
-    private mouseEnterHandler = () => {
-        this.hovered = true;
-    }
-    private mouseLeaveHandler = () => {
-        this.hovered = false;
     }
 }

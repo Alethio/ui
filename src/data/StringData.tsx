@@ -15,6 +15,7 @@ const StringDataLine = styled.div`
     font-family: "Roboto Mono", monospace;
     font-size: 14px;
     line-height: 16px;
+    border-radius: 4px;
 
     &:first-child {
         margin-top: 0;
