@@ -1,5 +1,6 @@
-# Unreleased
+# v2.0.0-dev.10
 
+- Add new icons (ChatBubbleIcon, DefiIcon, InfoCapIcon, LayoutIcon, ListIcon, TableIcon, WalletIcon)
 - (Tooltip, TooltipBase): Fix `style` prop overriding default styles
 
 # v2.0.0-dev.9
