@@ -744,6 +744,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/BubbleChartIcon.d.ts"
   },
   {
+    "revision": "401f218e6f1060fe41a903655e2f544b",
+    "url": "../lib/src/icon/ChatBubbleIcon.d.ts"
+  },
+  {
     "revision": "790fb11e7aca703cc87c328c96950c3f",
     "url": "../lib/src/icon/CheckboxOffIcon.d.ts"
   },
@@ -766,6 +770,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1656723de0c6f84e89f8af7c9e000a6c",
     "url": "../lib/src/icon/CopyIcon.d.ts"
+  },
+  {
+    "revision": "98e6162cd040ca79f1e4253602f32c68",
+    "url": "../lib/src/icon/DefiIcon.d.ts"
   },
   {
     "revision": "d6f8c9ecfc7550e6253d39ac1ad219f0",
@@ -816,6 +824,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/Icon.stories.d.ts"
   },
   {
+    "revision": "009a39128a56ee9b9ef1b28ee665b82c",
+    "url": "../lib/src/icon/InfoCapIcon.d.ts"
+  },
+  {
     "revision": "498cf43f168530bdd5d192cecc050893",
     "url": "../lib/src/icon/InfoIcon.d.ts"
   },
@@ -828,8 +840,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/LanguageIcon.d.ts"
   },
   {
+    "revision": "509b54954ceeaf1571610e55fdbede5f",
+    "url": "../lib/src/icon/LayoutIcon.d.ts"
+  },
+  {
     "revision": "0c34b89689d66802ae3786221c61e20d",
     "url": "../lib/src/icon/LinkedInIcon.d.ts"
+  },
+  {
+    "revision": "0c27f64a73e486afaed042e7ffc243c9",
+    "url": "../lib/src/icon/ListIcon.d.ts"
   },
   {
     "revision": "965b97d4040eb7bf0c3805c261d65929",
@@ -936,8 +956,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/SwitchIcon.d.ts"
   },
   {
+    "revision": "6f7c9329bd5ed023f69a193f4125770d",
+    "url": "../lib/src/icon/TableIcon.d.ts"
+  },
+  {
     "revision": "520db158fb5016de5da107a0451e37a6",
     "url": "../lib/src/icon/TwitterIcon.d.ts"
+  },
+  {
+    "revision": "f4b3a0fbeb47b77485bed9206b8f848d",
+    "url": "../lib/src/icon/WalletIcon.d.ts"
   },
   {
     "revision": "2d564d1476a6c4e978236671e5c96b91",
@@ -1264,20 +1292,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "80e450822795b234d5e7b48d2c76d954",
+    "revision": "1db79406807393f32b0df935d048866c",
     "url": "iframe.html"
   },
   {
-    "url": "main.6f9bda98f866e184d179.bundle.js"
+    "url": "main.1ab2062991d820f7ad5f.bundle.js"
   },
   {
-    "url": "runtime~main.6f9bda98f866e184d179.bundle.js"
+    "url": "runtime~main.1ab2062991d820f7ad5f.bundle.js"
   },
   {
-    "url": "vendors~main.6f9bda98f866e184d179.bundle.js"
+    "url": "vendors~main.1ab2062991d820f7ad5f.bundle.js"
   },
   {
-    "revision": "541f8565c2b27a1dbc3d",
+    "revision": "2d9797b2caaf4cb31a1b",
     "url": "vendors~main.css"
   }
 ]);
