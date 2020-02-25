@@ -11,15 +11,17 @@ export interface IValueBoxProps {
     fullWidth?: boolean;
     theme: ITheme;
     className?: string;
+    borderStyle?: keyof ITheme["spacing"]["borderStyle"];
 }
 
 const $ValueBox: React.StatelessComponent<IValueBoxProps> = ({
-    children, className, Icon, iconPlacement, variant, colors, fullWidth, theme
+    children, className, Icon, iconPlacement, variant, colors, borderStyle, fullWidth, theme
 }) => (
     <Box
         className={className}
         metrics={theme.spacing.valueBoxMetrics[variant!]}
         colors={typeof colors === "string" ? theme.colors.valueBox[colors!] : colors!}
+        borderStyle={borderStyle}
         Icon={Icon}
         iconPlacement={iconPlacement}
         fullWidth={fullWidth}
@@ -33,5 +35,6 @@ export const ValueBox = withTheme($ValueBox);
 
 ValueBox.defaultProps = {
     variant: "normal",
-    colors: "primary"
+    colors: "primary",
+    borderStyle: "solid"
 };

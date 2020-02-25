@@ -295,6 +295,10 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             normal: 8,
             thin: 4
         },
+        borderStyle: {
+            solid: "solid",
+            dashed: "dashed"
+        },
 
         expander: {
             fontSize: 20,

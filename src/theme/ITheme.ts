@@ -200,6 +200,10 @@ export interface IThemeSpacing {
         normal: number,
         thin: number;
     };
+    borderStyle: {
+        solid: React.CSSProperties["borderStyle"],
+        dashed: React.CSSProperties["borderStyle"]
+    };
 
     expander: {
         fontSize: number;

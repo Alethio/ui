@@ -32,4 +32,21 @@ storiesOf("layout/content/box/" + ValueBox.displayName, module)
     .add("variants", () => [
         <ValueBox variant="normal" colors="primaryAlt">normal</ValueBox>,
         <ValueBox variant="small" colors="primaryAlt">small</ValueBox>
-    ]);
+    ])
+    .add("border style", () =>
+        <>
+        <div style={{padding: 10}}>
+        <ValueBox variant="normal" colors={(theme) => ({
+            background: theme.colors.base.secondary.contrast,
+            border: theme.colors.base.secondary.color,
+            text: theme.colors.base.secondary.color
+        })}>solid</ValueBox>
+        </div>
+        <div style={{padding: 10}}>
+        <ValueBox variant="normal" colors={(theme) => ({
+            background: theme.colors.base.secondary.contrast,
+            border: theme.colors.base.secondary.color,
+            text: theme.colors.base.secondary.color
+        })} borderStyle="dashed">dotted</ValueBox>
+        </div>
+        </>);
