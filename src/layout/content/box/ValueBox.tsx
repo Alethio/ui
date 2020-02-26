@@ -11,7 +11,7 @@ export interface IValueBoxProps {
     fullWidth?: boolean;
     theme: ITheme;
     className?: string;
-    borderStyle?:  React.CSSProperties["borderStyle"];
+    borderStyle?: React.CSSProperties["borderStyle"];
 }
 
 const $ValueBox: React.StatelessComponent<IValueBoxProps> = ({
