@@ -19,6 +19,18 @@ storiesOf("layout/content/box/" + ValueBox.displayName, module)
             <ValueBox fullWidth colors="primaryInvert">Content</ValueBox>
         </div>
     ))
+    .add("ellipsis", () => (
+        <div style={{width: 400}}>
+            <div style={{maxWidth: 200}}>
+                <ValueBox colors="primaryAlt">Short text</ValueBox>
+                <ValueBox colors="primaryAlt" Icon={ArrowForwardIcon}>
+                    Some very long text that will have to be trimmed</ValueBox>
+            </div>
+            <ValueBox colors="primaryAlt" fullWidth Icon={ArrowForwardIcon}>Short text (full width)</ValueBox>
+            <ValueBox colors="primaryAlt" fullWidth Icon={ArrowForwardIcon}>
+                Some very long text that will have to be trimmed</ValueBox>
+        </div>
+    ))
     .add("colors", () => [
         <ValueBox colors="primary">primary</ValueBox>,
         <ValueBox colors="primaryAlt">primaryAlt</ValueBox>,

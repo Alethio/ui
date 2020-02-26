@@ -35,11 +35,11 @@ interface IContentRootProps {
 const ContentRoot = styled<IContentRootProps, "div">("div")`
     padding-top: ${props => props.paddingTop}px;
     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     ${props => props.fullWidth ? css`
     width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
     ` : ``}
 `;
 
