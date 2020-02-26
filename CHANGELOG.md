@@ -1,6 +1,8 @@
-# Unreleased
+# v2.0.0-dev.11
 
 - (Box, ValueBox): Fix content overflow with ellipsis even when not using `fullWidth` prop
+- (Box, ValueBox): Add `borderStyle` prop, change default background to white instead of transparent
+- (HexData): Always show copy to clipboard button
 
 # v2.0.0-dev.10
 
