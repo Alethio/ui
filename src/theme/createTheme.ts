@@ -85,7 +85,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         valueBox: {
             primary: {
                 text: base.primary.color,
-                background: "transparent"
+                background: base.bg.alt
             },
             primaryAlt: {
                 text: base.primary.color,
@@ -97,7 +97,7 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             },
             secondary: {
                 text: base.secondary.color,
-                background: "transparent"
+                background: base.bg.alt
             },
             secondaryInvert: {
                 text: base.secondary.contrast,

@@ -9,6 +9,7 @@ export interface IBoxProps {
     className?: string;
     metrics: IBoxMetrics;
     colors: IBoxColors | IBoxColorsThunk<ITheme>;
+    borderStyle?: React.CSSProperties["borderStyle"];
     Icon?: React.ComponentClass<IIconProps> | React.StatelessComponent<IIconProps>;
     iconPlacement?: "left" | "right";
     fullWidth?: boolean;
@@ -130,7 +131,7 @@ export const Box = styled($Box)`
     box-sizing: border-box;
     vertical-align: middle;
 
-    border: ${BORDER_WIDTH}px solid ${props => (
+    border: ${BORDER_WIDTH}px ${props => (props.borderStyle || "solid")} ${props => (
         getColors(props.colors, props.theme).border ||
         getColors(props.colors, props.theme).background ||
         "transparent"
