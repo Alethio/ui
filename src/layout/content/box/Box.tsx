@@ -9,7 +9,7 @@ export interface IBoxProps {
     className?: string;
     metrics: IBoxMetrics;
     colors: IBoxColors | IBoxColorsThunk<ITheme>;
-    borderStyle?: keyof ITheme["spacing"]["borderStyle"];
+    borderStyle?: React.CSSProperties["borderStyle"];
     Icon?: React.ComponentClass<IIconProps> | React.StatelessComponent<IIconProps>;
     iconPlacement?: "left" | "right";
     fullWidth?: boolean;
