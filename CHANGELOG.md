@@ -1,3 +1,7 @@
+# Unreleased
+
+- (Box, ValueBox): Fix content overflow with ellipsis even when not using `fullWidth` prop
+
 # v2.0.0-dev.10
 
 - Add new icons (ChatBubbleIcon, DefiIcon, InfoCapIcon, LayoutIcon, ListIcon, TableIcon, WalletIcon)
