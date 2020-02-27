@@ -65,6 +65,16 @@ const getState = (disabled: boolean, hover: boolean) => {
     }
 };
 
+const getInverted = (colors: ButtonColors, state: InteractionState, inverted: boolean) => {
+    if (colors === "primary") {
+        return state === "normal" && inverted;
+    } else if (colors === "secondary") {
+        return inverted;
+    } else {
+        return inverted;
+    }
+};
+
 const invertColors: GetColorSetFn = (colorVariant, state) => (theme) => {
     const colors = theme.colors.button[colorVariant][state];
     return {
@@ -84,7 +94,6 @@ export interface IButtonProps extends IHtmlButtonProps {
     elevation?: Elevation;
     /** Rounded 50% corners */
     rounded?: boolean;
-    /** Only for primary button */
     inverted?: boolean;
     children?: string;
     disabled?: boolean;
@@ -106,7 +115,7 @@ export class Button extends React.Component<IButtonProps> {
                 {(hover) => {
                     let state: InteractionState = getState(disabled!, hover);
                     let colorSet = getColorSet(colors!, state);
-                    let isInverted = state === "normal" && colors === "primary" && inverted;
+                    let isInverted = getInverted(colors!, state, inverted!);
                     let invertedColorSet = invertColors(colors!, state);
                     let shadowColor = (theme: ITheme) =>
                         colors === "primary" ? getColors(colorSet, theme).background : void 0;

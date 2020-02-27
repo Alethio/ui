@@ -78,8 +78,12 @@ storiesOf("control/button/" + Button.name, module)
     ))
     .add("inverted colors", () => (
         <InvertedColorArea>
-            <Button inverted colors="primary">Click me</Button>
-            <Button inverted colors="primary" Icon={ArrowForwardIcon}>Click me</Button>
+            <Button inverted >secondary</Button>
+            <Button inverted Icon={ArrowForwardIcon}>secondary</Button>
+            <Button inverted disabled >Can't click me</Button>
+
+            <Button inverted colors="primary">primary</Button>
+            <Button inverted colors="primary" Icon={ArrowForwardIcon}>primary</Button>
             <Button inverted disabled colors="primary">Can't click me</Button>
         </InvertedColorArea>
     ));
