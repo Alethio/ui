@@ -185,6 +185,20 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                     background: base.disabled
                 }
             },
+            primaryInverted: {
+                normal: {
+                    text: BLUE,
+                    background: WHITE
+                },
+                hover: {
+                    text: WHITE,
+                    background: BLUE_L5
+                },
+                disabled: {
+                    text: DAWN_L5,
+                    background: base.disabled
+                }
+            },
             secondary: {
                 normal: {
                     text: BLUE,
@@ -200,6 +214,23 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                     text: DAWN_D5,
                     background: WHITE,
                     border: DAWN_D5
+                }
+            },
+            secondaryInverted: {
+                normal: {
+                    text: WHITE,
+                    background: BLUE,
+                    border: WHITE
+                },
+                hover: {
+                    text: DAWN,
+                    background: BLUE,
+                    border: DAWN
+                },
+                disabled: {
+                    text: DUSK,
+                    background: BLUE,
+                    border: DUSK
                 }
             },
             special: {
