@@ -38,24 +38,25 @@ export class Dropdown<TItem> extends React.Component<IDropdownProps<TItem>> {
                 visible={this.layerMounted}
                 placement="bottom-start"
                 offset={8}
-                content={this.renderPopover()}
+                content={(_, __, scheduleUpdate) => this.renderPopover(scheduleUpdate)}
                 {...popoverProps}
-            >
+            >{
                 <DomNodeProxy onMount={el => this.targetEl = el} onUnmount={() => this.targetEl = (void 0)!}>
                     { typeof children === "function" ?
                     children({ isOpen: this.layerOpen, requestToggle: this.handleLayerToggle}) :
                     children as React.ReactElement<{}>
                     }
                 </DomNodeProxy>
-            </Popover>
+            }</Popover>
         );
     }
 
-    private renderPopover() {
+    private renderPopover(scheduleUpdate: () => void) {
         return <Fade
             innerRef={ref => this.layerEl = ref!}
             in={this.layerOpen}
             onFinished={this.handleAnimationFinished}
+            onEnter={scheduleUpdate}
         >
             { this.props.renderMenu(this.handleSelectItem) }
         </Fade>;
