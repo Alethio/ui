@@ -1,9 +1,12 @@
 # Unreleased
 
+- Add new icons: PlayIcon, PauseIcon, BellOutlineIcon, CalendarIcon, PlusLargeIcon, ArrowUpRightIcon, ArrowDownLeftIcon, AlethioReportsInvertedIcon, TrashOutlineIcon, EditIcon, CogIcon, InfoTriangleIcon, ArrowUpRightInvertedIcon, MoreHorizIcon
+- (OpenInBrowserIcon, ResetIcon): Fix hardcoded black color
 - (Dropdown, Fade): Fix bad initial dropdown positioning caused by Fade component delay
 
 ## Breaking changes
 
+- (MoreInfoIcon): Rename to `MoreVertIcon`
 - (Button): Add `primaryInverted` and `secondaryInverted` values for `colors` prop, removing the `inverted` prop.
 
 # v2.0.0-dev.11

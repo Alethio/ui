@@ -16,7 +16,9 @@ storiesOf("icon", module)
         icons.keys().map(k => k.replace(/\.\/(.*)\.tsx$/, "$1")).map(iconName => {
             let Icon = icons("./" + iconName + ".tsx")[iconName];
             return <Tooltip content={iconName}>
-                <Icon color="black" />
+                <div style={{color: "blue"}}>
+                    <Icon />
+                </div>
             </Tooltip>;
         })
     );
