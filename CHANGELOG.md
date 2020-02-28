@@ -1,4 +1,4 @@
-# Unreleased
+# v2.0.0-dev.12
 
 - Add new icons: PlayIcon, PauseIcon, BellOutlineIcon, CalendarIcon, PlusLargeIcon, ArrowUpRightIcon, ArrowDownLeftIcon, AlethioReportsInvertedIcon, TrashOutlineIcon, EditIcon, CogIcon, InfoTriangleIcon, ArrowUpRightInvertedIcon, MoreHorizIcon
 - (OpenInBrowserIcon, ResetIcon): Fix hardcoded black color
