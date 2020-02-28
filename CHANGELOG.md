@@ -1,5 +1,7 @@
 # Unreleased
 
+- (Dropdown, Fade): Fix bad initial dropdown positioning caused by Fade component delay
+
 ## Breaking changes
 
 - (Button): Add `primaryInverted` and `secondaryInverted` values for `colors` prop, removing the `inverted` prop.
