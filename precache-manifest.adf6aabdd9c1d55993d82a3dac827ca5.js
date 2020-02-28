@@ -696,6 +696,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/AlethioReportsIcon.d.ts"
   },
   {
+    "revision": "bd618ec1b4353405f6d6fd7d797c25ef",
+    "url": "../lib/src/icon/AlethioReportsInvertedIcon.d.ts"
+  },
+  {
     "revision": "59290c902303f9f8546a14318fd2e8d3",
     "url": "../lib/src/icon/ArrowBackDottedIcon.d.ts"
   },
@@ -706,6 +710,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "abf4dee438a7157e9cdd402db4f08703",
     "url": "../lib/src/icon/ArrowDownIcon.d.ts"
+  },
+  {
+    "revision": "8eb9460bd8d6fdc24b504bc0b24c1b93",
+    "url": "../lib/src/icon/ArrowDownLeftIcon.d.ts"
   },
   {
     "revision": "d1a6ca9c5cdcb854d1f0c3ed17884f46",
@@ -732,8 +740,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/ArrowUpIcon.d.ts"
   },
   {
+    "revision": "b3a4524cff6740ab3b7334cc5e55b1f8",
+    "url": "../lib/src/icon/ArrowUpRightIcon.d.ts"
+  },
+  {
+    "revision": "1366c4c89f63a8cdbac661adba4c0f7d",
+    "url": "../lib/src/icon/ArrowUpRightInvertedIcon.d.ts"
+  },
+  {
     "revision": "bb5071910a04eec0f323228339dd9a36",
     "url": "../lib/src/icon/ArrowUpSmallIcon.d.ts"
+  },
+  {
+    "revision": "b549ce0d3bede3b39e756f629bcbd2b9",
+    "url": "../lib/src/icon/BellOutlineIcon.d.ts"
   },
   {
     "revision": "4c816466ee6284c3fa266a63b034ed9e",
@@ -742,6 +762,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3884c4ecdbefb197516aba6a52c1ef60",
     "url": "../lib/src/icon/BubbleChartIcon.d.ts"
+  },
+  {
+    "revision": "1ad2e2188470534cd7a6628dcf74a8e6",
+    "url": "../lib/src/icon/CalendarIcon.d.ts"
   },
   {
     "revision": "401f218e6f1060fe41a903655e2f544b",
@@ -764,6 +788,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/CloseSmallIcon.d.ts"
   },
   {
+    "revision": "0de80c716979a9f7a98883a8297f4b11",
+    "url": "../lib/src/icon/CogIcon.d.ts"
+  },
+  {
     "revision": "d0845852a1fd0a0e27922703602fe24e",
     "url": "../lib/src/icon/ContractIcon.d.ts"
   },
@@ -782,6 +810,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "042c7bfda74fa9803ca4494258afe15d",
     "url": "../lib/src/icon/DiscordIcon.d.ts"
+  },
+  {
+    "revision": "8ab59e523eaf98b2f4756c03ffebf342",
+    "url": "../lib/src/icon/EditIcon.d.ts"
   },
   {
     "revision": "483cadb17cb7bf092ad762763d5ef4e5",
@@ -832,6 +864,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/InfoIcon.d.ts"
   },
   {
+    "revision": "386702d0dda195901d73ed98cf9a47d9",
+    "url": "../lib/src/icon/InfoTriangleIcon.d.ts"
+  },
+  {
     "revision": "97bc5e43b53cba55324b2a0a4ef14207",
     "url": "../lib/src/icon/KeyboardReturnIcon.d.ts"
   },
@@ -868,8 +904,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/MediumIcon.d.ts"
   },
   {
-    "revision": "b66b13e8817a20926d2c71adad985665",
-    "url": "../lib/src/icon/MoreInfoIcon.d.ts"
+    "revision": "d4a1f5f46648fab959848ebfadc02f90",
+    "url": "../lib/src/icon/MoreHorizIcon.d.ts"
+  },
+  {
+    "revision": "21222c36c29ed1c904877a0da8e9389c",
+    "url": "../lib/src/icon/MoreVertIcon.d.ts"
   },
   {
     "revision": "cec4f41bdb965002066d5bdcbfafc8c5",
@@ -908,8 +948,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/PaginationLastIcon.d.ts"
   },
   {
+    "revision": "dc57c94c354c5a64c326d818d18a69a6",
+    "url": "../lib/src/icon/PauseIcon.d.ts"
+  },
+  {
+    "revision": "852c2f5531de388af4473db6baa2d18e",
+    "url": "../lib/src/icon/PlayIcon.d.ts"
+  },
+  {
     "revision": "ec01233b89a273ed590aecf78e28a813",
     "url": "../lib/src/icon/PlusIcon.d.ts"
+  },
+  {
+    "revision": "f25a17a9cd41a9379cec1e07f7b9e378",
+    "url": "../lib/src/icon/PlusLargeIcon.d.ts"
   },
   {
     "revision": "3d539320e217dd7ac43ddc84c35e6335",
@@ -936,6 +988,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/SidebarIcon.d.ts"
   },
   {
+    "revision": "e5933972b5e2a465688150b79d3671e7",
+    "url": "../lib/src/icon/StarOutlineIcon.d.ts"
+  },
+  {
     "revision": "923ce6017433e3ae64d3d73cfef44a50",
     "url": "../lib/src/icon/StatusConfirmedIcon.d.ts"
   },
@@ -958,6 +1014,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "6f7c9329bd5ed023f69a193f4125770d",
     "url": "../lib/src/icon/TableIcon.d.ts"
+  },
+  {
+    "revision": "26a21067cd542559d72a352ca9f5a143",
+    "url": "../lib/src/icon/TrashOutlineIcon.d.ts"
   },
   {
     "revision": "520db158fb5016de5da107a0451e37a6",
@@ -1292,20 +1352,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "e83eb7c3eaf15fd45c10ae791d278b54",
+    "revision": "ba9ac43625aa94e85d4bd960926f10c8",
     "url": "iframe.html"
   },
   {
-    "url": "main.3cd10fc497c29d62c14c.bundle.js"
+    "url": "main.5212b7a52d4974e5915c.bundle.js"
   },
   {
-    "url": "runtime~main.3cd10fc497c29d62c14c.bundle.js"
+    "url": "runtime~main.5212b7a52d4974e5915c.bundle.js"
   },
   {
-    "url": "vendors~main.3cd10fc497c29d62c14c.bundle.js"
+    "url": "vendors~main.5212b7a52d4974e5915c.bundle.js"
   },
   {
-    "revision": "a90c9ad7cd0e55628475",
+    "revision": "2afb04e97095cb76f62b",
     "url": "vendors~main.css"
   }
 ]);
