@@ -1,12 +1,12 @@
 import * as React from "react";
 import { SvgIcon, ISvgIconProps } from "../util/react/SvgIcon";
 
-export interface IMoreInfoIconProps extends ISvgIconProps {
+export interface IMoreVertIconProps extends ISvgIconProps {
 
 }
 
 // tslint:disable:max-line-length
-export class MoreInfoIcon extends React.Component<IMoreInfoIconProps> {
+export class MoreVertIcon extends React.Component<IMoreVertIconProps> {
     render() {
         return (
             <SvgIcon {...this.props}>
