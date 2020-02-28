@@ -40,6 +40,7 @@ export interface IFadeProps {
     in?: boolean;
     innerRef?(ref: HTMLDivElement): any;
     onFinished?(): void;
+    onEnter?(): void;
 }
 
 /**
@@ -92,6 +93,7 @@ export class Fade extends React.Component<IFadeProps> {
                     classNames={CLASS_NAME}
                     timeout={this.props.duration! * 1000}
                     onExited={this.props.onFinished}
+                    onEnter={this.props.onEnter}
                     unmountOnExit
                 >
                     <div>{this.props.children}</div>

@@ -7,7 +7,8 @@ import { DomNodeProxy } from "../util/react/DomNodeProxy";
 
 export interface IPopoverProps {
     visible: boolean;
-    content: React.ReactNode | ((placement: Placement, arrowProps: PopperArrowProps) => React.ReactNode);
+    content: React.ReactNode | (
+        (placement: Placement, arrowProps: PopperArrowProps, scheduleUpdate: () => void) => React.ReactNode);
     /** Prevent "flipping" the position when the popover would be out of the viewport */
     noFlip?: boolean;
     placement?: Placement;
@@ -47,7 +48,7 @@ export class Popover extends React.Component<IPopoverProps> {
                             this.props.noFlip ? { flip: { enabled: false }} : {}
                         )
                     }} {...(this.props.referenceElement ? {referenceElement: this.createReferenceObject()} : {})}>
-                        {({ref, style, placement, arrowProps}) => (
+                        {({ref, style, placement, arrowProps, scheduleUpdate }) => (
                             <div ref={ref}
                                 // Prevent click events from propagating up the portal to the parent component
                                 // See https://github.com/facebook/react/issues/11387
@@ -58,7 +59,7 @@ export class Popover extends React.Component<IPopoverProps> {
                                 }} data-placement={placement}
                             >
                                 {typeof this.props.content === "function" ?
-                                    this.props.content(placement, arrowProps) : this.props.content}
+                                    this.props.content(placement, arrowProps, scheduleUpdate) : this.props.content}
                             </div>
                         )}
                     </Popper>,
