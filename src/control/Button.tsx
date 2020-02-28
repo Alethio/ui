@@ -40,7 +40,7 @@ const StyledBox = styled(Box)`
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
-export type ButtonColors = "primary" | "secondary" | "special";
+export type ButtonColors = "primary" | "primaryInverted" | "secondary" | "secondaryInverted" | "special";
 type Elevation = "none" | "high" | "low";
 type InteractionState = "normal" | "hover" | "disabled";
 type GetColorSetFn = (colorVariants: ButtonColors, state: InteractionState)
@@ -65,15 +65,6 @@ const getState = (disabled: boolean, hover: boolean) => {
     }
 };
 
-const invertColors: GetColorSetFn = (colorVariant, state) => (theme) => {
-    const colors = theme.colors.button[colorVariant][state];
-    return {
-        text: colors.background!,
-        background: colors.text,
-        border: colors.background
-    };
-};
-
 type IHtmlButtonProps = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, "autoFocus" | "name" | "type" | "value">;
 
 export interface IButtonProps extends IHtmlButtonProps {
@@ -84,8 +75,6 @@ export interface IButtonProps extends IHtmlButtonProps {
     elevation?: Elevation;
     /** Rounded 50% corners */
     rounded?: boolean;
-    /** Only for primary button */
-    inverted?: boolean;
     children?: string;
     disabled?: boolean;
     onClick?(): void;
@@ -99,15 +88,13 @@ export class Button extends React.Component<IButtonProps> {
 
     render() {
         let { Icon, iconPlacement, elevation, disabled, rounded,
-            inverted, colors, autoFocus, name, type, value, children } = this.props;
+            colors, autoFocus, name, type, value, children } = this.props;
 
         return (
             <HoverState>
                 {(hover) => {
                     let state: InteractionState = getState(disabled!, hover);
                     let colorSet = getColorSet(colors!, state);
-                    let isInverted = state === "normal" && colors === "primary" && inverted;
-                    let invertedColorSet = invertColors(colors!, state);
                     let shadowColor = (theme: ITheme) =>
                         colors === "primary" ? getColors(colorSet, theme).background : void 0;
 
@@ -125,7 +112,7 @@ export class Button extends React.Component<IButtonProps> {
                         <StyledBox
                             Icon={Icon}
                             iconPlacement={iconPlacement ? iconPlacement : "left"}
-                            colors={isInverted ? invertedColorSet : colorSet}
+                            colors={colorSet}
                             metrics={{
                                 fontSize: 12,
                                 lineHeight: 14,

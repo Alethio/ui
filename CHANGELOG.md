@@ -1,3 +1,9 @@
+# Unreleased
+
+## Breaking changes
+
+- (Button): Add `primaryInverted` and `secondaryInverted` values for `colors` prop, removing the `inverted` prop.
+
 # v2.0.0-dev.11
 
 - (Box, ValueBox): Fix content overflow with ellipsis even when not using `fullWidth` prop
