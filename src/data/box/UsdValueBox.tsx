@@ -15,16 +15,16 @@ export class UsdValueBox extends React.Component<IUsdValueBoxProps> {
 
         return (
             <ValueBox variant={this.props.variant} colors={colors}>
-                {this.formatUsd(this.props.value, this.props.locale)}
+                {formatUsd(this.props.value, this.props.locale)}
             </ValueBox>
         );
     }
-
-    private formatUsd(value: number, locale?: string) {
-        return value.toLocaleString(locale, {
-            currency: "USD",
-            currencyDisplay: "symbol",
-            style: "currency"
-        });
-    }
 }
+
+export const formatUsd = (value: number, locale?: string) => {
+    return value.toLocaleString(locale, {
+        currency: "USD",
+        currencyDisplay: "symbol",
+        style: "currency"
+    });
+};
