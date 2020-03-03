@@ -19,11 +19,11 @@ export interface IEthValueUsdBoxProps {
 
 export class EthUsdValueBox extends React.Component<IEthValueUsdBoxProps> {
     render() {
-        let { locale, decimals, symbol, colors, wei: beneficiaryReward, latestEthPrice } = this.props;
+        let { locale, decimals, symbol, variant, colors, wei: beneficiaryReward, latestEthPrice } = this.props;
 
         return (
             <ValueBox
-                colors={colors} variant="normal">
+                colors={colors} variant={variant}>
                 <EthValue wei={beneficiaryReward} locale={locale}
                     decimals={decimals} showSymbol={true} symbol={symbol} />
                 { latestEthPrice ?
