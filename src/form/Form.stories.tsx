@@ -14,7 +14,6 @@ import { CheckboxField } from "./field/CheckboxField";
 import { RadioField } from "./field/RadioField";
 import { SelectField } from "./field/SelectField";
 import { Option } from "../control/Option";
-import { SearchIcon } from "../icon/SearchIcon";
 
 const RootContainer = styled.div`
     background: ${props => props.theme.colors.base.bg.main};
@@ -71,7 +70,7 @@ storiesOf("form", module)
             </FormItem>
             <FormItem>
                 <Label htmlFor={FormField.Email}>E-Mail</Label>
-                <InputField LeftIcon={SearchIcon} type="email" id={FormField.Email} name={FormField.Email} required
+                <InputField type="email" id={FormField.Email} name={FormField.Email} required
                     validate={validateEmail}
                     placeholder="Enter your E-mail address"
                 />
