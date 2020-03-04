@@ -13,6 +13,7 @@ const StatusOkIconWrapper = styled.div`
 export interface IInputFieldProps {
     name: string;
     type: string;
+    alignRight?: boolean;
     LeftIcon?: React.ComponentType<ISvgIconProps>;
     hasValidationIcon?: boolean;
     validate?(value: string): string | Promise<string | void> | undefined;
