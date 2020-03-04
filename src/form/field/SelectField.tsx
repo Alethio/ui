@@ -3,7 +3,7 @@ import { Field, FieldAttributes } from "formik";
 import { Select, ISelectProps } from "../../control/Select";
 
 export interface ISelectFieldProps extends ISelectProps {
-    id: string;
+    id?: string;
     name: string;
     value?: string;
     disabled?: boolean;
