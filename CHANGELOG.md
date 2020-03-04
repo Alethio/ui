@@ -2,6 +2,12 @@
 
 - (UsdValue): Add new component `UsdValue`
 - (UsdValueBox): Modified to use `UsdValue`
+- (Select): Set minimum layer width to expander width
+- (Accordion, Select, Expander*): Style fixes
+- (SelectField): Make `id` prop optional
+
+## Breaking changes
+- (ITheme): Refactor accordion* and select* colors
 
 # v2.0.0-dev.12
 
