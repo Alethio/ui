@@ -115,10 +115,11 @@ export interface IThemeColors {
             closed: IExpanderColors;
             open: IExpanderColors;
         };
+        content: {
+            background: string;
+            border: string;
+        }
     };
-
-    accordionBg: string;
-    accordionBorder: string;
 
     msgCountInIcon: string;
     msgCountOutIcon: string;

@@ -165,11 +165,12 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                     icon: WHITE,
                     iconBackground: BLUE
                 }
+            },
+            content: {
+                background: WHITE,
+                border: DAWN_D5
             }
         },
-
-        accordionBorder: DAWN_D5,
-        accordionBg: WHITE,
 
         msgCountInIcon: GREEN,
         msgCountOutIcon: RED,
