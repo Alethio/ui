@@ -131,6 +131,7 @@ export interface IThemeColors {
             value: string;
             bg: string;
             border: string;
+            openBorder: string;
             Icon: string;
             disabled: string;
             openLabel: string;

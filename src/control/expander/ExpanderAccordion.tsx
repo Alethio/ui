@@ -35,7 +35,7 @@ export class ExpanderAccordion extends React.Component<IExpanderAccordionProps> 
                 background: open ? theme.colors.accordion.expander.openBg : theme.colors.accordion.expander.bg,
                 border: disabled ?
                     theme.colors.accordion.expander.disabled :
-                    theme.colors.accordion.expander.border,
+                    open ? theme.colors.accordion.expander.openBorder : theme.colors.accordion.expander.border,
                 text: disabled ?
                     theme.colors.accordion.expander.disabled :
                     open ? theme.colors.accordion.expander.openLabel : theme.colors.accordion.expander.label

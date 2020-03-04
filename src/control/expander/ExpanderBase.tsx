@@ -23,7 +23,6 @@ const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
     display: flex;
     cursor: ${props => props.disabled ? "default" : "pointer"};
     user-select: none;
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.04);
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 
     font-size: ${props => props.theme.spacing.expander.fontSize}px;

@@ -12,6 +12,7 @@ const ExpanderIconRoot = styled<IExpanderIconProps, "div">("div")`
     border: 1px solid ${(props.getColor(props.theme))}
     border-radius: 0 2px 2px 0;
     ` : ``}
+    transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
 const Icon = styled<IExpanderIconProps, "div">("div")`
