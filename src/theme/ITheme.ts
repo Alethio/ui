@@ -2,6 +2,7 @@ import { IBoxColors } from "../layout/content/box/IBoxColors";
 import { IBoxMetrics } from "../layout/content/box/IBoxMetrics";
 import { ButtonColors } from "../control/Button";
 import { IMediaQueries } from "../layout/responsive/mediaQueries";
+import { IExpanderColors } from "../control/expander/ExpanderBase";
 
 type ValueBoxColors = "primary" | "primaryAlt" | "primaryInvert" | "secondary" | "secondaryInvert" |
     "highlight" | "error" | "warn";
@@ -102,37 +103,18 @@ export interface IThemeColors {
 
     select: {
         expander: {
-            label: string;
-            value: string;
-            bg: string;
-            border: string;
-            icon: string;
-            iconBg: string;
             disabled: string;
-            openLabel: string;
-            openValue: string;
-            openBg: string;
-            openIcon: string;
-            openIconBg: string;
-        }
+            closed: IExpanderColors;
+            open: IExpanderColors;
+        };
     };
 
     accordion: {
         expander: {
-            label: string;
-            value: string;
-            bg: string;
-            border: string;
-            openBorder: string;
-            icon: string;
-            iconBg: string;
             disabled: string;
-            openLabel: string;
-            openValue: string;
-            openBg: string;
-            openIcon: string;
-            openIconBg: string;
-        }
+            closed: IExpanderColors;
+            open: IExpanderColors;
+        };
     };
 
     accordionBg: string;

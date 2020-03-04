@@ -31,23 +31,15 @@ export class ExpanderAccordion extends React.Component<IExpanderAccordionProps> 
         }
         return <ExpanderBase label={label} open={open} fullWidth={fullWidth} onClick={onClick} onResize={onResize}
             value={value} locale={locale!} disabled={disabled}
-            colors={(theme) => ({
-                background: open ? theme.colors.accordion.expander.openBg : theme.colors.accordion.expander.bg,
-                border: disabled ?
-                    theme.colors.accordion.expander.disabled :
-                    open ? theme.colors.accordion.expander.openBorder : theme.colors.accordion.expander.border,
-                text: disabled ?
-                    theme.colors.accordion.expander.disabled :
-                    open ? theme.colors.accordion.expander.openLabel : theme.colors.accordion.expander.label,
-                icon: open ? theme.colors.accordion.expander.openIcon : theme.colors.accordion.expander.icon,
-                iconBackground: open ?
-                    theme.colors.accordion.expander.openIconBg :
-                    theme.colors.accordion.expander.iconBg,
-                value: disabled ?
-                    theme.colors.accordion.expander.disabled :
-                    open ?
-                        theme.colors.accordion.expander.openValue :
-                        theme.colors.accordion.expander.value
-            })} />;
+            colors={(theme) => {
+                let colors = {...(open ? theme.colors.accordion.expander.open :
+                    theme.colors.accordion.expander.closed)};
+
+                if (disabled) {
+                    colors.border = colors.text = colors.value = theme.colors.accordion.expander.disabled;
+                }
+
+                return colors;
+            }} />;
     }
 }

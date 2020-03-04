@@ -126,36 +126,45 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
 
         select: {
             expander: {
-                label: DARK,
-                value: BLUE,
-                bg: WHITE,
-                border: DAWN_D5,
-                icon: DUSK,
-                iconBg: DAWN_L5,
                 disabled: DAWN_D5,
-                openLabel: DARK,
-                openValue: DAWN_D5,
-                openBg: WHITE,
-                openIcon: WHITE,
-                openIconBg: DUSK
+                closed: {
+                    text: DARK,
+                    value: BLUE,
+                    background: WHITE,
+                    border: DAWN_D5,
+                    icon: DUSK,
+                    iconBackground: DAWN_L5
+                },
+                open: {
+                    text: DARK,
+                    value: DAWN_D5,
+                    background: WHITE,
+                    border: DAWN_D5,
+                    icon: WHITE,
+                    iconBackground: DUSK
+                }
             }
         },
 
         accordion: {
             expander: {
-                label: DARK,
-                value: BLUE,
-                bg: WHITE,
-                border: DAWN_D5,
-                icon: DUSK,
-                iconBg: DAWN_L5,
                 disabled: DAWN_D5,
-                openLabel: WHITE,
-                openValue: DAWN_D5,
-                openBorder: BLUE,
-                openBg: BLUE,
-                openIcon: WHITE,
-                openIconBg: BLUE
+                closed: {
+                    text: DARK,
+                    value: BLUE,
+                    background: WHITE,
+                    border: DAWN_D5,
+                    icon: DUSK,
+                    iconBackground: DAWN_L5
+                },
+                open: {
+                    text: WHITE,
+                    value: DAWN_D5,
+                    border: BLUE,
+                    background: BLUE,
+                    icon: WHITE,
+                    iconBackground: BLUE
+                }
             }
         },
 
