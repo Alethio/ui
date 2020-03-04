@@ -1,3 +1,8 @@
+# Unreleased
+
+- (UsdValue): Add new component `UsdValue`
+- (UsdValueBox): Modified to use `UsdValue`
+
 # v2.0.0-dev.12
 
 - Add new icons: PlayIcon, PauseIcon, BellOutlineIcon, CalendarIcon, PlusLargeIcon, ArrowUpRightIcon, ArrowDownLeftIcon, AlethioReportsInvertedIcon, TrashOutlineIcon, EditIcon, CogIcon, InfoTriangleIcon, ArrowUpRightInvertedIcon, MoreHorizIcon
