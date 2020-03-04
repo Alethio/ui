@@ -53,8 +53,8 @@ class $AccordionContentFrame extends React.PureComponent<IAccordionContentFrameP
         return (
             <AccordionContentFrameRoot
                 arrowPosition={arrowPosition}
-                backgroundColor={backgroundColor || theme!.colors.accordionBg}
-                borderColor={borderColor || theme!.colors.accordionBorder}
+                backgroundColor={backgroundColor || theme!.colors.accordion.content.background}
+                borderColor={borderColor || theme!.colors.accordion.content.border}
                 noBorder={noBorder}
             >{this.props.children}</AccordionContentFrameRoot>
         );

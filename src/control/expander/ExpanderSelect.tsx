@@ -29,19 +29,17 @@ export class ExpanderSelect extends React.Component<IExpanderSelectProps> {
             value = this.props.value;
             locale = this.props.locale;
         }
+
         return <ExpanderBase label={label} open={open} fullWidth={fullWidth} onClick={onClick}
             value={value} locale={locale!} disabled={disabled}
-            colors={(theme) => ({
-                background: open ? theme.colors.select.expander.openBg : theme.colors.select.expander.bg,
-                border: disabled ?
-                    theme.colors.select.expander.disabled :
-                    theme.colors.select.expander.border,
-                text: disabled ?
-                    theme.colors.select.expander.disabled :
-                    open ? theme.colors.select.expander.openLabel : theme.colors.select.expander.label
-            })}
-            iconColor={(theme) => (
-                open ? theme.colors.select.expander.openIcon : theme.colors.select.expander.Icon
-            )} />;
+            colors={(theme) => {
+                let colors = {...(open ? theme.colors.select.expander.open : theme.colors.select.expander.closed)};
+
+                if (disabled) {
+                    colors.border = colors.text = colors.value = theme.colors.select.expander.disabled;
+                }
+
+                return colors;
+            }} />;
     }
 }

@@ -2,6 +2,7 @@ import { IBoxColors } from "../layout/content/box/IBoxColors";
 import { IBoxMetrics } from "../layout/content/box/IBoxMetrics";
 import { ButtonColors } from "../control/Button";
 import { IMediaQueries } from "../layout/responsive/mediaQueries";
+import { IExpanderColors } from "../control/expander/ExpanderBase";
 
 type ValueBoxColors = "primary" | "primaryAlt" | "primaryInvert" | "secondary" | "secondaryInvert" |
     "highlight" | "error" | "warn";
@@ -100,48 +101,25 @@ export interface IThemeColors {
     spinnerBorder: string;
     spinnerBackground: string;
 
-    expanderLabel: string;
-    expanderValue: string;
-    expanderBg: string;
-    expanderIcon: string;
-    expanderDisabled: string;
-    expanderOpenLabel: string;
-    expanderOpenValue: string;
-    expanderOpenBg: string;
-    expanderOpenIcon: string;
-
     select: {
         expander: {
-            label: string;
-            value: string;
-            bg: string;
-            border: string;
-            Icon: string;
             disabled: string;
-            openLabel: string;
-            openValue: string;
-            openBg: string;
-            openIcon: string;
-        }
+            closed: IExpanderColors;
+            open: IExpanderColors;
+        };
     };
 
     accordion: {
         expander: {
-            label: string;
-            value: string;
-            bg: string;
-            border: string;
-            Icon: string;
             disabled: string;
-            openLabel: string;
-            openValue: string;
-            openBg: string;
-            openIcon: string;
+            closed: IExpanderColors;
+            open: IExpanderColors;
+        };
+        content: {
+            background: string;
+            border: string;
         }
     };
-
-    accordionBg: string;
-    accordionBorder: string;
 
     msgCountInIcon: string;
     msgCountOutIcon: string;

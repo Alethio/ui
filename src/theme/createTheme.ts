@@ -123,48 +123,54 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         spinnerStroke: BLUE,
         spinnerBackground: WHITE,
         spinnerBorder: DAWN_D5,
-        expanderBg: WHITE,
-        expanderLabel: DARK,
-        expanderValue: BLUE,
-        expanderIcon: DUSK,
-        expanderDisabled: DAWN_D5,
-        expanderOpenBg: BLUE,
-        expanderOpenLabel: WHITE,
-        expanderOpenValue: DAWN_D5,
-        expanderOpenIcon: DAWN_D5,
 
         select: {
             expander: {
-                label: DARK,
-                value: BLUE,
-                bg: WHITE,
-                border: DUSK,
-                Icon: DAWN,
                 disabled: DAWN_D5,
-                openLabel: DARK,
-                openValue: DAWN_D5,
-                openBg: WHITE,
-                openIcon: DUSK
+                closed: {
+                    text: DARK,
+                    value: BLUE,
+                    background: WHITE,
+                    border: DAWN_D5,
+                    icon: DUSK,
+                    iconBackground: DAWN_L5
+                },
+                open: {
+                    text: DARK,
+                    value: DAWN_D5,
+                    background: WHITE,
+                    border: DAWN_D5,
+                    icon: WHITE,
+                    iconBackground: DUSK
+                }
             }
         },
 
         accordion: {
             expander: {
-                label: DARK,
-                value: BLUE,
-                bg: WHITE,
-                border: DAWN_D5,
-                Icon: WHITE,
                 disabled: DAWN_D5,
-                openLabel: WHITE,
-                openValue: DAWN_D5,
-                openBg: BLUE,
-                openIcon: BLUE
+                closed: {
+                    text: DARK,
+                    value: BLUE,
+                    background: WHITE,
+                    border: DAWN_D5,
+                    icon: DUSK,
+                    iconBackground: DAWN_L5
+                },
+                open: {
+                    text: WHITE,
+                    value: DAWN_D5,
+                    border: BLUE,
+                    background: BLUE,
+                    icon: WHITE,
+                    iconBackground: BLUE
+                }
+            },
+            content: {
+                background: WHITE,
+                border: DAWN_D5
             }
         },
-
-        accordionBorder: DAWN_D5,
-        accordionBg: WHITE,
 
         msgCountInIcon: GREEN,
         msgCountOutIcon: RED,
@@ -297,6 +303,20 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         link: BLUE
     };
 
+    let font: IThemeFont = {
+        weight: {
+            thin: 100,
+            extralight: 200,
+            light: 300,
+            regular: 400,
+            medium: 500,
+            semibold: 600,
+            bold: 700,
+            extrabold: 800,
+            black: 900
+        }
+    };
+
     let spacing: IThemeSpacing = {
         valueBoxMetrics: {
             normal: {
@@ -328,24 +348,10 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         },
 
         expander: {
-            fontSize: 20,
-            fontWeight: 500,
+            fontSize: 18,
+            fontWeight: font.weight.regular,
             letterSpacing: "normal",
-            lineHeight: 24
-        }
-    };
-
-    let font: IThemeFont = {
-        weight: {
-            thin: 100,
-            extralight: 200,
-            light: 300,
-            regular: 400,
-            medium: 500,
-            semibold: 600,
-            bold: 700,
-            extrabold: 800,
-            black: 900
+            lineHeight: 22
         }
     };
 
