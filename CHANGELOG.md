@@ -1,4 +1,4 @@
-# Unreleased
+# v2.0.0-dev.13
 
 - (UsdValue): Add new component `UsdValue`
 - (UsdValueBox): Modified to use `UsdValue`
