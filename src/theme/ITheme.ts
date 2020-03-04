@@ -100,28 +100,20 @@ export interface IThemeColors {
     spinnerBorder: string;
     spinnerBackground: string;
 
-    expanderLabel: string;
-    expanderValue: string;
-    expanderBg: string;
-    expanderIcon: string;
-    expanderDisabled: string;
-    expanderOpenLabel: string;
-    expanderOpenValue: string;
-    expanderOpenBg: string;
-    expanderOpenIcon: string;
-
     select: {
         expander: {
             label: string;
             value: string;
             bg: string;
             border: string;
-            Icon: string;
+            icon: string;
+            iconBg: string;
             disabled: string;
             openLabel: string;
             openValue: string;
             openBg: string;
             openIcon: string;
+            openIconBg: string;
         }
     };
 
@@ -132,12 +124,14 @@ export interface IThemeColors {
             bg: string;
             border: string;
             openBorder: string;
-            Icon: string;
+            icon: string;
+            iconBg: string;
             disabled: string;
             openLabel: string;
             openValue: string;
             openBg: string;
             openIcon: string;
+            openIconBg: string;
         }
     };
 

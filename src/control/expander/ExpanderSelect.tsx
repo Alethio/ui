@@ -38,10 +38,14 @@ export class ExpanderSelect extends React.Component<IExpanderSelectProps> {
                     theme.colors.select.expander.border,
                 text: disabled ?
                     theme.colors.select.expander.disabled :
-                    open ? theme.colors.select.expander.openLabel : theme.colors.select.expander.label
-            })}
-            iconColor={(theme) => (
-                open ? theme.colors.select.expander.openIcon : theme.colors.select.expander.Icon
-            )} />;
+                    open ? theme.colors.select.expander.openLabel : theme.colors.select.expander.label,
+                icon: open ? theme.colors.select.expander.openIcon : theme.colors.select.expander.icon,
+                iconBackground: open ? theme.colors.select.expander.openIconBg : theme.colors.select.expander.iconBg,
+                value:  disabled ?
+                    theme.colors.select.expander.disabled :
+                    open ?
+                        theme.colors.select.expander.openValue :
+                        theme.colors.select.expander.value
+            })} />;
     }
 }

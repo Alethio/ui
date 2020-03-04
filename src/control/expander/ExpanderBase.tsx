@@ -1,23 +1,25 @@
 import * as React from "react";
-import styled, { css } from "../../styled-components";
+import styled, { css, withTheme } from "../../styled-components";
 import { Number } from "../../data/Number";
 import { IBoxColors } from "../../layout/content/box/IBoxColors";
 import { ITheme } from "../../theme/ITheme";
-import { IBoxColorsThunk } from "../../layout/content/box/IBoxColorsThunk";
 import { ExpanderBaseIcon } from "./ExpanderBaseIcon";
+
+export interface IExpanderColors extends IBoxColors {
+    value: string;
+    icon: string;
+    iconBackground: string;
+}
+
+export interface IExpanderColorsThunk<TTheme> {
+    (theme: TTheme): IExpanderColors;
+}
 
 interface IExpanderRootProps {
     disabled?: boolean;
-    colors: IBoxColors | IBoxColorsThunk<ITheme>;
+    colors: IExpanderBaseProps["colors"];
     onClick(): void;
 }
-
-const getColors = (colors: IBoxColors | IBoxColorsThunk<ITheme>, theme: ITheme) => {
-    if (typeof colors === "function") {
-        return colors(theme);
-    }
-    return colors;
-};
 
 const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
     display: flex;
@@ -31,15 +33,15 @@ const ExpanderRoot = styled<IExpanderRootProps, "div">("div")`
     letter-spacing: ${props => props.theme.spacing.expander.letterSpacing};
 
     border: 1px solid ${props => (
-        getColors(props.colors, props.theme).border ||
-        getColors(props.colors, props.theme).background ||
+        props.colors(props.theme).border ||
+        props.colors(props.theme).background ||
         "transparent"
     )};
     border-radius: ${props => props.theme.spacing.borderRadius.thin}px;
     align-items: center;
-    color: ${props => getColors(props.colors, props.theme).text};
+    color: ${props => props.colors(props.theme).text};
     background-color: ${props => (
-        getColors(props.colors, props.theme).background || "transparent"
+        props.colors(props.theme).background || "transparent"
     )};
 
     & > * { margin-left: 16px;}
@@ -53,13 +55,10 @@ const ExpanderLabel = styled<IExpanderContentProps, "div">("div")`
 `;
 
 interface IExpanderValueProps {
-    open: boolean;
-    disabled?: boolean;
+    colors: IExpanderBaseProps["colors"];
 }
 const ExpanderValue = styled<IExpanderValueProps, "span">("span")`
-    color: ${props => props.disabled ?
-        props.theme.colors.expanderDisabled :
-        props.open ? props.theme.colors.expanderOpenValue : props.theme.colors.expanderValue};
+    color: ${props => props.colors(props.theme).value};
     margin-left: 8px; /* these could be also 16px */
     margin-right: 8px; /* these could be also 16px */
 `;
@@ -97,19 +96,18 @@ export interface IExpanderWithoutValueProps extends IExpanderBaseProps {
 export interface IExpanderBaseProps {
     label: string;
     open: boolean;
-    colors: IBoxColors | IBoxColorsThunk<ITheme>;
+    colors: IExpanderColorsThunk<ITheme>;
     /** Full width mode (expand to 100% of container) */
     fullWidth?: boolean;
     disabled?: boolean;
     onClick?(): void;
     onResize?(): void;
-    iconColor(theme: ITheme): string | undefined;
 }
 
 export type IExpanderProps = IExpanderWithoutValueProps | IExpanderWithValueProps;
 
 /** Component used for accordions and other expanding content */
-export class ExpanderBase extends React.Component<IExpanderProps> {
+class $ExpanderBase extends React.Component<IExpanderProps & { theme: ITheme; }> {
     render() {
         let value: number | undefined;
         let locale: string | undefined;
@@ -117,17 +115,19 @@ export class ExpanderBase extends React.Component<IExpanderProps> {
             value = this.props.value;
             locale = this.props.locale;
         }
-        let { label, open, disabled, colors, iconColor: iconColor } = this.props;
+        let { label, open, disabled, colors, theme } = this.props;
+        let colorSet = colors(theme);
+
         return (
             <ExpanderRoot onClick={this.handleClick} disabled={disabled} colors={colors}>
                 <ExpanderContent fullWidth={this.props.fullWidth}>
                     <ExpanderLabel fullWidth={this.props.fullWidth}>{label}</ExpanderLabel>
                     {value !== void 0 ?
-                        <ExpanderValue open={open} disabled={disabled}>
+                        <ExpanderValue colors={colors}>
                             <Number locale={locale!} value={value} />
                         </ExpanderValue>
                         : null}
-                    <ExpanderBaseIcon expanded={open} getColor={iconColor} />
+                    <ExpanderBaseIcon expanded={open} color={colorSet.icon} backgroundColor={colorSet.iconBackground} />
                 </ExpanderContent>
             </ExpanderRoot>
         );
@@ -151,3 +151,5 @@ export class ExpanderBase extends React.Component<IExpanderProps> {
         }
     }
 }
+
+export const ExpanderBase = withTheme($ExpanderBase) as React.ComponentClass<IExpanderProps>;

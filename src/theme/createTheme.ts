@@ -123,15 +123,6 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
         spinnerStroke: BLUE,
         spinnerBackground: WHITE,
         spinnerBorder: DAWN_D5,
-        expanderBg: WHITE,
-        expanderLabel: DARK,
-        expanderValue: BLUE,
-        expanderIcon: DUSK,
-        expanderDisabled: DAWN_D5,
-        expanderOpenBg: BLUE,
-        expanderOpenLabel: WHITE,
-        expanderOpenValue: DAWN_D5,
-        expanderOpenIcon: WHITE,
 
         select: {
             expander: {
@@ -139,12 +130,14 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 value: BLUE,
                 bg: WHITE,
                 border: DAWN_D5,
-                Icon: DAWN_L5,
+                icon: DUSK,
+                iconBg: DAWN_L5,
                 disabled: DAWN_D5,
                 openLabel: DARK,
                 openValue: DAWN_D5,
                 openBg: WHITE,
-                openIcon: DUSK
+                openIcon: WHITE,
+                openIconBg: DUSK
             }
         },
 
@@ -154,13 +147,15 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
                 value: BLUE,
                 bg: WHITE,
                 border: DAWN_D5,
-                Icon: DAWN_L5,
+                icon: DUSK,
+                iconBg: DAWN_L5,
                 disabled: DAWN_D5,
                 openLabel: WHITE,
                 openValue: DAWN_D5,
                 openBorder: BLUE,
                 openBg: BLUE,
-                openIcon: BLUE
+                openIcon: WHITE,
+                openIconBg: BLUE
             }
         },
 

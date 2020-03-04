@@ -38,10 +38,16 @@ export class ExpanderAccordion extends React.Component<IExpanderAccordionProps> 
                     open ? theme.colors.accordion.expander.openBorder : theme.colors.accordion.expander.border,
                 text: disabled ?
                     theme.colors.accordion.expander.disabled :
-                    open ? theme.colors.accordion.expander.openLabel : theme.colors.accordion.expander.label
-            })}
-            iconColor={(theme) => (
-                open ? theme.colors.accordion.expander.openIcon : theme.colors.accordion.expander.Icon
-            )} />;
+                    open ? theme.colors.accordion.expander.openLabel : theme.colors.accordion.expander.label,
+                icon: open ? theme.colors.accordion.expander.openIcon : theme.colors.accordion.expander.icon,
+                iconBackground: open ?
+                    theme.colors.accordion.expander.openIconBg :
+                    theme.colors.accordion.expander.iconBg,
+                value: disabled ?
+                    theme.colors.accordion.expander.disabled :
+                    open ?
+                        theme.colors.accordion.expander.openValue :
+                        theme.colors.accordion.expander.value
+            })} />;
     }
 }

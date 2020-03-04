@@ -1,17 +1,14 @@
 import * as React from "react";
 import styled, { css } from "../../styled-components";
 import { ArrowDownIcon } from "../../icon/ArrowDownIcon";
-import { ITheme } from "../../theme/ITheme";
 
 const ExpanderIconRoot = styled<IExpanderIconProps, "div">("div")`
     display: inline-block;
-    color: ${props => props.expanded ? props.theme.colors.expanderOpenIcon : props.theme.colors.expanderIcon};
+    color: ${props => props.color};
     padding: 2px 8px 2px 8px;
-    ${props => props.getColor ? css`
-    background-color: ${(props.getColor(props.theme))}
-    border: 1px solid ${(props.getColor(props.theme))}
+    background-color: ${props => props.backgroundColor};
+    border: 1px solid ${props => props.backgroundColor};
     border-radius: 0 2px 2px 0;
-    ` : ``}
     transition: background-color .2s ease-in-out, border-color .2s ease-in-out;
 `;
 
@@ -27,7 +24,8 @@ const Icon = styled<IExpanderIconProps, "div">("div")`
 
 interface IExpanderIconProps {
     expanded: boolean;
-    getColor?(theme: ITheme): string | undefined;
+    color: string;
+    backgroundColor: string;
 }
 
 export class ExpanderBaseIcon extends React.PureComponent<IExpanderIconProps> {
