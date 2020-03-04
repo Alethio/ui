@@ -6,6 +6,7 @@ import { observer } from "mobx-react";
 import { observable } from "mobx";
 import { ExpanderSelect } from "./expander/ExpanderSelect";
 import { EmptyIcon } from "../icon/EmptyIcon";
+import { DomNodeProxy } from "../util/react/DomNodeProxy";
 
 export interface ISelectProps {
     value?: string;
@@ -19,12 +20,12 @@ export interface ISelectProps {
 
 @observer
 export class Select extends React.Component<ISelectProps> {
-
     static defaultProps: Pick<ISelectProps, "placeholder" | "menuZIndex"> = {
         placeholder: "Choose an option",
         menuZIndex: 9999
     };
 
+    private expanderEl: HTMLElement | undefined;
     @observable private selected: string;
 
     constructor(props: ISelectProps) {
@@ -61,15 +62,17 @@ export class Select extends React.Component<ISelectProps> {
 
         return <Dropdown<Option>
             renderMenu={(onSelectItem) =>
-                <Menu>
-                    {(React.Children.map(children, (option: Option) => {
-                        return  React.cloneElement<IOptionProps>(option as any, {
-                            Icon: isIconPresent ? option.props.Icon || EmptyIcon : option.props.Icon,
-                            selected: option.props.value === this.selected,
-                            onClick: () => onSelectItem(option)
-                        });
-                    }))}
-                </Menu>
+                <div style={{ minWidth: this.expanderEl?.offsetWidth }}>
+                    <Menu>
+                        {(React.Children.map(children, (option: Option) => {
+                            return  React.cloneElement<IOptionProps>(option as any, {
+                                Icon: isIconPresent ? option.props.Icon || EmptyIcon : option.props.Icon,
+                                selected: option.props.value === this.selected,
+                                onClick: () => onSelectItem(option)
+                            });
+                        }))}
+                    </Menu>
+                </div>
             }
             popoverProps={{style: {zIndex: this.props.menuZIndex}}}
             onSelect={option => {
@@ -79,8 +82,10 @@ export class Select extends React.Component<ISelectProps> {
                 }
             }}>
             {({ requestToggle, isOpen }) =>
-                <ExpanderSelect open={isOpen} onClick={requestToggle} fullWidth={fullWidth} disabled={disabled}
-                    label={this.selected && this.getOptionLabel(this.selected) || placeholder!} />}
+                <DomNodeProxy onMount={el => this.expanderEl = el}>
+                    <ExpanderSelect open={isOpen} onClick={requestToggle} fullWidth={fullWidth} disabled={disabled}
+                        label={this.selected && this.getOptionLabel(this.selected) || placeholder!} />
+                </DomNodeProxy>}
         </Dropdown>;
     }
 }
