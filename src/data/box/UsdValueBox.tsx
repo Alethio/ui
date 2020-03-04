@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ValueBox, IValueBoxProps } from "../../layout/content/box/ValueBox";
+import { UsdValue } from "../UsdValue";
 
 export interface IUsdValueBoxProps {
     value: number;
@@ -15,16 +16,8 @@ export class UsdValueBox extends React.Component<IUsdValueBoxProps> {
 
         return (
             <ValueBox variant={this.props.variant} colors={colors}>
-                {formatUsd(this.props.value, this.props.locale)}
+                <UsdValue value={this.props.value} locale={this.props.locale} />
             </ValueBox>
         );
     }
 }
-
-export const formatUsd = (value: number, locale?: string) => {
-    return value.toLocaleString(locale, {
-        currency: "USD",
-        currencyDisplay: "symbol",
-        style: "currency"
-    });
-};
