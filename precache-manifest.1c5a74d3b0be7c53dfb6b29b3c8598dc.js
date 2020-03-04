@@ -60,7 +60,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/ExternalLink.stories.d.ts"
   },
   {
-    "revision": "09f2b0b16dd30d624722e9f0209cf934",
+    "revision": "64aa8d28848579ae7f96cac1874c4672",
     "url": "../lib/src/control/IconButton.d.ts"
   },
   {
@@ -388,6 +388,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/StringData.stories.d.ts"
   },
   {
+    "revision": "f538e3b65927145eb73720f35177ea9b",
+    "url": "../lib/src/data/UsdValue.d.ts"
+  },
+  {
+    "revision": "080968f4c893e7e352a148059d00bfec",
+    "url": "../lib/src/data/UsdValue.stories.d.ts"
+  },
+  {
     "revision": "61260cbc8f8c50a468e61be343232318",
     "url": "../lib/src/data/box/CurrencyBox.d.ts"
   },
@@ -460,7 +468,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/data/box/TimeElapsedBox.stories.d.ts"
   },
   {
-    "revision": "474fc944235ac040415d03a072ec5ee8",
+    "revision": "7572cfea6d7c359fb681623827502a39",
     "url": "../lib/src/data/box/UsdValueBox.d.ts"
   },
   {
@@ -1076,7 +1084,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/layout/content/LayoutSection.d.ts"
   },
   {
-    "revision": "4ba9a827fef78cf92fdf45f6746d6009",
+    "revision": "91c2033b0d9ac4fb4ae4942bf00d0453",
     "url": "../lib/src/layout/content/box/Box.d.ts"
   },
   {
@@ -1104,7 +1112,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/layout/content/box/TypedValueBox.stories.d.ts"
   },
   {
-    "revision": "c6697eb76a0965da4529cff68c630a0c",
+    "revision": "fca6731119c6652ff27986424d3e9d7c",
     "url": "../lib/src/layout/content/box/ValueBox.d.ts"
   },
   {
@@ -1352,20 +1360,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "7f01e7119f99c6b66b1f77394db2352f",
+    "revision": "8639bf25a7627cf77e6c666c174c8941",
     "url": "iframe.html"
   },
   {
-    "url": "main.cd29baa1adc52fc1425a.bundle.js"
+    "url": "main.3e04ecb6e3590318ca16.bundle.js"
   },
   {
-    "url": "runtime~main.cd29baa1adc52fc1425a.bundle.js"
+    "url": "runtime~main.3e04ecb6e3590318ca16.bundle.js"
   },
   {
-    "url": "vendors~main.cd29baa1adc52fc1425a.bundle.js"
+    "url": "vendors~main.3e04ecb6e3590318ca16.bundle.js"
   },
   {
-    "revision": "2afb04e97095cb76f62b",
+    "revision": "9d6fabfc5b97496bff5b",
     "url": "vendors~main.css"
   }
 ]);
