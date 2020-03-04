@@ -1,45 +1,57 @@
-import styled, { css } from "../styled-components";
-import Color from "color";
+import styled from "../styled-components";
+import React from "react";
+import { InputBase, HEIGHT } from "./InputBase";
+import { ISvgIconProps } from "../util/react/SvgIcon";
 
-const HEIGHT = 36;
-const LINE_HEIGHT = 24;
-const BORDER_WIDTH = 1;
+const ICON_SPACING = (HEIGHT - 24) / 2;
 
-export const Input = styled.input`
+const InputContainer = styled.div`
+    position: relative;
     width: 100%;
-    box-sizing: border-box;
-
-    padding: ${(HEIGHT - LINE_HEIGHT - 2 * BORDER_WIDTH) / 2}px 16px;
-
-    font-size: 18px;
-    font-weight: 400;
-    line-height: ${LINE_HEIGHT}px;
-
-    border-radius: ${props => props.theme.spacing.borderRadius.thin}px;
-    outline: none;
-    box-shadow: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-    border: ${BORDER_WIDTH}px solid ${({theme, disabled}) => disabled ?
-        theme.colors.base.disabled :
-        theme.colors.input.border
-    };
-    background-color: ${({theme}) => theme.colors.input.background};
-    color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.input.text};
-
-    ::placeholder {
-        color: ${({theme}) => theme.colors.input.placeholder};
-        opacity: 1;
-    }
-
-    ::-ms-clear {
-        display: none;
-    }
-
-    ${props => !props.disabled ? css`
-    :active, :focus {
-        border-color: ${({theme}) => theme.colors.input.activeBorder};
-        box-shadow: 0px 0px 4px ${({theme}) => Color(theme.colors.input.activeBorder).alpha(0.8).string()};
-    }
-    ` : ``}
 `;
+
+const RightIconContainer = styled.div`
+    pointer-events: none;
+    position: absolute;
+    top: ${ICON_SPACING}px;
+    right: ${ICON_SPACING}px;
+    color: ${props => props.theme.colors.input.placeholder};
+`;
+
+const LeftIconContainer = styled.div`
+    pointer-events: none;
+    position: absolute;
+    top: ${ICON_SPACING}px;
+    left: 16px;
+    color: ${props => props.theme.colors.input.placeholder};
+`;
+
+const StyledInputBase = styled(InputBase)<{ hasLeftIcon: boolean; hasRightIcon: boolean; }>`
+    padding-left: ${props => 16 + (props.hasLeftIcon ? 24 + 8 : 0) + "px"};
+    padding-right: ${props => props.hasRightIcon ? "36px" : "16px" };
+`;
+
+export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    LeftIcon?: React.ComponentType<ISvgIconProps>;
+    RightIcon?: React.ComponentType<ISvgIconProps>;
+    /** Align text to right (useful for numbers) */
+    alignRight?: boolean;
+    innerRef?(instance: any): void;
+}
+
+export class Input extends React.Component<IInputProps> {
+    render() {
+        let { innerRef, LeftIcon, RightIcon, ...inputProps } = this.props;
+
+        return <InputContainer>
+            { LeftIcon && <LeftIconContainer><LeftIcon /></LeftIconContainer> }
+            <StyledInputBase
+                {...inputProps as React.HTMLAttributes<HTMLInputElement>}
+                ref={innerRef}
+                hasLeftIcon={!!LeftIcon}
+                hasRightIcon={!!RightIcon}
+            />
+            { RightIcon && <RightIconContainer><RightIcon /></RightIconContainer> }
+        </InputContainer>;
+    }
+}

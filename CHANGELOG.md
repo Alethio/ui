@@ -5,9 +5,11 @@
 - (Select): Set minimum layer width to expander width
 - (Accordion, Select, Expander*): Style fixes
 - (SelectField): Make `id` prop optional
+- (Input): Add support for left icon (`LeftIcon` prop) and text alignment (`alignRight` prop)
 
 ## Breaking changes
 - (ITheme): Refactor accordion* and select* colors
+- (Input): No longer a styled component export but a wrapper. `styled(Input)` will no longer work. Use the raw input that is exported under `InputBase`.
 
 # v2.0.0-dev.12
 
