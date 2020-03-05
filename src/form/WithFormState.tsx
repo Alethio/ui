@@ -1,15 +1,12 @@
 import React from "react";
 import { connect, FormikContextType } from "formik";
 import { IFormStatus } from "./IFormStatus";
+import { IFormContextType } from "./IFormContextType";
 
-interface IWithFormStateInnerProps<TFormValues, TStatus> extends FormikContextType<TFormValues> {
-    status?: TStatus;
-}
-
-interface IWithFormStateProps<TFormValues, TStatus> {
-    component?: React.ComponentType<IWithFormStateInnerProps<TFormValues, TStatus>>;
-    children?: React.ReactNode | ((props: IWithFormStateInnerProps<TFormValues, TStatus>) => React.ReactNode);
-    render?(props: IWithFormStateInnerProps<TFormValues, TStatus>): React.ReactNode;
+export interface IWithFormStateProps<TFormValues, TStatus> {
+    component?: React.ComponentType<IFormContextType<TFormValues, TStatus>>;
+    children?: React.ReactNode | ((props: IFormContextType<TFormValues, TStatus>) => React.ReactNode);
+    render?(props: IFormContextType<TFormValues, TStatus>): React.ReactNode;
 }
 
 const $WithFormState: React.ComponentType<

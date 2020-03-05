@@ -14,6 +14,8 @@ import { CheckboxField } from "./field/CheckboxField";
 import { RadioField } from "./field/RadioField";
 import { SelectField } from "./field/SelectField";
 import { Option } from "../control/Option";
+import { useFormContext } from "./useFormContext";
+import { Button } from "../control/Button";
 
 const RootContainer = styled.div`
     background: ${props => props.theme.colors.base.bg.main};
@@ -39,6 +41,16 @@ interface IFormValues {
     [FormField.Select]: string;
 }
 
+const AutoFillButton: React.FC = () => {
+    let formContext = useFormContext<IFormValues, unknown>();
+    const handleClick = () => {
+        formContext.setFieldValue(FormField.Email, "john@doe.com");
+        // setTimeout because value is not updated synchronously (https://github.com/jaredpalmer/formik/issues/2266)
+        setTimeout(() => formContext.setFieldTouched(FormField.Email));
+    }
+    return <Button colors="primary" onClick={handleClick} type="button">Auto-fill email</Button>;
+};
+
 storiesOf("form", module)
     .addParameters({
         info: {
@@ -59,6 +71,9 @@ storiesOf("form", module)
             onSubmit={handleSubmit}
             validateOnChange={false}
         >
+            <FormItem>
+                <AutoFillButton />
+            </FormItem>
             <FormItem>
                 <Label htmlFor={FormField.Select}>Title</Label>
                 <SelectField id={FormField.Select} name={FormField.Select} fullWidth={true}
