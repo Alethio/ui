@@ -5,7 +5,7 @@ import { Textarea } from "../../control/Textarea";
 export interface ITextareaFieldProps {
     name: string;
     validate?(value: string): string | Promise<string | void> | undefined;
-    innerRef?(instance: any): void;
+    innerRef?(instance: HTMLTextAreaElement): void;
 }
 
 export class TextareaField extends React.Component<

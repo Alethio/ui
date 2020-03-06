@@ -36,18 +36,17 @@ export interface IInputProps extends React.InputHTMLAttributes<HTMLInputElement>
     RightIcon?: React.ComponentType<ISvgIconProps>;
     /** Align text to right (useful for numbers) */
     alignRight?: boolean;
-    innerRef?(instance: any): void;
+    innerRef?(instance: HTMLInputElement): void;
 }
 
 export class Input extends React.Component<IInputProps> {
     render() {
-        let { innerRef, LeftIcon, RightIcon, ...inputProps } = this.props;
+        let { LeftIcon, RightIcon, ...inputProps } = this.props;
 
         return <InputContainer>
             { LeftIcon && <LeftIconContainer><LeftIcon /></LeftIconContainer> }
             <StyledInputBase
                 {...inputProps as React.HTMLAttributes<HTMLInputElement>}
-                ref={innerRef}
                 hasLeftIcon={!!LeftIcon}
                 hasRightIcon={!!RightIcon}
             />
