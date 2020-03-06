@@ -88,6 +88,10 @@ storiesOf("form", module)
                 <InputField type="email" id={FormField.Email} name={FormField.Email} required
                     validate={validateEmail}
                     placeholder="Enter your E-mail address"
+                    innerRef={ref => {
+                        // Just to test that innerRef works
+                        setTimeout(() => ref && ref.focus(), 1000);
+                    }}
                 />
                 <FieldError name={FormField.Email} />
             </FormItem>

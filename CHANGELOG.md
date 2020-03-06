@@ -1,5 +1,6 @@
 # Unreleased
 
+- (InputField, Input, TextareaField, Textarea): Fix innerRef
 - (form): Export `useFormContext` hook
 
 # v2.0.0-dev.13

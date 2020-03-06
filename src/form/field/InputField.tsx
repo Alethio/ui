@@ -17,7 +17,7 @@ export interface IInputFieldProps {
     LeftIcon?: React.ComponentType<ISvgIconProps>;
     hasValidationIcon?: boolean;
     validate?(value: string): string | Promise<string | void> | undefined;
-    innerRef?(instance: any): void;
+    innerRef?(instance: HTMLInputElement): void;
 }
 
 export class InputField extends React.Component<
@@ -29,11 +29,10 @@ export class InputField extends React.Component<
     render() {
         // We pick and discard some props in order to pass the rest to the inner Input
         // because formik doesn't expose them in the children callback
-        let { validate: _, innerRef, ref: __, hasValidationIcon, ...inputProps } = this.props;
+        let { validate: _, ref: __, hasValidationIcon, ...inputProps } = this.props;
 
         return <Field {...this.props}>
             {({ field, meta }: FieldProps<string>) => <Input
-                innerRef={innerRef}
                 {...field}
                 {...inputProps as IInputProps}
                 RightIcon={hasValidationIcon && meta.touched ? (
