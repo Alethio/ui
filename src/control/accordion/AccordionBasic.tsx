@@ -9,10 +9,10 @@ export interface IAccordionBasicProps<TItemConfig> {
     children?: React.ReactNode;
     renderItems(args: {
         config: TItemConfig;
-        content?: React.ReactElement<{}>;
+        content?: React.ReactNode;
         isOpen: boolean;
         onClick(): void;
-    }[], activeContent?: React.ReactElement<{}>): React.ReactElement<{}>;
+    }[], activeContent?: React.ReactNode): React.ReactElement<{}>;
 }
 
 /**

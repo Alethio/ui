@@ -38,10 +38,10 @@ storiesOf("control/accordion/" + AccordionBasic.name, module)
             </div>}
         >
             <AccordionItem<IItemConfig> label="Item 1" value={5}>
-                <div>Static content 1</div>
+                Static content 1
             </AccordionItem>
             <AccordionItem<IItemConfig> label="Item 2" value={10}>
-                <div>Static content 2</div>
+                Static content 2
             </AccordionItem>
         </AccordionBasic>
     ));

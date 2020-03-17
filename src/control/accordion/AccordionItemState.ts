@@ -8,7 +8,7 @@ export class AccordionItemState<TConfig extends IAccordionItemConfig> {
     public config: TConfig;
     public onClick: () => void;
     @observable.ref
-    private _content: React.ReactElement<{}> | undefined;
+    private _content: React.ReactNode | undefined;
     @observable
     private _contentStatus = AccordionItemContentStatus.NotLoaded;
 
