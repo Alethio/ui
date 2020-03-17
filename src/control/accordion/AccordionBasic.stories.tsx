@@ -24,6 +24,7 @@ storiesOf("control/accordion/" + AccordionBasic.name, module)
     .addDecorator(storyFn => <ContentArea>{storyFn()}</ContentArea>)
     .add("default", () => (
         <AccordionBasic<IItemConfig>
+            initialOpen
             renderItems={(items, activeContent) => <div>
                 <div style={{ display: "flex" }}>
                     {items.map((item, index) =>

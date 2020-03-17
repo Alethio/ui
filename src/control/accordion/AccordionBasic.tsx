@@ -1,8 +1,11 @@
 import * as React from "react";
 import { observer, PropTypes } from "mobx-react";
 import { AccordionState } from "./internal/AccordionState";
+import { reaction, IReactionDisposer } from "mobx";
 
 export interface IAccordionBasicProps<TItemConfig> {
+    /** Open first item initially? */
+    initialOpen?: boolean;
     children?: React.ReactNode;
     renderItems(args: {
         config: TItemConfig;
@@ -44,10 +47,25 @@ extends React.Component<IAccordionBasicProps<TItemConfig>> {
     /** @internal */
     private accordionState: AccordionState<TItemConfig>;
 
+    private initialOpenDisposer: IReactionDisposer | undefined;
+
     constructor(props: IAccordionBasicProps<TItemConfig>) {
         super(props);
 
         this.accordionState = new AccordionState<TItemConfig>();
+
+        if (props.initialOpen) {
+            this.initialOpenDisposer = reaction(() => this.accordionState.getItems().length, (length, r) => {
+                if (length) {
+                    this.accordionState.getItems()[0].onClick();
+                    r.dispose();
+                }
+            }, { fireImmediately: true });
+        }
+    }
+
+    componentWillUnmount() {
+        this.initialOpenDisposer?.();
     }
 
     /** @internal */
