@@ -1,3 +1,4 @@
 export interface IAccordionItemConfig {
-    content(): Promise<React.ReactElement<{}>>;
+    children?: React.ReactElement<{}>;
+    content?(): Promise<React.ReactElement<{}>>;
 }
