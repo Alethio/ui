@@ -108,6 +108,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/Textarea.stories.d.ts"
   },
   {
+    "revision": "77c30253266d201207c8e8ba8031c666",
+    "url": "../lib/src/control/accordion/AccordionBasic.d.ts"
+  },
+  {
+    "revision": "eb299ff398933c8768b91b5b8bfd61de",
+    "url": "../lib/src/control/accordion/AccordionBasic.stories.d.ts"
+  },
+  {
     "revision": "5e63ad8a2dd45e652c3885d9bd6dc12d",
     "url": "../lib/src/control/accordion/AccordionContentFrame.d.ts"
   },
@@ -120,7 +128,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/accordion/AccordionHorizontal.stories.d.ts"
   },
   {
-    "revision": "a695ba7828e08c8ea54e2e4deb6d0b94",
+    "revision": "14907f4ff21fafdf24ded1a876ee81d3",
     "url": "../lib/src/control/accordion/AccordionItem.d.ts"
   },
   {
@@ -128,7 +136,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/accordion/AccordionItemContentStatus.d.ts"
   },
   {
-    "revision": "fbbad2cdb0f4d4cfa444498ee698a0f0",
+    "revision": "4556a81348a4954b8073e10389a95110",
     "url": "../lib/src/control/accordion/AccordionItemState.d.ts"
   },
   {
@@ -140,7 +148,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/control/accordion/AccordionVertical.stories.d.ts"
   },
   {
-    "revision": "d90b18a064897394de16204b09de10a5",
+    "revision": "f8a50cdd676c307ffc66c2c33e1eddb3",
     "url": "../lib/src/control/accordion/IAccordionItemConfig.d.ts"
   },
   {
@@ -1372,20 +1380,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "55041f44b89a20db953131e286715d2b",
+    "revision": "63969ec4399cbe298d78598e7f56202e",
     "url": "iframe.html"
   },
   {
-    "url": "main.cc8b30dca56c694317de.bundle.js"
+    "url": "main.07d73b6b49d51f56e2f5.bundle.js"
   },
   {
-    "url": "runtime~main.cc8b30dca56c694317de.bundle.js"
+    "url": "runtime~main.07d73b6b49d51f56e2f5.bundle.js"
   },
   {
-    "url": "vendors~main.cc8b30dca56c694317de.bundle.js"
+    "url": "vendors~main.07d73b6b49d51f56e2f5.bundle.js"
   },
   {
-    "revision": "a5fadbbe9465eb09cb75",
+    "revision": "2c6752fc952c394264fb",
     "url": "vendors~main.css"
   }
 ]);
