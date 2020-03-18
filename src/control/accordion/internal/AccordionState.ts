@@ -10,7 +10,7 @@ export class AccordionState<TItemConfig extends IAccordionItemConfig> {
     @observable.ref
     private activeItem: AccordionItemState<TItemConfig> | undefined;
 
-    constructor(private onError: (e: any, item: AccordionItemState<TItemConfig>) => void) {
+    constructor(private onError?: (e: any, item: AccordionItemState<TItemConfig>) => void) {
         this.items = [];
     }
 
@@ -67,12 +67,17 @@ export class AccordionState<TItemConfig extends IAccordionItemConfig> {
     }
 
     private async onItemExpanded(item: AccordionItemState<TItemConfig>) {
-        try {
+        if (typeof item.config.content === "function") {
+            try {
+                item.resetContent();
+                item.updateContent(await item.config.content(), AccordionItemContentStatus.Loaded);
+            } catch (e) {
+                this.onError?.(e, item);
+                item.updateContent(void 0, AccordionItemContentStatus.Error);
+            }
+        } else {
             item.resetContent();
-            item.updateContent(await item.config.content(), AccordionItemContentStatus.Loaded);
-        } catch (e) {
-            this.onError(e, item);
-            item.updateContent(void 0, AccordionItemContentStatus.Error);
+            item.updateContent(item.config.children, AccordionItemContentStatus.Loaded);
         }
     }
 }

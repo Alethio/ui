@@ -9,8 +9,8 @@ import { AccordionState } from "./internal/AccordionState";
  * The props that it receives depends on the `TAccordionItemConfig` generic type parameter and are also accessible
  * by the Accordion* instance in it's render* callback props.
  */
-export class AccordionItem<TAccordionItemConfig extends IAccordionItemConfig>
-extends React.Component<TAccordionItemConfig> {
+export class AccordionItem<TAccordionItemConfig>
+extends React.Component<TAccordionItemConfig & IAccordionItemConfig> {
     static contextTypes = {
         accordionState: PropTypes.objectOrObservableObject
     };

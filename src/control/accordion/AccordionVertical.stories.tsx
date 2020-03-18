@@ -48,8 +48,9 @@ storiesOf("control/accordion/" + AccordionVertical.name, module)
                 await sleep(2000);
                 return <div>Dynamically loaded content 1</div>;
             }} />
-            <AccordionItem<IItemConfig> label="Item 2 (instant)" value={10} content={async () =>
-                <div>Dynamically loaded content 2</div>} />
+            <AccordionItem<IItemConfig> label="Item 2 (instant)" value={10}>
+                <div>Static content</div>
+            </AccordionItem>
             <AccordionItem<IItemConfig> label="Item 3 (error)" value={7}
                 content={async () => { throw new Error(`Error`); }} />
         </AccordionVertical>

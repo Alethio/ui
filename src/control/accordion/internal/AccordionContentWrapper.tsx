@@ -10,7 +10,7 @@ import { IAccordionItemConfig } from "../IAccordionItemConfig";
 /** @internal */
 export interface IAccordionContentWrapperProps<TItemConfig extends IAccordionItemConfig> {
     status: AccordionItemContentStatus;
-    content: React.ReactElement<{}> | undefined;
+    content: React.ReactNode | undefined;
     config: TItemConfig;
     /**
      * Delay showing the spinner until the content animation is done
@@ -21,11 +21,11 @@ export interface IAccordionContentWrapperProps<TItemConfig extends IAccordionIte
     errorText: string;
     arrowPosition: number | undefined;
     renderContent?(args: {
-        content?: React.ReactElement<{}>;
+        content?: React.ReactNode;
         status: AccordionItemContentStatus;
         arrowPosition?: number;
         config: TItemConfig;
-    }): React.ReactElement<{}>;
+    }): React.ReactNode;
 }
 
 /** @internal */
@@ -34,7 +34,7 @@ extends React.Component<IAccordionContentWrapperProps<TItemConfig>> {
     render() {
         let { status, content, config, arrowPosition, loadingDelay, loadingText, errorText } = this.props;
 
-        let contentEl: React.ReactElement<{}> | undefined;
+        let contentEl: React.ReactNode | undefined;
         if (status === AccordionItemContentStatus.Loaded) {
             if (!this.props.renderContent) {
                 contentEl = <AccordionContentFrame arrowPosition={arrowPosition}>
