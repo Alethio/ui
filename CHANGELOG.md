@@ -1,3 +1,7 @@
+# v2.0.0-dev.16
+
+- Add new icons: IdentityIcon, MailIcon, SlackIcon, TriangleDownIcon, TriangleUpIcon, TriangleLeftIcon, TriangleRightIcon
+
 # v2.0.0-dev.15
 
 - Add AccordionBasic component
