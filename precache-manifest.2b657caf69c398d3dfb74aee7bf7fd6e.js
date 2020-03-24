@@ -884,6 +884,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/Icon.stories.d.ts"
   },
   {
+    "revision": "9160461ad15e3c2b874de318254b2378",
+    "url": "../lib/src/icon/IdentityIcon.d.ts"
+  },
+  {
     "revision": "009a39128a56ee9b9ef1b28ee665b82c",
     "url": "../lib/src/icon/InfoCapIcon.d.ts"
   },
@@ -926,6 +930,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "fcea04dfa28aa2ba04a77e8a105f846d",
     "url": "../lib/src/icon/LogoutIcon.d.ts"
+  },
+  {
+    "revision": "a139dfa492586f7cad00df20bd6dc788",
+    "url": "../lib/src/icon/MailIcon.d.ts"
   },
   {
     "revision": "3d75eb627c2a2e194dd0d90bf970c2ec",
@@ -1016,6 +1024,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/icon/SidebarIcon.d.ts"
   },
   {
+    "revision": "9fe07ffa9af865fe893d1abe0ea2a3ee",
+    "url": "../lib/src/icon/SlackIcon.d.ts"
+  },
+  {
     "revision": "e5933972b5e2a465688150b79d3671e7",
     "url": "../lib/src/icon/StarOutlineIcon.d.ts"
   },
@@ -1046,6 +1058,22 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "26a21067cd542559d72a352ca9f5a143",
     "url": "../lib/src/icon/TrashOutlineIcon.d.ts"
+  },
+  {
+    "revision": "f04e3d86b9432213845ca92632aa5894",
+    "url": "../lib/src/icon/TriangleDownIcon.d.ts"
+  },
+  {
+    "revision": "34c988bcc2bce820ce0c8f8b3c36d210",
+    "url": "../lib/src/icon/TriangleLeftIcon.d.ts"
+  },
+  {
+    "revision": "2a7bbefa2d9bd1d990d2cf0f92213a5c",
+    "url": "../lib/src/icon/TriangleRightIcon.d.ts"
+  },
+  {
+    "revision": "a03f267fae5828e585d2d3cfd3dbef52",
+    "url": "../lib/src/icon/TriangleUpIcon.d.ts"
   },
   {
     "revision": "520db158fb5016de5da107a0451e37a6",
@@ -1380,20 +1408,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "../lib/src/util/time/RelativeTimeFormatter.d.ts"
   },
   {
-    "revision": "116c8030ccde87c7ee5d3a2228234d42",
+    "revision": "e9671b451cec5f0dacaffc8f8b8ca281",
     "url": "iframe.html"
   },
   {
-    "url": "main.fdbed24cbc545d625323.bundle.js"
+    "url": "main.8366b6510d7e57e7c864.bundle.js"
   },
   {
-    "url": "runtime~main.fdbed24cbc545d625323.bundle.js"
+    "url": "runtime~main.8366b6510d7e57e7c864.bundle.js"
   },
   {
-    "revision": "2c6752fc952c394264fb",
+    "url": "vendors~main.8366b6510d7e57e7c864.bundle.js"
+  },
+  {
+    "revision": "004981f0c3149d369c6e",
     "url": "vendors~main.css"
-  },
-  {
-    "url": "vendors~main.fdbed24cbc545d625323.bundle.js"
   }
 ]);
