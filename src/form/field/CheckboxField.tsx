@@ -5,6 +5,7 @@ import { Field } from "formik";
 export interface ICheckboxFieldProps {
     id?: string;
     name: string;
+    value?: string;
     required?: boolean;
     disabled?: boolean;
 }
