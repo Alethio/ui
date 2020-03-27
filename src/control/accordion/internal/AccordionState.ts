@@ -31,7 +31,12 @@ export class AccordionState<TItemConfig extends IAccordionItemConfig> {
     }
 
     addItem(itemConfig: TItemConfig) {
-        this.items.push(this.createItem(itemConfig, this.items.length));
+        let item = this.createItem(itemConfig, itemConfig.priority ?? this.items.length);
+        if (itemConfig.priority === void 0) {
+            this.items.push(item);
+        } else {
+            this.items.splice(itemConfig.priority, 0, item);
+        }
     }
 
     @action

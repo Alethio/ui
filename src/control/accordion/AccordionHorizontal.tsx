@@ -39,8 +39,12 @@ export interface IAccordionHorizontalProps<TItemConfig extends IAccordionItemCon
  *
  * Uses a horizontal layout, with item expanders rendered on the same row.
  * For each accordion item, a corresponding <AccordionItem /> instance should be passed as a child
- * to the accordion instance. Passing arbitrary props to each item is possible and is reflected
- * in the TItemConfig generic type parameter:
+ * to the accordion instance (or it can be rendered asynchronously in a nested component).
+ * Passing arbitrary props to each item is possible and is reflected in the TItemConfig generic type parameter.
+ *
+ * NB: Items can be added dynamically and asynchronously, but they will render in the order in which they were added.
+ * E.g. dynamically inserting an item in children at a given index will still append the item after all existing items.
+ * If you want to specify the index at which to render the item, pass a `priority` prop to the AccordionItem element.
  *
  * ```ts
  * import { IAccordionItemConfig } from "@alethio/ui/lib/control/accordion/IAccordionItemConfig";
