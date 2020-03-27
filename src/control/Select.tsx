@@ -22,7 +22,7 @@ export interface ISelectProps {
  * Custom Select component
  *
  * Important: Doesn't use a native `<select>` and as a result has a slightly different behavior:
- * - Not labelable (You can use a <label htmlFor="..."> with this component)
+ * - Not labelable (You can't use a <label htmlFor="..."> with this component)
  * - It can't be directly placed within a <form> element as it has no support for name/value input attributes.
  * - For placement in forms use the SelectField wrapper instead
  */
