@@ -1,5 +1,6 @@
 # Unreleased
 
+- (form): Add CustomField component as a formik Field wrapper
 - (CheckboxField, InputField, RadioField, TextareaField): Forward `id` attribute
 - (SelectField): Fix validation not triggering when selecting an option
 

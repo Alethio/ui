@@ -82,8 +82,8 @@ storiesOf("form", module)
                 <AutoFillButton />
             </FormItem>
             <FormItem>
-                <Label htmlFor={FormField.Select}>Title</Label>
-                <SelectField id={FormField.Select} name={FormField.Select} fullWidth={true}
+                <Label>Title</Label>
+                <SelectField name={FormField.Select} fullWidth={true}
                     placeholder={"Please select an option..."}>
                     <Option value="1">Mr.</Option>
                     <Option value="2">Ms.</Option>
