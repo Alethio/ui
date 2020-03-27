@@ -58,8 +58,8 @@ storiesOf("control/accordion/" + AccordionBasic.name, module)
             renderItems={(items, activeContent) => <div>
                 <div style={{ display: "flex" }}>
                     {items.map((item, index) =>
-                        <ExpanderAccordion open={item.isOpen} onClick={item.onClick} label={item.config.label}
-                            value={item.config.value} locale="en-US" fullWidth />
+                        <ExpanderAccordion key={index} open={item.isOpen} onClick={item.onClick}
+                            label={item.config.label} value={item.config.value} locale="en-US" fullWidth />
                     )}
                 </div>
                 <div>
