@@ -11,6 +11,7 @@ const StatusOkIconWrapper = styled.div`
 `;
 
 export interface IInputFieldProps {
+    id?: string;
     name: string;
     type: string;
     alignRight?: boolean;

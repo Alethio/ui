@@ -3,6 +3,7 @@ import { Checkbox } from "../../control/Checkbox";
 import { Field } from "formik";
 
 export interface ICheckboxFieldProps {
+    id?: string;
     name: string;
     required?: boolean;
     disabled?: boolean;

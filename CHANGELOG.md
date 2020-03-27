@@ -1,3 +1,8 @@
+# Unreleased
+
+- (CheckboxField, InputField, RadioField, TextareaField): Forward `id` attribute
+- (SelectField): Fix validation not triggering when selecting an option
+
 # v2.0.0-dev.16
 
 - Add new icons: IdentityIcon, MailIcon, SlackIcon, TriangleDownIcon, TriangleUpIcon, TriangleLeftIcon, TriangleRightIcon

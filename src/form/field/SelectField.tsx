@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, FieldAttributes } from "formik";
+import { Field, FieldProps } from "formik";
 import { Select, ISelectProps } from "../../control/Select";
 
 export interface ISelectFieldProps extends ISelectProps {
@@ -17,9 +17,13 @@ export class SelectField extends React.Component<ISelectFieldProps> {
         let { validate: _, ...inputProps } = this.props;
 
         return <Field {...this.props}>
-                {({ field, form }: FieldAttributes<any>) => {
-                    return <Select  {...inputProps} {...field}
-                        onSelect={(value: string) => form.setFieldValue(field.name, value)}
+                {({ field }: FieldProps<any>) => {
+                    return <Select {...inputProps} {...field}
+                        onSelect={(value: string) => {
+                            const fakeEvent = { target: { name: field.name, value }};
+                            field.onChange(fakeEvent);
+                            setTimeout(() => field.onBlur(fakeEvent));
+                        }}
                     />;
                 }}
             </Field>;

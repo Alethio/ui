@@ -47,7 +47,7 @@ const AutoFillButton: React.FC = () => {
         formContext.setFieldValue(FormField.Email, "john@doe.com");
         // setTimeout because value is not updated synchronously (https://github.com/jaredpalmer/formik/issues/2266)
         setTimeout(() => formContext.setFieldTouched(FormField.Email));
-    }
+    };
     return <Button colors="primary" onClick={handleClick} type="button">Auto-fill email</Button>;
 };
 
@@ -66,10 +66,17 @@ storiesOf("form", module)
                 [FormField.Check1]: true,
                 [FormField.Check2]: false,
                 [FormField.Radio]: "option2",
-                [FormField.Select]: "1"
+                [FormField.Select]: ""
             }}
             onSubmit={handleSubmit}
             validateOnChange={false}
+            validate={values => {
+                if (!values.select) {
+                    return { select: "Please select a value" };
+                }
+
+                return {};
+            }}
         >
             <FormItem>
                 <AutoFillButton />
@@ -77,7 +84,7 @@ storiesOf("form", module)
             <FormItem>
                 <Label htmlFor={FormField.Select}>Title</Label>
                 <SelectField id={FormField.Select} name={FormField.Select} fullWidth={true}
-                    placeholder={"Title"}>
+                    placeholder={"Please select an option..."}>
                     <Option value="1">Mr.</Option>
                     <Option value="2">Ms.</Option>
                 </SelectField>
