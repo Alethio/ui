@@ -18,6 +18,14 @@ export interface ISelectProps {
     onSelect?(x: string): void;
 }
 
+/**
+ * Custom Select component
+ *
+ * Important: Doesn't use a native `<select>` and as a result has a slightly different behavior:
+ * - Not labelable (You can't use a <label htmlFor="..."> with this component)
+ * - It can't be directly placed within a <form> element as it has no support for name/value input attributes.
+ * - For placement in forms use the SelectField wrapper instead
+ */
 @observer
 export class Select extends React.Component<ISelectProps> {
     static defaultProps: Pick<ISelectProps, "placeholder" | "menuZIndex"> = {

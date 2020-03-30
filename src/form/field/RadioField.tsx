@@ -3,6 +3,7 @@ import { Radio } from "../../control/Radio";
 import { Field } from "formik";
 
 export interface IRadioFieldProps {
+    id?: string;
     name: string;
     value?: string;
     required?: boolean;

@@ -29,7 +29,8 @@ enum FormField {
     Check1 = "check1",
     Check2 = "check2",
     Radio = "radio",
-    Select = "select"
+    Select = "select",
+    CheckboxArray = "checkArray"
 }
 
 interface IFormValues {
@@ -39,6 +40,7 @@ interface IFormValues {
     [FormField.Check2]: boolean;
     [FormField.Radio]: string;
     [FormField.Select]: string;
+    [FormField.CheckboxArray]: string[];
 }
 
 const AutoFillButton: React.FC = () => {
@@ -47,7 +49,7 @@ const AutoFillButton: React.FC = () => {
         formContext.setFieldValue(FormField.Email, "john@doe.com");
         // setTimeout because value is not updated synchronously (https://github.com/jaredpalmer/formik/issues/2266)
         setTimeout(() => formContext.setFieldTouched(FormField.Email));
-    }
+    };
     return <Button colors="primary" onClick={handleClick} type="button">Auto-fill email</Button>;
 };
 
@@ -66,18 +68,26 @@ storiesOf("form", module)
                 [FormField.Check1]: true,
                 [FormField.Check2]: false,
                 [FormField.Radio]: "option2",
-                [FormField.Select]: "1"
+                [FormField.Select]: "",
+                [FormField.CheckboxArray]: []
             }}
             onSubmit={handleSubmit}
             validateOnChange={false}
+            validate={values => {
+                if (!values.select) {
+                    return { select: "Please select a value" };
+                }
+
+                return {};
+            }}
         >
             <FormItem>
                 <AutoFillButton />
             </FormItem>
             <FormItem>
-                <Label htmlFor={FormField.Select}>Title</Label>
-                <SelectField id={FormField.Select} name={FormField.Select} fullWidth={true}
-                    placeholder={"Title"}>
+                <Label>Title</Label>
+                <SelectField name={FormField.Select} fullWidth={true}
+                    placeholder={"Please select an option..."}>
                     <Option value="1">Mr.</Option>
                     <Option value="2">Ms.</Option>
                 </SelectField>
@@ -110,6 +120,10 @@ storiesOf("form", module)
                 <RadioField name={FormField.Radio} value="option1">Option 1</RadioField>
                 <RadioField name={FormField.Radio} value="option2">Option 2</RadioField>
                 <RadioField name={FormField.Radio} value="option3">Option 3</RadioField>
+            </FormItem>
+            <FormItem>
+                <CheckboxField name={FormField.CheckboxArray} value="check1">Check array 1</CheckboxField>
+                <CheckboxField name={FormField.CheckboxArray} value="check2">Check array 2</CheckboxField>
             </FormItem>
             <FormStatus />
             <div style={{ display: "flex" }}>

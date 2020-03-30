@@ -3,6 +3,7 @@ import React from "react";
 import { Textarea } from "../../control/Textarea";
 
 export interface ITextareaFieldProps {
+    id?: string;
     name: string;
     validate?(value: string): string | Promise<string | void> | undefined;
     innerRef?(instance: HTMLTextAreaElement): void;
