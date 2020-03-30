@@ -136,6 +136,16 @@ export interface IThemeColors {
         placeholder: string;
     };
 
+    radio: Record<"unchecked" | "checked", {
+        label: string;
+        icon: string;
+    }>;
+
+    checkbox: Record<"unchecked" | "checked", {
+        label: string;
+        icon: string;
+    }>;
+
     menu: {
         background: string;
         item: {
