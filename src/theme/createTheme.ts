@@ -263,6 +263,28 @@ export const createTheme: (palette: IPalette) => ITheme = (palette) => {
             placeholder: DAWN_D5
         },
 
+        checkbox: {
+            unchecked: {
+                label: base.primary.color,
+                icon: base.primary.color
+            },
+            checked: {
+                label: base.primary.color,
+                icon: base.accent.color
+            }
+        },
+
+        radio: {
+            unchecked: {
+                label: base.primary.color,
+                icon: base.primary.color
+            },
+            checked: {
+                label: base.primary.color,
+                icon: base.accent.color
+            }
+        },
+
         menu: {
             background: WHITE,
             item: {

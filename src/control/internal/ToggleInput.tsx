@@ -1,10 +1,23 @@
 import * as React from "react";
 import styled from "../../styled-components";
+import { ITheme, IThemeColors } from "../../theme/ITheme";
 
 interface IStyledInnerProps {
     disabled?: boolean;
     checked: boolean;
+    type: "checkbox" | "radio";
 }
+
+const getColors = (theme: ITheme, checked: boolean, type: "checkbox" | "radio") => {
+    let checkedStr: keyof IThemeColors["checkbox"] = checked ? "checked" : "unchecked";
+    let colors;
+    if (type === "checkbox") {
+        colors = theme.colors.checkbox[checkedStr];
+    } else {
+        colors = theme.colors.radio[checkedStr];
+    }
+    return colors;
+};
 
 // We render the input non-visible, but correctly positioned to make the "required" attribute work properly
 const StyledInput = styled.input`
@@ -26,7 +39,10 @@ const ToggleInputLabel = styled.label<IStyledInnerProps>`
     display: block;
     font-size: 14px;
     font-weight: 400;
-    color: ${({theme, disabled}) => disabled ? theme.colors.base.disabled : theme.colors.base.primary.color};
+    color: ${({theme, disabled, checked, type}) => disabled ?
+        theme.colors.base.disabled :
+        getColors(theme, checked, type).label
+    };
 `;
 const ToggleInputLabelText = styled.div`
     margin-left: 4px;
@@ -35,9 +51,10 @@ const ToggleInputIconWrapper = styled.div<IStyledInnerProps>`
     position: absolute;
     top: 0;
     left: 0;
-    color: ${({theme, disabled, checked}) =>
-        disabled ? theme.colors.base.disabled : checked
-        ? theme.colors.base.accent.color : theme.colors.base.primary.color};
+    color: ${({theme, disabled, checked, type}) => disabled ?
+        theme.colors.base.disabled :
+        getColors(theme, checked, type).icon
+    };
 `;
 
 export interface IToggleInputProps {
@@ -64,8 +81,8 @@ export class ToggleInput extends React.PureComponent<IToggleInputProps> {
 
         return (
             <ToggleInputWrapper>
-                <ToggleInputLabel disabled={disabled} checked={checked || false}>
-                    <ToggleInputIconWrapper disabled={disabled} checked={checked || false}>
+                <ToggleInputLabel disabled={disabled} checked={checked || false} type={type}>
+                    <ToggleInputIconWrapper disabled={disabled} checked={checked || false} type={type}>
                         <StyledInput
                             type={type}
                             id={id}
