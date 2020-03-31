@@ -8,6 +8,7 @@ export interface IRadioFieldProps {
     value?: string;
     required?: boolean;
     disabled?: boolean;
+    validate?(value: string): string | Promise<string | void> | undefined;
 }
 
 export class RadioField extends React.Component<IRadioFieldProps> {
