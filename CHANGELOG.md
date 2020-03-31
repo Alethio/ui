@@ -1,6 +1,7 @@
 # Unreleased
 
 - (Checkbox, Radio): Customizable theme colors
+- (CheckboxField, RadioField): Forward `validate` attribute, for field arrays
 - (form): Add CustomField component as a formik Field wrapper
 - (CheckboxField, InputField, RadioField, TextareaField): Forward `id` attribute
 - (CheckboxField): Forward `value` attribute (for checkbox arrays)

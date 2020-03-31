@@ -8,6 +8,10 @@ export interface ICheckboxFieldProps {
     value?: string;
     required?: boolean;
     disabled?: boolean;
+    /**
+     * @param value in case of checkbox field array (multiple checkboxes with same `name`) this is a string array
+     */
+    validate?(value: string | string[]): string | Promise<string | void> | undefined;
 }
 
 export class CheckboxField extends React.Component<ICheckboxFieldProps> {

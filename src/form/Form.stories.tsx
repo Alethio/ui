@@ -53,6 +53,13 @@ const AutoFillButton: React.FC = () => {
     return <Button colors="primary" onClick={handleClick} type="button">Auto-fill email</Button>;
 };
 
+const validateCheckArray = (v: string[]) => {
+    if (!v.length) {
+        return "You must select at least one option";
+    }
+    return void 0;
+};
+
 storiesOf("form", module)
     .addParameters({
         info: {
@@ -122,8 +129,13 @@ storiesOf("form", module)
                 <RadioField name={FormField.Radio} value="option3">Option 3</RadioField>
             </FormItem>
             <FormItem>
-                <CheckboxField name={FormField.CheckboxArray} value="check1">Check array 1</CheckboxField>
-                <CheckboxField name={FormField.CheckboxArray} value="check2">Check array 2</CheckboxField>
+                <CheckboxField name={FormField.CheckboxArray} value="check1" validate={validateCheckArray}>
+                    Check array 1
+                </CheckboxField>
+                <CheckboxField name={FormField.CheckboxArray} value="check2" validate={validateCheckArray}>
+                    Check array 2
+                </CheckboxField>
+                <FieldError name={FormField.CheckboxArray} />
             </FormItem>
             <FormStatus />
             <div style={{ display: "flex" }}>
