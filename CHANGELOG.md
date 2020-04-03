@@ -1,4 +1,4 @@
-# Unreleased
+# v2.0.0-dev.17
 
 - (Checkbox, Radio): Customizable theme colors
 - (CheckboxField, RadioField): Forward `validate` attribute, for field arrays
