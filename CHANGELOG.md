@@ -1,3 +1,33 @@
+# v2.0.0-beta.0
+
+- See v2.0.0-dev.* sections below for list of non-breaking changes
+
+## Breaking changes from v1
+
+- Minimum React version increased to v16.8+ (because of `formik` dependency on React hooks)
+- (Button): Add `primaryInverted` and `secondaryInverted` values for `colors` prop, removing the `inverted` prop.
+- (Button): Replace `floating` prop with `elevation` that can be `high` or `low`
+- (Button): Replace `special` and `special2` variants with a single `special` key
+- (Input): No longer a styled component export but a wrapper. `styled(Input)` will no longer work. Use the raw input that is exported under `InputBase`.
+- (Checkbox, Radio): Rework styles, forward props to inner `input`, normalize onChange event
+- (icons): Rename `MoreInfoIcon` to `MoreVertIcon`; removed `NetStatsIcon` in favor of `EthStatsIcon`; Rename icons `Pagination*Icon` to `Arrow*Icon`
+- (layout): removed Page, Container, Content and Sidebar (Sidebar, SidebarColumns, LogoContainer, SidebarPageTitle) components
+- (ModalSelectBox, SelectBox): Removed
+- (ResponsiveContainer): `forScreenWidth` prop replaced with `mediaQuery`, which takes presets from theme.media object
+- (theme): inside toolbar the colors residing inside `icon` where moved to `item` since the colors applies also to labels and not only icons
+- (IPalette): Rework color palette: Various `*_GREY_*` colors replaced by `DAWN`, `DUSK`, `DARK` and variants by lightness increments (_D5, _L5)
+- (ITheme): Theme colors pruning:
+    - Unflatten toolbar icons colors (from toolbarIcon* to toolbar.icon.*)
+    - Remove `sidebarBorder`
+    - Rename `mediaQueries` to `media`; remove `mediaQueries.breakPoints`
+    - refactor accordion* and select* colors
+    - removed checkbox*, radio*
+    - consolidate button* with a nested structure
+    - add input.*, menu.*
+- (Fade): Rename `active` prop to `enabled`. Add `in` prop controlling direction and forward other props to CSSTransition
+- (Tooltip): Rename to `TooltipBase`; removed `arrow` prop
+- (TooltipRegular): Rename to `Tooltip`; move `arrow` prop from `Popover`
+
 # v2.0.0-dev.17
 
 - (Checkbox, Radio): Customizable theme colors
